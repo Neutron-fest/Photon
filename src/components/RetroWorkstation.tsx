@@ -27,18 +27,6 @@ const RetroWorkstation = () => {
                 className="w-full h-auto object-contain filter hue-rotate-90"
             />
         </div>
-
-        <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-             {[...Array(5)].map((_, i) => (
-                <div 
-                    key={i} 
-                    className="absolute w-full h-px bg-white/20 animate-[scanline-local_3s_infinite]" 
-                    style={{ animationDelay: `${i * 0.6}s`, top: `${i * 20}%` }}
-                />
-             ))}
-        </div>
-
-        <div className="absolute inset-0 z-30 pointer-events-none bg-linear-to-tr from-transparent via-white/5 to-white/10 opacity-60"></div>
       </div>
 
       <style jsx>{`
