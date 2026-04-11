@@ -1,12 +1,9 @@
 "use client";
 
 import React from "react";
-import { CurvedGallery } from "../../components/competitions/curved-gallery";
-import { ChevronLeft, Monitor, Zap, Phone } from "lucide-react";
-import Link from "next/link";
-import GlitchText from "../../components/GlitchText";
+import { CurvedGallery } from "../../components/events/curved-gallery";
 
-export default function CompetitionsPage() {
+export default function EventsPage() {
   return (
     <main className="relative w-full h-screen bg-[#030303] overflow-hidden text-white selection:bg-cyan-500/30">
       
@@ -14,7 +11,7 @@ export default function CompetitionsPage() {
       <div className="absolute inset-0 z-0 bg-black overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 scale-105" 
-          style={{ backgroundImage: "url('https://ik.imagekit.io/yatharth/BG-LESS.png')" }}
+          style={{ backgroundImage: "url('https://ik.imagekit.io/yatharth/CTO-UP.png?updatedAt=1775461798032')" }}
         />
         {/* Vignette fade */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,rgba(0,0,0,0.8)_100%)]" />

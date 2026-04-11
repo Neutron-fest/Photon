@@ -3,81 +3,81 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Trophy, MapPin, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { Ticket, MapPin, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 
-const COMPETITIONS = [
+const EVENTS = [
   {
-    title: "Binary Blitz",
+    title: "Cyber Security Summit",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-    slug: "binary-blitz",
-    category: "Cybersecurity",
+    slug: "cyber-security-summit",
+    category: "Conference",
     date: "OCT 24, 2026",
-    details: "High-stakes penetration testing arena",
-    prizePool: "$5,000",
-    location: "Global / VPN",
-    teamSize: "1-4 Hackers",
+    details: "Global experts on next-gen threats",
+    ticketPrice: "Free",
+    location: "Main Auditorium",
+    time: "10:00 AM",
   },
   {
-    title: "Neural Nexus",
+    title: "AI Workshop",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-    slug: "neural-nexus",
-    category: "AI / ML",
+    slug: "ai-workshop",
+    category: "Workshop",
     date: "NOV 12, 2026",
-    details: "Optimize LLMs for low-power edge devices",
-    prizePool: "$12,500",
-    location: "Rishihood Campus",
-    teamSize: "Solo / Duo",
+    details: "Hands-on LLM fine-tuning",
+    ticketPrice: "$50",
+    location: "Lab 4B",
+    time: "2:00 PM",
   },
   {
-    title: "Quantum Quest",
+    title: "Quantum Keynote",
     image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800",
-    slug: "quantum-quest",
-    category: "Quantum",
+    slug: "quantum-keynote",
+    category: "Keynote",
     date: "DEC 05, 2026",
-    details: "Algorithm development on quantum simulators",
-    prizePool: "$8,000",
-    location: "Metaverse",
-    teamSize: "Trio Only",
+    details: "The future of quantum computing",
+    ticketPrice: "Free",
+    location: "Virtual",
+    time: "6:00 PM",
   },
   {
-    title: "Neon Nights",
+    title: "DevRel Meetup",
     image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800",
-    slug: "neon-nights",
-    category: "Game Dev",
+    slug: "devrel-meetup",
+    category: "Networking",
     date: "JAN 15, 2027",
-    details: "Cyberpunk-themed 48hr Game Jam",
-    prizePool: "$2,500",
-    location: "Tokyo Sector",
-    teamSize: "Squad (4)",
+    details: "Connecting developer advocates",
+    ticketPrice: "Free",
+    location: "Rooftop Cafe",
+    time: "5:30 PM",
   },
   {
-    title: "Solaris Sprint",
+    title: "Tech Career Fair",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-    slug: "solaris-sprint",
-    category: "Eco-Tech",
+    slug: "tech-career-fair",
+    category: "Career",
     date: "FEB 22, 2027",
-    details: "Building sustainable tech for solar habitats",
-    prizePool: "$10,000",
-    location: "Remote HQ",
-    teamSize: "Solo / Team",
+    details: "Meet top tech recruiters",
+    ticketPrice: "Free",
+    location: "Exhibition Hall",
+    time: "9:00 AM",
   },
   {
-    title: "Dark Matter",
+    title: "Founder's Pitch",
     image: "https://images.unsplash.com/photo-1538370965046-79c0d6907d47?auto=format&fit=crop&q=80&w=800",
-    slug: "dark-matter",
-    category: "Deep Learning",
+    slug: "founders-pitch",
+    category: "Startups",
     date: "MAR 10, 2027",
-    details: "Detect anomalies in astronomical data streams",
-    prizePool: "$7,500",
-    location: "Remote",
-    teamSize: "Team (2-6)",
+    details: "Seed round pitching session",
+    ticketPrice: "Invite",
+    location: "Innovation Hub",
+    time: "4:00 PM",
   },
 ];
 
 const CARD_WIDTH = 250;
 const CARD_HEIGHT = 350;
 const RADIUS = 600;
-const TOTAL = COMPETITIONS.length;
+const TOTAL = EVENTS.length;
 const ANGLE_STEP = 360 / TOTAL;
 
 export function CurvedGallery() {
@@ -161,9 +161,9 @@ export function CurvedGallery() {
             transition={{ duration: 0.2 }}
             className="flex items-center gap-3 text-[10px] font-mono text-white/40 uppercase tracking-[0.5em]"
           >
-            <span className="text-cyan-400/70">{COMPETITIONS[activeIdx].category}</span>
+            <span className="text-cyan-400/70">{EVENTS[activeIdx].category}</span>
             <span className="w-0.5 h-0.5 rounded-full bg-white/20 inline-block" />
-            <span>{COMPETITIONS[activeIdx].details}</span>
+            <span>{EVENTS[activeIdx].details}</span>
             <span className="w-0.5 h-0.5 rounded-full bg-white/20 inline-block" />
           </motion.div>
         </AnimatePresence>
@@ -194,12 +194,12 @@ export function CurvedGallery() {
             left: "50%",
           }}
         >
-          {COMPETITIONS.map((comp, idx) => {
+          {EVENTS.map((eventItem, idx) => {
             const angle = idx * ANGLE_STEP;
 
             return (
               <div
-                key={comp.slug}
+                key={eventItem.slug}
                 style={{
                   position: "absolute",
                   top: `-${CARD_HEIGHT / 2}px`,
@@ -211,7 +211,7 @@ export function CurvedGallery() {
                 }}
               >
                 <GalleryCard
-                  {...comp}
+                  {...eventItem}
                   idx={idx}
                   activeIdx={activeIdx}
                   isGlitching={isGlitching}
@@ -238,7 +238,7 @@ export function CurvedGallery() {
         </button>
 
         <div className="flex gap-3 items-center px-2">
-          {COMPETITIONS.map((_, i) => (
+          {EVENTS.map((_, i) => (
             <button
               key={i}
               onClick={() => rotateTo(i)}
@@ -269,9 +269,9 @@ type GalleryCardProps = {
   slug: string;
   category: string;
   date: string;
-  prizePool?: string;
+  ticketPrice?: string;
   location?: string;
-  teamSize?: string;
+  time?: string;
   idx: number;
   activeIdx: number;
   isGlitching: boolean;
@@ -285,9 +285,9 @@ function GalleryCard({
   slug,
   category,
   date,
-  prizePool = "TBD",
-  location = "Remote",
-  teamSize = "Solo",
+  ticketPrice = "Free",
+  location = "Campus",
+  time = "TBD",
   idx,
   activeIdx,
   isGlitching,
@@ -344,7 +344,7 @@ function GalleryCard({
         </>
       )}
 
-      <Link href={`/competitions/${slug}`} className="block w-full h-full relative">
+      <Link href={`/events/${slug}`} className="block w-full h-full relative">
         {/* Image */}
         <motion.div
           className="absolute inset-0"
@@ -387,9 +387,9 @@ function GalleryCard({
             <div className="translate-y-[120%] group-hover:translate-y-0 transition-transform duration-500 ease-out pb-3">
               <div className="flex flex-col gap-2">
                 {[
-                  { icon: <Trophy size={10} className="text-yellow-400" />, label: "Bounty", value: prizePool },
-                  { icon: <MapPin size={10} className="text-blue-400" />, label: "Sector", value: location },
-                  { icon: <Users size={10} className="text-purple-400" />, label: "Crew", value: teamSize },
+                  { icon: <Ticket size={10} className="text-yellow-400" />, label: "Access", value: ticketPrice },
+                  { icon: <MapPin size={10} className="text-blue-400" />, label: "Grid", value: location },
+                  { icon: <Clock size={10} className="text-purple-400" />, label: "Time", value: time },
                 ].map(({ icon, label, value }) => (
                   <div key={label} className="flex items-center gap-2.5">
                     <div className="flex items-center justify-center shrink-0 w-3 drop-shadow-[0_0_5px_currentColor]">
@@ -415,7 +415,7 @@ function GalleryCard({
 
           {/* Date */}
           <p className="text-[7px] font-mono text-white/40 uppercase tracking-[0.4em] mb-2">
-            Deploy: {date}
+            Schedule: {date}
           </p>
         </div>
 
@@ -426,4 +426,3 @@ function GalleryCard({
     </motion.div>
   );
 }
-

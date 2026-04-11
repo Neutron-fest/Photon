@@ -42,6 +42,9 @@ export const metadata: Metadata = {
   description: "Advanced Agentic Coding",
 };
 
+import Navbar from "@/components/Navbar";
+import PageTransition from "@/components/PageTransition";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,7 +57,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col relative">
         <SmoothScroll>
-          <ClientLoadingWrapper>{children}</ClientLoadingWrapper>
+          <Navbar />
+          <ClientLoadingWrapper>
+            <PageTransition>{children}</PageTransition>
+          </ClientLoadingWrapper>
         </SmoothScroll>
       </body>
     </html>
