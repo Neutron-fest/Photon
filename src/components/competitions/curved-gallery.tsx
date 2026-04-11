@@ -74,9 +74,9 @@ const COMPETITIONS = [
   },
 ];
 
-const CARD_WIDTH = 260;
-const CARD_HEIGHT = 340;
-const RADIUS = 700;
+const CARD_WIDTH = 250;
+const CARD_HEIGHT = 350;
+const RADIUS = 600;
 const TOTAL = COMPETITIONS.length;
 const ANGLE_STEP = 360 / TOTAL;
 
@@ -177,24 +177,7 @@ export function CurvedGallery() {
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
       >
-        {/* Film Strip Perforations — Top */}
-        <div className="absolute top-[50%] -translate-y-[220px] left-0 right-0 h-6 flex gap-3 items-center px-6 pointer-events-none opacity-20 z-[200]">
-          {Array.from({ length: 30 }).map((_, i) => (
-            <div key={i} className="min-w-[28px] h-5 border border-white/30 bg-black/60 rounded-[2px] shrink-0" />
-          ))}
-        </div>
-        {/* Film Strip line Top */}
-        <div className="absolute z-[200] pointer-events-none top-[50%] -translate-y-[238px] left-0 right-0 h-px bg-white/10" />
-        <div className="absolute z-[200] pointer-events-none top-[50%] -translate-y-[200px] left-0 right-0 h-px bg-white/10" />
 
-        {/* Film Strip Perforations — Bottom */}
-        <div className="absolute top-[50%] translate-y-[195px] left-0 right-0 h-6 flex gap-3 items-center px-6 pointer-events-none opacity-20 z-[200]">
-          {Array.from({ length: 30 }).map((_, i) => (
-            <div key={i} className="min-w-[28px] h-5 border border-white/30 bg-black/60 rounded-[2px] shrink-0" />
-          ))}
-        </div>
-        <div className="absolute z-[200] pointer-events-none top-[50%] translate-y-[212px] left-0 right-0 h-px bg-white/10" />
-        <div className="absolute z-[200] pointer-events-none top-[50%] translate-y-[178px] left-0 right-0 h-px bg-white/10" />
 
         {/* ── SPINNING WHEEL ──
             The wheel is a zero-size div pinned to the centre of the perspective container.
@@ -241,8 +224,8 @@ export function CurvedGallery() {
         </motion.div>
 
         {/* Left / Right edge fade */}
-        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black to-transparent z-[150] pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black to-transparent z-[150] pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-40 bg-linear-to-r from-black to-transparent z-150 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-40 bg-linear-to-l from-black to-transparent z-150 pointer-events-none" />
       </div>
 
       {/* ── PAGINATION DOTS ── */}
@@ -335,14 +318,14 @@ function GalleryCard({
       className="relative w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.9)] group"
     >
       {/* CRT Scanlines */}
-      <div className="absolute inset-0 z-30 pointer-events-none opacity-[0.12] bg-[linear-gradient(rgba(0,0,0,0)_50%,rgba(0,0,0,0.3)_50%)] bg-[length:100%_3px]" />
+      <div className="absolute inset-0 z-30 pointer-events-none opacity-[0.12] bg-[linear-gradient(rgba(0,0,0,0)_50%,rgba(0,0,0,0.3)_50%)] bg-size-[100%_3px]" />
 
       {/* Glitch overlay burst during scroll */}
       {isGlitching && (
         <div className="absolute inset-0 z-40 pointer-events-none overflow-hidden">
           <div className="absolute inset-0 mix-blend-screen opacity-20 bg-cyan-500/30" />
           <div
-            className="absolute inset-0 opacity-30 bg-[linear-gradient(rgba(255,0,0,0.15)_50%,transparent_50%)] bg-[length:100%_4px]"
+            className="absolute inset-0 opacity-30 bg-[linear-gradient(rgba(255,0,0,0.15)_50%,transparent_50%)] bg-size-[100%_4px]"
           />
         </div>
       )}
@@ -351,7 +334,7 @@ function GalleryCard({
       {isActive && (
         <>
           <div className="absolute inset-0 z-20 pointer-events-none mix-blend-screen opacity-[0.08]">
-            <img src={image} className="w-full h-full object-cover translate-x-[3px] saturate-200 hue-rotate-[60deg]" alt="" />
+            <img src={image} className="w-full h-full object-cover translate-x-[3px] saturate-200 hue-rotate-60" alt="" />
           </div>
           <div className="absolute inset-0 z-20 pointer-events-none mix-blend-screen opacity-[0.08]">
             <img src={image} className="w-full h-full object-cover -translate-x-[3px] saturate-200 hue-rotate-[-60deg]" alt="" />
@@ -368,12 +351,19 @@ function GalleryCard({
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover group-hover:scale-110 group-hover:animate-[vibrate_0.1s_infinite] transition-transform duration-700"
           />
         </motion.div>
 
+        {/* Glitch Overlay on Hover */}
+        <div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-50 transition-opacity duration-75 mix-blend-screen overflow-hidden">
+          <div className="absolute inset-0 bg-white/10 animate-[flash_0.05s_infinite]"></div>
+          <div className="absolute inset-0 bg-cyan-500/20 translate-x-[4px] mix-blend-color-dodge animate-[vibrate_0.1s_infinite]"></div>
+          <div className="absolute inset-0 bg-red-500/20 -translate-x-[4px] mix-blend-color-burn animate-[vibrate_0.15s_infinite_reverse]"></div>
+        </div>
+
         {/* Gradient — strong bottom for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10 z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-black/10 z-10" />
 
         {/* Tags */}
         <div className="absolute top-3 left-3 right-3 z-20 flex justify-between items-center">
@@ -392,20 +382,20 @@ function GalleryCard({
 
           {/* Stats grid — slides in on hover above the title */}
           <div className="overflow-hidden">
-            <div className="translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pb-4">
-              <div className="bg-black/70 backdrop-blur-md border border-white/10 rounded-lg px-4 py-3 flex flex-col gap-3">
+            <div className="translate-y-[120%] group-hover:translate-y-0 transition-transform duration-500 ease-out pb-3">
+              <div className="flex flex-col gap-2">
                 {[
-                  { icon: <Trophy size={11} className="text-yellow-400" />, label: "Bounty", value: prizePool },
-                  { icon: <MapPin size={11} className="text-blue-400" />, label: "Sector", value: location },
-                  { icon: <Users size={11} className="text-purple-400" />, label: "Crew", value: teamSize },
+                  { icon: <Trophy size={10} className="text-yellow-400" />, label: "Bounty", value: prizePool },
+                  { icon: <MapPin size={10} className="text-blue-400" />, label: "Sector", value: location },
+                  { icon: <Users size={10} className="text-purple-400" />, label: "Crew", value: teamSize },
                 ].map(({ icon, label, value }) => (
-                  <div key={label} className="flex items-center gap-3">
-                    <div className="w-7 h-7 rounded-md bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  <div key={label} className="flex items-center gap-2.5">
+                    <div className="flex items-center justify-center shrink-0 w-3 drop-shadow-[0_0_5px_currentColor]">
                       {icon}
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-[7px] font-mono text-white/40 uppercase tracking-[0.2em] leading-none">{label}</span>
-                      <span className="text-[11px] font-bold text-white uppercase leading-tight mt-0.5">{value}</span>
+                    <div className="flex flex-col justify-center">
+                      <span className="text-[6px] font-mono text-white/50 uppercase tracking-[0.2em] leading-none mb-0.5">{label}</span>
+                      <span className="text-[9px] font-black tracking-wide text-white uppercase leading-none drop-shadow-md">{value}</span>
                     </div>
                   </div>
                 ))}
@@ -414,22 +404,16 @@ function GalleryCard({
           </div>
 
           {/* Hairline */}
-          <div className="h-px bg-gradient-to-r from-white/20 via-white/10 to-transparent mb-3" />
+          <div className="h-px bg-linear-to-r from-white/20 via-white/10 to-transparent mb-3" />
 
           {/* Title — always visible */}
-          <h2 className="text-[1.35rem] font-black uppercase tracking-tight leading-tight mb-1 group-hover:text-cyan-400 transition-colors duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+          <h2 className="text-[1.35rem] font-black uppercase tracking-tight leading-tight mb-1 group-hover:text-cyan-400 group-hover:animate-[vibrate_0.1s_infinite] transition-colors duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] relative z-30">
             {title}
           </h2>
 
           {/* Date */}
           <p className="text-[7px] font-mono text-white/40 uppercase tracking-[0.4em] mb-2">
             Deploy: {date}
-          </p>
-
-          {/* Uplink hint */}
-          <p className="text-[7px] font-mono text-white/30 uppercase tracking-[0.25em] flex items-center gap-1.5 group-hover:text-cyan-400/60 transition-colors">
-            <span className="w-0.5 h-0.5 bg-cyan-400 rounded-full animate-ping" />
-            Initiate uplink
           </p>
         </div>
 

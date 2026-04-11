@@ -127,16 +127,38 @@ body {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
+  
+  ::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-white;
+    background-color: black !important;
   }
   html {
-    @apply font-sans;
+    @apply font-sans bg-black;
+    background-color: black !important;
   }
 }
 
+
+@keyframes flash {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0; }
+}
+
+@keyframes vibrate {
+  0% { transform: translate(0); }
+  25% { transform: translate(4px, -2px) scale(1.02); }
+  50% { transform: translate(-4px, 2px) scale(0.98); }
+  75% { transform: translate(2px, 4px) scale(1.01); }
+  100% { transform: translate(0); }
+}
 
 /* Custom component animations should be localized preferred */
 

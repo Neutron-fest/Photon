@@ -85,7 +85,7 @@ const GlitchLoader: React.FC<GlitchLoaderProps> = ({ onComplete, isLoading = tru
              </div>
           </div>
 
-          <div className="mt-28 font-mono text-[10px] text-white/40 tracking-widest text-center px-4 uppercase filter blur-[0.2px]">
+          <div className="mt-28 font-mono text-[20px] text-white tracking-widest text-center px-4 uppercase filter blur-[0.2px]">
              Copyright (c) Photon Development Studio AB, 2026. All Rights Reserved.
           </div>
         </div>
