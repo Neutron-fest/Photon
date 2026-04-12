@@ -38,24 +38,38 @@ const Noise: React.FC<NoiseProps> = ({
       canvas.style.height = '100vh';
     };
 
-    const drawGrain = () => {
-      const imageData = ctx.createImageData(canvasSize, canvasSize);
-      const data = imageData.data;
+    const noiseTextures: HTMLCanvasElement[] = [];
+    const numTextures = 6;
 
-      for (let i = 0; i < data.length; i += 4) {
-        const value = Math.random() * 255;
-        data[i] = value;
-        data[i + 1] = value;
-        data[i + 2] = value;
-        data[i + 3] = patternAlpha;
+    const preGenerate = () => {
+      for (let n = 0; n < numTextures; n++) {
+        const tCanvas = document.createElement('canvas');
+        tCanvas.width = canvasSize;
+        tCanvas.height = canvasSize;
+        const tCtx = tCanvas.getContext('2d');
+        if (!tCtx) continue;
+
+        const imageData = tCtx.createImageData(canvasSize, canvasSize);
+        const data = imageData.data;
+        for (let i = 0; i < data.length; i += 4) {
+          const val = Math.random() * 255;
+          data[i] = val;
+          data[i+1] = val;
+          data[i+2] = val;
+          data[i+3] = patternAlpha;
+        }
+        tCtx.putImageData(imageData, 0, 0);
+        noiseTextures.push(tCanvas);
       }
-
-      ctx.putImageData(imageData, 0, 0);
     };
 
     const loop = () => {
       if (frame % patternRefreshInterval === 0) {
-        drawGrain();
+        const tex = noiseTextures[Math.floor(Math.random() * numTextures)];
+        if (tex) {
+          ctx.clearRect(0, 0, canvasSize, canvasSize);
+          ctx.drawImage(tex, 0, 0);
+        }
       }
       frame++;
       animationId = window.requestAnimationFrame(loop);
@@ -63,6 +77,7 @@ const Noise: React.FC<NoiseProps> = ({
 
     window.addEventListener('resize', resize);
     resize();
+    preGenerate();
     loop();
 
     return () => {
