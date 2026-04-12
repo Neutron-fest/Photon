@@ -174,9 +174,10 @@ export function useHeroCanvas(
         let ripple = 0;
         
         if (beam.isZigZag) {
-          ripple = Math.sin(beam.amplitude * 0.15 * frac * Math.PI * 6 + moveSpeed + beam.phaseOffset) * beam.amplitude * Math.pow(frac, 0.7) * 4;
+          // Smoothed frequency (Math.PI * 3 instead of 6) and slowed moveSpeed contribution (* 0.4)
+          ripple = Math.sin(beam.amplitude * 0.12 * frac * Math.PI * 3 + moveSpeed * 0.4 + beam.phaseOffset) * beam.amplitude * Math.pow(frac, 0.8) * 3;
         } else {
-          ripple = Math.sin(frac * Math.PI * 1.4 - moveSpeed * 1.8 + beam.phaseOffset) * beam.amplitude * Math.pow(frac, 1.25);
+          ripple = Math.sin(frac * Math.PI * 1.4 - moveSpeed * 1.0 + beam.phaseOffset) * beam.amplitude * Math.pow(frac, 1.25);
         }
 
         const x = cx + Math.cos(a) * d + Math.cos(perp) * ripple;
@@ -335,7 +336,8 @@ export function useHeroCanvas(
       drawTypewriter(W, H);
 
       ctx.globalAlpha = flickerOpacity;
-      const pulse = 1 + Math.sin(t * 2.1) * 0.07;
+      // Made pulse slower (1.0 instead of 2.1) and lower amplitude (0.03 instead of 0.07)
+      const pulse = 1 + Math.sin(t * 1.0) * 0.03;
       const coreR  = Math.min(W, H) * 0.175 * pulse;
 
       const halo1 = ctx.createRadialGradient(cx, cy, 0, cx, cy, coreR * 3.2);
