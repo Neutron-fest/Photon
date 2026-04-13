@@ -103,7 +103,7 @@ function PolaroidCard({ title, image, slug, category, date, index, total, scroll
           opacity,
           transformStyle: "preserve-3d",
         }}
-        className="relative w-[300px] md:w-[420px] aspect-3/4 shadow-[0_40px_100px_rgba(0,0,0,0.95)] rounded-2xl group pointer-events-auto overflow-hidden border border-white/10"
+        className="relative w-[260px] md:w-[420px] aspect-3/4 shadow-[0_40px_100px_rgba(0,0,0,0.95)] rounded-2xl group pointer-events-auto overflow-hidden border border-white/10"
       >
         {/* Scanline grain */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.035] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-50 bg-size-[100%_2px,3px_100%]" />
@@ -138,7 +138,7 @@ function PolaroidCard({ title, image, slug, category, date, index, total, scroll
           {/* ── BOTTOM TEXT BLOCK ── */}
           <div className="absolute bottom-0 left-0 right-0 z-20 px-5 pb-6 md:px-7 md:pb-8">
             {/* Title */}
-            <h2 className="font-sans font-black text-[1.85rem] md:text-[2.6rem] text-white uppercase tracking-tight leading-[0.88] drop-shadow-[0_0_20px_rgba(255,255,255,0.18)] group-hover:drop-shadow-[0_0_32px_rgba(255,200,80,0.5)] transition-all duration-500 mb-2">
+            <h2 className="font-sans font-black text-[1.5rem] md:text-[2.6rem] text-white uppercase tracking-tight leading-[0.88] drop-shadow-[0_0_20px_rgba(255,255,255,0.18)] group-hover:drop-shadow-[0_0_32px_rgba(255,200,80,0.5)] transition-all duration-500 mb-2">
               {title}
             </h2>
 

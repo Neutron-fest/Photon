@@ -165,7 +165,7 @@ export function CurvedGallery({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="flex items-center gap-3 text-[10px] font-mono text-white/40 uppercase tracking-[0.5em] max-w-[90vw]"
+            className="flex items-center gap-3 text-[4px] md:text-[10px] font-mono text-white/40 uppercase tracking-[0.5em] max-w-[90vw]"
           >
             <span className="text-cyan-400/70">{displayItems[activeIdx]?.category || "Sector"}</span>
             <span className="w-0.5 h-0.5 rounded-full bg-white/20 inline-block" />
@@ -378,7 +378,7 @@ function GalleryCard({
         <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-black/10 z-10" />
 
         <div className="absolute top-3 left-3 right-3 z-20 flex justify-between items-center">
-          <span className="px-2 py-0.5 text-[7px] font-mono uppercase tracking-[0.2em] bg-black/50 border border-white/10 rounded-sm text-cyan-300 backdrop-blur-sm">
+          <span className="px-2 py-0.5 text-[7px] hidden md:block font-mono uppercase tracking-[0.2em] bg-black/50 border border-white/10 rounded-sm text-cyan-300 backdrop-blur-sm">
             {category}
           </span>
           <span className="flex items-center gap-1 text-[7px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">
@@ -403,7 +403,7 @@ function GalleryCard({
                     </div>
                     <div className="flex flex-col justify-center">
                       <span className="text-[6px] font-mono text-white/50 uppercase tracking-[0.2em] leading-none mb-0.5">{label}</span>
-                      <span className="text-[9px] font-black tracking-wide text-white uppercase leading-none drop-shadow-md">{value}</span>
+                      <span className="text-xs md:text-[9px] font-black tracking-wide text-white uppercase leading-none drop-shadow-md">{value}</span>
                     </div>
                   </div>
                 ))}
@@ -413,11 +413,11 @@ function GalleryCard({
 
           <div className="h-px bg-linear-to-r from-white/20 via-white/10 to-transparent mb-3" />
 
-          <h2 className="text-[1.35rem] font-black uppercase tracking-tight leading-tight mb-1 group-hover:text-cyan-400 group-hover:animate-[vibrate_0.1s_infinite] transition-colors duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] relative z-30">
+          <h2 className="text-sm md:text-[1.35rem] font-black uppercase tracking-tight leading-tight mb-1 group-hover:text-cyan-400 group-hover:animate-[vibrate_0.1s_infinite] transition-colors duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] relative z-30">
             {displayTitle}
           </h2>
 
-          <p className="text-[7px] font-mono text-white/40 uppercase tracking-[0.4em] mb-2">
+          <p className="text-[4px] md:text-[7px] font-mono text-white/40 uppercase tracking-[0.4em] mb-2">
             Deploy: {displayDate}
           </p>
         </div>

@@ -303,7 +303,7 @@ export default function CompetitionSlugPage() {
           <div className="text-[0.9rem] sm:text-[1.1rem] md:text-[1.25rem] lg:text-[1.5rem] uppercase tracking-[0.32em] md:tracking-[0.4em] text-red-500 mb-6 font-semibold select-none font-space-mono mix-blend-screen">
             {comp.category}
           </div>
-          <h1 className="text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] font-medium tracking-tight relative cursor-pointer z-10 w-max pointer-events-auto font-audiowide uppercase transition-all duration-500 hover:tracking-[0.03em] mix-blend-screen">
+          <h1 className="text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] font-medium tracking-tight relative cursor-pointer z-10 w-[50px] md:w-4xl pointer-events-auto font-audiowide uppercase transition-all duration-500 hover:tracking-[0.03em] mix-blend-screen">
             <span className="relative z-10 animate-[hero-error-vibrate_3s_steps(1)_infinite] drop-shadow-[0_0_15px_rgba(255,0,51,0.4)]">
               {comp.title}
             </span>

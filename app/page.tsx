@@ -58,6 +58,8 @@ export default function Home() {
   }, [router]);
 
   useEffect(() => {
+    let touchStartY = 0;
+
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
@@ -76,8 +78,39 @@ export default function Home() {
       }, 100);
     };
 
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+      
+      const baseSpeed = Math.min(0.015, Math.abs(deltaY) * 0.005);
+      const direction = Math.sign(deltaY);
+      
+      targetZoom.current = Math.max(0, Math.min(1, targetZoom.current + direction * baseSpeed * 2));
+      touchStartY = touchY;
+
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+      scrollTimeout.current = setTimeout(() => {
+        if (targetZoom.current > 0.15) {
+          targetZoom.current = 1;
+        } else {
+          targetZoom.current = 0;
+        }
+      }, 100);
+    };
+
     window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
   return (
