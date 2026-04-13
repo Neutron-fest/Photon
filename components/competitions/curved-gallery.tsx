@@ -9,6 +9,7 @@ import { COMPETITIONS_DATA } from "@/data/competition-data";
 const CARD_WIDTH = 250;
 const CARD_HEIGHT = 350;
 const RADIUS = 600;
+const MOBILE_RADIUS = 360;
 
 export interface GalleryItem {
   title?: string;
@@ -54,7 +55,7 @@ export function CurvedGallery({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 425px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
 
     setIsMobile(mediaQuery.matches);
@@ -63,8 +64,9 @@ export function CurvedGallery({
     return () => mediaQuery.removeEventListener("change", onChange);
   }, []);
 
-  const cardWidth = isMobile ? 130 : CARD_WIDTH;
-  const cardHeight = isMobile ? 200 : CARD_HEIGHT;
+  const cardWidth = isMobile ? 240 : CARD_WIDTH;
+  const cardHeight = isMobile ? 360 : CARD_HEIGHT;
+  const currentRadius = isMobile ? MOBILE_RADIUS : RADIUS;
 
   useEffect(() => {
     return smoothRotation.onChange((v: number) => {
@@ -209,7 +211,7 @@ export function CurvedGallery({
                   left: `-${cardWidth / 2}px`,
                   width: `${cardWidth}px`,
                   height: `${cardHeight}px`,
-                  transform: `rotateY(${angle}deg) translateZ(${RADIUS}px)`,
+                  transform: `rotateY(${angle}deg) translateZ(${currentRadius}px)`,
                   transformStyle: "preserve-3d" as const,
                 }}
               >
@@ -413,7 +415,7 @@ function GalleryCard({
 
           <div className="h-px bg-linear-to-r from-white/20 via-white/10 to-transparent mb-3" />
 
-          <h2 className="text-sm md:text-[1.35rem] font-black uppercase tracking-tight leading-tight mb-1 group-hover:text-cyan-400 group-hover:animate-[vibrate_0.1s_infinite] transition-colors duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] relative z-30">
+          <h2 className="text-xl md:text-[1.35rem] font-black uppercase tracking-tight leading-tight mb-1 group-hover:text-cyan-400 group-hover:animate-[vibrate_0.1s_infinite] transition-colors duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] relative z-30">
             {displayTitle}
           </h2>
 

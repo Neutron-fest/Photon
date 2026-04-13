@@ -9,6 +9,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { useAuth } from "@/contexts/AuthContext";
+import Image from "next/image";
 
 export default function Navbar() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -44,12 +45,12 @@ export default function Navbar() {
       image:
         "https://ik.imagekit.io/yatharth/BANNER.jpeg?updatedAt=1774963679610",
     },
-    {
-      name: "Profile",
-      href: profileHref,
-      image:
-        "https://ik.imagekit.io/yatharth/ARS06750.JPG?updatedAt=1774806404575",
-    },
+    // {
+    //   name: "Profile",
+    //   href: profileHref,
+    //   image:
+    //     "https://ik.imagekit.io/yatharth/ARS06750.JPG?updatedAt=1774806404575",
+    // },
   ];
 
   const secondaryLinks = [
@@ -85,9 +86,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-3 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform duration-300"
           >
-            <span className="font-audiowide text-[1.1rem] sm:text-[1.3rem] lg:text-[1.5rem] italic font-black tracking-widest text-white">
-              PHOTON
-            </span>
+            <Image src="https://ik.imagekit.io/yatharth/logo%20(2).png" alt="Logo" width={100} height={100} />
           </Link>
 
           <button
@@ -213,9 +212,8 @@ export default function Navbar() {
 
               <div className="w-full flex items-center justify-between px-8 py-10">
                 <div className="w-12 lg:hidden" />
-                <span className="font-audiowide text-[1.2rem] italic font-black tracking-wider text-white lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                  PHOTON
-                </span>
+                <Image src="https://ik.imagekit.io/yatharth/logo%20(2).png" alt="Logo" width={200} height={200} className="font-audiowide text-[1.2rem] italic font-black tracking-wider text-white lg:absolute lg:left-1/2 lg:-translate-x-1/2" />
+
                 <button
                   onClick={() => setIsMenuOpen(false)}
                   className="w-12 h-12 flex items-center justify-center text-white border border-white/10 rounded-full hover:bg-white/5 bg-white/5 transition-all"
