@@ -1,22 +1,9 @@
 "use client";
 
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { CurvedGallery } from "@/components/competitions/curved-gallery";
-import { useCompetitions } from "@/hooks/api/useCompetitions";
-import {
-  isMainCompetition,
-  mapCompetitionToGalleryItem,
-} from "@/lib/publicCompetitionModel";
 
 export default function CompetitionsPage() {
-  const { data: competitions = [], isLoading } = useCompetitions();
-
-  const competitionItems = useMemo(
-    () =>
-      competitions.filter(isMainCompetition).map(mapCompetitionToGalleryItem),
-    [competitions],
-  );
-
   useEffect(() => {
     // Lock document overflow during page interaction to prevent viewport shift during drag
     const prevBodyOverflowX = document.body.style.overflowX;
@@ -57,8 +44,6 @@ export default function CompetitionsPage() {
 
       <div className="relative z-10 w-full h-full">
         <CurvedGallery
-          items={competitionItems as any}
-          isLoading={isLoading}
           basePath="competitions"
         />
       </div>

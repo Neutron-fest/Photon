@@ -4,75 +4,7 @@ import React, { useRef, useState, useCallback, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Trophy, MapPin, Users, ChevronLeft, ChevronRight } from "lucide-react";
-
-const COMPETITIONS = [
-  {
-    title: "Binary Blitz",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-    slug: "binary-blitz",
-    category: "Cybersecurity",
-    date: "OCT 24, 2026",
-    details: "High-stakes penetration testing arena",
-    prizePool: "$5,000",
-    location: "Global / VPN",
-    teamSize: "1-4 Hackers",
-  },
-  {
-    title: "Neural Nexus",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-    slug: "neural-nexus",
-    category: "AI / ML",
-    date: "NOV 12, 2026",
-    details: "Optimize LLMs for low-power edge devices",
-    prizePool: "$12,500",
-    location: "Rishihood Campus",
-    teamSize: "Solo / Duo",
-  },
-  {
-    title: "Quantum Quest",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800",
-    slug: "quantum-quest",
-    category: "Quantum",
-    date: "DEC 05, 2026",
-    details: "Algorithm development on quantum simulators",
-    prizePool: "$8,000",
-    location: "Metaverse",
-    teamSize: "Trio Only",
-  },
-  {
-    title: "Neon Nights",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800",
-    slug: "neon-nights",
-    category: "Game Dev",
-    date: "JAN 15, 2027",
-    details: "Cyberpunk-themed 48hr Game Jam",
-    prizePool: "$2,500",
-    location: "Tokyo Sector",
-    teamSize: "Squad (4)",
-  },
-  {
-    title: "Solaris Sprint",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-    slug: "solaris-sprint",
-    category: "Eco-Tech",
-    date: "FEB 22, 2027",
-    details: "Building sustainable tech for solar habitats",
-    prizePool: "$10,000",
-    location: "Remote HQ",
-    teamSize: "Solo / Team",
-  },
-  {
-    title: "Dark Matter",
-    image: "https://images.unsplash.com/photo-1538370965046-79c0d6907d47?auto=format&fit=crop&q=80&w=800",
-    slug: "dark-matter",
-    category: "Deep Learning",
-    date: "MAR 10, 2027",
-    details: "Detect anomalies in astronomical data streams",
-    prizePool: "$7,500",
-    location: "Remote",
-    teamSize: "Team (2-6)",
-  },
-];
+import { COMPETITIONS_DATA } from "@/data/competition-data";
 
 const CARD_WIDTH = 250;
 const CARD_HEIGHT = 350;
@@ -99,15 +31,13 @@ export interface GalleryItem {
 }
 
 export function CurvedGallery({ 
-  items = [], 
   basePath = "competitions",
   isLoading = false 
 }: { 
-  items?: GalleryItem[];
   basePath?: string;
   isLoading?: boolean;
 }) {
-  const displayItems = items.length > 0 ? items : [];
+  const displayItems = COMPETITIONS_DATA;
   const TOTAL = displayItems.length || 1;
   const ANGLE_STEP = 360 / TOTAL;
 
@@ -239,7 +169,7 @@ export function CurvedGallery({
           >
             <span className="text-cyan-400/70">{displayItems[activeIdx]?.category || "Sector"}</span>
             <span className="w-0.5 h-0.5 rounded-full bg-white/20 inline-block" />
-            <span className="truncate">{displayItems[activeIdx]?.details || displayItems[activeIdx]?.description || "No Intel"}</span>
+            <span className="truncate">{displayItems[activeIdx]?.details || displayItems[activeIdx]?.details || "No Intel"}</span>
             <span className="w-0.5 h-0.5 rounded-full bg-white/20 inline-block" />
           </motion.div>
         </AnimatePresence>
@@ -268,7 +198,7 @@ export function CurvedGallery({
         >
           {displayItems.map((comp, idx) => {
             const angle = idx * ANGLE_STEP;
-            const itemId = comp.slug || comp.id || comp._id;
+            const itemId = comp.slug;
 
             return (
               <div

@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useRef, useEffect, useState, useMemo } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ArrowRight, List } from "lucide-react";
 import RulesModal from "@/components/competitions/RulesModal";
 import Noise from "@/components/Noise";
-import { useCompetition, useCompetitions } from "@/hooks/api/useCompetitions";
-import {
-  mapCompetitionToCompetitionDetail,
-  resolveCompetitionIdFromParam,
-} from "@/lib/publicCompetitionModel";
+import { COMPETITIONS_DATA } from "@/data/competition-data";
 
 type RuleItem = {
   title?: string;
@@ -21,22 +17,8 @@ export default function CompetitionSlugPage() {
   const params = useParams();
   const routeParam = typeof params?.slug === "string" ? params.slug : "";
 
-  const { data: competitions = [], isLoading: isCatalogLoading } =
-    useCompetitions();
-
-  const competitionId = useMemo(
-    () => resolveCompetitionIdFromParam(routeParam, competitions),
-    [routeParam, competitions],
-  );
-
-  const { data: rawComp, isLoading: isCompetitionLoading } = useCompetition(
-    competitionId || "",
-  );
-
-  const isLoading =
-    (routeParam && !competitionId && isCatalogLoading) || isCompetitionLoading;
-
-  const comp = rawComp ? mapCompetitionToCompetitionDetail(rawComp) : null;
+  // Find competition from hardcoded data
+  const comp = COMPETITIONS_DATA.find(c => c.slug === routeParam) || null;
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -168,19 +150,6 @@ export default function CompetitionSlugPage() {
   };
   const linePhase = scrollProgress * 720;
   const chaosTilt = (scrollProgress - 0.5) * 2.4;
-
-  if (isLoading) {
-    return (
-      <main className="h-screen w-full bg-[#070B14] flex items-center justify-center text-[#E7F2FF]">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-white/20 border-t-cyan-300 rounded-full animate-spin" />
-          <span className="font-mono text-sm tracking-widest uppercase opacity-70">
-            Synchronizing...
-          </span>
-        </div>
-      </main>
-    );
-  }
 
   if (!comp) {
     return (
