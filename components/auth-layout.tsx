@@ -58,15 +58,6 @@ export default function AuthLayout({ children, title, subtitle }: AuthLayoutProp
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative z-10 w-full max-w-md text-center"
         >
-          <div className="mb-8 flex justify-center">
-            <Image
-              src="https://ik.imagekit.io/yatharth/neutron_clean.png"
-              alt="Neutron Logo"
-              width={100}
-              height={100}
-              className="drop-shadow-[0_0_15px_rgba(189,121,64,0.5)]"
-            />
-          </div>
           <h1 className="text-4xl font-bold mb-6 tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white to-white/50">
             {title}
           </h1>

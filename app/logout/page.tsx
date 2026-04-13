@@ -55,13 +55,7 @@ export default function LogoutPage() {
           className="relative"
         >
           <div className="absolute inset-0 bg-white/5 blur-2xl rounded-full scale-150" />
-          <Image
-            src="https://ik.imagekit.io/yatharth/neutron_clean.png"
-            alt="Neutron Logo"
-            width={100}
-            height={100}
-            className="relative drop-shadow-[0_0_25px_rgba(255,255,255,0.15)]"
-          />
+          <p className="text-4xl font-bold text-white font-audiowide tracking-tighter sm:text-5xl">PHOTON</p>
         </motion.div>
 
         <div className="space-y-3">

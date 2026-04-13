@@ -42,13 +42,16 @@ export default function RouteAwareRootShell({
     };
   }, [isAdminRoute]);
 
+  const isProfileRoute = pathname?.startsWith("/profile");
+  const isAuthRoute = pathname?.startsWith("/auth");
+
   if (isAdminRoute) {
     return <>{children}</>;
   }
 
   return (
     <SmoothScroll>
-      <Navbar />
+      {!isProfileRoute && !isAuthRoute && <Navbar />}
       <ClientLoadingWrapper>
         <PageTransition>{children}</PageTransition>
       </ClientLoadingWrapper>

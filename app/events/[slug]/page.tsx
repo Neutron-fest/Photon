@@ -8,18 +8,35 @@ import {
   ArrowRight,
   List,
   Cpu,
-  Network,
   MapPin,
   Clock,
   Ticket,
 } from "lucide-react";
-import { EVENTS } from "@/data/events";
+import { useCompetition } from "@/hooks/api/useCompetitions";
 import EventRulesModal from "@/components/competitions/RulesModal";
 
 export default function EventSlugPage() {
   const params = useParams();
   const slug = typeof params?.slug === "string" ? params.slug : "";
-  const event = EVENTS.find((e) => e.slug === slug);
+  const { data: rawEvent, isLoading } = useCompetition(slug);
+
+  const event = rawEvent ? {
+    title: rawEvent.name || rawEvent.title || "Untitled",
+    category: rawEvent.category || rawEvent.eventType || "Event",
+    details: rawEvent.details || rawEvent.description?.slice(0, 100) + "..." || "Mission details are classified.",
+    description: rawEvent.description || "No mission description available.",
+    image: rawEvent.posterPath || rawEvent.image || "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+    highlights: Array.isArray(rawEvent.highlights) ? rawEvent.highlights : [],
+    rules: Array.isArray(rawEvent.rules) ? rawEvent.rules : [
+      { title: "Standard Protocol", content: "Participants must adhere to the general event conduct and safety guidelines." },
+      { title: "Fair Play", content: "Any form of cheating or unauthorized assistance will result in immediate disqualification." }
+    ],
+    ticketPrice: rawEvent.ticketPrice || rawEvent.bounty || "FREE",
+    location: rawEvent.location || rawEvent.venue || rawEvent.sector || "Remote",
+    time: rawEvent.startTime ? new Date(rawEvent.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "TBD",
+    date: rawEvent.date || (rawEvent.startTime ? new Date(rawEvent.startTime).toLocaleDateString() : "TBD"),
+    slug: rawEvent.slug
+  } : null;
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -117,6 +134,17 @@ export default function EventSlugPage() {
     dragAxisRef.current = "none";
     setIsDragging(false);
   };
+
+  if (isLoading) {
+    return (
+      <main className="h-screen w-full bg-[#030303] flex items-center justify-center text-white relative overflow-hidden">
+        <div className="flex flex-col items-center gap-4 relative z-10">
+          <div className="w-12 h-12 border-2 border-white/20 border-t-cyan-400 rounded-full animate-spin" />
+          <span className="font-mono text-[10px] tracking-[0.5em] text-white/40 uppercase">SYNCING_GRID...</span>
+        </div>
+      </main>
+    );
+  }
 
   if (!event) {
     return (
@@ -230,7 +258,7 @@ export default function EventSlugPage() {
             </div>
 
             <ul className="space-y-3 sm:space-y-4 md:space-y-5 max-w-xl">
-              {event.highlights.map((h, i) => (
+              {event.highlights.map((h: string, i: number) => (
                 <li
                   key={i}
                   className="flex items-start gap-4 text-white/60 text-[0.85rem] sm:text-[0.95rem] md:text-[1.1rem] lg:text-[1.2rem]"
@@ -397,6 +425,7 @@ export default function EventSlugPage() {
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: rgba(34, 211, 238, 0.6);
+          border-radius: 3px;
         }
         .animate-scan {
           animation: scan 4s linear infinite;

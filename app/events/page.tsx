@@ -2,10 +2,19 @@
 
 import React, { useEffect } from "react";
 import { CurvedGallery } from "@/components/competitions/curved-gallery";
+import { useCompetitions } from "@/hooks/api/useCompetitions";
 
 export default function EventsPage() {
+  const { data: competitions = [], isLoading } = useCompetitions();
+  
+  const events = competitions.filter(
+    (c: any) => 
+      ["EVENT", "WORKSHOP"].includes(c?.eventType) || 
+      ["EVENT", "WORKSHOP"].includes(c?.event_type) || 
+      ["EVENT", "WORKSHOP"].includes(c?.type)
+  );
+
   useEffect(() => {
-    // Lock document overflow during page interaction to prevent viewport shift during drag
     const prevBodyOverflowX = document.body.style.overflowX;
     const prevHtmlOverflowX = document.documentElement.style.overflowX;
     const prevBodyOverscrollX = document.body.style.overscrollBehaviorX;
@@ -43,7 +52,7 @@ export default function EventsPage() {
       </div>
 
       <div className="relative z-10 w-full h-full">
-        <CurvedGallery />
+        <CurvedGallery items={events as any} isLoading={isLoading} basePath="events" />
       </div>
 
       <footer className="absolute bottom-6 left-1/2 -translate-x-1/2 z-110 pointer-events-none w-full px-12 flex justify-between items-center opacity-30">

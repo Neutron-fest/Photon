@@ -5,172 +5,30 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ChevronLeft, ArrowRight, List } from "lucide-react";
 import RulesModal from "@/components/competitions/RulesModal";
-
-
-const COMPETITIONS: Record<string, {
-  title: string;
-  subtitle: string;
-  category: string;
-  date: string;
-  image: string;
-  description: string;
-  prizePool: string;
-  teamSize: string;
-  location: string;
-  highlights: string[];
-  rules: { title: string; content: string }[];
-}> = {
-  "binary-blitz": {
-    title: "Binary Blitz",
-    subtitle: "High-Stakes Penetration Testing Arena",
-    category: "Cybersecurity",
-    date: "OCT 24, 2026",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600",
-    description:
-      "Step into the digital warzone. Binary Blitz is the most intense cybersecurity competition in the subcontinent — a relentless 36-hour CTF battleground where elite hackers clash to dominate vulnerable networks, crack encrypted transmissions, and reverse-engineer obfuscated binaries. Each challenge is a labyrinth engineered by seasoned red-teamers. Winners don't just earn a prize. They earn a legend.",
-    prizePool: "$5,000",
-    teamSize: "1–4 Hackers",
-    location: "Global / VPN",
-    highlights: [
-      "36-hour non-stop CTF",
-      "Live scoreboard with real-time updates",
-      "Mentorship from top security researchers",
-      "Exclusive SWAG kit for top 3 teams",
-    ],
-    rules: [
-      { title: "No Collaboration", content: "No collaboration or communication outside your registered team members is permitted during the challenge window." },
-      { title: "Infrastructure Integrity", content: "No brute-force attacks or denial-of-service attempts on infrastructure servers or scoring engines." },
-      { title: "Tool Disclosure", content: "All custom tools and scripts must be disclosed via the platform portal pre-competition for vetting." },
-      { title: "Final Decisions", content: "The decision of the judges and technical committee is final and binding in all cases of disputes." },
-      { title: "Time Management", content: "Submissions after the 36-hour mark will not be processed by the scoring engine." },
-    ],
-  },
-  "neural-nexus": {
-    title: "Neural Nexus",
-    subtitle: "Optimize LLMs for Low-Power Edge Devices",
-    category: "AI / ML",
-    date: "NOV 12, 2026",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",
-    description:
-      "Neural Nexus is where raw intelligence meets hardware constraint. Competitors must compress, quantize, and distill large language models to run efficiently on edge hardware — without sacrificing meaningful accuracy. Forget the cloud. The future is local, fast, and minimal. If you can make an LLM whisper, you can make it shout the loudest on the leaderboard.",
-    prizePool: "$12,500",
-    teamSize: "Solo / Duo",
-    location: "Rishihood Campus",
-    highlights: [
-      "Access to proprietary edge device testbeds",
-      "Industry jury from DeepMind & Qualcomm",
-      "Research publication opportunity",
-      "Internship fast-tracks for finalists",
-    ],
-    rules: [
-      { title: "Public Base Models", content: "All base models used for distillation must be publicly available and properly licensed (Apache, MIT, etc.)." },
-      { title: "Hardware Limits", content: "Use of external cloud-based hardware accelerators during the inference evaluation phase is strictly prohibited." },
-      { title: "Reproducibility", content: "Final results must be submitted with full code and weights for reproducibility verification by the jury." },
-      { title: "Offline Training", content: "All major model training must be completed before the main event begins; only fine-tuning is allowed on-site." },
-    ],
-  },
-  "quantum-quest": {
-    title: "Quantum Quest",
-    subtitle: "Algorithm Development on Quantum Simulators",
-    category: "Quantum",
-    date: "DEC 05, 2026",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1600",
-    description:
-      "Reality bends here. Quantum Quest challenges participants to implement and optimize quantum algorithms across IBM's cloud simulators. From Grover's search to variational eigensolvers, every qubit counts. The leaderboard measures not just correctness, but elegance — circuit depth, gate efficiency, and noise resilience. Welcome to the frontier of computation.",
-    prizePool: "$8,000",
-    teamSize: "Trio Only",
-    location: "Metaverse",
-    highlights: [
-      "Access to IBM Quantum Network simulators",
-      "Workshops on Qiskit & PennyLane",
-      "Jury includes quantum computing PhDs",
-      "Patent guidance for top solutions",
-    ],
-    rules: [
-      { title: "Simulator Constraints", content: "Only approved IBM Cloud simulators and designated local backends are permitted for official runs." },
-      { title: "Squad Integrity", content: "Teams must consist of exactly 3 members. Substitution of members is not allowed after the first check-in." },
-      { title: "Ecosystem Standard", content: "All implementation code must be in Python using Qiskit or PennyLane frameworks exclusively." },
-      { title: "Original Logic", content: "The use of pre-trained quantum circuits or copied library solutions from GitHub is strictly prohibited." },
-    ],
-  },
-  "neon-nights": {
-    title: "Neon Nights",
-    subtitle: "Cyberpunk-Themed 48hr Game Jam",
-    category: "Game Dev",
-    date: "JAN 15, 2027",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1600",
-    description:
-      "The rain doesn't stop. The city never sleeps. And neither will you. Neon Nights is a brutally fun 48-hour game jam where you and your crew build a cyberpunk game from scratch. Any engine. Any genre. The catch — a secret theme drops at midnight on Day 1, and your entire game must pivot around it. Only the most creative, most technically ruthless teams survive.",
-    prizePool: "$2,500",
-    teamSize: "Squad (4)",
-    location: "Tokyo Sector",
-    highlights: [
-      "Open to any game engine (Unity, Godot, Unreal)",
-      "Live streaming of finalist projects",
-      "Physical arcade cabinet display at Photon",
-      "Publishing deal for top studio",
-    ],
-    rules: [
-      { title: "Fresh Assets", content: "All game code, art, and sound must be created during the 48-hour jam window. Third-party engine standard assets are okay." },
-      { title: "Audio Rights", content: "Use of copyrighted music without proof of license is grounds for immediate disqualification. DMCA-safe music is allowed." },
-      { title: "Theme Integration", content: "The secret theme must be a central mechanic or narrative element in the submission. Mere cosmetic use will be penalized." },
-      { title: "Full Squad Submission", content: "Squads must consist of exactly 4 members. Individual or partial team submissions will not be judged." },
-    ],
-  },
-  "solaris-sprint": {
-    title: "Solaris Sprint",
-    subtitle: "Building Sustainable Tech for Solar Habitats",
-    category: "Eco-Tech",
-    date: "FEB 22, 2027",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600",
-    description:
-      "Earth is warming. The future is solar. Solaris Sprint asks builders, coders, and engineers to design systems that could power self-sustaining habitats on mars-analog terrain — using only solar energy and locally available materials. From battery optimization to smart home protocols, this competition demands the full stack of human ingenuity. The planet needs you to sprint.",
-    prizePool: "$10,000",
-    teamSize: "Solo / Team",
-    location: "Remote HQ",
-    highlights: [
-      "Hardware prototyping grants available",
-      "Partnership with SpaceTech labs",
-      "Carbon offset certification for finalists",
-      "Funded research expedition for winner",
-    ],
-    rules: [
-      { title: "Solar Dependency", content: "Designs must be 100% dependent on solar energy input. External power sources are only allowed for safety monitoring." },
-      { title: "Material Ethics", content: "Priority scoring for solutions that use locally sourced or highly recyclable materials in their construction." },
-      { title: "Physical Validation", content: "A functional physical prototype is required for finalists to demonstrate in the habitat test chamber." },
-      { title: "Intellectual Property", content: "All IP developed during the sprint remains the sole property of the participant(s) and their respective teams." },
-    ],
-  },
-  "dark-matter": {
-    title: "Dark Matter",
-    subtitle: "Detect Anomalies in Astronomical Data Streams",
-    category: "Deep Learning",
-    date: "MAR 10, 2027",
-    image: "https://images.unsplash.com/photo-1538370965046-79c0d6907d47?auto=format&fit=crop&q=80&w=1600",
-    description:
-      "The universe is hiding something. Dark Matter is an astrophysics-meets-ML challenge where participants analyze real telescope data streams to detect anomalous gravitational signatures — potential indicators of dark matter clustering. This is not a textbook problem. The dataset is messy, the signals are faint, and the false-positive penalty is severe. Only the most precise models will reach the podium.",
-    prizePool: "$7,500",
-    teamSize: "Team (2–6)",
-    location: "Remote",
-    highlights: [
-      "Real data from ISRO & ESA archives",
-      "Access to GPU clusters for training",
-      "Mentors from astrophysics research labs",
-      "Co-authorship on published findings",
-    ],
-    rules: [
-      { title: "Closed Dataset", content: "Only the provided spectral and visual datasets from ISRO/ESA archives may be used to train official entries." },
-      { title: "Compute Quota", content: "Each team is allocated a strict 200 GPU-hour compute budget on the photon-cloud cluster. External compute is banned." },
-      { title: "Weight Submission", content: "Finalists must submit model weights and architecture diagrams for audit and inference speed benchmarking." },
-      { title: "API Sanctions", content: "Calls to external LLM or data augmentation APIs during the judging phase are strictly prohibited." },
-    ],
-  },
-};
+import { useCompetition } from "@/hooks/api/useCompetitions";
 
 export default function CompetitionSlugPage() {
   const params = useParams();
   const slug = typeof params?.slug === "string" ? params.slug : "";
-  const comp = COMPETITIONS[slug];
+  
+  const { data: rawComp, isLoading } = useCompetition(slug);
+
+  const comp = rawComp ? {
+    title: rawComp.name || rawComp.title || "Untitled",
+    subtitle: rawComp.subtitle || rawComp.description?.slice(0, 100) + "..." || "Mission details are classified.",
+    category: rawComp.category || "General",
+    date: rawComp.date || (rawComp.startTime ? new Date(rawComp.startTime).toLocaleDateString() : "TBD"),
+    image: rawComp.posterPath || rawComp.image || "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+    description: rawComp.description || "No mission description available.",
+    prizePool: rawComp.prizePool || rawComp.bounty || "TBD",
+    teamSize: rawComp.teamSize || rawComp.crewSize || "Solo / Team",
+    location: rawComp.location || rawComp.venue || rawComp.sector || "Remote",
+    highlights: Array.isArray(rawComp.highlights) ? rawComp.highlights : [],
+    rules: Array.isArray(rawComp.rules) ? rawComp.rules : [
+      { title: "Standard Protocol", content: "Participants must adhere to the general event conduct and safety guidelines." },
+      { title: "Fair Play", content: "Any form of cheating or unauthorized assistance will result in immediate disqualification." }
+    ],
+  } : null;
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -259,11 +117,16 @@ export default function CompetitionSlugPage() {
     setIsDragging(false);
   };
 
-  const preventNavigationOnDrag = (e: React.MouseEvent) => {
-    if (isDragging) {
-      e.preventDefault();
-    }
-  };
+  if (isLoading) {
+    return (
+      <main className="h-screen w-full bg-[#F4F2EB] flex items-center justify-center text-[#2c2820]">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-[#2c2820]/20 border-t-[#E58B43] rounded-full animate-spin" />
+          <span className="font-mono text-sm tracking-widest uppercase opacity-60">Synchronizing...</span>
+        </div>
+      </main>
+    );
+  }
 
   if (!comp) {
     return (
@@ -370,7 +233,7 @@ export default function CompetitionSlugPage() {
           >
             <h3 className="text-[1.5rem] sm:text-[1.8rem] md:text-[2.3rem] lg:text-[2.8rem] font-bold uppercase mb-6 text-[#2c2820] pointer-events-none">Protocol Rules</h3>
             <ul className="list-disc pl-8 md:pl-10 space-y-3 text-[0.95rem] sm:text-[1.05rem] md:text-[1.2rem] lg:text-[1.4rem] leading-snug mb-8 md:mb-10 whitespace-normal text-[#4d473d] font-medium">
-              {comp.rules.slice(0, 3).map((rule, i) => (
+              {comp.rules.slice(0, 3).map((rule: any, i: number) => (
                 <li key={i} className="pl-2 pointer-events-none">
                   <span className="font-bold">{rule.title}:</span> {rule.content.length > 70 ? rule.content.slice(0, 70) + "..." : rule.content}
                 </li>

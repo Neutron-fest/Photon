@@ -333,7 +333,7 @@ function SignInContent() {
           <AuthInput
             label="Email Address"
             type="email"
-            placeholder="eg. explorer@neutron.io"
+            placeholder="eg. explorer@photon.io"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -427,7 +427,7 @@ function SignInContent() {
             <AuthInput
               label="Email Address"
               type="email"
-              placeholder="eg. explorer@neutron.io"
+              placeholder="eg. explorer@photon.io"
               value={forgotEmail}
               onChange={(e) => setForgotEmail(e.target.value)}
               required

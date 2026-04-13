@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import ProfileSwitcher from "./ProfileSwitcher";
 
 export const metadata = {
-  title: "Profile · Neutron",
-  description: "Your Neutron profile and competition dashboard.",
+  title: "Profile · Photon",
+  description: "Your Photon profile and competition dashboard.",
 };
 
 export default function Page() {

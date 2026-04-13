@@ -77,10 +77,40 @@ const COMPETITIONS = [
 const CARD_WIDTH = 250;
 const CARD_HEIGHT = 350;
 const RADIUS = 600;
-const TOTAL = COMPETITIONS.length;
-const ANGLE_STEP = 360 / TOTAL;
 
-export function CurvedGallery() {
+export interface GalleryItem {
+  title?: string;
+  name?: string;
+  image?: string;
+  posterPath?: string;
+  slug: string;
+  id?: string;
+  _id?: string;
+  category?: string;
+  date?: string;
+  startTime?: string;
+  startDate?: string;
+  details?: string;
+  description?: string;
+  prizePool?: string;
+  location?: string;
+  teamSize?: string;
+  [key: string]: any;
+}
+
+export function CurvedGallery({ 
+  items = [], 
+  basePath = "competitions",
+  isLoading = false 
+}: { 
+  items?: GalleryItem[];
+  basePath?: string;
+  isLoading?: boolean;
+}) {
+  const displayItems = items.length > 0 ? items : [];
+  const TOTAL = displayItems.length || 1;
+  const ANGLE_STEP = 360 / TOTAL;
+
   const rotationRef = useRef(0);
   const rawRotation = useMotionValue(0);
   const smoothRotation = useSpring(rawRotation, {
@@ -177,6 +207,23 @@ export function CurvedGallery() {
     }, 50);
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-full gap-4">
+        <div className="w-12 h-12 border-2 border-white/20 border-t-cyan-400 rounded-full animate-spin" />
+        <span className="font-mono text-[10px] tracking-[0.5em] text-white/40 uppercase">SYNCING WITH GRID...</span>
+      </div>
+    );
+  }
+
+  if (displayItems.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        <span className="font-mono text-[10px] tracking-[0.5em] text-white/40 uppercase">NO DATA DETECTED</span>
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden">
 
@@ -188,11 +235,11 @@ export function CurvedGallery() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="flex items-center gap-3 text-[10px] font-mono text-white/40 uppercase tracking-[0.5em]"
+            className="flex items-center gap-3 text-[10px] font-mono text-white/40 uppercase tracking-[0.5em] max-w-[90vw]"
           >
-            <span className="text-cyan-400/70">{COMPETITIONS[activeIdx].category}</span>
+            <span className="text-cyan-400/70">{displayItems[activeIdx]?.category || "Sector"}</span>
             <span className="w-0.5 h-0.5 rounded-full bg-white/20 inline-block" />
-            <span>{COMPETITIONS[activeIdx].details}</span>
+            <span className="truncate">{displayItems[activeIdx]?.details || displayItems[activeIdx]?.description || "No Intel"}</span>
             <span className="w-0.5 h-0.5 rounded-full bg-white/20 inline-block" />
           </motion.div>
         </AnimatePresence>
@@ -219,12 +266,13 @@ export function CurvedGallery() {
             left: "50%",
           }}
         >
-          {COMPETITIONS.map((comp, idx) => {
+          {displayItems.map((comp, idx) => {
             const angle = idx * ANGLE_STEP;
+            const itemId = comp.slug || comp.id || comp._id;
 
             return (
               <div
-                key={comp.slug}
+                key={itemId}
                 style={{
                   position: "absolute",
                   top: `-${cardHeight / 2}px`,
@@ -237,6 +285,7 @@ export function CurvedGallery() {
               >
                 <GalleryCard
                   {...comp}
+                  basePath={basePath}
                   idx={idx}
                   activeIdx={activeIdx}
                   isGlitching={isGlitching}
@@ -262,7 +311,7 @@ export function CurvedGallery() {
         </button>
 
         <div className="flex gap-3 items-center px-2">
-          {COMPETITIONS.map((_, i) => (
+          {displayItems.map((_, i) => (
             <button
               key={i}
               onClick={() => rotateTo(i)}
@@ -286,29 +335,28 @@ export function CurvedGallery() {
   );
 }
 
-type GalleryCardProps = {
-  title: string;
-  image: string;
-  slug: string;
-  category: string;
-  date: string;
-  prizePool?: string;
-  location?: string;
-  teamSize?: string;
+type GalleryCardProps = GalleryItem & {
   idx: number;
   activeIdx: number;
   isGlitching: boolean;
   smoothRotation: any;
   angleStep: number;
-  isDraggingRef: React.MutableRefObject<boolean>;
+  isDraggingRef: React.RefObject<boolean>;
+  basePath?: string;
 };
 
 function GalleryCard({
   title,
+  name,
   image,
+  posterPath,
   slug,
+  id,
+  _id,
   category,
   date,
+  startTime,
+  startDate,
   prizePool = "TBD",
   location = "Remote",
   teamSize = "Solo",
@@ -318,8 +366,14 @@ function GalleryCard({
   smoothRotation,
   angleStep,
   isDraggingRef,
+  basePath = "competitions",
 }: GalleryCardProps) {
   const isActive = idx === activeIdx;
+  
+  const displayTitle = title || name || "Untitled";
+  const displayImage = posterPath || image || "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa";
+  const displayDate = date || (startTime || startDate ? new Date(startTime || startDate || "").toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "TBD");
+  const itemId = slug || id || _id;
 
   const getDiff = (v: number) => {
     const diff = ((-v - idx * angleStep) % 360 + 360) % 360;
@@ -358,17 +412,17 @@ function GalleryCard({
       {isActive && (
         <>
           <div className="absolute inset-0 z-20 pointer-events-none mix-blend-screen opacity-[0.08]">
-            <img src={image} className="w-full h-full object-cover translate-x-[3px] saturate-200 hue-rotate-60" alt="" />
+            <img src={displayImage} className="w-full h-full object-cover translate-x-[3px] saturate-200 hue-rotate-60" alt="" />
           </div>
           <div className="absolute inset-0 z-20 pointer-events-none mix-blend-screen opacity-[0.08]">
-            <img src={image} className="w-full h-full object-cover -translate-x-[3px] saturate-200 hue-rotate-[-60deg]" alt="" />
+            <img src={displayImage} className="w-full h-full object-cover -translate-x-[3px] saturate-200 hue-rotate-[-60deg]" alt="" />
           </div>
         </>
       )}
 
       <Link
-        href={`/competitions/${slug}`}
-        className="block w-full h-full relative z-[5]"
+        href={`/${basePath}/${itemId}`}
+        className="block w-full h-full relative z-5"
         onClick={(e) => {
           if (isDraggingRef.current) e.preventDefault();
         }}
@@ -378,10 +432,11 @@ function GalleryCard({
           style={{ filter: useTransform(imgBrightness, (b) => `brightness(${b}) contrast(1.2)`) }}
         >
           <img
-            src={image}
-            alt={title}
+            src={displayImage}
+            alt={displayTitle}
             className="w-full h-full object-cover group-hover:scale-110 group-hover:animate-[vibrate_0.1s_infinite] transition-transform duration-700"
           />
+
         </motion.div>
 
         <div className="absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-50 transition-opacity duration-75 mix-blend-screen overflow-hidden">
@@ -429,11 +484,11 @@ function GalleryCard({
           <div className="h-px bg-linear-to-r from-white/20 via-white/10 to-transparent mb-3" />
 
           <h2 className="text-[1.35rem] font-black uppercase tracking-tight leading-tight mb-1 group-hover:text-cyan-400 group-hover:animate-[vibrate_0.1s_infinite] transition-colors duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] relative z-30">
-            {title}
+            {displayTitle}
           </h2>
 
           <p className="text-[7px] font-mono text-white/40 uppercase tracking-[0.4em] mb-2">
-            Deploy: {date}
+            Deploy: {displayDate}
           </p>
         </div>
 

@@ -1730,7 +1730,7 @@ function CalendarPanel({
     const isApril = dateStr.toLowerCase().includes("apr");
     const month = isApril ? "04" : "03";
     const dateParam = `2026${month}${day.padStart(2, "0")}T100000Z/2026${month}${day.padStart(2, "0")}T120000Z`;
-    return `${baseUrl}&text=${text}&dates=${dateParam}&details=Neutron+Event+Registry`;
+    return `${baseUrl}&text=${text}&dates=${dateParam}&details=Photon+Event+Registry`;
   };
 
   const schedule = [
@@ -2637,16 +2637,6 @@ export default function ProfileMobPage() {
         </div>
 
         <header className="fixed top-0 left-0 right-0 z-50 h-14 border-b border-white/6 backdrop-blur-xl bg-[#030303]/70 flex items-center px-6 gap-4">
-          <Link href="/" className="shrink-0 flex items-center gap-2">
-            <img
-              src="https://ik.imagekit.io/yatharth/neutron_clean.png"
-              alt="Neutron"
-              className="h-10 w-30 opacity-90"
-            />
-            <span className="font-bold text-white tracking-wide hidden sm:block">
-              Neutron
-            </span>
-          </Link>
           <div className="flex-1" />
 
           <button

@@ -229,16 +229,18 @@ export function useHeroCanvas(
 
       ctx.font = '18px "Space Mono", monospace';
       ctx.textAlign = 'left';
-      quantumState.slice(0, 15).forEach((line, i) => {
-        const txt = line.full.substring(0, line.charIndex);
-        const py = H - 550 + i * 30;
-        ctx.fillStyle = line.color;
-        ctx.globalAlpha = 0.25;
-        ctx.fillText(txt, 51, py);
-        ctx.fillText(txt, 49, py);
-        ctx.globalAlpha = 0.8;
-        ctx.fillText(txt, 50, py);
-      });
+      if (W > 768) {
+        quantumState.slice(0, 15).forEach((line, i) => {
+          const txt = line.full.substring(0, line.charIndex);
+          const py = H - 550 + i * 30;
+          ctx.fillStyle = line.color;
+          ctx.globalAlpha = 0.25;
+          ctx.fillText(txt, 51, py);
+          ctx.fillText(txt, 49, py);
+          ctx.globalAlpha = 0.8;
+          ctx.fillText(txt, 50, py);
+        });
+      }
 
       ctx.font = '14px "Space Mono", monospace';
       ctx.textAlign = 'right';
