@@ -30,7 +30,13 @@ import { useAuth } from "@/contexts/AuthContext";
 import {
   useAcceptTeamInvite,
   useDeclineTeamInvite,
+  useLeaveTeam,
   useMyRegistrations,
+  useRemovePendingTeamInvite,
+  useRemoveTeamMember,
+  useSendTeamInvite,
+  useTeamDetails,
+  useTransferTeamLeadership,
   usePendingTeamInvites,
 } from "@/hooks/api/usePublicRegistration";
 import { useUpdateUserProfile } from "@/hooks/api/useUserProfile";
@@ -68,6 +74,7 @@ interface EnrolledItem {
   kind: "competition" | "event";
   id: string;
   slug: string;
+  teamId?: string;
   title: string;
   image: string;
   category: string;
@@ -163,11 +170,24 @@ function timeAgo(value?: string | Date): string {
   return `${Math.floor(diffHr / 24)}d ago`;
 }
 
-function isTeamEvent(teamSize: string): boolean {
-  const match = teamSize.match(/\d+/g);
-  if (!match) return false;
-  const max = parseInt(match[match.length - 1]);
-  return max > 1;
+function parseTeamCapacity(teamSize: string): number | null {
+  const normalized = String(teamSize || "")
+    .trim()
+    .toLowerCase();
+  if (!normalized) return 1;
+
+  const match = normalized.match(/\d+/g);
+  if (match) {
+    const parsed = parseInt(match[match.length - 1], 10);
+    return Number.isFinite(parsed) ? parsed : 1;
+  }
+
+  if (/\bduo\b/.test(normalized)) return 2;
+  if (/\btrio\b/.test(normalized)) return 3;
+  if (/\bquartet\b|\bquad\b/.test(normalized)) return 4;
+  if (/(team|squad|crew|group)/.test(normalized)) return null;
+
+  return 1;
 }
 
 function Toast({
@@ -659,18 +679,64 @@ function TeamModal({
   onClose: () => void;
 }) {
   const { showToast } = useDashboard();
+  const { user } = useAuth();
   const [inviteEmail, setInviteEmail] = useState("");
-  const [members, setMembers] = useState<TeamMember[]>(item.team || []);
-
-  const maxStr = item.teamSize.match(/\d+/g);
-  const maxMembers = maxStr ? parseInt(maxStr[maxStr.length - 1]) : 1;
-  const canAdd = members.length < maxMembers;
-
   const [inviteError, setInviteError] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [memberToRemove, setMemberToRemove] = useState<TeamMember | null>(null);
 
-  const handleInvite = () => {
+  const teamId = item.teamId || "";
+  const teamDetailsQuery = useTeamDetails(teamId, Boolean(teamId));
+  const sendInviteMutation = useSendTeamInvite();
+  const transferLeaderMutation = useTransferTeamLeadership();
+  const removeMemberMutation = useRemoveTeamMember();
+  const removePendingInviteMutation = useRemovePendingTeamInvite();
+  const leaveTeamMutation = useLeaveTeam();
+
+  const teamDetails = teamDetailsQuery.data;
+  const isTeamLeader =
+    Boolean(teamDetails?.leaderId) &&
+    String(teamDetails.leaderId) === String(user?.id || "");
+
+  const members: TeamMember[] = Array.isArray(teamDetails?.members)
+    ? teamDetails.members.map((entry: any) => {
+        const memberUser = entry?.user || {};
+        const teamMember = entry?.teamMember || {};
+        const isLeader =
+          Boolean(teamMember?.isLeader) ||
+          String(memberUser?.id || "") === String(teamDetails?.leaderId || "");
+
+        return {
+          id: String(memberUser?.id || teamMember?.userId || ""),
+          name: memberUser?.name || memberUser?.email || "Member",
+          email: memberUser?.email || "",
+          role: isLeader ? "leader" : "member",
+          status: "confirmed",
+          avatar: memberUser?.image || COMMON_AVATAR_URL,
+        };
+      })
+    : [];
+
+  const pendingInvites = Array.isArray(teamDetails?.invites)
+    ? teamDetails.invites.filter((invite: any) => invite?.status === "PENDING")
+    : [];
+
+  const rejectedRegistrations = Array.isArray(
+    teamDetails?.rejectedRegistrations,
+  )
+    ? teamDetails.rejectedRegistrations
+    : [];
+
+  const parsedMaxMembers = parseTeamCapacity(item.teamSize);
+  const maxMembers =
+    parsedMaxMembers && parsedMaxMembers > 1 ? parsedMaxMembers : null;
+  const occupiedSlots = members.length + pendingInvites.length;
+  const canAdd =
+    Boolean(teamId) &&
+    isTeamLeader &&
+    (maxMembers === null || occupiedSlots < maxMembers);
+
+  const handleInvite = async () => {
     setInviteError("");
 
     const val = inviteEmail.trim();
@@ -687,8 +753,18 @@ function TeamModal({
       return;
     }
 
-    showToast(`Invite sent to ${val}.`, "success");
-    setInviteEmail("");
+    try {
+      await sendInviteMutation.mutateAsync({ teamId, invitedEmail: val });
+      showToast(`Invite sent to ${val}.`, "success");
+      setInviteEmail("");
+      await teamDetailsQuery.refetch();
+    } catch (error: any) {
+      setInviteError(
+        error?.response?.data?.message ||
+          error?.message ||
+          "Failed to send invite.",
+      );
+    }
   };
 
   return (
@@ -712,7 +788,7 @@ function TeamModal({
               {item.title}
             </h2>
             <p className="text-xs text-white/30 mt-1 font-mono uppercase tracking-widest">
-              Team Management &bull; {members.length}/{maxMembers} Slots
+              Team Management &bull; {occupiedSlots}/{maxMembers ?? "?"} Slots
             </p>
           </div>
           <button
@@ -729,6 +805,11 @@ function TeamModal({
             <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/20 font-mono">
               Active Members
             </h3>
+            {teamDetailsQuery.isLoading ? (
+              <div className="py-6 flex justify-center">
+                <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+              </div>
+            ) : null}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {members.map((member) => (
                 <div
@@ -737,7 +818,7 @@ function TeamModal({
                 >
                   <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10 shrink-0">
                     <img
-                      src={member.avatar}
+                      src={member.avatar || COMMON_AVATAR_URL}
                       alt={member.name}
                       className="w-full h-full object-cover"
                     />
@@ -750,14 +831,39 @@ function TeamModal({
                       {member.role}
                     </p>
                   </div>
-                  {member.role !== "leader" && (
-                    <button
-                      onClick={() => setMemberToRemove(member)}
-                      className="w-8 h-8 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/20 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center hover:bg-rose-500/20"
-                    >
-                      <Trash2 size={14} />
-                    </button>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {isTeamLeader && member.role !== "leader" && (
+                      <>
+                        <button
+                          onClick={async () => {
+                            if (!teamId) return;
+                            try {
+                              await transferLeaderMutation.mutateAsync({
+                                teamId,
+                                newLeaderId: member.id,
+                              });
+                              showToast("Leadership transferred.", "success");
+                              await teamDetailsQuery.refetch();
+                            } catch {
+                              showToast(
+                                "Failed to transfer leadership.",
+                                "error",
+                              );
+                            }
+                          }}
+                          className="px-2.5 py-1 rounded-md bg-white/10 border border-white/15 text-[9px] uppercase tracking-wider text-white/70 hover:text-white"
+                        >
+                          Make Lead
+                        </button>
+                        <button
+                          onClick={() => setMemberToRemove(member)}
+                          className="w-8 h-8 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/20 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center hover:bg-rose-500/20"
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      </>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -789,12 +895,19 @@ function TeamModal({
                       Cancel
                     </button>
                     <button
-                      onClick={() => {
-                        setMembers((prev) =>
-                          prev.filter((m) => m.id !== memberToRemove.id),
-                        );
-                        showToast(`${memberToRemove.name} removed.`, "info");
-                        setMemberToRemove(null);
+                      onClick={async () => {
+                        if (!teamId) return;
+                        try {
+                          await removeMemberMutation.mutateAsync({
+                            teamId,
+                            memberId: memberToRemove.id,
+                          });
+                          showToast(`${memberToRemove.name} removed.`, "info");
+                          setMemberToRemove(null);
+                          await teamDetailsQuery.refetch();
+                        } catch {
+                          showToast("Failed to remove member.", "error");
+                        }
                       }}
                       className="flex-1 py-3 rounded-xl bg-rose-500 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-rose-600 transition-all"
                     >
@@ -815,7 +928,11 @@ function TeamModal({
               <span
                 className={`text-[9px] uppercase tracking-widest font-mono ${canAdd ? "text-emerald-400" : "text-rose-400"}`}
               >
-                {canAdd ? "Available Slots Open" : "Limit Reached"}
+                {!isTeamLeader
+                  ? "Leader Access Required"
+                  : canAdd
+                    ? "Available Slots Open"
+                    : "Limit Reached"}
               </span>
             </div>
 
@@ -833,15 +950,19 @@ function TeamModal({
                   onChange={(e) => setInviteEmail(e.target.value)}
                   onFocus={() => setIsFocused(true)}
                   onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-                  disabled={!canAdd}
+                  disabled={!canAdd || sendInviteMutation.isPending}
                   className="bg-transparent border-none outline-none flex-1 py-3 text-sm text-white placeholder:text-white/10 font-medium"
                 />
                 <button
                   onClick={() => handleInvite()}
-                  disabled={!canAdd || !inviteEmail.trim()}
+                  disabled={
+                    !canAdd ||
+                    !inviteEmail.trim() ||
+                    sendInviteMutation.isPending
+                  }
                   className="h-10 px-6 rounded-2xl bg-white text-black text-[10px] font-extrabold uppercase tracking-widest hover:bg-white/90 transition-all disabled:opacity-20 disabled:grayscale"
                 >
-                  Send
+                  {sendInviteMutation.isPending ? "Sending..." : "Send"}
                 </button>
               </div>
             </div>
@@ -851,6 +972,144 @@ function TeamModal({
               </p>
             )}
           </div>
+
+          {rejectedRegistrations.length > 0 ? (
+            <div className="space-y-4 pt-4 border-t border-rose-500/20">
+              <div className="flex items-center justify-between">
+                <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-rose-300 font-mono">
+                  Rejected Members
+                </h3>
+                <span className="text-[9px] uppercase tracking-widest font-mono text-rose-300">
+                  Needs review
+                </span>
+              </div>
+              <div className="space-y-2">
+                {rejectedRegistrations.map((entry: any) => {
+                  const rejectedUser = entry?.user || {};
+                  const reason =
+                    entry?.registration?.rejectionReason ||
+                    "Registration was rejected.";
+                  const memberId = String(rejectedUser?.id || "");
+
+                  return (
+                    <div
+                      key={entry?.registration?.id || memberId}
+                      className="flex items-center justify-between p-3 rounded-xl border border-rose-500/30 bg-rose-500/10"
+                    >
+                      <div className="min-w-0 pr-4">
+                        <p className="text-sm font-semibold text-white truncate">
+                          {rejectedUser?.name ||
+                            rejectedUser?.email ||
+                            "Rejected user"}
+                        </p>
+                        <p className="text-[10px] text-rose-200/70 uppercase tracking-widest font-mono mt-0.5 truncate">
+                          {reason}
+                        </p>
+                      </div>
+                      {isTeamLeader && memberId ? (
+                        <button
+                          type="button"
+                          onClick={async () => {
+                            if (!teamId) return;
+                            try {
+                              await removeMemberMutation.mutateAsync({
+                                teamId,
+                                memberId,
+                              });
+                              showToast(
+                                "Rejected user removed from team.",
+                                "info",
+                              );
+                              await teamDetailsQuery.refetch();
+                            } catch {
+                              showToast(
+                                "Failed to remove rejected user.",
+                                "error",
+                              );
+                            }
+                          }}
+                          className="px-3 py-1.5 rounded-lg border border-rose-300/30 text-[10px] font-mono uppercase tracking-wider text-rose-200 hover:bg-rose-500/15"
+                        >
+                          Remove
+                        </button>
+                      ) : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
+
+          <div className="space-y-3 pt-4 border-t border-white/5">
+            <h3 className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/20 font-mono">
+              Pending Invites
+            </h3>
+            {pendingInvites.length === 0 ? (
+              <p className="text-xs text-white/40">No pending invites.</p>
+            ) : (
+              <div className="space-y-2">
+                {pendingInvites.map((invite: any) => (
+                  <div
+                    key={invite.id}
+                    className="flex items-center justify-between p-3 rounded-xl border border-white/10 bg-white/3"
+                  >
+                    <div>
+                      <p className="text-xs text-white font-medium">
+                        {invite.invitedEmail}
+                      </p>
+                      <p className="text-[10px] text-white/40 font-mono">
+                        Expires {formatDisplayDate(invite.expiresAt)}
+                      </p>
+                    </div>
+                    {isTeamLeader && (
+                      <button
+                        type="button"
+                        onClick={async () => {
+                          if (!teamId) return;
+                          try {
+                            await removePendingInviteMutation.mutateAsync({
+                              teamId,
+                              inviteId: invite.id,
+                            });
+                            showToast("Pending invite removed.", "info");
+                            await teamDetailsQuery.refetch();
+                          } catch {
+                            showToast(
+                              "Failed to remove pending invite.",
+                              "error",
+                            );
+                          }
+                        }}
+                        className="px-3 py-1.5 rounded-lg border border-rose-400/30 text-[10px] font-mono uppercase tracking-wider text-rose-300 hover:bg-rose-500/10"
+                      >
+                        Remove
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {!isTeamLeader && teamId ? (
+            <div className="pt-4 border-t border-white/5">
+              <button
+                type="button"
+                onClick={async () => {
+                  try {
+                    await leaveTeamMutation.mutateAsync(teamId);
+                    showToast("You left the team.", "info");
+                    onClose();
+                  } catch {
+                    showToast("Failed to leave team.", "error");
+                  }
+                }}
+                className="w-full py-3 rounded-xl border border-rose-400/30 text-rose-300 text-[10px] font-bold uppercase tracking-widest hover:bg-rose-500/10"
+              >
+                Leave Team
+              </button>
+            </div>
+          ) : null}
         </div>
 
         <div className="px-8 py-6 bg-white/2 border-t border-white/5 flex items-center justify-between">
@@ -871,7 +1130,35 @@ function TeamModal({
 
 function EnrolledCard({ item, href }: { item: EnrolledItem; href: string }) {
   const [showTeam, setShowTeam] = useState(false);
-  const hasTeam = isTeamEvent(item.teamSize);
+  const hasTeam = Boolean(item.teamId);
+  const teamDetailsQuery = useTeamDetails(item.teamId || "", hasTeam);
+
+  const cardTeamMembers: TeamMember[] = hasTeam
+    ? Array.isArray(teamDetailsQuery.data?.members)
+      ? teamDetailsQuery.data.members.map((entry: any) => {
+          const memberUser = entry?.user || {};
+          const teamMember = entry?.teamMember || {};
+          const isLeader =
+            Boolean(teamMember?.isLeader) ||
+            String(memberUser?.id || "") ===
+              String(teamDetailsQuery.data?.leaderId || "");
+
+          return {
+            id: String(memberUser?.id || teamMember?.userId || ""),
+            name: memberUser?.name || memberUser?.email || "Member",
+            email: memberUser?.email || "",
+            role: isLeader ? "leader" : "member",
+            status: "confirmed",
+            avatar: memberUser?.image || COMMON_AVATAR_URL,
+          };
+        })
+      : []
+    : [];
+
+  const fallbackTeamMembers = Array.isArray(item.team) ? item.team : [];
+  const visibleTeamMembers =
+    cardTeamMembers.length > 0 ? cardTeamMembers : fallbackTeamMembers;
+  const visibleTeamCount = visibleTeamMembers.length;
 
   const statusColor: Record<string, string> = {
     open: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
@@ -917,28 +1204,28 @@ function EnrolledCard({ item, href }: { item: EnrolledItem; href: string }) {
               <div className="flex items-center gap-2">
                 {/* Avatar stack */}
                 <div className="flex -space-x-2">
-                  {(item.team || []).slice(0, 4).map((m) => (
+                  {visibleTeamMembers.slice(0, 4).map((m) => (
                     <div
                       key={m.id || m.name}
                       className="w-6 h-6 rounded-full ring-1 ring-black/50 overflow-hidden bg-white/10"
                       title={m.name}
                     >
                       <img
-                        src={m.avatar}
+                        src={m.avatar || COMMON_AVATAR_URL}
                         alt={m.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
                   ))}
-                  {(item.team || []).length > 4 && (
+                  {visibleTeamCount > 4 && (
                     <span className="w-6 h-6 rounded-full bg-white/10 border border-white/20 text-[10px] text-white/70 grid place-items-center font-mono">
-                      +{(item.team || []).length - 4}
+                      +{visibleTeamCount - 4}
                     </span>
                   )}
                 </div>
                 <span className="text-[11px] text-white/45 font-mono">
-                  {(item.team || []).length} member
-                  {(item.team || []).length === 1 ? "" : "s"}
+                  {visibleTeamCount} member
+                  {visibleTeamCount === 1 ? "" : "s"}
                 </span>
               </div>
               <button
@@ -1359,7 +1646,7 @@ function CompetitionsPanel({ competitions }: { competitions: EnrolledItem[] }) {
   const { showToast } = useDashboard();
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full">
-      <div className="lg:col-span-8">
+      <div className="lg:col-span-12">
         <DashboardWidget
           title="My Competitions"
           onManage={() =>
@@ -1390,46 +1677,6 @@ function CompetitionsPanel({ competitions }: { competitions: EnrolledItem[] }) {
                 ))}
               </div>
             )}
-          </div>
-        </DashboardWidget>
-      </div>
-
-      <div className="lg:col-span-4">
-        <DashboardWidget
-          title="Stats & Filters"
-          onManage={() =>
-            showToast("Custom analytics views are being built.", "info")
-          }
-        >
-          <div className="space-y-4">
-            {[
-              { label: "Active", value: "3", color: "emerald-400" },
-              { label: "Completed", value: "2", color: "blue-400" },
-              { label: "Rank", value: "Top 1%", color: "amber-400" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-white/3 border border-white/5 rounded-2xl p-4 flex items-center justify-between group cursor-pointer active:bg-white/5 transition-colors"
-                onClick={() =>
-                  showToast(
-                    `Detailed stats for ${stat.label} coming soon.`,
-                    "info",
-                  )
-                }
-              >
-                <div>
-                  <p className="text-[10px] uppercase font-bold text-white/20 tracking-widest font-mono">
-                    {stat.label}
-                  </p>
-                  <p className="text-xl font-bold text-white mt-1">
-                    {stat.value}
-                  </p>
-                </div>
-                <div
-                  className={`w-1.5 h-6 rounded-full bg-${stat.color} opacity-40 shadow-[0_0_12px_rgba(255,255,255,0.1)] group-hover:opacity-100 transition-opacity`}
-                ></div>
-              </div>
-            ))}
           </div>
         </DashboardWidget>
       </div>
@@ -2289,6 +2536,7 @@ export default function ProfilePage() {
         kind,
         id,
         slug: id,
+        teamId: entry?.team?.id || entry?.registration?.teamId || undefined,
         title: competition?.title || "",
         image: competition?.posterPath || "",
         category: competition?.category || competition?.type || "",
@@ -2296,10 +2544,21 @@ export default function ProfilePage() {
           competition?.startTime || competition?.createdAt,
         ),
         status: toDashboardStatus(competition?.status),
-        teamSize: formatTeamSize(
-          competition?.minTeamSize,
-          competition?.maxTeamSize,
-        ),
+        teamSize:
+          entry?.team?.id || entry?.registration?.teamId
+            ? formatTeamSize(
+                competition?.minTeamSize,
+                competition?.maxTeamSize,
+              ) === "1 Member"
+              ? "Team"
+              : formatTeamSize(
+                  competition?.minTeamSize,
+                  competition?.maxTeamSize,
+                )
+            : formatTeamSize(
+                competition?.minTeamSize,
+                competition?.maxTeamSize,
+              ),
         team: [],
       };
     })
@@ -2670,16 +2929,36 @@ export default function ProfilePage() {
                   {active === "inbox" && (
                     <InboxPanel
                       invites={inboxInvites}
-                      onAccept={(inviteToken) => {
-                        acceptInviteMutation.mutate(
-                          { inviteToken },
-                          {
-                            onSuccess: () =>
-                              showToast("Invite accepted.", "success"),
-                            onError: () =>
-                              showToast("Failed to accept invite.", "error"),
-                          },
-                        );
+                      onAccept={async (inviteToken) => {
+                        if (!inviteToken) {
+                          showToast("Invalid invite token.", "error");
+                          return;
+                        }
+
+                        try {
+                          const data = await acceptInviteMutation.mutateAsync({
+                            inviteToken,
+                          });
+
+                          const competitionId = data?.competition?.id;
+                          const teamId = data?.team?.id;
+
+                          showToast("Invite accepted.", "success");
+
+                          if (competitionId && teamId) {
+                            router.push(
+                              `/competitions/${competitionId}/register?mode=member&teamId=${teamId}`,
+                            );
+                            return;
+                          }
+
+                          showToast(
+                            "Could not open member form automatically.",
+                            "info",
+                          );
+                        } catch {
+                          showToast("Failed to accept invite.", "error");
+                        }
                       }}
                       onDecline={(inviteToken) => {
                         declineInviteMutation.mutate(

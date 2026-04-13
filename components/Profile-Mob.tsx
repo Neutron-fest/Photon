@@ -170,11 +170,29 @@ function timeAgo(value?: string | Date): string {
   return `${Math.floor(diffHr / 24)}d ago`;
 }
 
+function parseTeamCapacity(teamSize: string): number | null {
+  const normalized = String(teamSize || "")
+    .trim()
+    .toLowerCase();
+  if (!normalized) return 1;
+
+  const match = normalized.match(/\d+/g);
+  if (match) {
+    const parsed = parseInt(match[match.length - 1], 10);
+    return Number.isFinite(parsed) ? parsed : 1;
+  }
+
+  if (/\bduo\b/.test(normalized)) return 2;
+  if (/\btrio\b/.test(normalized)) return 3;
+  if (/\bquartet\b|\bquad\b/.test(normalized)) return 4;
+  if (/(team|squad|crew|group)/.test(normalized)) return null;
+
+  return 1;
+}
+
 function isTeamEvent(teamSize: string): boolean {
-  const match = teamSize.match(/\d+/g);
-  if (!match) return false;
-  const max = parseInt(match[match.length - 1]);
-  return max > 1;
+  const capacity = parseTeamCapacity(teamSize);
+  return capacity === null || capacity > 1;
 }
 
 function Toast({
@@ -698,8 +716,9 @@ function TeamModal({
   const [isFocused, setIsFocused] = useState(false);
   const [memberToRemove, setMemberToRemove] = useState<TeamMember | null>(null);
 
-  const maxStr = item.teamSize.match(/\d+/g);
-  const maxMembers = maxStr ? parseInt(maxStr[maxStr.length - 1]) : 1;
+  const parsedMaxMembers = parseTeamCapacity(item.teamSize);
+  const maxMembers =
+    parsedMaxMembers && parsedMaxMembers > 1 ? parsedMaxMembers : null;
   const teamId = item.teamId || "";
 
   const teamDetailsQuery = useTeamDetails(teamId, Boolean(teamId));
@@ -743,7 +762,8 @@ function TeamModal({
     : [];
 
   const occupiedSlots = members.length + pendingInvites.length;
-  const canAdd = isTeamLeader && occupiedSlots < maxMembers;
+  const canAdd =
+    isTeamLeader && (maxMembers === null || occupiedSlots < maxMembers);
 
   const handleInvite = async () => {
     setInviteError("");
@@ -797,7 +817,7 @@ function TeamModal({
               {item.title}
             </h2>
             <p className="text-xs text-white/30 mt-1 font-mono uppercase tracking-widest">
-              Team Management &bull; {occupiedSlots}/{maxMembers} Slots
+              Team Management &bull; {occupiedSlots}/{maxMembers ?? "?"} Slots
             </p>
           </div>
           <button
@@ -2520,10 +2540,21 @@ export default function ProfileMobPage() {
           competition?.startTime || competition?.createdAt,
         ),
         status: toDashboardStatus(competition?.status),
-        teamSize: formatTeamSize(
-          competition?.minTeamSize,
-          competition?.maxTeamSize,
-        ),
+        teamSize:
+          entry?.team?.id || entry?.registration?.teamId
+            ? formatTeamSize(
+                competition?.minTeamSize,
+                competition?.maxTeamSize,
+              ) === "1 Member"
+              ? "Team"
+              : formatTeamSize(
+                  competition?.minTeamSize,
+                  competition?.maxTeamSize,
+                )
+            : formatTeamSize(
+                competition?.minTeamSize,
+                competition?.maxTeamSize,
+              ),
         team: [],
       };
     })

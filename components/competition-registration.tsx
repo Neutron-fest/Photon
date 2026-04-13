@@ -21,6 +21,10 @@ function parseTeamSize(sizeStr: string): number[] {
     .toLowerCase();
   if (!normalized) return [1];
   if (normalized === "solo" || normalized === "individual") return [1];
+  if (/\bduo\b/.test(normalized)) return [2];
+  if (/\btrio\b/.test(normalized)) return [3];
+  if (/\bquartet\b|\bquad\b/.test(normalized)) return [4];
+  if (/(team|squad|crew|group)/.test(normalized)) return [2];
 
   const match = sizeStr.match(/(\d+)(?:\s*-\s*(\d+))?/);
   if (!match) return [1];
@@ -57,7 +61,8 @@ function inferParticipationModes(
   const hasSoloOption = parsedTeamOptions.includes(1);
   const hasTeamOption = parsedTeamOptions.some((value) => value > 1);
 
-  const allowsSolo = mentionsSolo || hasSoloOption || !hasTeamOption;
+  const allowsSolo =
+    mentionsSolo || hasSoloOption || (!mentionsTeam && !hasTeamOption);
   const allowsTeam = mentionsTeam || hasTeamOption;
 
   if (!allowsSolo && !allowsTeam) {

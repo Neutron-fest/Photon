@@ -758,7 +758,7 @@ export default function PublicUserProfilePage() {
     if (!token) return;
     try {
       setInviteActionToken(token);
-      const result = await acceptInvite.mutateAsync(token);
+      const result = await acceptInvite.mutateAsync({ inviteToken: token });
       enqueueSnackbar("Invite accepted. Complete your member form.", {
         variant: "success",
       });
