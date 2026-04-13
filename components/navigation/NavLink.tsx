@@ -33,10 +33,14 @@ export function NavLink({ href, icon: Icon, label, onClick }:any) {
         </ListItemIcon>
         <ListItemText
           primary={label}
-          primaryTypographyProps={{
-            fontSize: "0.875rem",
-            fontWeight: isActive ? 600 : 500,
-            color: isActive ? "#fff" : "#a1a1aa",
+          slotProps={{
+            primary: {
+              sx: {
+                fontSize: "0.875rem",
+                fontWeight: isActive ? 600 : 500,
+                color: isActive ? "#fff" : "#a1a1aa",
+              },
+            },
           }}
         />
       </ListItemButton>

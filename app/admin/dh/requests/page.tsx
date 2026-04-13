@@ -699,10 +699,12 @@ export default function MyRequestsPage() {
         onClose={() => setDetailDialogOpen(false)}
         maxWidth="sm"
         fullWidth
-        PaperProps={{
-          sx: {
-            background: "#111",
-            border: "1px solid rgba(255,255,255,0.1)",
+        slotProps={{
+          paper: {
+            sx: {
+              background: "#111",
+              border: "1px solid rgba(255,255,255,0.1)",
+            },
           },
         }}
       >

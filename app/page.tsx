@@ -240,7 +240,7 @@ export default function Home() {
         </div>
       </div>
 
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes flash {
           0%, 100% { opacity: 0.7; }
           50% { opacity: 0; }
@@ -275,7 +275,7 @@ export default function Home() {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(6px); }
         }
-      `}</style>
+      ` }} />
     </>
   );
 }

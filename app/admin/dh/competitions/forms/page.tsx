@@ -431,7 +431,7 @@ function PreviewDialog({ open, onClose, formTitle, fields }: any) {
       onClose={onClose}
       fullWidth
       maxWidth="md"
-      PaperProps={{ sx: dialogPaperSx }}
+      slotProps={{ paper: { sx: dialogPaperSx } }}
     >
       <Box
         sx={{
@@ -891,13 +891,15 @@ function FormBuilderDialog({
         onClose={requestClose}
         fullWidth
         maxWidth="lg"
-        PaperProps={{
-          sx: {
-            ...dialogPaperSx,
-            height: "90vh",
-            maxHeight: "90vh",
-            display: "flex",
-            flexDirection: "column",
+        slotProps={{
+          paper: {
+            sx: {
+              ...dialogPaperSx,
+              height: "90vh",
+              maxHeight: "90vh",
+              display: "flex",
+              flexDirection: "column",
+            },
           },
         }}
       >
@@ -1047,7 +1049,7 @@ function FormBuilderDialog({
                       setErrorText("");
                       setHasUnsavedChanges(true);
                     }}
-                    InputLabelProps={{ shrink: true }}
+                    slotProps={{ inputLabel: { shrink: true } }}
                     sx={inputSx}
                   />
 
@@ -1063,7 +1065,7 @@ function FormBuilderDialog({
                       setErrorText("");
                       setHasUnsavedChanges(true);
                     }}
-                    InputLabelProps={{ shrink: true }}
+                    slotProps={{ inputLabel: { shrink: true } }}
                     helperText={
                       isClosesAtLocked
                         ? "Locked to linked competition registration deadline"

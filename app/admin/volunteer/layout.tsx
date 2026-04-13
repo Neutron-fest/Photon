@@ -168,12 +168,14 @@ function SidebarContent({ user, pathname, onLogout, onClose }: any) {
                 </ListItemIcon>
                 <ListItemText
                   primary={name}
-                  primaryTypographyProps={{
-                    sx: {
-                      fontSize: 13,
-                      fontFamily: "'Syne', sans-serif",
-                      fontWeight: active ? 600 : 400,
-                      color: active ? "#e9d5ff" : "rgba(255,255,255,0.55)",
+                  slotProps={{
+                    primary: {
+                      sx: {
+                        fontSize: 13,
+                        fontFamily: "'Syne', sans-serif",
+                        fontWeight: active ? 600 : 400,
+                        color: active ? "#e9d5ff" : "rgba(255,255,255,0.55)",
+                      },
                     },
                   }}
                 />
@@ -328,8 +330,8 @@ export default function VolunteerLayout({ children }: any) {
         <Drawer
           open={mobileOpen}
           onClose={() => setMobileOpen(false)}
-          PaperProps={{
-            sx: { width: SIDEBAR_WIDTH, background: "transparent" },
+          slotProps={{
+            paper: { sx: { width: SIDEBAR_WIDTH, background: "transparent" } },
           }}
         >
           <Box sx={{ position: "absolute", top: 10, right: 10, zIndex: 1 }}>

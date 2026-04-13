@@ -2523,13 +2523,15 @@ function DarkDialog({ open, onClose, title, children }: any) {
       onClose={onClose}
       maxWidth="sm"
       fullWidth
-      PaperProps={{
-        sx: {
-          background: "#0e0e0e",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "14px",
-          boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
-          p: 0,
+      slotProps={{
+        paper: {
+          sx: {
+            background: "#0e0e0e",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "14px",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+            p: 0,
+          },
         },
       }}
     >

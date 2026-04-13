@@ -168,14 +168,16 @@ function QualificationPopover({
       onClose={onClose}
       anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       transformOrigin={{ vertical: "top", horizontal: "center" }}
-      PaperProps={{
-        sx: {
-          background: "#111",
-          border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: "10px",
-          overflow: "hidden",
-          minWidth: 160,
-          boxShadow: "0 16px 40px rgba(0,0,0,0.7)",
+      slotProps={{
+        paper: {
+          sx: {
+            background: "#111",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: "10px",
+            overflow: "hidden",
+            minWidth: 160,
+            boxShadow: "0 16px 40px rgba(0,0,0,0.7)",
+          },
         },
       }}
     >

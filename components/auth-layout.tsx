@@ -14,20 +14,12 @@ interface AuthLayoutProps {
 export default function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
   return (
     <div className="min-h-screen w-full flex bg-[#050505] text-white selection:bg-amber-900/30 relative overflow-hidden">
-      {/* Universal Page Frame */}
-      <div className="fixed inset-0 z-50 pointer-events-none hidden md:block">
-        <img 
-          src="https://ik.imagekit.io/yatharth/AUTH_FRAME.png" 
-          alt="Page Frame" 
-          className="w-full h-full object-fill opacity-60"
-        />
-      </div>
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center p-12">
         <div className="absolute inset-0 z-0">
           <Grainient
-            color1="#5d4037"
-            color2="#3e2723"
-            color3="#1a0f0a"
+            color1="#6b02ed"
+            color2="#6738ff"
+            color3="#a004de"
             timeSpeed={0.8}
             colorBalance={0}
             warpStrength={1}

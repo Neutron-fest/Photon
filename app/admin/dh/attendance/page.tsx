@@ -198,11 +198,13 @@ function SAGateVolunteerDialog({ open, onClose }: any) {
       onClose={onClose}
       fullWidth
       maxWidth="md"
-      PaperProps={{
-        sx: {
-          background: "#0c0c0c",
-          border: "1px solid rgba(255,255,255,0.08)",
-          color: "#fff",
+      slotProps={{
+        paper: {
+          sx: {
+            background: "#0c0c0c",
+            border: "1px solid rgba(255,255,255,0.08)",
+            color: "#fff",
+          },
         },
       }}
     >
@@ -744,16 +746,18 @@ export default function AttendancePage() {
               size="small"
               fullWidth
               sx={inputSx}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    {searchFetching ? (
-                      <CircularProgress size={14} sx={{ color: "#71717a" }} />
-                    ) : (
-                      <Search size={16} color="#71717a" />
-                    )}
-                  </InputAdornment>
-                ),
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      {searchFetching ? (
+                        <CircularProgress size={14} sx={{ color: "#71717a" }} />
+                      ) : (
+                        <Search size={16} color="#71717a" />
+                      )}
+                    </InputAdornment>
+                  ),
+                },
               }}
             />
           </Grid>

@@ -44,13 +44,15 @@ function DarkDialog({
       onClose={onClose}
       fullWidth
       maxWidth="md"
-      PaperProps={{
-        sx: {
-          background:
-            "linear-gradient(180deg, rgba(10,10,10,0.98), rgba(6,6,6,0.98))",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: 4,
-          color: "#fff",
+      slotProps={{
+        paper: {
+          sx: {
+            background:
+              "linear-gradient(180deg, rgba(10,10,10,0.98), rgba(6,6,6,0.98))",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: 4,
+            color: "#fff",
+          },
         },
       }}
     >
@@ -125,10 +127,12 @@ export default function CampusAmbassadorsPage() {
     <Box sx={{ px: { xs: 2, md: 4 }, py: 4, maxWidth: 1400 }}>
       <Stack
         direction={{ xs: "column", md: "row" }}
-        alignItems={{ xs: "flex-start", md: "center" }}
-        justifyContent="space-between"
         spacing={2}
-        sx={{ mb: 4 }}
+        sx={{
+          mb: 4,
+          alignItems: { xs: "flex-start", md: "center" },
+          justifyContent: "space-between",
+        }}
       >
         <Box>
           <Typography
@@ -192,10 +196,12 @@ export default function CampusAmbassadorsPage() {
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Search eligible users"
-            InputProps={{
-              startAdornment: (
-                <Search size={16} style={{ marginRight: 10, opacity: 0.6 }} />
-              ),
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <Search size={16} style={{ marginRight: 10, opacity: 0.6 }} />
+                ),
+              },
             }}
             sx={{
               input: { color: "white" },
@@ -268,7 +274,11 @@ export default function CampusAmbassadorsPage() {
                     sx={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
                   >
                     <Box component="td" sx={{ p: 2 }}>
-                      <Stack direction="row" spacing={1.2} alignItems="center">
+                      <Stack
+                        direction="row"
+                        spacing={1.2}
+                        sx={{ alignItems: "center" }}
+                      >
                         <BadgeCheck size={16} color="#ffb36b" />
                         <Typography sx={{ fontWeight: 700 }}>
                           {ambassador.name || "Unnamed"}
@@ -282,7 +292,11 @@ export default function CampusAmbassadorsPage() {
                       {ambassador.email || "—"}
                     </Box>
                     <Box component="td" sx={{ p: 2 }}>
-                      <Stack direction="row" spacing={1} alignItems="center">
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        sx={{ alignItems: "center" }}
+                      >
                         <Link2 size={14} color="rgba(255,255,255,0.45)" />
                         <Typography
                           sx={{
@@ -366,11 +380,13 @@ export default function CampusAmbassadorsPage() {
                 <ListItemText
                   primary={user.name || user.email}
                   secondary={user.email}
-                  primaryTypographyProps={{
-                    sx: { color: "white", fontWeight: 700 },
-                  }}
-                  secondaryTypographyProps={{
-                    sx: { color: "rgba(255,255,255,0.45)" },
+                  slotProps={{
+                    primary: {
+                      sx: { color: "white", fontWeight: 700 },
+                    },
+                    secondary: {
+                      sx: { color: "rgba(255,255,255,0.45)" },
+                    },
                   }}
                 />
               </ListItem>

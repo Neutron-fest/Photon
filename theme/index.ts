@@ -99,6 +99,18 @@ const themeOptions: ThemeOptions = {
   },
   components: {
     MuiButton: {
+      variants: [
+        {
+          props: { variant: "contained", color: "primary" },
+          style: {
+            backgroundColor: "#ffffff",
+            color: "#000000",
+            "&:hover": {
+              backgroundColor: "#e5e5e5",
+            },
+          },
+        },
+      ],
       styleOverrides: {
         root: {
           borderRadius: 12,
@@ -110,13 +122,6 @@ const themeOptions: ThemeOptions = {
           boxShadow: "none",
           "&:hover": {
             boxShadow: "none",
-          },
-        },
-        containedPrimary: {
-          backgroundColor: "#ffffff",
-          color: "#000000",
-          "&:hover": {
-            backgroundColor: "#e5e5e5",
           },
         },
       },

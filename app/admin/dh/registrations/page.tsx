@@ -495,12 +495,14 @@ export default function RegistrationsPage() {
           onChange={(e) => setSearch(e.target.value)}
           size="small"
           sx={{ minWidth: 280, ...inputSx }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <Search size={16} color="#71717a" />
-              </InputAdornment>
-            ),
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Search size={16} color="#71717a" />
+                </InputAdornment>
+              ),
+            },
           }}
         />
 
@@ -906,12 +908,14 @@ export default function RegistrationsPage() {
         onClose={() => setFormDialog({ open: false, row: null })}
         maxWidth="sm"
         fullWidth
-        PaperProps={{
-          sx: {
-            background: "#0e0e0e",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "16px",
-            boxShadow: "0 32px 80px rgba(0,0,0,0.8)",
+        slotProps={{
+          paper: {
+            sx: {
+              background: "#0e0e0e",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "16px",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.8)",
+            },
           },
         }}
       >
@@ -1026,13 +1030,15 @@ export default function RegistrationsPage() {
             registrationId: null,
           })
         }
-        PaperProps={{
-          sx: {
-            background: "#0e0e0e",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "16px",
-            boxShadow: "0 32px 80px rgba(0,0,0,0.8)",
-            minWidth: 420,
+        slotProps={{
+          paper: {
+            sx: {
+              background: "#0e0e0e",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "16px",
+              boxShadow: "0 32px 80px rgba(0,0,0,0.8)",
+              minWidth: 420,
+            },
           },
         }}
       >

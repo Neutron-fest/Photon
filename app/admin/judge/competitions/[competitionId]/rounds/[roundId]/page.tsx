@@ -341,7 +341,7 @@ function ScoringPanel({ team, roundId, criteria, onScoreSubmitted }: any) {
                       }}
                       disabled={alreadySubmitted}
                       type="number"
-                      inputProps={{ min: 0, max: maxScore, step: 1 }}
+                      slotProps={{ htmlInput: { min: 0, max: maxScore, step: 1 } }}
                       size="small"
                       sx={{
                         width: 72,

@@ -588,12 +588,14 @@ function ManageDialog({ competition, open, onClose }: any) {
       onClose={onClose}
       maxWidth="sm"
       fullWidth
-      PaperProps={{
-        sx: {
-          background: "#0e0e0e",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "14px",
-          boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+      slotProps={{
+        paper: {
+          sx: {
+            background: "#0e0e0e",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "14px",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+          },
         },
       }}
     >
@@ -2264,14 +2266,16 @@ export default function CompetitionsPage() {
           setMenuAnchor(null);
           setMenuComp(null);
         }}
-        PaperProps={{
-          sx: {
-            background: "#111",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "10px",
-            boxShadow: "0 12px 40px rgba(0,0,0,0.6)",
-            minWidth: 180,
-            py: 0.5,
+        slotProps={{
+          paper: {
+            sx: {
+              background: "#111",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "10px",
+              boxShadow: "0 12px 40px rgba(0,0,0,0.6)",
+              minWidth: 180,
+              py: 0.5,
+            },
           },
         }}
       >
@@ -2464,12 +2468,14 @@ export default function CompetitionsPage() {
         }}
         maxWidth="xs"
         fullWidth
-        PaperProps={{
-          sx: {
-            background: "#0e0e0e",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "14px",
-            boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+        slotProps={{
+          paper: {
+            sx: {
+              background: "#0e0e0e",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "14px",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+            },
           },
         }}
       >

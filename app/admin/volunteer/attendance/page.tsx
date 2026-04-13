@@ -368,12 +368,16 @@ export default function VolunteerAttendancePage() {
                 size="small"
                 fullWidth
                 sx={inputSx}
-                SelectProps={{
-                  MenuProps: {
-                    PaperProps: {
-                      sx: {
-                        background: "#111",
-                        border: "1px solid rgba(255,255,255,0.08)",
+                slotProps={{
+                  select: {
+                    MenuProps: {
+                      slotProps: {
+                        paper: {
+                          sx: {
+                            background: "#111",
+                            border: "1px solid rgba(255,255,255,0.08)",
+                          },
+                        },
                       },
                     },
                   },

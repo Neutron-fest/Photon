@@ -331,12 +331,14 @@ function ResponseModal({ open, onClose, respondent }: ResponseModalProps) {
       onClose={onClose}
       maxWidth="sm"
       fullWidth
-      PaperProps={{
-        sx: {
-          background: "#0e0e0e",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "14px",
-          boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+      slotProps={{
+        paper: {
+          sx: {
+            background: "#0e0e0e",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "14px",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+          },
         },
       }}
     >
@@ -846,15 +848,17 @@ function ProposalModal({ open, onClose, competition }: ProposalModalProps) {
       onClose={pending ? undefined : onClose}
       maxWidth="md"
       fullWidth
-      PaperProps={{
-        sx: {
-          background: "#0e0e0e",
-          border: "1px solid rgba(255,255,255,0.08)",
-          borderRadius: "14px",
-          boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
-          maxHeight: "90vh",
-          display: "flex",
-          flexDirection: "column",
+      slotProps={{
+        paper: {
+          sx: {
+            background: "#0e0e0e",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "14px",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+            maxHeight: "90vh",
+            display: "flex",
+            flexDirection: "column",
+          },
         },
       }}
     >

@@ -228,7 +228,7 @@ export default function VolunteerDashboardPage() {
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={1.5}
-          flexWrap="wrap"
+          sx={{ flexWrap: "wrap" }}
         >
           <Button
             component={canMarkAttendance ? Link : "button"}
@@ -337,7 +337,7 @@ export default function VolunteerDashboardPage() {
                     <Stack
                       direction="row"
                       spacing={0.75}
-                      flexWrap="wrap"
+                      sx={{ flexWrap: "wrap" }}
                       useFlexGap
                     >
                       <Chip

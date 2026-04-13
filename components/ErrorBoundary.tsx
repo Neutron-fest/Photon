@@ -55,7 +55,7 @@ export class ErrorBoundary extends Component<Props, State> {
             <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>
               Something went wrong
             </Typography>
-            <Typography color="textSecondary" paragraph>
+            <Typography color="textSecondary" component="p">
               We encountered an unexpected error. Please try refreshing the
               page.
             </Typography>
