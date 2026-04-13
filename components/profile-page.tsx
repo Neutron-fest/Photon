@@ -2437,8 +2437,6 @@ export default function ProfilePage() {
       setActive("competitions");
     } else if (normalized === "events") {
       setActive("events");
-    } else if (normalized === "calendar") {
-      setActive("calendar");
     } else if (normalized === "inbox" || normalized === "invites") {
       setActive("inbox");
     } else if (
@@ -3039,12 +3037,6 @@ export default function ProfilePage() {
                   {active === "events" && (
                     <EventsPanel
                       setActive={handleSectionChange}
-                      events={eventItems}
-                    />
-                  )}
-                  {active === "calendar" && (
-                    <CalendarPanel
-                      competitions={competitionItems}
                       events={eventItems}
                     />
                   )}
