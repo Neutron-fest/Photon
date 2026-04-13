@@ -2142,12 +2142,46 @@ export default function ProfilePage() {
     Boolean(campusAmbassador) || role === "CA" || authUser?.isCa === true;
   const isPanelUser = ["SA", "DH", "JUDGE", "CH", "VOLUNTEER"].includes(role);
 
+  const updateSectionQuery = (next: NavItem) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (next === "profile") {
+      params.delete("section");
+    } else {
+      params.set("section", next);
+    }
+
+    const query = params.toString();
+    router.replace(query ? `/profile?${query}` : "/profile", {
+      scroll: false,
+    });
+  };
+
+  const handleSectionChange = (next: NavItem) => {
+    setActive(next);
+
+    const current = searchParams.get("section");
+    const normalizedCurrent = current?.toLowerCase();
+    if ((next === "profile" && !current) || normalizedCurrent === next) {
+      return;
+    }
+
+    updateSectionQuery(next);
+  };
+
   useEffect(() => {
     const section = searchParams.get("section");
     if (!section) return;
 
     const normalized = section.toLowerCase();
-    if (normalized === "inbox" || normalized === "invites") {
+    if (normalized === "profile") {
+      setActive("profile");
+    } else if (normalized === "competitions") {
+      setActive("competitions");
+    } else if (normalized === "events") {
+      setActive("events");
+    } else if (normalized === "calendar") {
+      setActive("calendar");
+    } else if (normalized === "inbox" || normalized === "invites") {
       setActive("inbox");
     } else if (
       normalized === "campus-ambassador" ||
@@ -2161,8 +2195,15 @@ export default function ProfilePage() {
   useEffect(() => {
     if (!isCampusAmbassador && active === "campus-ambassador") {
       setActive("profile");
+
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("section");
+      const query = params.toString();
+      router.replace(query ? `/profile?${query}` : "/profile", {
+        scroll: false,
+      });
     }
-  }, [active, isCampusAmbassador]);
+  }, [active, isCampusAmbassador, router, searchParams]);
 
   useEffect(() => {
     if (!authUser) return;
@@ -2385,7 +2426,9 @@ export default function ProfilePage() {
 
         <header className="fixed top-0 left-0 right-0 z-50 h-14 border-b border-white/6 backdrop-blur-xl bg-[#030303]/70 flex items-center px-6 gap-4">
           <Link href="/" className="shrink-0 flex items-center gap-2">
-            <p className="text-white text-xl font-audiowide font-bold">PHOTON</p>
+            <p className="text-white text-xl font-audiowide font-bold">
+              PHOTON
+            </p>
           </Link>
           <div className="flex-1" />
 
@@ -2444,7 +2487,7 @@ export default function ProfilePage() {
                 active={active}
                 showCampusAmbassador={isCampusAmbassador}
                 setActive={(v: any) => {
-                  setActive(v);
+                  handleSectionChange(v);
                   setMobileMenuOpen(false);
                 }}
               />
@@ -2500,7 +2543,7 @@ export default function ProfilePage() {
 
             <SidebarNav
               active={active}
-              setActive={setActive}
+              setActive={handleSectionChange}
               showCampusAmbassador={isCampusAmbassador}
             />
 
@@ -2613,7 +2656,10 @@ export default function ProfilePage() {
                     <CompetitionsPanel competitions={competitionItems} />
                   )}
                   {active === "events" && (
-                    <EventsPanel setActive={setActive} events={eventItems} />
+                    <EventsPanel
+                      setActive={handleSectionChange}
+                      events={eventItems}
+                    />
                   )}
                   {active === "calendar" && (
                     <CalendarPanel

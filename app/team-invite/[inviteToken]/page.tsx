@@ -39,6 +39,7 @@ export default function TeamInvitePage() {
   const [requiresDifferentAccount, setRequiresDifferentAccount] =
     useState(false);
   const hasAttemptedAutoAccept = useRef(false);
+  const inviteCallback = `/team-invite/${inviteToken}`;
   const profileInboxCallback = "/profile?section=inbox";
 
   useEffect(() => {
@@ -46,10 +47,10 @@ export default function TeamInvitePage() {
 
     if (!user) {
       router.replace(
-        `/auth/signin?callbackUrl=${encodeURIComponent(profileInboxCallback)}`,
+        `/auth/signin?callbackUrl=${encodeURIComponent(inviteCallback)}`,
       );
     }
-  }, [loading, user, inviteToken, router, profileInboxCallback]);
+  }, [loading, user, inviteToken, router, inviteCallback]);
 
   useEffect(() => {
     if (loading || !user || !inviteToken || hasAttemptedAutoAccept.current) {
@@ -86,7 +87,7 @@ export default function TeamInvitePage() {
 
         if (isWrongAccountInviteError(message)) {
           router.replace(
-            `/auth/signin?forceLogin=1&callbackUrl=${encodeURIComponent(profileInboxCallback)}`,
+            `/auth/signin?forceLogin=1&callbackUrl=${encodeURIComponent(inviteCallback)}`,
           );
           return;
         }
@@ -104,6 +105,7 @@ export default function TeamInvitePage() {
     inviteToken,
     acceptInviteMutation,
     router,
+    inviteCallback,
     profileInboxCallback,
   ]);
 

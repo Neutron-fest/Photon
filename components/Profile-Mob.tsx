@@ -45,6 +45,7 @@ type NavItem =
   | "profile"
   | "competitions"
   | "events"
+  | "calendar"
   | "inbox"
   | "campus-ambassador";
 
@@ -2165,6 +2166,7 @@ function SidebarNav({
     { id: "profile", label: "Profile", icon: User },
     { id: "competitions", label: "Competitions", icon: Award },
     { id: "events", label: "Events", icon: Zap },
+    { id: "calendar", label: "Calendar", icon: Calendar },
     ...(showCampusAmbassador
       ? [{ id: "campus-ambassador", label: "Campus Ambassador", icon: Star }]
       : []),
@@ -2317,7 +2319,15 @@ export default function ProfileMobPage() {
     if (!section) return;
 
     const normalized = section.toLowerCase();
-    if (normalized === "inbox" || normalized === "invites") {
+    if (normalized === "profile") {
+      setActive("profile");
+    } else if (normalized === "competitions") {
+      setActive("competitions");
+    } else if (normalized === "events") {
+      setActive("events");
+    } else if (normalized === "calendar") {
+      setActive("calendar");
+    } else if (normalized === "inbox" || normalized === "invites") {
       setActive("inbox");
     } else if (
       normalized === "campus-ambassador" ||
@@ -2356,11 +2366,44 @@ export default function ProfileMobPage() {
     authUser?.role === "CA" ||
     authUser?.isCa === true;
 
+  const updateSectionQuery = (next: NavItem) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (next === "profile") {
+      params.delete("section");
+    } else {
+      params.set("section", next);
+    }
+
+    const query = params.toString();
+    router.replace(query ? `/profile?${query}` : "/profile", {
+      scroll: false,
+    });
+  };
+
+  const handleSectionChange = (next: NavItem) => {
+    setActive(next);
+
+    const current = searchParams.get("section");
+    const normalizedCurrent = current?.toLowerCase();
+    if ((next === "profile" && !current) || normalizedCurrent === next) {
+      return;
+    }
+
+    updateSectionQuery(next);
+  };
+
   useEffect(() => {
     if (!isCampusAmbassador && active === "campus-ambassador") {
       setActive("profile");
+
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("section");
+      const query = params.toString();
+      router.replace(query ? `/profile?${query}` : "/profile", {
+        scroll: false,
+      });
     }
-  }, [active, isCampusAmbassador]);
+  }, [active, isCampusAmbassador, router, searchParams]);
 
   useEffect(() => {
     if (!authUser) return;
@@ -2693,7 +2736,7 @@ export default function ProfileMobPage() {
               <SidebarNav
                 active={active}
                 setActive={(v: any) => {
-                  setActive(v);
+                  handleSectionChange(v);
                   setMobileMenuOpen(false);
                 }}
                 showCampusAmbassador={isCampusAmbassador}
@@ -2701,7 +2744,7 @@ export default function ProfileMobPage() {
 
               <div className="mt-8 pt-6 border-t border-white/10 flex flex-col gap-3">
                 <Link
-                  href="/planets/jupiter"
+                  href="/competitions"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 >
@@ -2711,7 +2754,7 @@ export default function ProfileMobPage() {
                   <span className="text-white/40">→</span>
                 </Link>
                 <Link
-                  href="/planets/venus"
+                  href="/events"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 >
@@ -2776,7 +2819,7 @@ export default function ProfileMobPage() {
 
             <SidebarNav
               active={active}
-              setActive={setActive}
+              setActive={handleSectionChange}
               showCampusAmbassador={isCampusAmbassador}
             />
 
@@ -2861,6 +2904,12 @@ export default function ProfileMobPage() {
                     />
                   )}
                   {active === "events" && <EventsPanel events={eventItems} />}
+                  {active === "calendar" && (
+                    <CalendarPanel
+                      competitions={competitionItems}
+                      events={eventItems}
+                    />
+                  )}
                   {active === "campus-ambassador" && (
                     <CampusAmbassadorPanel
                       campusAmbassador={campusAmbassador}

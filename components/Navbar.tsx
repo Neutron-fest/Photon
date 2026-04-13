@@ -8,13 +8,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaInstagram } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Navbar() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { user } = useAuth();
 
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const profileHref = user
+    ? "/profile"
+    : `/auth/signin?callbackUrl=${encodeURIComponent("/profile")}`;
 
   const links = [
     {
@@ -38,6 +43,12 @@ export default function Navbar() {
       href: "/contact",
       image:
         "https://ik.imagekit.io/yatharth/BANNER.jpeg?updatedAt=1774963679610",
+    },
+    {
+      name: "Profile",
+      href: profileHref,
+      image:
+        "https://ik.imagekit.io/yatharth/ARS06750.JPG?updatedAt=1774806404575",
     },
   ];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import {
@@ -12,31 +12,33 @@ import {
   Clock,
   Ticket,
 } from "lucide-react";
-import { useCompetition } from "@/hooks/api/useCompetitions";
+import { useCompetition, useCompetitions } from "@/hooks/api/useCompetitions";
 import EventRulesModal from "@/components/competitions/RulesModal";
+import {
+  mapCompetitionToEventDetail,
+  resolveCompetitionIdFromParam,
+} from "@/lib/publicCompetitionModel";
 
 export default function EventSlugPage() {
   const params = useParams();
-  const slug = typeof params?.slug === "string" ? params.slug : "";
-  const { data: rawEvent, isLoading } = useCompetition(slug);
+  const routeParam = typeof params?.slug === "string" ? params.slug : "";
 
-  const event = rawEvent ? {
-    title: rawEvent.name || rawEvent.title || "Untitled",
-    category: rawEvent.category || rawEvent.eventType || "Event",
-    details: rawEvent.details || rawEvent.description?.slice(0, 100) + "..." || "Mission details are classified.",
-    description: rawEvent.description || "No mission description available.",
-    image: rawEvent.posterPath || rawEvent.image || "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
-    highlights: Array.isArray(rawEvent.highlights) ? rawEvent.highlights : [],
-    rules: Array.isArray(rawEvent.rules) ? rawEvent.rules : [
-      { title: "Standard Protocol", content: "Participants must adhere to the general event conduct and safety guidelines." },
-      { title: "Fair Play", content: "Any form of cheating or unauthorized assistance will result in immediate disqualification." }
-    ],
-    ticketPrice: rawEvent.ticketPrice || rawEvent.bounty || "FREE",
-    location: rawEvent.location || rawEvent.venue || rawEvent.sector || "Remote",
-    time: rawEvent.startTime ? new Date(rawEvent.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "TBD",
-    date: rawEvent.date || (rawEvent.startTime ? new Date(rawEvent.startTime).toLocaleDateString() : "TBD"),
-    slug: rawEvent.slug
-  } : null;
+  const { data: competitions = [], isLoading: isCatalogLoading } =
+    useCompetitions();
+
+  const competitionId = useMemo(
+    () => resolveCompetitionIdFromParam(routeParam, competitions),
+    [routeParam, competitions],
+  );
+
+  const { data: rawEvent, isLoading: isCompetitionLoading } = useCompetition(
+    competitionId || "",
+  );
+
+  const isLoading =
+    (routeParam && !competitionId && isCatalogLoading) || isCompetitionLoading;
+
+  const event = rawEvent ? mapCompetitionToEventDetail(rawEvent) : null;
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -140,7 +142,9 @@ export default function EventSlugPage() {
       <main className="h-screen w-full bg-[#030303] flex items-center justify-center text-white relative overflow-hidden">
         <div className="flex flex-col items-center gap-4 relative z-10">
           <div className="w-12 h-12 border-2 border-white/20 border-t-cyan-400 rounded-full animate-spin" />
-          <span className="font-mono text-[10px] tracking-[0.5em] text-white/40 uppercase">SYNCING_GRID...</span>
+          <span className="font-mono text-[10px] tracking-[0.5em] text-white/40 uppercase">
+            SYNCING_GRID...
+          </span>
         </div>
       </main>
     );

@@ -1,12 +1,22 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { CurvedGallery } from "@/components/competitions/curved-gallery";
-import { ChevronLeft, Monitor, Zap, Phone } from "lucide-react";
-import Link from "next/link";
-import GlitchText from "@/components/GlitchText";
+import { useCompetitions } from "@/hooks/api/useCompetitions";
+import {
+  isMainCompetition,
+  mapCompetitionToGalleryItem,
+} from "@/lib/publicCompetitionModel";
 
 export default function CompetitionsPage() {
+  const { data: competitions = [], isLoading } = useCompetitions();
+
+  const competitionItems = useMemo(
+    () =>
+      competitions.filter(isMainCompetition).map(mapCompetitionToGalleryItem),
+    [competitions],
+  );
+
   useEffect(() => {
     // Lock document overflow during page interaction to prevent viewport shift during drag
     const prevBodyOverflowX = document.body.style.overflowX;
@@ -46,7 +56,11 @@ export default function CompetitionsPage() {
       </div>
 
       <div className="relative z-10 w-full h-full">
-        <CurvedGallery />
+        <CurvedGallery
+          items={competitionItems as any}
+          isLoading={isLoading}
+          basePath="competitions"
+        />
       </div>
 
       <footer className="absolute bottom-6 left-1/2 -translate-x-1/2 z-110 pointer-events-none w-full px-12 flex justify-between items-center opacity-30">

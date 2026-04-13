@@ -14,7 +14,6 @@ import {
   useSubmitTeamMemberForm,
   useValidatePromoCode,
 } from "@/hooks/api/usePublicRegistration";
-import { useCompetition } from "@/hooks/api/useCompetitions";
 
 function parseTeamSize(sizeStr: string): number[] {
   const normalized = String(sizeStr || "")
@@ -31,6 +30,41 @@ function parseTeamSize(sizeStr: string): number[] {
   const options: number[] = [];
   for (let i = min; i <= max; i++) options.push(i);
   return options.length ? options : [1];
+}
+
+function inferParticipationModes(
+  competitionType: string,
+  teamSize: string,
+  parsedTeamOptions: number[],
+) {
+  const normalizedType = String(competitionType || "")
+    .trim()
+    .toUpperCase();
+
+  if (normalizedType === "SOLO") {
+    return { allowsSolo: true, allowsTeam: false };
+  }
+
+  if (normalizedType === "TEAM") {
+    return { allowsSolo: false, allowsTeam: true };
+  }
+
+  const normalizedTeamSize = String(teamSize || "")
+    .trim()
+    .toLowerCase();
+  const mentionsSolo = /(solo|individual)/.test(normalizedTeamSize);
+  const mentionsTeam = /(team|duo|trio|squad|crew)/.test(normalizedTeamSize);
+  const hasSoloOption = parsedTeamOptions.includes(1);
+  const hasTeamOption = parsedTeamOptions.some((value) => value > 1);
+
+  const allowsSolo = mentionsSolo || hasSoloOption || !hasTeamOption;
+  const allowsTeam = mentionsTeam || hasTeamOption;
+
+  if (!allowsSolo && !allowsTeam) {
+    return { allowsSolo: true, allowsTeam: false };
+  }
+
+  return { allowsSolo, allowsTeam };
 }
 
 type FormField = {
@@ -50,6 +84,8 @@ type TeamDetails = {
   inviteEmails: string[];
 };
 
+type ParticipationMode = "" | "solo" | "team";
+
 const normalizeFieldValue = (field: FormField, value: any) => {
   const fieldType = String(field?.type || "text").toLowerCase();
   if (fieldType === "number") {
@@ -59,19 +95,6 @@ const normalizeFieldValue = (field: FormField, value: any) => {
   }
   if (fieldType === "checkbox") return Boolean(value);
   return value;
-};
-
-const extractCheckoutUrl = (payload: any): string | null => {
-  if (!payload || typeof payload !== "object") return null;
-
-  const payment = payload?.payment || null;
-  const directUrl = payment?.session?.checkoutUrl || payment?.checkoutUrl;
-
-  if (typeof directUrl === "string" && directUrl.trim().length > 0) {
-    return directUrl;
-  }
-
-  return null;
 };
 
 const normalizeUnstopUrl = (raw: string | null | undefined): string | null => {
@@ -94,12 +117,6 @@ const normalizeUnstopUrl = (raw: string | null | undefined): string | null => {
   }
 };
 
-const formatInrAmount = (value: number) => {
-  const safeValue = Number(value);
-  if (!Number.isFinite(safeValue)) return "0.00";
-  return safeValue.toFixed(2);
-};
-
 export default function CompetitionRegistration({
   competitionId,
   competitionTitle,
@@ -115,13 +132,14 @@ export default function CompetitionRegistration({
 }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [step, setStep] = useState<"start" | "team" | "form" | "success">(
-    "start",
+  const [step, setStep] = useState<"start" | "team" | "form" | "success">(() =>
+    searchParams.get("mode") === "member" && Boolean(searchParams.get("teamId"))
+      ? "form"
+      : "start",
   );
   const [errorMessage, setErrorMessage] = useState("");
-  const [checkoutRedirecting, setCheckoutRedirecting] = useState(false);
-  const [pendingPaymentRedirecting, setPendingPaymentRedirecting] =
-    useState(false);
+  const [participationMode, setParticipationMode] =
+    useState<ParticipationMode>("");
   const [teamDetails, setTeamDetails] = useState<TeamDetails>({
     teamName: "",
     selectedTeamSize: "",
@@ -140,18 +158,32 @@ export default function CompetitionRegistration({
   } | null>(null);
   const [promoError, setPromoError] = useState("");
 
-  const normalizedCompetitionType = String(competitionType || "").toUpperCase();
   const teamOptions = useMemo(() => parseTeamSize(teamSize), [teamSize]);
-  const isSolo =
-    normalizedCompetitionType === "SOLO"
-      ? true
-      : normalizedCompetitionType === "TEAM"
-        ? false
-        : teamOptions.length === 1 && teamOptions[0] === 1;
-  const selectedTeamSize = Number(
-    teamDetails.selectedTeamSize || teamOptions[0] || 1,
+  const { allowsSolo, allowsTeam } = useMemo(
+    () =>
+      inferParticipationModes(
+        String(competitionType || ""),
+        teamSize,
+        teamOptions,
+      ),
+    [competitionType, teamSize, teamOptions],
   );
-  const inviteSlots = Math.max(selectedTeamSize - 1, 0);
+  const teamSizeChoices = useMemo(() => {
+    if (!allowsTeam) return [1];
+
+    const explicitTeamSizes = teamOptions.filter((size) => size > 1);
+    return explicitTeamSizes.length > 0 ? explicitTeamSizes : [2];
+  }, [allowsTeam, teamOptions]);
+  const isSolo =
+    allowsSolo && !allowsTeam
+      ? true
+      : !allowsSolo && allowsTeam
+        ? false
+        : participationMode === "solo";
+  const selectedTeamSize = Number(
+    teamDetails.selectedTeamSize || teamSizeChoices[0] || 1,
+  );
+  const inviteSlots = isSolo ? 0 : Math.max(selectedTeamSize - 1, 0);
 
   const authMeQuery = useAuthMe();
   const isAuthenticated = !!authMeQuery.data;
@@ -162,7 +194,6 @@ export default function CompetitionRegistration({
   const registerTeamMutation = useRegisterTeamCompetition();
   const sendTeamInviteMutation = useSendTeamInvite();
   const submitMemberFormMutation = useSubmitTeamMemberForm();
-  const competitionDetailQuery = useCompetition(competitionId);
   const validatePromoMutation = useValidatePromoCode();
 
   const mode = searchParams.get("mode");
@@ -223,27 +254,71 @@ export default function CompetitionRegistration({
   }, [registrations, competitionId]);
 
   const alreadyRegistered = Boolean(matchedRegistration);
-  const registrationPaymentStatus = String(
-    matchedRegistration?.registration?.paymentStatus ||
-      matchedRegistration?.payment?.status ||
-      "",
-  ).toUpperCase();
-  const isRegistrationPaid =
-    registrationPaymentStatus === "PAID" ||
-    registrationPaymentStatus === "VERIFIED" ||
-    Boolean(matchedRegistration?.registration?.paymentVerifiedAt) ||
-    Boolean(matchedRegistration?.team?.paymentVerified);
-  const pendingPaymentCheckoutUrl =
-    matchedRegistration?.paymentSession?.checkoutUrl ||
-    matchedRegistration?.payment?.session?.checkoutUrl ||
-    matchedRegistration?.payment?.checkoutUrl ||
-    null;
+  const memberFormDetails = useMemo(() => {
+    if (!isMemberMode || !matchedRegistration) return null;
+
+    return (
+      matchedRegistration?.formDetails ||
+      matchedRegistration?.registration?.formDetails ||
+      null
+    );
+  }, [isMemberMode, matchedRegistration]);
+  const isMemberFormCompleted = useMemo(() => {
+    if (!isMemberMode || !memberFormDetails) return false;
+
+    const requiredCount = Number(memberFormDetails?.requiredCount || 0);
+    const requiredAnsweredCount = Number(
+      memberFormDetails?.requiredAnsweredCount || 0,
+    );
+
+    if (requiredCount > 0) {
+      return requiredAnsweredCount >= requiredCount;
+    }
+
+    return Boolean(memberFormDetails?.hasSubmittedForm);
+  }, [isMemberMode, memberFormDetails]);
 
   useEffect(() => {
-    if (isMemberMode && step === "start") {
+    if (!isMemberMode || myRegistrationsQuery.isLoading) {
+      return;
+    }
+
+    if (isMemberFormCompleted) {
+      setStep("success");
+      return;
+    }
+
+    if (step === "start") {
       setStep("form");
     }
-  }, [isMemberMode, step]);
+  }, [
+    isMemberMode,
+    isMemberFormCompleted,
+    myRegistrationsQuery.isLoading,
+    step,
+  ]);
+
+  useEffect(() => {
+    if (allowsSolo && !allowsTeam) {
+      setParticipationMode("solo");
+      return;
+    }
+
+    if (!allowsSolo && allowsTeam) {
+      setParticipationMode("team");
+      return;
+    }
+  }, [allowsSolo, allowsTeam]);
+
+  useEffect(() => {
+    if (participationMode !== "team") return;
+
+    setTeamDetails((prev) => ({
+      ...prev,
+      selectedTeamSize:
+        prev.selectedTeamSize || String(teamSizeChoices[0] || 2),
+    }));
+  }, [participationMode, teamSizeChoices]);
 
   const handleApplyPromoCode = async () => {
     if (!promoCode.trim()) {
@@ -284,29 +359,16 @@ export default function CompetitionRegistration({
     }
   };
 
-  const registrationFee = competitionDetailQuery.data?.registrationFee || 0;
-  const isPaid =
-    (competitionDetailQuery.data as any)?.isPaid ?? registrationFee > 0;
-
-  const finalFee = useMemo(() => {
-    if (!promoDiscount) return registrationFee;
-    if (typeof promoDiscount.finalFee === "number") {
-      return Math.max(0, promoDiscount.finalFee);
-    }
-    if (promoDiscount.type === "PERCENT") {
-      return Math.max(0, registrationFee * (1 - promoDiscount.amount / 100));
-    }
-    return Math.max(0, registrationFee - promoDiscount.amount);
-  }, [registrationFee, promoDiscount]);
-
-  const promoDiscountAmount = useMemo(
-    () => Math.max(0, Number(registrationFee || 0) - Number(finalFee || 0)),
-    [registrationFee, finalFee],
-  );
-
   const handleTeamDetailsContinue = (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage("");
+
+    if (allowsSolo && allowsTeam && !participationMode) {
+      setErrorMessage(
+        "Please select whether you are registering solo or as a team.",
+      );
+      return;
+    }
 
     if (!isSolo && !teamDetails.teamName.trim()) {
       setErrorMessage("Team name is required.");
@@ -375,21 +437,19 @@ export default function CompetitionRegistration({
     });
 
     try {
-      let registrationResult: any = null;
-
       if (isMemberMode) {
         await submitMemberFormMutation.mutateAsync({
           teamId: teamIdFromQuery,
           formData,
         });
       } else if (isSolo) {
-        registrationResult = await registerSoloMutation.mutateAsync({
+        await registerSoloMutation.mutateAsync({
           competitionId,
           formData,
           promoCode: promoCode || undefined,
         });
       } else {
-        registrationResult = await registerTeamMutation.mutateAsync({
+        const registrationResult = await registerTeamMutation.mutateAsync({
           competitionId,
           teamName: teamDetails.teamName.trim(),
           formData,
@@ -409,13 +469,6 @@ export default function CompetitionRegistration({
             ),
           );
         }
-      }
-
-      const checkoutUrl = extractCheckoutUrl(registrationResult);
-      if (checkoutUrl && typeof window !== "undefined") {
-        setCheckoutRedirecting(true);
-        window.location.assign(checkoutUrl);
-        return;
       }
 
       await myRegistrationsQuery.refetch();
@@ -573,46 +626,14 @@ export default function CompetitionRegistration({
   }
 
   if (alreadyRegistered && !isMemberMode) {
-    if (isRegistrationPaid) {
-      return (
-        <div className="bg-emerald-500/10 border border-emerald-400/30 rounded-2xl p-8 md:p-12 text-center max-w-lg mx-auto">
-          <h3 className="text-2xl font-semibold mb-3 text-white">
-            Already Registered
-          </h3>
-          <p className="text-white/70">
-            Your registration for {competitionTitle} is already on record.
-          </p>
-        </div>
-      );
-    }
-
     return (
-      <div className="bg-amber-500/10 border border-amber-300/30 rounded-2xl p-8 md:p-12 text-center max-w-lg mx-auto">
+      <div className="bg-emerald-500/10 border border-emerald-400/30 rounded-2xl p-8 md:p-12 text-center max-w-lg mx-auto">
         <h3 className="text-2xl font-semibold mb-3 text-white">
-          Complete Payment
+          Already Registered
         </h3>
-        <p className="text-white/70 mb-6">
-          You are registered for {competitionTitle}, but payment is still
-          pending.
+        <p className="text-white/70">
+          Your registration for {competitionTitle} is already on record.
         </p>
-        <button
-          type="button"
-          disabled={!pendingPaymentCheckoutUrl || pendingPaymentRedirecting}
-          onClick={() => {
-            if (!pendingPaymentCheckoutUrl || typeof window === "undefined") {
-              return;
-            }
-            setPendingPaymentRedirecting(true);
-            window.location.assign(pendingPaymentCheckoutUrl);
-          }}
-          className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition-colors cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
-        >
-          {pendingPaymentRedirecting
-            ? "Redirecting To Secure Payment..."
-            : pendingPaymentCheckoutUrl
-              ? "Pay Now"
-              : "Payment Link Unavailable"}
-        </button>
       </div>
     );
   }
@@ -638,10 +659,17 @@ export default function CompetitionRegistration({
                 setStep("form");
                 return;
               }
+
+              if (allowsSolo && !allowsTeam) {
+                setParticipationMode("solo");
+              } else if (!allowsSolo && allowsTeam) {
+                setParticipationMode("team");
+              }
+
               setTeamDetails((prev) => ({
                 ...prev,
                 selectedTeamSize:
-                  prev.selectedTeamSize || String(teamOptions[0] || 1),
+                  prev.selectedTeamSize || String(teamSizeChoices[0] || 1),
               }));
               setStep("team");
             }}
@@ -682,6 +710,57 @@ export default function CompetitionRegistration({
         </div>
 
         <form onSubmit={handleTeamDetailsContinue} className="space-y-6">
+          {allowsSolo && allowsTeam ? (
+            <div className="flex flex-col space-y-3">
+              <label className="text-xs uppercase tracking-wider text-white/50 font-medium ml-1">
+                Registering As
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setParticipationMode("solo");
+                    setTeamDetails((prev) => ({
+                      ...prev,
+                      teamName: "",
+                      inviteInput: "",
+                      inviteEmails: [],
+                      selectedTeamSize: "1",
+                    }));
+                    setErrorMessage("");
+                  }}
+                  className={`rounded-lg border px-4 py-3 text-sm font-medium transition-colors ${
+                    participationMode === "solo"
+                      ? "border-white bg-white/15 text-white"
+                      : "border-white/20 bg-black text-white/75 hover:bg-white/5"
+                  }`}
+                >
+                  Solo
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setParticipationMode("team");
+                    setTeamDetails((prev) => ({
+                      ...prev,
+                      selectedTeamSize:
+                        prev.selectedTeamSize ||
+                        String(teamSizeChoices[0] || 2),
+                    }));
+                    setErrorMessage("");
+                  }}
+                  className={`rounded-lg border px-4 py-3 text-sm font-medium transition-colors ${
+                    participationMode === "team"
+                      ? "border-white bg-white/15 text-white"
+                      : "border-white/20 bg-black text-white/75 hover:bg-white/5"
+                  }`}
+                >
+                  Team
+                </button>
+              </div>
+            </div>
+          ) : null}
+
           {!isSolo ? (
             <div className="flex flex-col space-y-2">
               <label className="text-xs uppercase tracking-wider text-white/50 font-medium ml-1">
@@ -753,36 +832,15 @@ export default function CompetitionRegistration({
             )}
           </div>
 
-          {isPaid && registrationFee > 0 && (
-            <div className="bg-white/5 border border-white/10 rounded-xl p-4 mt-4">
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-white/50">Registration Fee</span>
-                <span className="text-white">
-                  ₹{formatInrAmount(registrationFee)}
-                </span>
-              </div>
-              {promoDiscount && (
-                <div className="flex justify-between text-sm mb-2 text-emerald-400">
-                  <span>Promo Discount</span>
-                  <span>- ₹{formatInrAmount(promoDiscountAmount)}</span>
-                </div>
-              )}
-              <div className="flex justify-between font-bold border-t border-white/5 pt-2 mt-2">
-                <span className="text-white">Total Amount</span>
-                <span className="text-white text-lg">
-                  ₹{formatInrAmount(finalFee)}
-                </span>
-              </div>
-            </div>
-          )}
-
-          {!isSolo && teamOptions.length > 1 ? (
+          {!isSolo && teamSizeChoices.length > 1 ? (
             <div className="flex flex-col space-y-2">
               <label className="text-xs uppercase tracking-wider text-white/50 font-medium ml-1">
                 Team Size
               </label>
               <select
-                value={teamDetails.selectedTeamSize || String(teamOptions[0])}
+                value={
+                  teamDetails.selectedTeamSize || String(teamSizeChoices[0])
+                }
                 onChange={(event) =>
                   setTeamDetails((prev) => ({
                     ...prev,
@@ -791,7 +849,7 @@ export default function CompetitionRegistration({
                 }
                 className="bg-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-hidden focus:border-white/40"
               >
-                {teamOptions.map((size) => (
+                {teamSizeChoices.map((size) => (
                   <option key={size} value={size}>
                     {size} Members
                   </option>
@@ -800,7 +858,7 @@ export default function CompetitionRegistration({
             </div>
           ) : null}
 
-          {selectedTeamSize > 1 ? (
+          {!isSolo && selectedTeamSize > 1 ? (
             <div className="flex flex-col space-y-2">
               <label className="text-xs uppercase tracking-wider text-white/50 font-medium ml-1">
                 Teammate Emails
@@ -894,8 +952,8 @@ export default function CompetitionRegistration({
           Registration Complete
         </h3>
         <p className="text-white/60 mb-8 font-light">
-          Your registration for {competitionTitle} has been submitted
-          successfully.
+          Your registration form for {competitionTitle} is complete and on
+          record.
         </p>
       </motion.div>
     );
@@ -953,17 +1011,14 @@ export default function CompetitionRegistration({
             registerSoloMutation.isPending ||
             registerTeamMutation.isPending ||
             submitMemberFormMutation.isPending ||
-            sendTeamInviteMutation.isPending ||
-            checkoutRedirecting
+            sendTeamInviteMutation.isPending
           }
           className="mt-2 w-full bg-white text-black font-semibold py-4 rounded-xl hover:bg-gray-200 transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
-          {checkoutRedirecting ? (
-            "Redirecting To Secure Payment..."
-          ) : registerSoloMutation.isPending ||
-            registerTeamMutation.isPending ||
-            submitMemberFormMutation.isPending ||
-            sendTeamInviteMutation.isPending ? (
+          {registerSoloMutation.isPending ||
+          registerTeamMutation.isPending ||
+          submitMemberFormMutation.isPending ||
+          sendTeamInviteMutation.isPending ? (
             <>
               <svg
                 className="animate-spin w-5 h-5"
