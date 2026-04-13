@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Trash2,
@@ -21,9 +22,11 @@ import {
   Award,
   ChevronLeft,
   Star,
+  Share2,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { toPng } from "html-to-image";
 import { useAuth } from "@/contexts/AuthContext";
 import ProfileCard from "./ProfileCard";
 import { useAuthMe } from "@/hooks/api/useAuth";
@@ -796,8 +799,15 @@ function TeamModal({
     }
   };
 
-  return (
-    <div className="fixed inset-0 z-100 flex items-center justify-center p-6">
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+  if (!isClient) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-100 flex items-center justify-center overflow-y-auto p-6">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -852,7 +862,7 @@ function TeamModal({
                     >
                       <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10 shrink-0">
                         <img
-                          src="/images/bg.jpeg"
+                          src="https://ik.imagekit.io/yatharth/AVAT.jpeg?updatedAt=1774984935374"
                           alt={member.name}
                           className="w-full h-full object-cover"
                         />
@@ -1167,7 +1177,8 @@ function TeamModal({
           </button>
         </div>
       </motion.div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
@@ -1217,7 +1228,7 @@ function EnrolledCard({ item, href }: { item: EnrolledItem; href: string }) {
         <div className="flex gap-4 items-center p-4">
           <div
             className="w-14 h-14 rounded-xl shrink-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(/images/bg.jpeg)` }}
+            style={{ backgroundImage: `url(https://ik.imagekit.io/yatharth/AVAT.jpeg?updatedAt=1774984935374)` }}
           />
           <div className="flex-1 min-w-0">
             <Link href={href}>
@@ -2494,6 +2505,70 @@ export default function ProfileMobPage() {
 
   const [expandedID, setExpandedID] = useState(false);
   const [selectedMember, setSelectedMember] = useState<any | null>(null);
+  const idCardExportRef = useRef<HTMLDivElement>(null);
+  const isClient = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+
+  useEffect(() => {
+    if (!expandedID) return;
+    const root = document.getElementById("app-scroll-root");
+    if (!root) return;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    return () => {
+      root.style.overflow = prev;
+    };
+  }, [expandedID]);
+
+  const downloadIdCardImage = async () => {
+    const node = idCardExportRef.current;
+    if (!node) return;
+    try {
+      const dataUrl = await toPng(node, { pixelRatio: 2, cacheBust: true });
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = `photon-id-${(profile.name || "card").replace(/\s+/g, "-")}.png`;
+      link.click();
+      showToast("ID image downloaded.", "success");
+    } catch {
+      showToast("Could not download ID image.", "error");
+    }
+  };
+
+  const shareIdCardImage = async () => {
+    const node = idCardExportRef.current;
+    if (!node) return;
+    try {
+      const dataUrl = await toPng(node, { pixelRatio: 2, cacheBust: true });
+      const blob = await (await fetch(dataUrl)).blob();
+      const file = new File([blob], "photon-id.png", { type: "image/png" });
+      if (
+        typeof navigator !== "undefined" &&
+        navigator.share &&
+        typeof navigator.canShare === "function" &&
+        navigator.canShare({ files: [file] })
+      ) {
+        await navigator.share({
+          files: [file],
+          title: "Photon ID",
+          text: profile.name ? `${profile.name} — Photon ID` : "Photon ID",
+        });
+        showToast("Shared.", "success");
+        return;
+      }
+      const link = document.createElement("a");
+      link.href = dataUrl;
+      link.download = `photon-id-${(profile.name || "card").replace(/\s+/g, "-")}.png`;
+      link.click();
+      showToast("Saved image (native share not available).", "info");
+    } catch (e) {
+      if ((e as Error).name === "AbortError") return;
+      showToast("Could not share ID image.", "error");
+    }
+  };
 
   const isPersonalDataComplete = Boolean(
     (profile.name || profile.email) &&
@@ -2613,92 +2688,135 @@ export default function ProfileMobPage() {
               onClose={() => setSelectedMember(null)}
             />
           )}
-          {expandedID && (
-            <div className="fixed inset-0 z-200 flex items-center justify-center p-6">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setExpandedID(false)}
-                className="absolute inset-0 bg-black/95 backdrop-blur-2xl"
-              />
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
-                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                exit={{ opacity: 0, scale: 0.8, rotateY: 30 }}
-                transition={{ type: "spring", damping: 20 }}
-                className="relative z-10 w-full max-w-md perspective-2000"
-              >
+        </AnimatePresence>
+        {isClient &&
+          createPortal(
+            <AnimatePresence>
+              {expandedID && (
                 <motion.div
-                  animate={{ rotateY: shouldFlipToQR ? 180 : 0 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ transformStyle: "preserve-3d" }}
-                  className="relative w-full"
+                  key="identity-viewer"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="Identity card viewer"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-[220] flex flex-col items-center justify-center overflow-y-auto overscroll-none px-4 py-10 sm:p-6"
                 >
-                  <div style={{ backfaceVisibility: "hidden" }}>
-                    <ProfileCard
-                      name={profile.name}
-                      title={profile.college}
-                      handle={(profile.email || "").split("@")[0] || ""}
-                      status={profile.year}
-                      contactText={
-                        isIdentityComplete
-                          ? "SCANNABLE ID READY"
-                          : "DOWNLOAD ID"
-                      }
-                      avatarUrl="/images/bg.jpeg"
-                      showUserInfo={false}
-                      enableTilt={true}
-                      enableMobileTilt={true}
-                      behindGlowColor="rgba(125, 190, 255, 0.6)"
-                      iconUrl="https://static.vecteezy.com/system/resources/thumbnails/010/332/153/small_2x/code-flat-color-outline-icon-free-png.png"
-                      behindGlowEnabled
-                      innerGradient="linear-gradient(145deg,#2e106520 0%,#1e3a8a40 100%)"
-                    />
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setExpandedID(false)}
+                    className="absolute inset-0 bg-black/95 backdrop-blur-2xl"
+                  />
+                  <div className="relative z-10 my-auto flex w-full max-w-md flex-col items-center justify-center">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.92, rotateY: 24 }}
+                      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                      exit={{ opacity: 0, scale: 0.92, rotateY: 24 }}
+                      transition={{ type: "spring", damping: 22 }}
+                      className="perspective-2000 w-full"
+                    >
+                      <motion.div
+                        ref={idCardExportRef}
+                        animate={{ rotateY: shouldFlipToQR ? 180 : 0 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ transformStyle: "preserve-3d" }}
+                        className="relative w-full"
+                      >
+                        <div style={{ backfaceVisibility: "hidden" }}>
+                          <ProfileCard
+                            name={profile.name}
+                            title={profile.college}
+                            handle={(profile.email || "").split("@")[0] || ""}
+                            status={profile.year}
+                            contactText={
+                              isIdentityComplete
+                                ? "SCANNABLE ID READY"
+                                : "DOWNLOAD ID"
+                            }
+                            avatarUrl="https://ik.imagekit.io/yatharth/AVAT.jpeg?updatedAt=1774984935374"
+                            showUserInfo={false}
+                            enableTilt={true}
+                            enableMobileTilt={true}
+                            behindGlowColor="rgba(125, 190, 255, 0.6)"
+                            iconUrl="https://static.vecteezy.com/system/resources/thumbnails/010/332/153/small_2x/code-flat-color-outline-icon-free-png.png"
+                            behindGlowEnabled
+                            innerGradient="linear-gradient(145deg,#2e106520 0%,#1e3a8a40 100%)"
+                          />
+                        </div>
 
-                  <div
-                    style={{
-                      backfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                    }}
-                    className="absolute inset-0 rounded-[30px] border border-white/10 bg-[#0a0a0a] p-6 flex flex-col items-center justify-center"
-                  >
-                    <p className="text-[10px] uppercase tracking-widest text-white/40 font-mono mb-4">
-                      Entry QR
-                    </p>
-                    {myQRCodeQuery.data ? (
-                      <img
-                        src={myQRCodeQuery.data}
-                        alt="Identity QR"
-                        className="w-44 h-44 rounded-xl bg-white p-2"
+                        <div
+                          style={{
+                            backfaceVisibility: "hidden",
+                            transform: "rotateY(180deg)",
+                          }}
+                          className="absolute inset-0 flex flex-col items-center justify-center rounded-[30px] border border-white/10 bg-[#0a0a0a] p-6"
+                        >
+                          <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-white/40">
+                            Entry QR
+                          </p>
+                          {myQRCodeQuery.data ? (
+                            <img
+                              src={myQRCodeQuery.data}
+                              alt="Identity QR"
+                              className="h-44 w-44 rounded-xl bg-white p-2"
+                            />
+                          ) : (
+                            <div className="flex h-44 w-44 items-center justify-center rounded-xl border border-white/10 bg-white/5">
+                              <div className="h-6 w-6 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+                            </div>
+                          )}
+                          <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-white/40">
+                            {isIdentityComplete
+                              ? ""
+                              : "Complete profile to unlock QR"}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                    <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          void downloadIdCardImage();
+                        }}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white/80 transition hover:border-white/30 hover:bg-white/10"
+                      >
+                        <Download size={14} />
+                        Download image
+                      </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          void shareIdCardImage();
+                        }}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white/80 transition hover:border-white/30 hover:bg-white/10"
+                      >
+                        <Share2 size={14} />
+                        Share image
+                      </button>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setExpandedID(false)}
+                      className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/20 transition-all hover:text-rose-400 group"
+                    >
+                      <X
+                        size={14}
+                        className="transition-transform group-hover:rotate-90"
                       />
-                    ) : (
-                      <div className="w-44 h-44 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                        <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                      </div>
-                    )}
-                    <p className="text-[10px] text-white/40 mt-4 font-mono uppercase tracking-widest">
-                      {isIdentityComplete
-                        ? ""
-                        : "Complete profile to unlock QR"}
-                    </p>
+                      Close Identity Viewer
+                    </button>
                   </div>
                 </motion.div>
-                <button
-                  onClick={() => setExpandedID(false)}
-                  className="mt-12 mx-auto flex items-center gap-2 text-[10px] font-bold text-white/20 hover:text-rose-400 uppercase tracking-widest transition-all group"
-                >
-                  <X
-                    size={14}
-                    className="group-hover:rotate-90 transition-transform"
-                  />
-                  Close Identity Viewer
-                </button>
-              </motion.div>
-            </div>
+              )}
+            </AnimatePresence>,
+            document.body,
           )}
-        </AnimatePresence>
 
         <div className="pointer-events-none fixed inset-0 z-0 bg-[#000000]">
           <div

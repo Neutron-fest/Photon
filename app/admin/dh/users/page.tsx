@@ -153,7 +153,7 @@ function UserAvatar({ name }: any) {
   return (
     <Box sx={{ position: "relative", width: 36, height: 36, flexShrink: 0 }}>
       <Image
-        src="/images/bg.jpeg"
+        src="https://ik.imagekit.io/yatharth/AVAT.jpeg?updatedAt=1774984935374"
         alt={name || "User"}
         fill
         sizes="36px"
