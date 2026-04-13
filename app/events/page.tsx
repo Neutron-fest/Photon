@@ -55,11 +55,11 @@ export default function EventsPage() {
       </div>
 
       <div className="relative z-10 w-full h-full">
-        <CurvedGallery
+        {/* <CurvedGallery
           items={events as any}
           isLoading={isLoading}
           basePath="events"
-        />
+        /> */}
       </div>
 
       <footer className="absolute bottom-6 left-1/2 -translate-x-1/2 z-110 pointer-events-none w-full px-12 flex justify-between items-center opacity-30">
