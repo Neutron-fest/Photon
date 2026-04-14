@@ -21,9 +21,9 @@ function useGlitchPulse(selector: string, interval = 1800) {
 }
 
 const SOCIALS = [
-  { label: "LinkedIn",    href: "#", color: "#0a66c2" },
-  { label: "Instagram",   href: "#", color: "#e1306c" },
-  { label: "X (Twitter)", href: "#", color: "#ffffff" },
+  { label: "LinkedIn",    href: "https://www.linkedin.com/company/neutronfest", color: "#0a66c2" },
+  { label: "Instagram",   href: "https://www.instagram.com/", color: "#e1306c" },
+  { label: "X (Twitter)", href: "https://x.com/neutronfest", color: "#ffffff" },
 ];
 
 export default function ContactPage() {
