@@ -7,11 +7,7 @@ import { ArrowRight, List } from "lucide-react";
 import RulesModal from "@/components/competitions/RulesModal";
 import Noise from "@/components/Noise";
 import { COMPETITIONS_DATA } from "@/data/competition-data";
-
-type RuleItem = {
-  title?: string;
-  content?: string;
-};
+import { parseCompetitionRules, type RuleItem } from "@/lib/competitionRulesParser";
 
 export default function CompetitionSlugPage() {
   const params = useParams();
@@ -169,6 +165,8 @@ export default function CompetitionSlugPage() {
       </main>
     );
   }
+
+  const parsedRules = parseCompetitionRules(comp.rules);
 
   return (
     <main className="relative w-full h-screen bg-[#03050B] text-[#E7F2FF] overflow-hidden overscroll-none selection:bg-cyan-400 selection:text-[#04060b]">
@@ -410,12 +408,15 @@ export default function CompetitionSlugPage() {
               Protocol Rules
             </h3>
             <ul className="list-disc pl-8 md:pl-10 space-y-3 text-[0.95rem] sm:text-[1.05rem] md:text-[1.2rem] lg:text-[1.4rem] leading-snug mb-8 md:mb-10 whitespace-normal text-[#c2aaaa] font-medium font-space-mono">
-              {comp.rules.slice(0, 3).map((rule: RuleItem, i: number) => (
+              {parsedRules.slice(0, 3).map((rule: RuleItem, i: number) => (
                 <li key={i} className="pl-2 pointer-events-none">
                   <span className="font-bold">{rule.title || "Rule"}:</span>{" "}
-                  {String(rule.content || "").length > 70
-                    ? `${String(rule.content || "").slice(0, 70)}...`
-                    : String(rule.content || "")}
+                  {(() => {
+                    const preview = String(rule.content || "")
+                      .replace(/\s+/g, " ")
+                      .trim();
+                    return preview.length > 70 ? `${preview.slice(0, 70)}...` : preview;
+                  })()}
                 </li>
               ))}
             </ul>
@@ -455,7 +456,7 @@ export default function CompetitionSlugPage() {
       <RulesModal
         isOpen={isRulesModalOpen}
         onClose={() => setIsRulesModalOpen(false)}
-        rules={comp.rules}
+        rules={parsedRules}
         title={comp.title}
       />
 

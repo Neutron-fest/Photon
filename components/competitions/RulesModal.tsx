@@ -5,11 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import RulesAccordion from "./RulesAccordion";
 import Noise from "@/components/Noise";
-
-interface RuleItem {
-  title: string;
-  content: string;
-}
+import type { RuleItem } from "@/lib/competitionRulesParser";
 
 interface RulesModalProps {
   isOpen: boolean;

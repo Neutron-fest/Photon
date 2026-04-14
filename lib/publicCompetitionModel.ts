@@ -1,5 +1,6 @@
 const DEFAULT_IMAGE =
   "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa";
+import { parseCompetitionRules } from "@/lib/competitionRulesParser";
 
 const EVENT_TYPES = new Set(["EVENT", "WORKSHOP"]);
 
@@ -150,47 +151,16 @@ const getPrizePool = (competition: any): string => {
 const toRules = (
   competition: any,
 ): Array<{ title: string; content: string }> => {
-  if (Array.isArray(competition?.rules) && competition.rules.length > 0) {
-    return competition.rules.map((rule: any, index: number) => {
-      if (typeof rule === "string") {
-        return {
-          title: `Rule ${index + 1}`,
-          content: rule.trim(),
-        };
-      }
-
-      return {
-        title: toStringSafe(rule?.title) || `Rule ${index + 1}`,
-        content:
-          toStringSafe(rule?.content) ||
-          toStringSafe(rule?.description) ||
-          "Follow standard event policy.",
-      };
-    });
+  const directRules = parseCompetitionRules(competition?.rules);
+  if (directRules.length > 0) {
+    return directRules;
   }
 
   const rulesRichText = toStringSafe(competition?.rulesRichText);
   if (rulesRichText) {
-    const lines = rulesRichText
-      .split(/\n+/)
-      .map((line) => line.replace(/^[-*\d.)\s]+/, "").trim())
-      .filter(Boolean);
-
-    if (lines.length > 0) {
-      return lines.map((line, index) => {
-        const parts = line.split(":");
-        if (parts.length > 1) {
-          return {
-            title: parts[0].trim() || `Rule ${index + 1}`,
-            content: parts.slice(1).join(":").trim() || "Follow event policy.",
-          };
-        }
-
-        return {
-          title: `Rule ${index + 1}`,
-          content: line,
-        };
-      });
+    const parsedRichText = parseCompetitionRules(rulesRichText);
+    if (parsedRichText.length > 0) {
+      return parsedRichText;
     }
   }
 

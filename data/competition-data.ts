@@ -3,6 +3,8 @@ export interface Rule {
   content: string;
 }
 
+export type CompetitionRules = Rule[] | string;
+
 export interface Competition {
   title: string;
   image: string;
@@ -15,7 +17,7 @@ export interface Competition {
   prizePool: string;
   location: string;
   teamSize: string;
-  rules: Rule[];
+  rules: CompetitionRules;
 }
 
 export const COMPETITIONS_DATA: Competition[] = [
@@ -32,178 +34,365 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "Rs 8,000",
     location: "Mini Audi",
     teamSize: "1-3",
-    rules: [
-      {
-        title: "Introduction",
-        content:
-          "Investor's Dilemma, conducted under Photon (Pre-Fest of Neutron 3.0), is a strategy-based financial simulation that tests decision-making, analytical thinking, and risk management.",
-      },
-      {
-        title: "Eligibility",
-        content:
-          "Open to Rishihood University students. Participation allowed solo or in teams of 1 to 3 members.",
-      },
-      {
-        title: "Mandatory Identity Verification",
-        content:
-          "Participants must present a valid institutional ID and a valid government ID (Aadhaar, PAN, Passport, or equivalent).",
-      },
-      {
-        title: "Registration Details",
-        content:
-          "Registration mode is online. Deadline is 16th April 2026. Registration fee is Rs 0. Selection is first-come first-served.",
-      },
-      {
-        title: "Simulation Overview",
-        content:
-          "This is a multi-round investment simulation where participants build and manage a virtual portfolio over time to achieve the highest value by the end.",
-      },
-      {
-        title: "Simulation Structure",
-        content:
-          "All participants begin with equal virtual capital; each round features around five companies; participants may buy, sell, or hold.",
-      },
-      {
-        title: "Timeline",
-        content:
-          "The simulation progresses through 2028, 2030, 2032, 2034, 2036, and 2038, with portfolios carried forward after every round.",
-      },
-      {
-        title: "Round Flow - Market Setup",
-        content:
-          "At the start of each round, participants receive the current year, listed companies, and stock prices.",
-      },
-      {
-        title: "Round Flow - Initial Investment Window",
-        content:
-          "Participants allocate capital, buy stocks, and may retain cash.",
-      },
-      {
-        title: "Round Flow - News and Market Events",
-        content:
-          "Structured company, economic, or sector updates are released. News may have direct, indirect, delayed, or minimal impact.",
-      },
-      {
-        title: "Round Flow - Trading Window",
-        content:
-          "Participants may buy additional shares, sell existing holdings, or hold positions during the designated trading window.",
-      },
-      {
-        title: "Round Flow - Round Close",
-        content:
-          "Final prices are revealed, portfolio values are updated, and outcomes carry forward to the next round.",
-      },
-      {
-        title: "Progression Across Rounds",
-        content:
-          "Market complexity increases over time; participants are expected to adapt strategy based on prior outcomes and new information.",
-      },
-      {
-        title: "Final Evaluation",
-        content:
-          "At the end of 2038, all portfolios are evaluated and ranked by total final portfolio value.",
-      },
-      {
-        title: "Winning Criteria",
-        content:
-          "The participant or team with the highest final portfolio value is declared the winner.",
-      },
-      {
-        title: "Time Regulations",
-        content:
-          "Each round has fixed time windows for initial investment and trading decisions; exact timings are announced during the event and no actions are permitted after closure.",
-      },
-      {
-        title: "Judging",
-        content:
-          "Primary metric is final portfolio value. Secondary metrics, if required, include consistency of performance and quality of decision-making.",
-      },
-      {
-        title: "Tie-Break",
-        content:
-          "If final portfolio values are identical, the highest profit between any two consecutive rounds determines the winner. Organizer decisions are final and binding.",
-      },
-      {
-        title: "Strategy Considerations",
-        content:
-          "Participants should balance risk and return, diversify where appropriate, adapt across rounds, and avoid overreaction to short-term events.",
-      },
-      {
-        title: "Common Pitfalls",
-        content:
-          "Avoid over-concentration in one stock, ignoring market signals, panic selling after negative news, and failing to adapt strategy over rounds.",
-      },
-      {
-        title: "General Rules",
-        content:
-          "Report at least 30 minutes before start, follow all organizer instructions, maintain appropriate conduct, and do not obstruct event operations.",
-      },
-      {
-        title: "Permitted Items",
-        content:
-          "Laptop, internet access for platform use only, and personal notes are permitted.",
-      },
-      {
-        title: "Prohibited Items",
-        content:
-          "External trading platforms, real-money transactions, hazardous materials, unauthorized devices/assistance, and any items prohibited by policy or law are not allowed.",
-      },
-      {
-        title: "Gameplay Rules",
-        content:
-          "Trades must be executed within designated windows, decisions cannot be changed after round close, event-provided information must be used, and portfolios do not reset.",
-      },
-      {
-        title: "Trading Constraints",
-        content:
-          "No short selling, no leverage or margin trading, no buying beyond available cash, and no selling beyond currently owned shares.",
-      },
-      {
-        title: "Safety and Conduct",
-        content:
-          "Hazardous, reckless, discriminatory, harassing, or abusive behavior is prohibited and may lead to immediate removal or disciplinary action.",
-      },
-      {
-        title: "Grounds for Disqualification",
-        content:
-          "Late reporting, eligibility breaches, unauthorized assistance, cheating, tampering, misconduct, safety violations, property damage, or non-compliance may result in disqualification.",
-      },
-      {
-        title: "Prize Pool and Recognition",
-        content:
-          "Total prize pool is Rs 8,000: 1st place Rs 5,000 and 2nd place Rs 3,000. E-certificates are provided to winners and participants.",
-      },
-      {
-        title: "Liability and Consent",
-        content:
-          "Participation is voluntary and at personal risk. Organizers and institution are not liable for injury, loss, or damage. Media capture and emergency first-aid consent apply.",
-      },
-      {
-        title: "Code of Conduct",
-        content:
-          "Integrity, honesty, respect, non-discrimination, rule compliance, anti-cheating, and protection of event systems and property are mandatory.",
-      },
-      {
-        title: "Appeals Process",
-        content:
-          "Escalation chain is Level 1 On-Ground Coordinator (verbal), Level 2 Competition Lead (written within 30 minutes with evidence), and Level 3 Photon Competitions Head Panel (final decision).",
-      },
-      {
-        title: "Appeal Restrictions",
-        content:
-          "Appeals on subjective evaluation are not considered. Late, incomplete, or frivolous appeals are rejected and misuse may invite disciplinary action.",
-      },
-      {
-        title: "Privacy and Data Handling",
-        content:
-          "Participant data may be collected for event operations, verification, scoring, communication, compliance, and archival use with reasonable safeguards and controlled disclosure.",
-      },
-      {
-        title: "Contact and Support",
-        content:
-          "Coordinators: Yatin Sharma (9783204855, yatin.s25710@nst.rishihood.edu.in), Anjana Kamle (9886445802, anjana.k25059@nst.rishihood.edu.in), Deeksha Agrawal (7017658695, deeksha.a25133@nst.rishihood.edu.in). Availability: till the event.",
-      },
-    ],
+    rules: `# **INVESTOR'S DILEMMA – PRE FEST GUIDELINES**
+
+---
+
+## **1. Introduction**
+
+Investor’s Dilemma, conducted under Photon (Pre-Fest of Neutron 3.0), is a strategy-based financial simulation designed to test decision-making, analytical thinking, and risk management.
+
+Participants act as investors managing a virtual portfolio across multiple time periods. Each round presents changing market conditions and structured news events that influence stock performance.
+
+Participants must interpret information, manage risk, and make disciplined decisions to maximize returns over time.
+
+Aggressive strategies may yield high returns but carry significant downside risk, while conservative strategies may reduce losses but limit upside potential.
+
+Success in this competition depends on judgment, adaptability, and consistency, not luck.
+
+---
+
+## **2. Eligibility**
+
+**Open To:** Rishihood University Students
+
+**Participation Format:** Solo or Team (Team Size: 1 - 3 members)
+
+**Mandatory Identity Verification:**
+
+- Valid Institutional ID
+- Valid Government ID (Aadhaar, PAN, Passport, etc.)
+
+---
+
+## **3. Registration Details**
+
+- **Mode of Registration:** Online
+- **Registration Deadline:** 16th April 2026
+- **Registration Fee:** ₹0
+- **Selection Mechanism:** First-Come First-Served
+
+**Team Size Requirements:**
+
+- Minimum: 1
+- Maximum: 3
+
+---
+
+## **4. Competition Format**
+
+### **4.1 Overview**
+
+Investor’s Dilemma is a multi-round investment simulation where participants build and manage a virtual portfolio over time.
+
+Participants make decisions across different years, reacting to changing market conditions and structured news events. The objective is to achieve the highest portfolio value by the end of the simulation.
+
+---
+
+### **4.2 Simulation Structure**
+
+- All participants begin with equal virtual capital
+- Each round features approximately five companies
+- Participants can buy, sell, or hold stocks
+- The simulation progresses through the following timeline:
+
+**2028 → 2030 → 2032 → 2034 → 2036 → 2038**
+
+- Portfolios carry forward after each round (no reset)
+- Early decisions directly impact future outcomes
+
+---
+
+### **4.3 Round Structure**
+
+Each round follows a fixed sequence:
+
+**Step 1 — Market Setup**
+
+Participants are provided with:
+
+- Current year
+- List of companies
+- Stock prices
+
+---
+
+**Step 2 — Initial Investment Window**
+
+Participants:
+
+- Allocate capital
+- Buy stocks
+- Retain cash if desired
+
+---
+
+**Step 3 — News & Market Events**
+
+Participants receive structured updates such as:
+
+- Company developments
+- Economic or sectoral events
+
+**Note:**
+
+News may have direct, indirect, delayed, or minimal impact. Not all news is equally important.
+
+---
+
+**Step 4 — Trading Window**
+
+Participants may:
+
+- Buy additional shares
+- Sell existing holdings
+- Hold positions
+
+---
+
+**Step 5 — Round Close**
+
+- Final stock prices are revealed
+- Portfolio values are updated
+- Results carry forward to the next round
+
+---
+
+### **4.4 Progression Across Rounds**
+
+- Each round advances the simulation timeline
+- Market complexity increases over time
+- Participants must adapt strategy based on:
+    - Previous performance
+    - New information
+    - Changing conditions
+
+---
+
+### **4.5 Final Evaluation**
+
+At the end of 2038:
+
+- All portfolios are evaluated
+- Rankings are based on total final portfolio value
+
+---
+
+### **4.6 Winning Criteria**
+
+The participant or team with the highest final portfolio value wins.
+
+---
+
+### **4.7 Time Regulations**
+
+- Each round has fixed time windows for initial investment and trading decisions
+- Exact timings will be announced during the event
+- No actions are allowed after the time window closes
+
+---
+
+### **4.8 Judging Criteria**
+
+Judging shall be conducted based on the following:
+
+**Primary Metric:**
+
+- Final portfolio value
+
+**Secondary Metrics (if required):**
+
+- Consistency of performance across rounds
+- Quality of decision-making
+
+---
+
+### **4.9 Tie-Breaker Protocol**
+
+In the event of identical final portfolio values, the following rule shall be applied:
+
+- Highest profit between any two consecutive rounds
+
+All decisions resulting from tie-breaker procedures shall be final and binding.
+
+---
+
+### **4.10 Strategy Considerations**
+
+Participants are expected to:
+
+- Balance risk and return
+- Diversify where necessary
+- Adapt strategy across rounds
+- Avoid overreaction to short-term events
+
+---
+
+### **4.11 Common Pitfalls**
+
+- Over-concentration in a single stock
+- Ignoring market signals
+- Panic selling after negative news
+- Failing to adapt strategy across rounds
+
+---
+
+## **5. Competition Rules**
+
+### **5.1 General Rules**
+
+- Participants must report no later than 30 minutes before the designated start time. Late arrival may constitute forfeiture of participation rights.
+- Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+- Any use of offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content—whether verbal, written, visual, or performative—is strictly prohibited.
+- Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for loss, theft, malfunction, or damage.
+- Any attempt to manipulate, disrupt, alter, interfere with, or unlawfully access event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+- Participants must refrain from any conduct that causes undue delay, obstruction, or operational disruption to event proceedings.
+
+---
+
+### **5.2 Allowed & Prohibited Items**
+
+**Permitted Items:**
+
+- Laptop
+- Internet access (for platform use only)
+- Personal notes
+
+**Prohibited Items:**
+
+- External trading platforms
+- Real-money transactions
+- Hazardous materials or substances
+- Items prohibited by institutional policy or local law
+- Offensive, discriminatory, or inappropriate props or materials
+- Unauthorized electronic devices, tools, or assistance mechanisms
+- Any apparatus deemed unsafe by event authorities
+
+---
+
+### **5.3 Gameplay Rules**
+
+- Trades must be executed within designated time windows
+- Decisions cannot be changed after a round closes
+- Participants must rely only on information provided during the event
+- Portfolios do not reset between rounds
+
+**Trading Constraints:**
+
+- No short selling
+- No leverage or margin trading
+- Cannot buy beyond available cash balance
+- Cannot sell more shares than currently owned
+
+---
+
+### **5.4 Safety & Conduct**
+
+- Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as hazardous, negligent, reckless, or endangering may result in immediate removal.
+- Harassment, discrimination, intimidation, coercion, or misconduct—whether physical, verbal, written, or digital—shall not be tolerated and will result in immediate disciplinary action, including disqualification.
+- Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the safety, fairness, integrity, or reputation of Photon.
+
+---
+
+### **5.5 Grounds for Disqualification**
+
+Participants or teams may be disqualified at any stage for:
+
+- Failure to report within scheduled timelines.
+- Breach of eligibility criteria, team composition rules, or submission requirements.
+- Use of prohibited items or unauthorized external assistance.
+- Cheating, misrepresentation, plagiarism, data falsification, or submission tampering.
+- Misconduct, harassment, abusive behavior, or violation of safety requirements.
+- Damage to property, interference with event operations, or hindrance of official activities.
+- Failure to comply with official instructions despite warning.
+- Any act that compromises the operational integrity, fairness, or institutional reputation of Photon.
+
+---
+
+## **6. Prize Pool & Recognition**
+
+- **Prize Pool Total:** ₹8,000
+- **Distribution:**
+    - **1st Place: ₹5,000**
+    - **2nd Place: ₹3,000**
+- **Certificates:** E-Certificates to Winners and Participants
+
+---
+
+## **7. Liability & Consent**
+
+- Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+- Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
+
+---
+
+## **8. Code of Conduct**
+
+All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
+
+- **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+- **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+- **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+- **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+- **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+- **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+- **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
+
+---
+
+## **9. Escalation Chain & Appeals Process**
+
+Participants may file an appeal exclusively for procedural inconsistencies, scoring discrepancies, administrative errors, or judge misconduct.
+
+**Appeals Framework:**
+
+- **Level 1: On-Ground Coordinator**
+    
+    Concerns must be verbally reported immediately after the round or relevant incident.
+    
+- **Level 2: Competition Lead (Written Appeal)**
+    
+    A written appeal must be submitted within 30 minutes of the incident. It must include:
+    
+    - Precise grounds for the appeal
+    - Evidence (screenshots, documents, recordings)
+    - Participant/team identification details
+- **Level 3: Photon Competitions Head Panel**
+    
+    A formal review shall be conducted.
+    
+    The panel’s decision is final, binding, and not subject to further challenge.
+    
+
+**Restrictions:**
+
+- Appeals relating to subjective evaluation or artistic preference shall not be considered.
+- Late, incomplete, or frivolous appeals shall be rejected without review.
+- Misuse of the appeals process may result in disciplinary action.
+
+---
+
+## **10. Privacy & Data Handling Policy**
+
+- **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+- **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+- **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+- **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+- **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+- **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+- **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
+
+---
+
+## **11. Contact & Support**
+
+- **Event Coordinators:**
+    - **Yatin Sharma | 9783204855 | [yatin.s25710@nst.rishihood.edu.in](mailto:yatin.s25710@nst.rishihood.edu.in)**
+    - **Anjana Kamle | 9886445802 | [anjana.k25059@nst.rishihood.edu.in](mailto:anjana.k25059@nst.rishihood.edu.in)**
+    - **Deeksha Agrawal | 7017658695 | [deeksha.a25133@nst.rishihood.edu.in](mailto:deeksha.a25133@nst.rishihood.edu.in)**
+- **Availability:** Till the Event`
   },
   
   {
@@ -219,122 +408,244 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "Rs 8,000",
     location: "A503",
     teamSize: "1-3",
-    rules: [
-      {
-        title: "Introduction",
-        content:
-          "AlgoRhythm is a competitive event evaluating technical skill, creativity, analytical capability, and artistic merit.",
-      },
-      {
-        title: "Eligibility",
-        content:
-          "Open to Rishihood University students only. Participation format is solo or teams of 1 to 3.",
-      },
-      {
-        title: "Identity Verification",
-        content:
-          "Valid institutional ID and valid government ID are mandatory for participation.",
-      },
-      {
-        title: "Registration",
-        content:
-          "Mode: Online. Deadline: 16th April 2026. Fee: Rs 0. Selection: First-Come First-Served.",
-      },
-      {
-        title: "Round 1 - Decode the Beat",
-        content:
-          "Offline, 1 hour. Participants hear a looping track and fill/correct blanks or errors in provided Strudel code. AI tools are allowed. Submission via Google Form.",
-      },
-      {
-        title: "Round 1 Evaluation",
-        content:
-          "Accuracy of submitted code is checked using an AI model and organizer verification when required.",
-      },
-      {
-        title: "Round 2 - Theme-Based Music Creation",
-        content:
-          "Offline final, 2 hours. Participants get a theme (Lo-Fi, Cyberpunk, Horror, Retro, etc.) and create a Strudel composition with live performance.",
-      },
-      {
-        title: "Round 2 Judging",
-        content:
-          "Weightage: Originality and Creativity 20%, Theme Relevance 20%, Time and Duration Compliance 20%, Sound Quality and Composition 20%, Code Analysis 20%.",
-      },
-      {
-        title: "Time Regulations",
-        content:
-          "Round 1 is 60 minutes, Round 2 is 120 minutes, plus 10 minutes setup or buffer as per venue conditions.",
-      },
-      {
-        title: "Tie-Breaker Round 1",
-        content:
-          "If the final qualifying rank is tied (example 8th and 9th), both tied participants qualify.",
-      },
-      {
-        title: "Tie-Breaker Round 2",
-        content:
-          "Resolve ties by higher Originality and Creativity score, then higher Theme Relevance score, then final panel decision.",
-      },
-      {
-        title: "General Rules",
-        content:
-          "Report at least 30 minutes before start. Follow all organizer, judge, and volunteer instructions.",
-      },
-      {
-        title: "Permitted Items",
-        content: "Laptop with internet access, headphones, and notes/reference material.",
-      },
-      {
-        title: "Prohibited Items",
-        content:
-          "Hazardous materials, unauthorized devices/assistance, offensive props, and items prohibited by policy or law.",
-      },
-      {
-        title: "Safety and Conduct",
-        content:
-          "Harassment, discrimination, coercion, and unsafe behavior are strictly prohibited and may lead to disqualification.",
-      },
-      {
-        title: "Grounds for Disqualification",
-        content:
-          "Late reporting, eligibility breach, unauthorized assistance, cheating, plagiarism, tampering, misconduct, or non-compliance.",
-      },
-      {
-        title: "Prize and Recognition",
-        content:
-          "Total prize pool is Rs 8,000: 1st place Rs 5,000, 2nd place Rs 3,000. E-certificates for winners and participants.",
-      },
-      {
-        title: "Liability and Consent",
-        content:
-          "Participation is voluntary. Organizers and institution are not liable for injury, loss, or damage. Media capture consent applies.",
-      },
-      {
-        title: "Code of Conduct",
-        content:
-          "Integrity, honesty, respect, non-discrimination, and rule compliance are mandatory for all participants and associated personnel.",
-      },
-      {
-        title: "Appeals Process",
-        content:
-          "Level 1 verbal report to coordinator, Level 2 written appeal within 30 minutes, Level 3 panel review with final binding decision.",
-      },
-      {
-        title: "Appeal Restrictions",
-        content:
-          "Subjective artistic-preference appeals are not considered. Late/incomplete/frivolous appeals are rejected.",
-      },
-      {
-        title: "Privacy and Data Handling",
-        content:
-          "Participant data may be collected for administration, verification, scoring, communication, compliance, and event operations with safeguards.",
-      },
-      {
-        title: "Contact and Support",
-        content:
-          "Coordinators: Nikith (8217728508, nikith.s2024@nst.rishihood.edu.in), Vibhu Kakkar (8533034934, vibhu.k25505@nst.rishihood.edu.in), Mukund (7302005800, mukund.h25285@nst.rishihood.edu.in). Availability: till the event.",
-      },
-    ],
+    rules: `# **AlgoRhythm – PRE FEST GUIDELINES**
+
+---
+
+## **1. Introduction**
+
+AlgoRhythm, conducted under Photon (Pre-Fest of Neutron 3.0), is a competitive event designed to evaluate participants’ skills, creativity, analytical capability, and technical as well as artistic merit. The competition aligns with the vision and standards of Rishihood University and serves as a preview event leading to the annual tech fest Neutron 3.0.
+
+AlgoRhythm explores the fusion of coding and music, where participants use Strudel to transform logic into sound. The competition emphasizes both analytical problem-solving and creative expression, encouraging participants to build immersive audio experiences through live coding.
+
+---
+
+## **2. Eligibility**
+
+**Open To:** Rishihood University Students
+
+**Participation Format:** Solo or Team (Team Size: 1 - 3 members)
+
+**Mandatory Identity Verification:**
+
+- Valid Institutional ID
+- Valid Government ID (Aadhaar, PAN, Passport, etc.)
+
+---
+
+## **3. Registration Details**
+
+- **Mode of Registration:** Online
+- **Registration Deadline:** 16th April 2026
+- **Registration Fee:** ₹0
+- **Selection Mechanism:** First-Come First-Served
+
+**Team Size Requirements:**
+
+- Minimum: 1
+- Maximum: 3
+
+---
+
+## **4. Competition Format**
+
+### **4.1 Rounds Matrix**
+
+| **Round Name** | **Mode** | **Description** | **Duration** | **Submission** | **Evaluation / Criteria** |
+| --- | --- | --- | --- | --- | --- |
+| **Round 1: Decode the Beat** | Offline | Participants will listen to a continuously playing audio track and receive raw Strudel code containing blanks/errors. Multiple answer options (including misleading options) will be provided. Participants must analyse the sound and complete/correct the code accordingly. AI tools are allowed. | 1 Hour | Via Google Form | Accuracy of submitted code evaluated using AI model |
+| **Round 2: Theme-Based Music Creation (Final Round)** | Offline | Participants will be assigned a genre/theme (Lo-Fi, Cyberpunk, Horror, Retro, etc.) and must create a music track using Strudel. Proper composition and required duration must be maintained. Includes live performance. AI tools are allowed. | 2 Hours | No separate submission (Live Judging) | Originality, Theme Relevance, Time Compliance, Sound Quality |
+
+---
+
+### **4.2 Time Regulations**
+
+- Round 1: 60 Minutes
+- Round 2: 120 Minutes
+- Setup / Buffer Time: 10 Minutes (as per venue conditions)
+
+---
+
+### **4.3 Judging Criteria**
+
+**Round 1**
+
+- Code accuracy shall be checked using a trained AI model and verified by organisers if required.
+
+---
+
+**Round 2**
+
+| **Criteria** | **Description** | **Weightage** |
+| --- | --- | --- |
+| Originality & Creativity | Uniqueness of composition, innovative use of code, fresh musical ideas | 20% |
+| Theme Relevance | How effectively the track reflects the assigned genre/theme | 20% |
+| Time & Duration Compliance | Whether track duration matches or reasonably approaches required limit | 20% |
+| Sound Quality & Composition | Overall listening experience, balance, layering, transitions, structure | 20% |
+| Code Analysis | Number and effective use of instruments/elements in composition | 20% |
+
+---
+
+### **4.4 Tie-Breaker Protocol**
+
+In case of identical scores:
+
+**Round 1**
+
+If 8 finalists are to qualify and the 8th and 9th ranked participants share the same score, both participants shall qualify.
+
+---
+
+**Round 2**
+
+Tie-breakers shall apply in the following order:
+
+- Higher score in Originality & Creativity
+- Higher score in Theme Relevance
+- Final decision of judging panel / organising committee
+
+All tie-breaker decisions shall be final and binding.
+
+---
+
+## **5. Competition Rules**
+
+### **5.1 General Rules**
+
+- Participants must report no later than 30 minutes before the designated start time. Late arrival may constitute forfeiture of participation rights.
+- Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+- Any use of offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content—whether verbal, written, visual, or performative—is strictly prohibited.
+- Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for loss, theft, malfunction, or damage.
+- Any attempt to manipulate, disrupt, alter, interfere with, or unlawfully access event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+- Participants must refrain from any conduct that causes undue delay, obstruction, or operational disruption to event proceedings.
+
+---
+
+### **5.2 Allowed & Prohibited Items**
+
+**Permitted Items**
+
+- Laptop with internet access
+- Headphones
+- Notes / Reference material
+
+**Prohibited Items**
+
+- Hazardous materials or substances
+- Items prohibited under institutional policy or law
+- Offensive or inappropriate props/materials
+- Unauthorized devices or assistance mechanisms
+- Any item deemed unsafe by organisers
+
+---
+
+### **5.3 Safety & Conduct**
+
+- Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as hazardous, negligent, reckless, or endangering may result in immediate removal.
+- Harassment, discrimination, intimidation, coercion, or misconduct—whether physical, verbal, written, or digital—shall not be tolerated and will result in immediate disciplinary action, including disqualification.
+- Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the safety, fairness, integrity, or reputation of Photon.
+
+---
+
+### **5.4 Grounds for Disqualification**
+
+Participants or teams may be disqualified at any stage for:
+
+- Failure to report within scheduled timelines.
+- Breach of eligibility criteria, team composition rules, or submission requirements.
+- Use of prohibited items or unauthorized external assistance.
+- Cheating, misrepresentation, plagiarism, data falsification, or submission tampering.
+- Misconduct, harassment, abusive behavior, or violation of safety requirements.
+- Damage to property, interference with event operations, or hindrance of official activities.
+- Failure to comply with official instructions despite warning.
+- Any act that compromises the operational integrity, fairness, or institutional reputation of Photon.
+
+---
+
+## **6. Prize Pool & Recognition**
+
+- **Prize Pool Total:** ₹8,000
+- **Distribution:**
+    - **1st Place: ₹5,000**
+    - **2nd Place: ₹3,000**
+- **Certificates:** E-Certificates to Winners and Participants
+
+---
+
+## **7. Liability & Consent**
+
+- Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+- Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
+
+---
+
+## **8. Code of Conduct**
+
+All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
+
+- **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+- **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+- **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+- **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+- **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+- **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+- **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
+
+---
+
+## **9. Escalation Chain & Appeals Process**
+
+Participants may file an appeal exclusively for procedural inconsistencies, scoring discrepancies, administrative errors, or judge misconduct.
+
+**Appeals Framework:**
+
+- **Level 1: On-Ground Coordinator**
+    
+    Concerns must be verbally reported immediately after the round or relevant incident.
+    
+- **Level 2: Competition Lead (Written Appeal)**
+    
+    A written appeal must be submitted within 30 minutes of the incident. It must include:
+    
+    - Precise grounds for the appeal
+    - Evidence (screenshots, documents, recordings)
+    - Participant/team identification details
+- **Level 3: Photon Competitions Head Panel**
+    
+    A formal review shall be conducted.
+    
+    The panel’s decision is final, binding, and not subject to further challenge.
+    
+
+**Restrictions:**
+
+- Appeals relating to subjective evaluation or artistic preference shall not be considered.
+- Late, incomplete, or frivolous appeals shall be rejected without review.
+- Misuse of the appeals process may result in disciplinary action.
+
+---
+
+## **10. Privacy & Data Handling Policy**
+
+- **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+- **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+- **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+- **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+- **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+- **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+- **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
+
+---
+
+## **11. Contact & Support**
+
+- **Event Coordinators:**
+    - **Nikith | 82177 28508 | [nikith.s2024@nst.rishihood.edu.in](mailto:nikith.s2024@nst.rishihood.edu.in)**
+    - **Vibhu Kakkar | 8533034934 | [vibhu.k25505@nst.rishihood.edu.in](mailto:vibhu.k25505@nst.rishihood.edu.in)**
+    - **Mukund | 7302005800 | [mukund.h25285@nst.rishihood.edu.in](mailto:mukund.h25285@nst.rishihood.edu.in)**
+- **Availability:** Till the Event`,
   },
 
 
@@ -353,135 +664,265 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "Rs 10000",
     location: "A-Block 504",
     teamSize: "1",
-    rules: [
-      {
-        title: "Introduction",
-        content:
-          "Code Combat: 1v1 Programming Duel under Photon - Neutron 3.0 is a high-intensity coding event designed to evaluate analytical thinking, problem-solving, speed, and technical precision.",
-      },
-      {
-        title: "Eligibility",
-        content: "Open to students of Rishihood University. Participation format is solo.",
-      },
-      {
-        title: "Registration Details",
-        content:
-          "Mode: Offline. Deadline: 16 April 2026. Fee: Rs 0. Selection: First-Come First-Served.",
-      },
-      {
-        title: "Competition Flow",
-        content:
-          "Single-elimination 1v1 duel format. Two participants solve the same problem simultaneously, submissions are evaluated in real-time, winner advances and loser is eliminated.",
-      },
-      {
-        title: "Round 1 - Elimination (32 to 16)",
-        content:
-          "Basic-level problems with focus on speed and accuracy. Duration: 10 minutes.",
-      },
-      {
-        title: "Round 2 - Round of 16 (16 to 8)",
-        content:
-          "Moderate-difficulty problems with controlled background distraction (music). Duration: 15 minutes.",
-      },
-      {
-        title: "Round 3 - Quarterfinals (8 to 4)",
-        content:
-          "Higher-difficulty problems. No rough sheets allowed. Duration: 20 minutes.",
-      },
-      {
-        title: "Round 4 - Semifinals (4 to 2)",
-        content:
-          "High-pressure stage with strategic penalty system: incorrect submission requires either immediate continuation after lemon shot or a 2-minute cooldown. Duration: 20 minutes.",
-      },
-      {
-        title: "Round 5 - 3rd Place Playoff",
-        content: "Determines third-place ranking. Duration: 25 minutes.",
-      },
-      {
-        title: "Final Round (2 to Winner)",
-        content: "Championship match. Duration: 30 minutes.",
-      },
-      {
-        title: "Scoring and Evaluation",
-        content:
-          "Submissions are evaluated on correctness (primary), time efficiency, and code quality. First correct solution wins. Incorrect submissions may incur penalties and partial scoring may apply.",
-      },
-      {
-        title: "Time Regulations",
-        content:
-          "Each round has predefined duration with 5 minutes setup time. Late submissions are not accepted. Incomplete solutions are evaluated based on passed test cases.",
-      },
-      {
-        title: "Platform and Technical Rules",
-        content:
-          "Competition runs on a custom coding platform with organizer-provided systems. Supported languages: C++, Java, Python.",
-      },
-      {
-        title: "Strictly Prohibited",
-        content:
-          "Internet browsing (except the platform), external help, and AI tools (ChatGPT, Copilot, etc.) are prohibited. Violation leads to immediate disqualification.",
-      },
-      {
-        title: "Tie-Breaker Protocol",
-        content:
-          "In case of identical performance: X-factor time increase with extra hints, then fewer incorrect submissions, then higher number of test cases passed, then sudden-death problem. No further appeals after final decision.",
-      },
-      {
-        title: "General Rules",
-        content:
-          "Report 15 minutes before start. No collaboration is allowed. Any disruption or misconduct can result in penalty or disqualification. Judges' decisions are final.",
-      },
-      {
-        title: "Permitted Items",
-        content:
-          "Organizer-provided systems and optional personal keyboard or mouse are permitted.",
-      },
-      {
-        title: "Prohibited Items",
-        content:
-          "Mobile phones, smart devices, external storage devices, and any unfair assistance are prohibited.",
-      },
-      {
-        title: "Grounds for Disqualification",
-        content:
-          "Use of unfair means, plagiarism or identical code, access to restricted resources, misconduct, disruption, or failure to follow official instructions.",
-      },
-      {
-        title: "Prize Pool and Recognition",
-        content:
-          "1st Place: Rs 5,000. 2nd Place: Rs 3,000. 3rd Place: Rs 2,000.",
-      },
-      {
-        title: "Liability and Consent",
-        content:
-          "Participation is voluntary and participants assume responsibility for personal injury, loss, or damage. Neutron 3.0 organizers and Rishihood University are not liable. Media usage consent applies.",
-      },
-      {
-        title: "Code of Conduct",
-        content:
-          "Integrity, honesty, respect, non-discrimination, compliance with rules, and strict anti-cheating are mandatory. Violations may lead to disciplinary action or disqualification.",
-      },
-      {
-        title: "Escalation Chain and Appeals",
-        content:
-          "Level 1: On-ground Coordinator (immediate verbal report). Level 2: Written appeal within 30 minutes. Level 3: Neutron Competitions Head Panel (final decision).",
-      },
-      {
-        title: "Appeal Restrictions",
-        content:
-          "No appeals on subjective judgment. Late or incomplete appeals are rejected. Misuse of the appeal process may result in disciplinary action.",
-      },
-      {
-        title: "Privacy and Data Policy",
-        content:
-          "Participant data may be collected for registration, scoring, communication, and media usage. Data is stored securely and used only for official purposes.",
-      },
-      {
-        title: "Contact and Support",
-        content:
-          "Coordinators: Khanak Jain and Yatin Sharma. Phone: 9718621543, 9166291772. Help: khanak.j25219@nst.rishihood.edu.in | ankur.a25063@nst.rishihood.edu.in. Availability: during event hours.",
-      },
-    ],
+    rules: `# **Code Combat: 1v1 Programming Duel**
+
+*Under Photon – Neutron 3.0*
+
+---
+
+## **1. Introduction**
+
+Code Combat: 1v1 Programming Duel, conducted under Photon – Neutron 3.0, is a high-intensity competitive coding event designed to evaluate participants’ analytical thinking, problem-solving ability, speed, and technical precision.
+
+The competition transforms programming into a real-time duel format, where participants compete head-to-head on identical problems under strict time constraints. It emphasises accuracy, efficiency, and decision-making under pressure, creating a fair and engaging competitive environment.
+
+---
+
+## **2. Eligibility**
+
+**Open To:**
+
+- Students of Rishihood University
+
+**Participation Format:** Solo
+
+---
+
+## **3. Registration Details**
+
+**Mode:** Offline
+
+**Deadline:** 16 April 2026
+
+**Fee:** ₹0.0
+
+**Selection:** First-Come First-Served
+
+---
+
+## **4. Competition Format**
+
+### **4.1 Flow of Competition**
+
+The competition follows a **single-elimination 1v1 duel format**.
+
+Participants compete in knockout rounds, progressing toward the final stage.
+
+Each match:
+
+- Two participants solve the **same problem simultaneously**
+- Submissions are evaluated in real-time
+- Winner advances, loser is eliminated
+
+---
+
+### **4.2 Rounds Structure**
+
+**Round 1: Elimination (32 → 16)**
+
+- Basic-level problems
+- Focus: speed & accuracy
+- Duration: 10 minutes
+
+**Round 2: Round of 16 (16 → 8)**
+
+- Moderate difficulty
+- Controlled background distraction (music)
+- Duration: 15 minutes
+
+**Round 3: Quarterfinals (8 → 4)**
+
+- Higher difficulty
+- No rough sheets allowed
+- Duration: 20 minutes
+
+**Round 4: Semifinals (4 → 2)**
+
+- High-pressure matches
+- Strategic penalty system:
+    - Incorrect submission → choose:
+        - Continue immediately after lemon shot
+        - OR take 2-minute cooldown
+- Duration: 20 minutes
+
+**Round 5: 3rd Place Playoff**
+
+- Determines 3rd place
+- Duration: 25 minutes
+
+**Final Round (2 → Winner)**
+
+- Championship match
+- Duration: 30 minutes
+
+---
+
+### **4.3 Scoring & Evaluation**
+
+Each submission is evaluated on:
+
+Correctness (primary factor)
+
+Time Efficiency
+
+Code Quality
+
+**Important Rules:**
+
+- First correct solution wins
+- Incorrect submissions may incur penalties (time or strategic)
+- Partial scoring may apply based on platform evaluation
+
+---
+
+### **4.4 Time Regulations**
+
+- Each round has predefined duration
+- Setup time: 5 minutes
+- Late submissions: Not accepted
+- Incomplete solutions evaluated based on test cases
+
+---
+
+### **4.5 Platform & Technical Rules**
+
+- Competition will run on a **custom coding platform**
+- Systems will be provided by organizers
+- Supported languages: C++, Java, Python
+
+**Strictly Prohibited:**
+
+- Internet browsing (except platform)
+- External help
+- AI tools (ChatGPT, Copilot, etc.)
+
+Violation = Immediate disqualification
+
+---
+
+### **4.6 Tie-Breaker Protocol**
+
+In case of identical performance:
+
+1. Time can be increased by an X-factor, and extra hints may be provided
+2. Fewer incorrect submissions
+3. The number of test cases passed in a submission will be considered for evaluation.
+4. Sudden-death problem
+
+No further appeals allowed after the final decision.
+
+---
+
+## **5. Competition Rules**
+
+### **5.1 General Rules**
+
+- Report **15 minutes before start time**
+- No collaboration allowed
+- Only individual effort permitted
+- Any disruption or misconduct → penalty/disqualification
+- Judges’ decision is final
+
+---
+
+### **5.2 Allowed & Prohibited Items**
+
+**Permitted:**
+
+- Organizer-provided systems
+- Personal keyboard/mouse (optional)
+
+**Prohibited:**
+
+- Mobile phones
+- Smart devices
+- External storage devices
+- Any unfair assistance
+
+---
+
+### **5.3 Grounds for Disqualification**
+
+- Use of unfair means
+- Plagiarism or identical code
+- Accessing restricted resources
+- Misconduct or disruption
+- Failure to follow instructions
+
+---
+
+## **6. Prize Pool & Recognition**
+
+1st Place: ₹ 5000
+
+2nd Place: ₹ 3000
+
+3rd Place: ₹ 2000
+
+---
+
+## **7. Liability & Consent**
+
+Participation is voluntary. Participants assume full responsibility for any personal injury, loss, or damage.
+
+Neutron 3.0, the Organizing Committee, and Rishihood University shall not be held liable for any such incidents.
+
+Participants grant consent for use of event media (photos, videos, recordings) for promotional and institutional purposes.
+
+---
+
+## **8. Code of Conduct**
+
+All participants must adhere to:
+
+- **Integrity & Honesty**
+- **Respect & Non-Discrimination**
+- **Compliance with Rules**
+- **No Misconduct or Manipulation**
+- **Strict Anti-Cheating Policy**
+
+Violation → disciplinary action or disqualification
+
+---
+
+## **9. Escalation Chain & Appeals**
+
+**Level 1:** On-ground Coordinator (Immediate verbal report)
+
+**Level 2:** Written appeal within 30 minutes
+
+**Level 3:** Neutron Competitions Head Panel (Final decision)
+
+**Restrictions:**
+
+- No appeals on subjective judgment
+- Late/incomplete appeals rejected
+- Misuse → disciplinary action
+
+---
+
+## **10. Privacy & Data Policy**
+
+Participant data may be collected for:
+
+- Registration
+- Scoring
+- Communication
+- Media usage
+
+Data will be securely stored and used only for official purposes.
+
+---
+
+## **11. Contact & Support**
+
+Event Coordinator: Khanak Jain, Yatin Sharma
+
+Phone: 97186 21543 , 9166291772
+
+Help : [khanak.j25219@nst.rishihood.edu.in](mailto:khanak.j25219@nst.rishihood.edu.in) | ankur.a25063@nst.rishihood.edu.in 
+
+Availability: During event hours`
   },
 
 
@@ -500,138 +941,201 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "Rs 5,000",
     location: "5th Floor",
     teamSize: "1",
-    rules: [
-      {
-        title: "Introduction",
-        content:
-          "Smash Karts under Photon-Neutron 3.0 is a fast-paced browser-based kart racing and combat event where participants compete in real-time Free For All arenas using power-ups, eliminations, and survival strategy.",
-      },
-      {
-        title: "Eligibility",
-        content:
-          "Open to inter-college and national-level participants. Format is solo only. Participants must be currently enrolled students with valid institutional and government IDs.",
-      },
-      {
-        title: "Registration Details",
-        content:
-          "Registration deadline: 16 April 2026. Selection is first-come first-served with limited slots. Each participant must register once and use a unique Smash Karts account.",
-      },
-      {
-        title: "Registration Validity",
-        content:
-          "Incomplete, duplicate, or fraudulent registrations are rejected and may lead to disqualification.",
-      },
-      {
-        title: "Round Structure - Group Stage",
-        content:
-          "Round 1 is in-person group stage with 16 participants per group. Each participant plays 3 matches and cumulative points determine the top 4 advancing to semifinals.",
-      },
-      {
-        title: "Round Structure - Semifinal",
-        content:
-          "Round 2 is an in-person semifinal match in larger lobbies. Scores reset for this stage and the top 3 participants are declared winners.",
-      },
-      {
-        title: "Scoring System - Placement",
-        content:
-          "Per match points: 1st = 10, 2nd = 8, 3rd = 6, 4th = 4, and 5th to 8th = 2.",
-      },
-      {
-        title: "Scoring System - Bonus Points",
-        content:
-          "Elimination bonus is +1 per confirmed kill. Survival bonus is +2 if a participant survives full match duration without death.",
-      },
-      {
-        title: "Game Mode - Free For All",
-        content:
-          "All matches are played in FFA mode with no teams or alliances. Participants compete independently to maximize eliminations and final standing.",
-      },
-      {
-        title: "FFA Restrictions",
-        content:
-          "No teaming or collusion. All power-ups are allowed. Maps and spawns are platform-determined. Match duration and kill limits follow organizer-configured private lobby defaults.",
-      },
-      {
-        title: "Match and Lobby Regulations",
-        content:
-          "Matches are held on smashkarts.io using official private room codes. Participants must be ready 5 minutes before start. Failing to join within 3 minutes of lobby opening is treated as no-show and forfeits that match's points.",
-      },
-      {
-        title: "Technical Continuity",
-        content:
-          "Matches are not restarted for participant-side disconnections, lag, or browser crashes.",
-      },
-      {
-        title: "Time Regulations",
-        content:
-          "Each match session is organizer-timed. No extra time or replay is granted for participant technical issues. Organizers may substitute lobby/server if needed.",
-      },
-      {
-        title: "Judging Criteria",
-        content:
-          "Rankings are determined only by cumulative scoring. There is no subjective judging component.",
-      },
-      {
-        title: "Scoring Notes",
-        content:
-          "Kill counts are taken from in-game stats. Disputed kills may be reviewed if evidence is submitted within 5 minutes. Tampered screenshots or recordings lead to disqualification.",
-      },
-      {
-        title: "Tie-Breaker Protocol",
-        content:
-          "Tie-break sequence: higher total kills, then more 1st-place finishes, then sudden-death additional match. Decisions are final and binding.",
-      },
-      {
-        title: "Permitted Setup",
-        content:
-          "Permitted items include personal laptops/desktops or institution systems, modern browsers, and standard keyboard/mouse without macros.",
-      },
-      {
-        title: "Prohibited Setup",
-        content:
-          "VPNs/proxies, behavior-altering browser extensions, multiple/shared accounts, real-time coaching or screen-share assistance, and macros or movement scripts are prohibited.",
-      },
-      {
-        title: "General Rules",
-        content:
-          "Report at least 15 minutes before start, use registered username only, avoid participant communication during live matches, stop immediately when instructed, and follow all organizer directions.",
-      },
-      {
-        title: "Grounds for Disqualification",
-        content:
-          "Use of hacks/mods, intentional disconnect abuse, collusion or match-fixing, harassment/disruption, account/eligibility violations, equipment interference, and repeated non-compliance after warning can result in disqualification.",
-      },
-      {
-        title: "Prize Pool and Recognition",
-        content:
-          "Total prize pool is Rs 5,000: 1st place Rs 2,500, 2nd place Rs 1,500, and 3rd place Rs 1,000.",
-      },
-      {
-        title: "Code of Conduct",
-        content:
-          "Integrity and fair play, respect and non-discrimination, full compliance with official instructions, anti-cheating, sportsmanship, and decision finality are mandatory.",
-      },
-      {
-        title: "Appeals Process",
-        content:
-          "Level 1: immediate verbal report to on-ground coordinator. Level 2: written appeal within 20 minutes with evidence and participant details. Level 3: Neutron Competitions Head Panel final review.",
-      },
-      {
-        title: "Appeal Restrictions",
-        content:
-          "No appeals for in-game randomness (power-up drops/spawns). Late, incomplete, or frivolous appeals are rejected. Misuse may lead to disqualification or suspension.",
-      },
-      {
-        title: "Liability and Consent",
-        content:
-          "Participation is voluntary and at participant risk. Neutron 3.0, organizers, and Rishihood University bear no legal or financial liability. Media usage consent is granted upon participation.",
-      },
-      {
-        title: "Contact and Support",
-        content:
-          "Coordinator: Ansh Singh. Phone: 7393928014. Help: ansh.s25070@nst.rushihood.edu.in. Availability: during event hours.",
-      },
-    ],
+    rules: `# 1. INTRODUCTION
+
+Smash Karts, conducted under Photon-Neutron 3.0, is a fast-paced browser-based kart racing and combat competition where participants go head-to-head in adrenaline-fueled multiplayer arenas. Competitors compete in Free For All arenas — collecting power-ups and eliminating every opponent using an arsenal of weapons — all in real time.
+
+This is not just a race — it is a battle. Points are awarded not only for crossing the finish line first but for strategic weapon use, consistent eliminations, and clutch survival across multiple rounds. The best Smash Karts players combine reflexes, map awareness, and item management to dominate the arena.
+
+Match configurations and arena assignments will be revealed on the day of the competition. All participants receive the same server links and join simultaneously. No prior knowledge of the specific arena or power-up rotation is required — preparation should focus on mechanical skill, power-up strategy, and in-game decision-making.
+
+# 2. ELIGIBILITY
+
+- Open to inter-college and national-level participants
+- Participation format: Individual (Solo)
+- All participants must be currently enrolled students at a recognized educational institution
+- A participant may register only once — duplicate registrations will be disqualified
+- Valid institutional ID (student ID) and a government-issued ID (Aadhaar / PAN / Passport) are mandatory for all participants
+
+# 3. REGISTRATION DETAILS
+
+| **Registration Deadline** | 16 April,2026 |
+| --- | --- |
+| **Selection Mechanism** | First-Come, First-Served — slots are limited |
+| **Participation Format** | Individual (Solo only — no team entries) |
+| **Account Requirement** | Each participant must use a unique Smash Karts account |
+
+Incomplete or fraudulent registrations will be rejected without notice.
+
+# 4. COMPETITION FORMAT
+
+## 4.1 Round Structure
+
+Round 1 — Group Stage: In-Person | Duration: 1 round per group
+
+Participants are divided into groups ( 16 people per group ). Each participant plays 3 matches against other group members. Points are accumulated across all matches. The top 4 players from each group advance to the Semifinal.
+
+Round 2 — Semifinal: In-Person | Duration: 1 match
+
+Finalists compete in larger lobbies. Scores reset — this round is evaluated independently. The top three participants from this round win.
+
+## 4.2 Scoring System
+
+| **Category** | **Points** | **Description** |
+| --- | --- | --- |
+| **1st Place Finish** | **10 pts** | Per match — highest position in final standings |
+| **2nd Place Finish** | **8 pts** | Per match |
+| **3rd Place Finish** | **6 pts** | Per match |
+| **4th Place Finish** | **4 pts** | Per match |
+| **5th–8th Place** | **2 pts** | Per match — awarded to lower-bracket finishers |
+| **Elimination (Kill)** | **+1 pt** | Per confirmed opponent eliminated within a match |
+| **Survival Bonus** | **+2 pts** | Awarded if a participant survives the full match duration ( no death ) |
+
+Cumulative scores across all matches in a round determine advancement and final rankings.
+
+## 4.3 Game Mode — Free For All (FFA)
+
+All matches are played in Free For All (FFA) mode. In FFA, every participant competes independently — there are no teams, no alliances, and no cooperative objectives. The sole goal is to maximize eliminations and finish as high as possible in the match standings.
+
+- No teaming or alliances between participants — any collusion is grounds for disqualification
+- All power-ups are fair game — there are no restrictions on weapon usage
+- Map and spawn points are determined by the platform; organizers do not interfere with in-game mechanics
+- Match duration and kill limits follow the default FFA settings configured by the organizer in the private lobby
+
+## 4.4 Match & Lobby Regulations
+
+- All matches are played on the official Smash Karts browser platform (smashkarts.io)
+- Participants must join the designated lobby using the private room code shared by the organizer at the start of each round
+- Each participant must be present and ready in the lobby at least 5 minutes before the scheduled match time
+- A participant who fails to join within 3 minutes of the lobby opening will be marked as a No-Show and forfeit that match's points
+- Matches will not be restarted due to disconnections, lag, or browser crashes on the participant's end
+
+## 4.4 Time Regulations
+
+- Each match session is timed by the organizer — participants must be ready before the countdown ends
+- No additional time or match replays will be granted for any reason, including technical issues on the participant's side
+- Organizers reserve the right to substitute a lobby or server if the primary one is unresponsive.
+
+# 5. JUDGING CRITERIA
+
+Rankings are determined purely by the cumulative scoring system defined in Section 4.2. There is no subjective judging component — performance on the platform is the sole determining factor.
+
+## 5.1 Scoring Notes
+
+- Kill counts are recorded from in-game statistics visible at the end of each match
+- In cases of a disputed kill count, the organizer will review screen recordings if submitted within 5 minutes of match completion. ( screenshots are valid too, but If found tampered, will lead to disqualification.)
+- Survival Bonus is only awarded if the participant remains alive (not eliminated) for the entirety of the match timer
+- Organizer's score compilation is final unless a formal appeal is raised within the permitted window.
+
+## 5.2 Tie-Breaker Protocol
+
+In the event of identical cumulative scores, the following rules apply in order:
+
+- Higher total kill count across all matches takes precedence
+- Higher number of 1st place match finishes
+- Sudden death: one additional match played between tied participants
+
+Decisions resulting from tie-breaker procedures are final and binding.
+
+# 6. COMPETITION RULES
+
+## 6.1 Permitted Items & Setup
+
+**Permitted:**
+
+- Personal laptops, desktops, or school/college computers
+- Any modern browser (Chrome, Edge, or Firefox recommended)
+- Wired or wireless mouse (no macros or programmable peripherals)
+- Standard keyboard — no macro-enabled gaming keyboards
+
+**Prohibited:**
+
+- VPNs or network proxies during matches — may cause desync or unfair ping advantage
+- Browser extensions that alter game behavior, inject scripts, or modify rendering
+- Multiple accounts or using another participant's credentials
+- Screen sharing your match to a coach or external advisor in real time
+- No macros, Movement scripts allowed.
+
+## 6.2 General Rules
+
+- Participants must report to the competition venue no later than 15 minutes before the designated start time; late arrival may result in forfeiture
+- All participants must use the Smash Karts username registered at the time of sign-up — name changes mid-event are not permitted
+- Communication between participants during active matches is prohibited; any coaching or signaling from external parties is grounds for disqualification
+- Participants must immediately stop play when the organizer signals the end of a session
+- All participants must comply fully and promptly with all instructions from the Organizing Committee, judges, and volunteers
+- Participants are solely responsible for their own devices, browsers, and internet connections; the organizers bear no liability for hardware, software, or connectivity failures
+
+## 6.3 Grounds for Disqualification
+
+Participants may be disqualified at any stage for:
+
+1. Use of exploits, hacks, aimbots, speed mods, or any third-party game modification
+2. Intentional disconnection to manipulate match outcomes or deny opponents kills
+3. Collusion or match-fixing with other participants
+4. Misconduct, harassment, or disruption of event proceedings
+5. Breach of eligibility or account identity rules
+6. Interference with other participants' equipment or internet connectivity
+7. Non-compliance with official instructions after a formal warning
+
+# 7. PRIZE POOL & RECOGNITION
+
+- **Prize Pool Total: ₹5000**
+
+**Distribution:**
+
+- **1st Place: ₹2500**
+- **2nd Place: ₹1500**
+- **3rd Place : ₹1000**
+
+# 8. CODE OF CONDUCT
+
+All participants, volunteers, organizers, and associated personnel are bound by the following:
+
+- **Integrity & Fair Play:** All gameplay must be the participant's own. Assistance from external parties during a live match is prohibited.
+- **Respect & Non-Discrimination:** Respectful behavior toward all peers, judges, and event staff is mandatory at all times. Trash talk, hate speech, and offensive language are strictly prohibited.
+- **Compliance with Rules:** All rules and instructions issued by authorized officials must be followed without objection or delay.
+- **Anti-Cheating Policy:** Any form of cheating, exploiting, or unauthorized modification will result in immediate and permanent disqualification.
+- **Sportsmanship:** Participants are expected to win and lose gracefully. Complaints about results must follow the formal appeals process.
+- **Finality of Decisions:** Decisions rendered by the Organizing Committee are final unless formally appealed through the process defined below.
+
+# 9. APPEALS PROCESS
+
+Participants may file an appeal only for scoring discrepancies, administrative errors, suspected cheating, or match result irregularities.
+
+## Level 1 — On-Ground Coordinator
+
+Concerns must be verbally reported immediately after the match or relevant incident. The coordinator will review in-game stats and screen recordings if available.
+
+## Level 2 — Competition Lead (Written Appeal)
+
+A written appeal must be submitted within 20 minutes of the incident and must include: the precise grounds for the appeal, supporting evidence (screenshots, screen recordings, or session logs), and the participant's registered username and contact details.
+
+## Level 3 — Neutron Competitions Head Panel
+
+A formal review will be conducted. The panel's decision is final, binding, and not subject to further challenge.
+
+**Restrictions:**
+
+- Appeals relating to in-game randomness (power-up drops, spawn positions) will not be considered
+- Late, incomplete, or frivolous appeals will be rejected without review
+- Misuse of the appeals process may result in disqualification or suspension from future Neutron events
+
+# 10. LIABILITY & CONSENT
+
+- Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, loss, or equipment damage incurred during the event.
+- Neutron 3.0, the Organizing Committee, and Rishihood University bear no legal or financial liability for such incidents.
+- Participants grant irrevocable, perpetual, royalty-free consent for the use of photographs, videos, and gameplay recordings captured during the event for documentation, publicity, and institutional communication purposes.
+- By registering, participants confirm that they have read, understood, and agreed to all rules outlined in this rulebook.
+
+# 11. CONTACT & SUPPORT
+
+Event Coordinator: Ansh Singh
+
+Phone: 73939 28014
+
+Help : [ansh.s25070@nst.rushihood.edu.in](mailto:ansh.s25070@nst.rushihood.edu.in)
+
+Availability: During event hours`
   },
 
 
@@ -649,133 +1153,197 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "Rs 5,000",
     location: "5th Floor ",
     teamSize: "1",
-    rules: [
-      {
-        title: "Introduction",
-        content:
-          "Clash Royale under Photon-Neutron 3.0 is a real-time 1v1 card strategy competition where players duel using 8-card decks, testing deck construction, card cycling, elixir management, and quick decision-making.",
-      },
-      {
-        title: "Eligibility",
-        content:
-          "Open to inter-college and national-level participants. Format is solo 1v1 only. Participants must be enrolled students, register once, and present valid institutional and government IDs.",
-      },
-      {
-        title: "Account Eligibility",
-        content:
-          "Clash Royale account must be at least King Level 9 and participants must provide their Player Tag at registration. Duplicate registrations or accounts are disqualified.",
-      },
-      {
-        title: "Registration Details",
-        content:
-          "Registration deadline: 15 April 2026. Venue: 5th Floor. Selection is first-come first-served with limited slots.",
-      },
-      {
-        title: "Tournament Structure",
-        content:
-          "Single-elimination bracket with random public draw seeding. One loss eliminates a participant. Walkover applies if a participant is absent 5 minutes after match call.",
-      },
-      {
-        title: "Bracket Progression",
-        content:
-          "Matches progress from Round of 16 or 32 (depending on entries) to Quarterfinals, Semifinals, and Grand Final. Byes may be assigned where required.",
-      },
-      {
-        title: "Match Format",
-        content:
-          "All rounds are 1v1 elimination. Match timing follows default Clash Royale timing: 3 minutes regular plus 1 minute overtime if tied.",
-      },
-      {
-        title: "Match Resolution Rules",
-        content:
-          "If towers destroyed are equal, higher Crown Tower HP wins. If HP is also equal after overtime, sudden-death applies and first tower destruction wins.",
-      },
-      {
-        title: "Deck Change Policy",
-        content:
-          "Players may switch decks freely between games within a series. Semifinal winners play for first place and semifinal losers play for third place.",
-      },
-      {
-        title: "Tiebreaker - Deciding Game",
-        content:
-          "If match score is 1-1, deciding game is mandatory and immediate. Both players must use the same deck used in their previous game with no deck changes.",
-      },
-      {
-        title: "Deck Regulations",
-        content:
-          "Each deck must contain exactly 8 cards. All cards must be unlocked on the participant's own account. No card bans apply, but challenge-only or non-permanently unlocked cards are prohibited.",
-      },
-      {
-        title: "Match Procedure",
-        content:
-          "Participants exchange Player Tags with organizers, higher-seeded player sends friend request, Friendly Battle is started after settings confirmation, winner reports result immediately.",
-      },
-      {
-        title: "Judging and Results",
-        content:
-          "Results are determined only by in-game outcomes. There is no subjective judging.",
-      },
-      {
-        title: "Result Reporting",
-        content:
-          "Winner must submit victory screenshot within 5 minutes. Disputes must be raised immediately and before the next round begins. Organizer standings are final.",
-      },
-      {
-        title: "Permitted Setup",
-        content:
-          "Permitted items: personal smartphones, chargers/power banks, and earphones or earbuds for music only.",
-      },
-      {
-        title: "Prohibited Setup",
-        content:
-          "Emulators, modified APKs, rooted/jailbroken altered clients, macro/auto-click tools, account/device sharing during live matches, real-time coaching, and live casting to advisors are prohibited.",
-      },
-      {
-        title: "General Rules",
-        content:
-          "Report 15 minutes before start, use only registered account, keep devices charged, follow organizer instructions, and avoid any active-match communication assistance from spectators.",
-      },
-      {
-        title: "Disconnection Rule",
-        content:
-          "Participant-side disconnections are treated as losses unless organizer confirms a server-side fault.",
-      },
-      {
-        title: "Grounds for Disqualification",
-        content:
-          "Modified clients or third-party tools, account misuse, intentional disconnect abuse, collusion/match-fixing, external coaching, misconduct, eligibility breach, or repeated non-compliance can lead to disqualification.",
-      },
-      {
-        title: "Prize Pool and Recognition",
-        content:
-          "Total prize pool is Rs 5,000: 1st place Rs 3,000 and 2nd place Rs 2,000.",
-      },
-      {
-        title: "Code of Conduct",
-        content:
-          "Integrity and fair play, respect and non-discrimination, rule compliance, anti-cheating, sportsmanship, and decision finality are mandatory.",
-      },
-      {
-        title: "Appeals Process",
-        content:
-          "Level 1: immediate verbal report to on-ground coordinator. Level 2: written appeal within 20 minutes with evidence and registered Player Tag details. Level 3: Neutron Competitions Head Panel final review.",
-      },
-      {
-        title: "Appeal Restrictions",
-        content:
-          "No appeals based on in-game RNG, card drop luck, or elixir management. Late, incomplete, or frivolous appeals are rejected. Misuse may cause disqualification or suspension.",
-      },
-      {
-        title: "Liability and Consent",
-        content:
-          "Participation is voluntary and at participant risk. Neutron 3.0, organizers, and Rishihood University hold no legal or financial liability. Media usage consent is granted on registration.",
-      },
-      {
-        title: "Contact and Support",
-        content:
-          "Coordinators: Ansh Singh and Shubham. Phone: 7393928014, 9988710705. Availability: during event hours.",
-      },
-    ],
+    rules: `# 1. INTRODUCTION
+
+Clash Royale, conducted under Photon-Neutron 3.0, is a real-time 1v1 card strategy competition where participants face off in direct duels using pre-built decks of eight cards. Every match is a test of deck construction, card cycling, elixir management, and split-second decision-making.
+
+This is not just a card game — it is a battle of wits. Participants must out-think, out-cycle, and out-read their opponent within the timed arena. Victory goes to the player who destroys more towers, or the full King's Tower, before time expires.
+
+The competition follows a Single Elimination format — every match matters, and one loss ends your run. This structure rewards peak performance under pressure, rewarding the sharpest strategists and most consistent players who can deliver when it counts most.
+
+# 2. ELIGIBILITY
+
+- Open to inter-college and national-level participants
+- Participation format: Individual (1v1 Solo — no team entries)
+- All participants must be currently enrolled students at a recognized educational institution
+- A participant may register only once — duplicate accounts or registrations will be disqualified
+- Clash Royale account must be at least King Level 9 to participate — accounts below this threshold will be deemed ineligible
+- Valid institutional ID (student ID) and a government-issued ID (Aadhaar / PAN / Passport) are mandatory for all participants
+
+# 3. REGISTRATION DETAILS
+
+| **Registration Deadline** | 15 April, 2026 |
+| --- | --- |
+| **Venue** | 5th Floor |
+| **Selection Mechanism** | First-Come, First-Served — slots are limited |
+| **Participation Format** | Individual (Solo — 1v1 matches) |
+| **Account Requirement** | Participants must share their Player Tag (#XXXXXXXX) at registration |
+
+Incomplete or fraudulent registrations will be rejected without notice.
+
+# 4. COMPETITION FORMAT
+
+## 4.1 Tournament Structure — Single Elimination
+
+Every match is do-or-die. One loss and you are out. The bracket is seeded based on registration order or a pre-event random draw. Matches progress from Round of 16 (or Round of 32 depending on participant count) through Quarterfinals, Semifinals, and the Grand Final.
+
+- All participants are placed into groups of brackets at the start of the competition
+- Bracket seeding is determined by a random draw conducted publicly before the event begins
+- Lose once — you are eliminated. There are no second chances.
+- Matches progress round by round; the next round begins only after all matches in the current round are complete
+- If a participant fails to show up within 5 minutes of their match being called, they are eliminated and their opponent advances via walkover
+
+**Bracket Structure :**
+
+- Groups of 16 participants → Groups of 8 → Groups of 4(QF)→ Groups of 2(SF) → Final.
+- Byes may be assigned in early rounds if the bracket is not a power of 2 — bye recipients advance automatically.
+
+## 4.2 Match Format
+
+**All Rounds :**
+
+- Played as 1v1, you lose, you are eliminated.
+- Match duration follows default Clash Royale timing: 3 minutes regular time + 1 minute overtime if tied.
+- If the match ends in a draw (equal towers destroyed), the participant with more Crown Tower HP remaining wins.
+- If Crown Tower HP is also equal at the end of overtime, a Sudden Death tiebreaker is played — first tower destruction wins
+- Players may switch decks freely between games within a Bo3
+- The winners in the semi-finals will have a 1v1 for first position, The losers will have a 1v1 for third position.
+
+**Grand Final:**
+
+- Played as 1v1, you lose, you are eliminated.
+- All standard match duration and tiebreaker rules apply per game
+- Players may switch decks freely between games
+
+## 4.3 Tiebreaker — Sudden Death
+
+In the event of a 1–1 split in a match the deciding game is mandatory and must be played immediately. Both participants must use the same deck they used in their previous game — no deck changes allowed for the final game.
+
+## 4.4 Deck Regulations
+
+- Each participant must use a deck of exactly 8 cards — no more, no less
+- All cards used must be unlocked on the participant's own account — borrowed or shared accounts are strictly prohibited
+- There are no card bans or restrictions — any card combination is permitted
+- Players may freely change their deck between games within a Bo3 or Bo5 match
+- No deck must be declared or submitted in advance — participants choose their deck freely before each game
+- Use of Clan War or Challenge-exclusive cards that are not permanently unlocked on the participant's account is prohibited
+
+## 4.5 Match Procedure
+
+- Both participants exchange Player Tags with the organizer before their match is called
+- The higher-seeded participant sends the friend request in-game; in case of equal seeding, a coin flip determines who sends
+- A Friendly Battle is initiated — both participants confirm the match settings before starting
+- The match is played to completion without interruption
+- The winner reports the result to the organizer immediately after match completion
+- Both participants must be available for their assigned round within 5 minutes of the round being called — failure to join will result in a forfeit
+
+# 5. JUDGING & RESULTS
+
+All results in Clash Royale are determined entirely by in-game outcomes. There is no subjective judging component — the platform's match result is the sole determining factor.
+
+## 5.1 Result Reporting
+
+- The winner is responsible for reporting the match result to the organizer with a screenshot of the victory screen
+- Results must be reported within 5 minutes of match completion
+- Disputed results must be flagged immediately — disputes raised after the next round begins will not be considered
+- The organizer's final standings are the result.
+
+# 6. COMPETITION RULES
+
+## 6.1 Permitted Items & Setup
+
+**Permitted:**
+
+- Personal Smartphones only.
+- Personal chargers and power banks
+- Earphones or earbuds (music only — no communication with external parties)
+
+**Prohibited:**
+
+- Emulators, modified APKs, or rooted/jailbroken devices running altered versions of Clash Royale
+- Macro tools, auto-clickers, or any software that automates in-game actions
+- Using another participant's account or device during a live match
+- Real-time coaching from spectators, teammates, or external parties during an active match
+- Screen mirroring or casting a live match to external advisors
+
+## 6.2 General Rules
+
+- Participants must report to the competition venue no later than 15 minutes before the designated start time
+- All participants must compete using the Clash Royale account registered at sign-up — account swapping mid-event is prohibited
+- Participants must keep their devices charged and ready for each round — the organizers bear no responsibility for battery or device failures
+- Any in-game disconnection during a match is treated as a loss for the disconnecting participant, unless the organizer determines a server-side fault occurred
+- Spectating an ongoing match is permitted but spectators must remain silent — any communication of card information or strategies to a participant mid-match is prohibited
+- Participants must comply fully and promptly with all instructions from the Organizing Committee and volunteers
+
+## 6.3 Grounds for Disqualification
+
+Participants may be disqualified at any stage for:
+
+- Use of modified game clients, macro tools, or any third-party software that interacts with Clash Royale
+- Competing on an account other than the one registered
+- Intentional disconnection to void a losing match
+- Collusion, match-fixing, or deliberately playing to lose
+- Receiving real-time coaching or card information from external parties during an active match
+- Misconduct, harassment, or disruption of event proceedings
+- Breach of eligibility or account identity rules
+- Non-compliance with official instructions after a formal warning
+
+# 7. PRIZE POOL & RECOGNITION
+
+- **Prize Pool Total: ₹5000**
+
+**Distribution:**
+
+- **1st Place: ₹3000**
+- **2nd Place: ₹2000**
+
+# 8. CODE OF CONDUCT
+
+All participants, volunteers, organizers, and associated personnel are bound by the following:
+
+- **Integrity & Fair Play:** All gameplay must reflect the participant's own skill and strategy. External assistance during live matches is strictly prohibited.
+- **Respect & Non-Discrimination:** Respectful behavior toward all peers, judges, and event staff is mandatory at all times. Trash talk, hate speech, and offensive language are strictly prohibited.
+- **Compliance with Rules:** All rules and instructions issued by authorized officials must be followed without objection or delay.
+- **Anti-Cheating Policy:** Any form of cheating, software exploitation, or account misuse will result in immediate and permanent disqualification.
+- **Sportsmanship:** Participants are expected to win and lose gracefully. Handshakes (or equivalent acknowledgment) after each match are encouraged.
+- **Finality of Decisions:** Decisions rendered by the Organizing Committee are final unless formally appealed through the process defined below.
+
+# 9. APPEALS PROCESS
+
+Participants may file an appeal only for result discrepancies, administrative errors, suspected cheating, or match procedure violations.
+
+## Level 1 — On-Ground Coordinator
+
+Concerns must be verbally reported immediately after the match. The coordinator will review screenshots, in-game replays, or recordings if available.
+
+## Level 2 — Competition Lead (Written Appeal)
+
+A written appeal must be submitted within 20 minutes of the incident and must include: the precise grounds for the appeal, supporting evidence (screenshots, screen recordings, or in-game replay codes), and the participant's registered Player Tag and contact details.
+
+## Level 3 — Neutron Competitions Head Panel
+
+A formal review will be conducted. The panel's decision is final, binding, and not subject to further challenge.
+
+**Restrictions:**
+
+- Appeals based on in-game RNG, card drop luck, or elixir management will not be considered
+- Late, incomplete, or frivolous appeals will be rejected without review
+- Misuse of the appeals process may result in disqualification or suspension from future Neutron events
+
+# 10. LIABILITY & CONSENT
+
+- Participation is strictly voluntary. Participants acknowledge full personal responsibility for any injury, loss, or equipment damage incurred during the event.
+- Neutron 3.0, the Organizing Committee, and Rishihood University bear no legal or financial liability for such incidents.
+- Participants grant irrevocable, perpetual, royalty-free consent for use of photographs, videos, and gameplay recordings captured during the event for documentation, publicity, and institutional communication purposes.
+- By registering, participants confirm that they have read, understood, and agreed to all rules outlined in this rulebook.
+
+# 11. CONTACT & SUPPORT
+
+Event Coordinator: Ansh Singh, Shubham 
+
+Phone: 73939 28014, 9988710705
+
+Availability: During event hours`
   },
 
   {
@@ -791,145 +1359,238 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "Rs 20,000",
     location: "5th Floor",
     teamSize: "4 - 6",
-    rules: [
-      {
-        title: "Introduction",
-        content:
-          "BGMI Tournament under Photon-Neutron 3.0 is an officially sanctioned LAN esports competition focused on teamwork, strategy, communication, and in-game decision-making, culminating in on-site Grand Finals.",
-      },
-      {
-        title: "Purpose and Theme",
-        content:
-          "The event promotes university esports culture, identifies top-performing teams for higher-level competition, and delivers a professional LAN tournament experience.",
-      },
-      {
-        title: "Eligibility",
-        content:
-          "Open to Rishihood University students. Participation format is team-based with 4 to 6 players (4 active plus up to 2 substitutes).",
-      },
-      {
-        title: "Identity and Device Restrictions",
-        content:
-          "Valid institutional ID is mandatory and government ID may be required. Only mobile devices are allowed. iPads and emulators are strictly prohibited. Only registered IDs may be used.",
-      },
-      {
-        title: "Registration Details",
-        content:
-          "Registration mode is online. Deadline: 16th April 2026. Fee: Rs 0. Portal: to be shared. Selection is first-come first-served.",
-      },
-      {
-        title: "Team Composition",
-        content:
-          "Team size must be minimum 4 and maximum 6 players. Manager or coach is optionally allowed.",
-      },
-      {
-        title: "Rounds Matrix - Grand Finals",
-        content:
-          "Grand Finals are conducted offline in LAN mode with audience presence. Total 6 matches: 1 Rondo, 3 Erangel, and 2 Miramar. Match order is announced by organizers.",
-      },
-      {
-        title: "Finals Evaluation",
-        content:
-          "Overall ranking is based on cumulative performance across all 6 matches, consistency, and the tournament points system.",
-      },
-      {
-        title: "Submission Guidelines",
-        content:
-          "Submission format is Team Details Form on the official registration form. File naming convention is TeamName. Late submissions are strictly prohibited.",
-      },
-      {
-        title: "Required Submission Details",
-        content:
-          "Each team must provide team name, captain name, player IDs, and contact details.",
-      },
-      {
-        title: "Time Regulations",
-        content:
-          "Reporting time is 20 minutes before match. Match duration follows BGMI format. Time violations may lead to disqualification or match forfeit.",
-      },
-      {
-        title: "Judging - Placement Points",
-        content:
-          "Placement points: 1st=10, 2nd=6, 3rd=5, 4th=4, 5th=3, 6th=2, 7th-8th=1, 9th-16th=0.",
-      },
-      {
-        title: "Judging - Kill Points",
-        content: "Each kill awards 1 point.",
-      },
-      {
-        title: "Tie-Breaker Protocol",
-        content:
-          "Tie-break order: total kill points, highest match placement, then head-to-head performance. Decisions are final and binding.",
-      },
-      {
-        title: "General Rules",
-        content:
-          "Players must report 30 minutes before match, only registered players are allowed, auto-heal is prohibited, assigned stations must be used, and organizer instructions must be followed.",
-      },
-      {
-        title: "Recording Requirements",
-        content:
-          "Screen recording is mandatory for at least 2 players per team, and a screenshot of every match is required.",
-      },
-      {
-        title: "Permitted Items",
-        content: "Mobile phones, chargers, earphones, and backup devices are permitted.",
-      },
-      {
-        title: "Prohibited Items",
-        content:
-          "iPads, emulators, third-party software, and unauthorized devices are prohibited.",
-      },
-      {
-        title: "Safety and Conduct",
-        content:
-          "Participants must respect players and officials, avoid harassment or misconduct, follow tournament instructions, and maintain discipline.",
-      },
-      {
-        title: "Grounds for Disqualification",
-        content:
-          "Unauthorized players, cheats/hacks/third-party software, glitch exploitation, teaming with other teams, match fixing/feeding, missing recordings, or unsportsmanlike behavior can result in disqualification.",
-      },
-      {
-        title: "Prize Pool and Recognition",
-        content:
-          "Total prize pool is Rs 20,000: 1st place Rs 10,000, 2nd place Rs 6,000, and 3rd place Rs 4,000.",
-      },
-      {
-        title: "Advancement Benefit",
-        content: "Top 3 teams will go to the semifinals of Neutron 3.0.",
-      },
-      {
-        title: "Liability and Consent",
-        content:
-          "Participation is voluntary. Organizers are not responsible for device damage, network issues, or personal belongings. Participants consent to media usage and emergency medical assistance.",
-      },
-      {
-        title: "Code of Conduct",
-        content:
-          "Participants must maintain professionalism, respect players and officials, follow all rules, and avoid manipulation attempts. Organizer decisions are final and binding.",
-      },
-      {
-        title: "Escalation and Appeals",
-        content:
-          "Level 1: immediate verbal report to on-ground coordinator. Level 2: written appeal within 30 minutes with grounds, evidence, and team identification. Level 3: Neutron Competitions Head Panel final review.",
-      },
-      {
-        title: "Appeal Submission Details",
-        content:
-          "Appeals must include team name, match details, and supporting recording or screenshot evidence.",
-      },
-      {
-        title: "Privacy and Data Handling",
-        content:
-          "Organizers may collect player names, IDs, match recordings, and screenshots for tournament operations, promotion, and record keeping.",
-      },
-      {
-        title: "Contact and Support",
-        content:
-          "Coordinators: Ansh and Shubham. Phone: 7393928014, 9988710705. Availability: during event hours.",
-      },
-    ],
+    rules: `**BGMI Tournament – Neutron 3.0**
+
+### **1. Introduction**
+
+**BGMI Tournament**, conducted under **Photon**-**Neutron 3.0**, serves as an officially sanctioned esports competition designed to evaluate participants' teamwork, strategy, communication, and in‑game decision‑making skills.
+
+This LAN‑based tournament aims to bring together the best BGMI players from **Rishihood University** and provide a competitive and professional esports experience culminating in a **Grand Finals on‑site**.
+
+**Purpose / Theme:**
+
+- Promote competitive esports culture within the university
+- Identify top‑performing teams for higher‑level competitions
+- Provide professional LAN tournament experience
+
+### **2. Eligibility**
+
+**Open To:** Rishihood University Students
+
+**Participation Format:** 
+Team (Team Size Range: **4 to 6 players**)
+
+**Mandatory Identity Verification:**
+
+- Valid Institutional ID
+- Valid Government ID (if required)
+
+**Additional Eligibility Restrictions:**
+
+- Only mobile devices allowed
+- iPads and emulators strictly prohibited
+- Registered IDs must be used only
+
+### **3. Registration Details**
+
+- **Mode of Registration:** Online
+- **Registration Deadline:** 16th April 2026
+- **Registration Fee:** ₹0
+- **Registration Portal / URL:** To Be Shared
+- **Selection Mechanism:** First‑Come First‑Served
+
+**Team Size Requirements:**
+
+- Minimum: 4 Players
+- Maximum: 6 Players (4 + 2 substitutes)
+- Optional: Manager / Coach Allowed
+
+### **4. Competition Format**
+
+---
+
+**4.1 Rounds Matrix**
+
+| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
+| --- | --- | --- | --- | --- | --- |
+| Grand Finals | LAN (Offline) | Live matches conducted with audience present. Total 6 matches: 1 Rondo, 3 Erangel, 2 Miramar. Match order will be decided and announced by organizers. Breaks will be provided between matches. | 1 Day | Gameplay performance across all 6 matches | Overall ranking based on match performance, consistency, and points system |
+
+**4.2 Submission Guidelines**
+
+- **Submission Format:** Team Details Form
+- **File Naming Convention:** TeamName
+- **Submission Platform:** Official Registration Form
+- **Late Submission Policy:** Late submissions strictly prohibited
+
+Required Details:
+
+- Team Name
+- Captain Name
+- Player IDs
+- Contact Details
+
+**4.3 Time Regulations**
+
+- Reporting Time: **20 Minutes Before Match**
+- Match Duration: As per BGMI Format
+- **Time Violation Penalty:** Disqualification / Match Forfeit
+
+**4.4 Judging Criteria**
+
+**Points System**
+
+**Placement Points:**
+
+- 1st Place — 10 Points
+- 2nd Place — 6 Points
+- 3rd Place — 5 Points
+- 4th Place — 4 Points
+- 5th Place — 3 Points
+- 6th Place — 2 Points
+- 7th–8th Place — 1 Point
+- 9th–16th Place — 0 Points
+
+**Kill Points:**
+
+1 Kill = 1 Point
+
+**4.5 Tie‑Breaker Protocol**
+
+- Total Kill Points
+- Highest Match Placement
+- Head‑to‑Head Performance
+- Decisions are **final and binding**.
+
+### **5. Competition Rules**
+
+**5.1 General Rules**
+
+- Players must report 30 minutes before match
+- Only registered players allowed
+- Auto Heal Prohibited
+- Players must use assigned stations
+- Screen recording mandatory (minimum 2 players)
+- Screenshot of every match required
+
+**5.2 Allowed & Prohibited Items**
+
+**Permitted Items**
+
+- Mobile Phones
+- Chargers
+- Earphones
+- Backup Devices
+
+**Prohibited Items**
+
+- iPads
+- Emulators
+- Third‑party software
+- Unauthorized devices
+
+**5.3 Safety & Conduct**
+
+- Respect all players and officials
+- No harassment or misconduct
+- Follow all tournament instructions
+- Maintain discipline
+
+**5.4 Grounds for Disqualification**
+
+- Unauthorized players
+- Hacks / cheats / third‑party software
+- Glitch exploitation
+- Teaming with other teams
+- Match fixing / feeding
+- Failure to provide screen recording
+- Unsportsmanlike behaviour
+
+### **6. Prize Pool & Recognition**
+
+- **Prize Pool Total: ₹20000**
+
+**Distribution:**
+
+- **1st Place: ₹10000**
+- **2nd Place: ₹6000**
+- **3rd Place : ₹4000**
+
+**Distribution:**
+
+- TOP 3 TEAMS WILL GO TO SEMI FINALS OF NEUTRON 3.O
+
+### **7. Liability & Consent**
+
+Participation is voluntary.
+
+Organizers are not responsible for:
+
+- Device damage
+- Network issues
+- Personal belongings
+
+Participants agree to:
+
+- Media usage
+- Emergency medical assistance
+
+### **8. Code of Conduct**
+
+Participants must:
+
+- Maintain professionalism
+- Respect players & officials
+- Follow all rules
+- Avoid manipulation attempts
+
+Organizer decisions are **final and binding**.
+
+### **9. Escalation Chain & Appeals Process**
+
+**Level 1: On-Ground Coordinator**
+
+Concerns must be verbally reported **immediately** after the round or relevant incident.
+
+**Level 2: Competition Lead (Written Appeal)**
+
+A written appeal must be submitted within **30 minutes** of the incident. It must include:
+
+- Precise grounds for the appeal
+- Evidence (screenshots, documents, recordings)
+- Participant/team identification details
+
+**Level 3: Neutron Competitions Head Panel**
+
+A formal review shall be conducted.
+
+The panel’s decision is **final, binding, and not subject to further challenge**.
+
+Appeal must include:
+
+- Team Name
+- Match Details
+- Evidence (Recording / Screenshot)
+
+### **10. Privacy & Data Handling Policy**
+
+Organizers may collect:
+
+- Player names
+- IDs
+- Match recordings
+- Screenshots
+
+Data used only for:
+
+- Tournament operations
+- Promotion
+- Record keeping
+
+### **11. Contact & Support**
+
+- **Event Coordinator:** Ansh,Shubham
+- **Email / Phone:**73939 28014, 9988710705
+- **Availability:** During event hours`,
   },
   
 ];

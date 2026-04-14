@@ -1,11 +1,7 @@
 "use client";
 
 import React from "react";
-
-interface RuleItem {
-  title: string;
-  content: string;
-}
+import type { RuleItem } from "@/lib/competitionRulesParser";
 
 interface RulesAccordionProps {
   rules: RuleItem[];
@@ -28,7 +24,7 @@ export default function RulesAccordion({ rules }: RulesAccordionProps) {
                 <h4 className="text-[1.15rem] sm:text-[1.4rem] md:text-[1.75rem] lg:text-[2rem] font-black uppercase tracking-tight text-[#E7F2FF] wrap-break-word">
                   {rule.title}
                 </h4>
-                <p className="mt-2 sm:mt-3 text-[0.95rem] sm:text-[1.08rem] md:text-[1.25rem] lg:text-[1.45rem] leading-relaxed text-[#c2aaaa] font-medium">
+                <p className="mt-2 sm:mt-3 text-[0.95rem] sm:text-[1.08rem] md:text-[1.25rem] lg:text-[1.45rem] leading-relaxed text-[#c2aaaa] font-medium whitespace-pre-line">
                   {rule.content}
                 </p>
               </div>
