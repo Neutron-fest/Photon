@@ -111,11 +111,11 @@ export default function ContactPage() {
               General Enquiries
             </h3>
             <a
-              href="mailto:hello@photon.edu"
+              href="mailto:neutronfest@nst.rishihood.edu.in"
               className="text-white/80 hover:text-white transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white text-sm"
               style={{ fontFamily: "var(--font-space-mono)" }}
             >
-              hello@photon.edu
+              neutronfest@nst.rishihood.edu.in
             </a>
           </div>
 
