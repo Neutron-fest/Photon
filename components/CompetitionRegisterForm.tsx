@@ -45,7 +45,7 @@ const MinimalInput = ({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className={`w-full bg-white/[0.03] rounded-2xl px-6 py-5 text-white placeholder:text-white/10 focus:outline-none focus:bg-white/[0.05] transition-all duration-300 border border-white/5 focus:border-white/10`}
+        className={`w-full bg-white/3 rounded-2xl px-6 py-5 text-white placeholder:text-white/10 focus:outline-none focus:bg-white/5 transition-all duration-300 border border-white/5 focus:border-white/10`}
       />
       {error && <p className="text-[10px] text-red-500/60 mt-2 ml-1 uppercase tracking-wider font-bold">{error}</p>}
     </div>
@@ -68,7 +68,7 @@ const MinimalSelect = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         required={required}
-        className="w-full bg-white/[0.03] rounded-2xl px-6 py-5 text-white focus:outline-none focus:bg-white/[0.05] transition-all duration-300 appearance-none cursor-pointer border border-white/5 focus:border-white/10"
+        className="w-full bg-white/3 rounded-2xl px-6 py-5 text-white focus:outline-none focus:bg-white/5 transition-all duration-300 appearance-none cursor-pointer border border-white/5 focus:border-white/10"
       >
         <option value="" className="bg-zinc-900 text-white/40">Select {label}</option>
         {options.map((opt: any) => (
@@ -226,7 +226,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="p-12 bg-white/[0.02] rounded-[48px] border border-white/5 space-y-6 group hover:bg-white/[0.04] transition-colors">
+                <div className="p-12 bg-white/2 rounded-[48px] border border-white/5 space-y-6 group hover:bg-white/4 transition-colors">
                   <div className="flex items-center gap-4">
                     <h4 className="text-xs uppercase font-black tracking-[0.2em] italic">
                       {mode === "Solo" ? "Individual Protocol" : "Squad Parameters"}
@@ -241,7 +241,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
                   </p>
                 </div>
 
-                <div className="p-12 bg-white/[0.02] rounded-[48px] border border-white/5 space-y-6 group hover:bg-white/[0.04] transition-colors">
+                <div className="p-12 bg-white/2 rounded-[48px] border border-white/5 space-y-6 group hover:bg-white/4 transition-colors">
                   <div className="flex items-center gap-4">
                     <h4 className="text-xs uppercase font-black tracking-[0.2em] italic">Matrix Verification</h4>
                   </div>
@@ -302,7 +302,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
 
               <form onSubmit={handleSubmit} className="space-y-16">
                 {/* COMPETITION CONTEXT */}
-                <div className="p-10 bg-white/[0.02] rounded-[32px] border border-white/5 space-y-4 text-center">
+                <div className="p-10 bg-white/2 rounded-[32px] border border-white/5 space-y-4 text-center">
                   <label className="text-[10px] uppercase font-black tracking-[0.4em] text-white/30">Active Sector</label>
                   <div className="flex items-center justify-center gap-4">
                     <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
@@ -316,7 +316,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
                     <h3 className="text-[11px] font-black uppercase text-white tracking-[0.4em]">
                       {mode === "Solo" ? "Personal Intelligence" : "Leader Intelligence"}
                     </h3>
-                    <div className="flex-1 h-[1px] bg-white/5"></div>
+                    <div className="flex-1 h-px bg-white/5"></div>
                   </div>
                   
                   <div className="space-y-8">
@@ -352,7 +352,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
                   <div className="flex items-center gap-4 pb-4 border-b border-white/5">
                     <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-[0.3em]">02 .</span>
                     <h3 className="text-[11px] font-black uppercase text-white tracking-[0.4em]">Academic Matrix</h3>
-                    <div className="flex-1 h-[1px] bg-white/5"></div>
+                    <div className="flex-1 h-px bg-white/5"></div>
                   </div>
 
                   <div className="space-y-8">
@@ -390,7 +390,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
                     <div className="flex items-center gap-4 pb-4 border-b border-white/5">
                       <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-[0.3em]">03 .</span>
                       <h3 className="text-[11px] font-black uppercase text-white tracking-[0.4em]">Squad Setup</h3>
-                      <div className="flex-1 h-[1px] bg-white/5"></div>
+                      <div className="flex-1 h-px bg-white/5"></div>
                     </div>
 
                     <div className="space-y-8">
@@ -401,7 +401,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
                         </div>
                         
                         {formData.teammates.map((member, idx) => (
-                          <div key={idx} className="p-10 bg-white/[0.01] border border-white/5 rounded-[40px] space-y-8 relative group">
+                          <div key={idx} className="p-10 bg-white/1 border border-white/5 rounded-[40px] space-y-8 relative group">
                             <div className="flex items-center justify-between">
                               <h4 className="text-[10px] font-black uppercase tracking-[0.5em] text-white/20 italic">Member 0{idx + 2}</h4>
                             </div>

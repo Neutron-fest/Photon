@@ -9,7 +9,6 @@ export default function CompetitionRegisterPage() {
   const params = useParams();
   const routeParam = typeof params?.slug === "string" ? params.slug : "";
 
-  // Get competition from hardcoded data
   const competition = COMPETITIONS_DATA.find(c => c.slug === routeParam);
 
   if (!competition) {
