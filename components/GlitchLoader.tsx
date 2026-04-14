@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Noise from "./Noise";
 
 interface GlitchLoaderProps {
@@ -55,7 +56,7 @@ const GlitchLoader: React.FC<GlitchLoaderProps> = ({
 
         <div className="relative z-10 flex flex-col items-center w-full max-w-4xl px-12 vhs-flicker-layer scale-[0.92] filter blur-[0.4px]">
           <div className="flex items-center gap-10 mb-12">
-            <div className="relative w-28 h-28 flex flex-col justify-between overflow-hidden">
+            {/* <div className="relative w-28 h-28 flex flex-col justify-between overflow-hidden">
               {[...Array(12)].map((_, i) => (
                 <div
                   key={i}
@@ -64,12 +65,10 @@ const GlitchLoader: React.FC<GlitchLoaderProps> = ({
                 ></div>
               ))}
               <div className="absolute inset-0 border-10 border-white rounded-full skew-x-[-20deg] mix-blend-difference"></div>
-            </div>
+            </div> */}
 
             <div className="flex flex-col">
-              <h1 className="text-8xl italic font-bold text-white tracking-tighter -skew-x-12 drop-shadow-[6px_6px_0_rgba(0,0,0,0.4)] font-serif uppercase">
-                PHOTON
-              </h1>
+             <Image src="https://ik.imagekit.io/yatharth/logo%20(2).png" alt="Logo" width={300} height={300} />
             </div>
           </div>
 

@@ -58,6 +58,8 @@ export default function Home() {
   }, [router]);
 
   useEffect(() => {
+    let touchStartY = 0;
+
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       
@@ -76,8 +78,39 @@ export default function Home() {
       }, 100);
     };
 
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+      
+      const baseSpeed = Math.min(0.015, Math.abs(deltaY) * 0.005);
+      const direction = Math.sign(deltaY);
+      
+      targetZoom.current = Math.max(0, Math.min(1, targetZoom.current + direction * baseSpeed * 2));
+      touchStartY = touchY;
+
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+      scrollTimeout.current = setTimeout(() => {
+        if (targetZoom.current > 0.15) {
+          targetZoom.current = 1;
+        } else {
+          targetZoom.current = 0;
+        }
+      }, 100);
+    };
+
     window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => window.removeEventListener('wheel', handleWheel);
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
   return (
@@ -184,7 +217,7 @@ export default function Home() {
 
       <div
         ref={containerRef}
-        className="fixed inset-0 w-full h-full bg-black overflow-hidden"
+        className="fixed inset-0 w-full h-dvh bg-black overflow-hidden overscroll-none"
         style={{ willChange: 'transform' }}
       >
         <HeroScene scrollRef={currentZoom} />
@@ -213,13 +246,19 @@ export default function Home() {
         </div>
 
         <div
-          className="absolute bottom-10 left-1/2 pointer-events-none"
+          className="absolute bottom-10 left-1/2 cursor-pointer pointer-events-auto"
           style={{
-            zIndex: 30,
+            zIndex: 300,
             transform: 'translateX(-50%)',
             opacity: `calc(1 - var(--g-intense, 0) * 5)`,
             transition: 'opacity 0.2s',
           } as React.CSSProperties}
+          onMouseEnter={() => {
+            targetZoom.current = 1;
+          }}
+          onClick={() => {
+            targetZoom.current = 1;
+          }}
         >
           <div
             className="flex flex-col items-center gap-2"
@@ -227,14 +266,14 @@ export default function Home() {
               fontFamily: 'var(--font-space-mono), monospace',
               fontSize: '0.6rem',
               letterSpacing: '0.3em',
-              color: 'rgba(6,182,212,0.5)',
+              color: 'rgba(6,182,212,0.8)',
               textTransform: 'uppercase',
               animation: 'scroll-hint-bob 2s ease-in-out infinite',
             }}
           >
-            <span>scroll to enter</span>
+            <span className="bg-black/40 px-3 py-1 rounded-sm backdrop-blur-sm">scroll to enter</span>
             <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
-              <path d="M6 0 L6 14 M1 9 L6 15 L11 9" stroke="rgba(6,182,212,0.5)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M6 0 L6 14 M1 9 L6 15 L11 9" stroke="rgba(6,182,212,0.8)" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
         </div>

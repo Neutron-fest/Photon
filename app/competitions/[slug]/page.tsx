@@ -24,11 +24,19 @@ export default function CompetitionSlugPage() {
   const progressRafRef = useRef<number | null>(null);
   const targetProgressRef = useRef(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const pointerDownRef = useRef(false);
   const dragAxisRef = useRef<"none" | "x" | "y">("none");
   const dragStartXRef = useRef(0);
   const dragStartYRef = useRef(0);
   const dragScrollLeftRef = useRef(0);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const el = scrollContainerRef.current;
@@ -170,8 +178,8 @@ export default function CompetitionSlugPage() {
 
   return (
     <main className="relative w-full h-screen bg-[#03050B] text-[#E7F2FF] overflow-hidden overscroll-none selection:bg-cyan-400 selection:text-[#04060b]">
-      <div className="fixed inset-0 pointer-events-none z-100 opacity-60">
-        <Noise patternAlpha={70} patternRefreshInterval={1} patternSize={100} />
+      <div className={`fixed inset-0 pointer-events-none z-100 transition-opacity duration-1000 ${isMobile ? "opacity-35" : "opacity-60"}`}>
+        <Noise patternAlpha={isMobile ? 30 : 70} patternRefreshInterval={isMobile ? 2 : 1} patternSize={isMobile ? 120 : 100} />
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.45]"
           style={{
@@ -180,13 +188,18 @@ export default function CompetitionSlugPage() {
           }}
         />
       </div>
+
+      {/* Global Background Blur for Mobile */}
+      {isMobile && (
+        <div className="fixed inset-0 z-15 pointer-events-none backdrop-blur-[2px]"></div>
+      )}
       <div className="fixed inset-0 pointer-events-none z-20 bg-linear-to-b from-[#050000] via-[#020000] to-[#0a0000]"></div>
       <div className="fixed inset-0 pointer-events-none z-30 bg-radial-[circle_at_20%_40%] from-red-600/5 via-transparent to-transparent animate-[nebula-drift_15s_ease-in-out_infinite]"></div>
       <div className="fixed inset-0 pointer-events-none z-30 bg-radial-[circle_at_80%_60%] from-amber-600/5 via-transparent to-transparent animate-[nebula-drift_18s_ease-in-out_infinite_reverse]"></div>
       <div className="fixed inset-0 pointer-events-none z-80 opacity-[0.03] mix-blend-color-burn bg-[#ff0000]"></div>
 
       <div
-        className="pointer-events-none fixed inset-0 z-40 opacity-90 blur-[1.1px]"
+        className={`pointer-events-none fixed inset-0 z-40 transition-all duration-700 ${isMobile ? "opacity-60 blur-[3px]" : "opacity-90 blur-[1.1px]"}`}
         style={{ transform: `rotate(${chaosTilt}deg) scale(1.03)` }}
       >
         <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -301,7 +314,7 @@ export default function CompetitionSlugPage() {
           <div className="text-[0.9rem] sm:text-[1.1rem] md:text-[1.25rem] lg:text-[1.5rem] uppercase tracking-[0.32em] md:tracking-[0.4em] text-red-500 mb-6 font-semibold select-none font-space-mono mix-blend-screen">
             {comp.category}
           </div>
-          <h1 className="text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] font-medium tracking-tight relative cursor-pointer z-10 w-max pointer-events-auto font-audiowide uppercase transition-all duration-500 hover:tracking-[0.03em] mix-blend-screen">
+          <h1 className="text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] font-medium tracking-tight relative cursor-pointer z-10 w-[50px] md:w-4xl pointer-events-auto font-audiowide uppercase transition-all duration-500 hover:tracking-[0.03em] mix-blend-screen">
             <span className="relative z-10 animate-[hero-error-vibrate_3s_steps(1)_infinite] drop-shadow-[0_0_15px_rgba(255,0,51,0.4)]">
               {comp.title}
             </span>
