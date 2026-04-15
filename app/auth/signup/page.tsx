@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useRegister, useResendVerificationEmail } from "@/hooks/api/useAuth";
 
+const RISHIHOOD_EMAIL_REGEX = /^[^\s@]+@(?:[a-z0-9-]+\.)*rishihood\.edu\.in$/i;
+
 function SignUpContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -28,6 +30,11 @@ function SignUpContent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSignupError("");
+
+    if (!RISHIHOOD_EMAIL_REGEX.test(email.trim())) {
+      setSignupError("Please use your rishihood.edu.in email address.");
+      return;
+    }
 
     try {
       const response = await registerMutation.mutateAsync({
@@ -53,6 +60,11 @@ function SignUpContent() {
   const handleResendVerification = async () => {
     setResendError("");
     setResendSuccess("");
+
+    if (!RISHIHOOD_EMAIL_REGEX.test(email.trim())) {
+      setResendError("Please use your rishihood.edu.in email address.");
+      return;
+    }
 
     try {
       const response = await resendMutation.mutateAsync({
@@ -227,7 +239,7 @@ function SignUpContent() {
               <AuthInput
                 label="Email Address"
                 type="email"
-                placeholder="eg. johnfrans@gmail.com"
+                placeholder="eg. john@rishihood.edu.in"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

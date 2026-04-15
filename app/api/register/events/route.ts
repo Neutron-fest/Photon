@@ -15,6 +15,11 @@ const sanitizeNotionId = (rawId: string) =>
     .replace(/^https?:\/\/[^/]+\//i, "")
     .replace(/[^a-fA-F0-9-]/g, "");
 
+const RISHIHOOD_EMAIL_REGEX = /^[^\s@]+@(?:[a-z0-9-]+\.)*rishihood\.edu\.in$/i;
+
+const isAllowedEmail = (email: unknown) =>
+  typeof email === "string" && RISHIHOOD_EMAIL_REGEX.test(email.trim());
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -31,6 +36,26 @@ export async function POST(req: NextRequest) {
       eventsname,
       mode
     } = body;
+
+    if (!isAllowedEmail(email)) {
+      return NextResponse.json(
+        { error: "Please use your rishihood.edu.in email address." },
+        { status: 400 },
+      );
+    }
+
+    if (mode === "Team" && Array.isArray(teammates)) {
+      const hasInvalidTeammateEmail = teammates.some(
+        (m: any) => m?.email && !isAllowedEmail(m.email),
+      );
+
+      if (hasInvalidTeammateEmail) {
+        return NextResponse.json(
+          { error: "All teammate emails must be from rishihood.edu.in." },
+          { status: 400 },
+        );
+      }
+    }
 
     const notionToken = process.env.NOTION_TOKEN;
     const databaseId = sanitizeNotionId(

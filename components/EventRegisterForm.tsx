@@ -16,6 +16,8 @@ interface EventData {
   slug: string;
 }
 
+const RISHIHOOD_EMAIL_REGEX = /^[^\s@]+@(?:[a-z0-9-]+\.)*rishihood\.edu\.in$/i;
+
 const MinimalInput = ({ 
   label, 
   type = "text", 
@@ -32,6 +34,8 @@ const MinimalInput = ({
     <div className="relative">
       <input
         type={type}
+        pattern={type === "email" ? "^[^\\s@]+@(?:[a-zA-Z0-9-]+\\.)*rishihood\\.edu\\.in$" : undefined}
+        title={type === "email" ? "Use your rishihood.edu.in email address" : undefined}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
@@ -104,6 +108,12 @@ export default function EventRegisterForm({ event }: { event: EventData }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!RISHIHOOD_EMAIL_REGEX.test(formData.email.trim())) {
+      alert("Please use your rishihood.edu.in email address.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -263,7 +273,7 @@ export default function EventRegisterForm({ event }: { event: EventData }) {
                       <MinimalInput 
                         label="Email Address" 
                         type="email" 
-                        placeholder="you@network.io" 
+                        placeholder="you@rishihood.edu.in" 
                         value={formData.email}
                         onChange={(v: string) => updateFormData("email", v)}
                         required

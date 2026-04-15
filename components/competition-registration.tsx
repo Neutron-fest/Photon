@@ -91,6 +91,8 @@ type TeamDetails = {
 
 type ParticipationMode = "" | "solo" | "team";
 
+const RISHIHOOD_EMAIL_REGEX = /^[^\s@]+@(?:[a-z0-9-]+\.)*rishihood\.edu\.in$/i;
+
 const normalizeFieldValue = (field: FormField, value: any) => {
   const fieldType = String(field?.type || "text").toLowerCase();
   if (fieldType === "number") {
@@ -391,10 +393,10 @@ export default function CompetitionRegistration({
   const addInviteEmail = () => {
     const value = teamDetails.inviteInput.trim().toLowerCase();
     if (!value) return;
-    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    const isValidEmail = RISHIHOOD_EMAIL_REGEX.test(value);
 
     if (!isValidEmail) {
-      setErrorMessage("Please enter a valid email address.");
+      setErrorMessage("Please use teammate emails from rishihood.edu.in.");
       return;
     }
 
@@ -440,6 +442,19 @@ export default function CompetitionRegistration({
         value: normalizeFieldValue(field, rawValue),
       };
     });
+
+    const hasInvalidFormEmail = competitionFormFields.some((field: FormField) => {
+      const fieldName = field.name || field.label || String(field._id || field.id || "");
+      const fieldType = String(field.type || "text").toLowerCase();
+      if (fieldType !== "email") return false;
+      const value = String(dynamicFormValues[fieldName] || "").trim();
+      return value.length > 0 && !RISHIHOOD_EMAIL_REGEX.test(value);
+    });
+
+    if (hasInvalidFormEmail) {
+      setErrorMessage("Please use email addresses from rishihood.edu.in.");
+      return;
+    }
 
     try {
       if (isMemberMode) {
@@ -588,6 +603,8 @@ export default function CompetitionRegistration({
           }))
         }
         type={inputType}
+        pattern={inputType === "email" ? "^[^\\s@]+@(?:[a-zA-Z0-9-]+\\.)*rishihood\\.edu\\.in$" : undefined}
+        title={inputType === "email" ? "Use a rishihood.edu.in email address" : undefined}
         placeholder={`Enter ${field.label || fieldName}`}
         className="bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-hidden focus:border-white/40 focus:bg-white/10 transition-colors"
       />
@@ -884,7 +901,9 @@ export default function CompetitionRegistration({
                     }
                   }}
                   type="email"
-                  placeholder="member@example.com"
+                  pattern="^[^\\s@]+@(?:[a-zA-Z0-9-]+\\.)*rishihood\\.edu\\.in$"
+                  title="Use a rishihood.edu.in email address"
+                  placeholder="member@rishihood.edu.in"
                   disabled={teamDetails.inviteEmails.length >= inviteSlots}
                   className="bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-hidden focus:border-white/40 flex-1 disabled:opacity-60 disabled:cursor-not-allowed"
                 />
