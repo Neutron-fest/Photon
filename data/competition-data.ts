@@ -1727,7 +1727,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 
 
   {
-    title: "ZeroToOne",
+    title: "Zero To One",
     image: "https://instagram.fdel73-1.fna.fbcdn.net/v/t51.82787-15/671800889_17944664229155445_5722381406710340278_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzg3NTYzMDI2MjY5MzA3NjczNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=gK6tzW8Hpx0Q7kNvwFTTpTH&_nc_oc=Adp8cQ3HG4M6yQ-0vAZPMUw-ie1OweoALeH0lCdBc5ht0kaO-eCyFu0gOnfl850IcEc&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel73-1.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af2VaRvysXnUo78VtwGEw8lPzGtA_PC8JCSlSS9l7A3VOQ&oe=69E511AB",
     slug: "zerotoone",
     category: "Hackathon",
@@ -1739,15 +1739,15 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
     prizePool: "Rs 20,000",
     location: "Library",
     teamSize: "2 - 4",
-    rules: `# **Zero To One – PRE FEST GUIDELINES**
+    rules: `# **Zero To One**
 
 ---
 
 ## **1. Introduction**
 
-Zero To One, conducted under Photon (Pre-Fest of Neutron 3.0), is a 24-hour hackathon designed to evaluate participants on their ability to move from problem understanding to a working system under real-world constraints. The competition operates in alignment with the objectives and standards of Rishihood University's annual tech fest, Neutron 3.0.
+Zero To One is a 24-hour, fully offline engineering hackathon conducted under PHOTON at Rishihood University. The event is designed to evaluate participants on their ability to design, build, and defend real-world systems with strong emphasis on engineering depth, system architecture, and implementation rigour.
 
-Purpose / Theme: Zero To One focuses on structured problem solving, practical system design, technical execution, and decision-making under constraints. Participants are expected to build solutions that are functional, justified, and aligned with real-world usage. The focus is on building the right system — not the most complex one.
+Unlike conventional hackathons, this event prioritises working systems over superficial prototypes, and technical correctness over presentation quality. Participants are expected to demonstrate a clear understanding of systems at a fundamental level and justify every decision made during development.
 
 ---
 
@@ -1755,7 +1755,7 @@ Purpose / Theme: Zero To One focuses on structured problem solving, practical sy
 
 **Open To:** Rishihood University Students
 
-**Participation Format:** Solo or Team (Team Size: 1 - 3 members)
+**Participation Format:** Solo or Team (Team Size: 2 - 4 members)
 
 **Mandatory Identity Verification:**
 
@@ -1784,115 +1784,44 @@ Purpose / Theme: Zero To One focuses on structured problem solving, practical sy
 
 | **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
 | --- | --- | --- | --- | --- | --- |
-| Kickoff & Masterclass | Offline | Rules briefing + Masterclass by Mr. Mohammed | 4:00 PM – 5:30 PM | — | — |
-| Phase 1: Problem Understanding | Offline | Participants scope the problem, define user/system context, and document relevance | 5:30 PM – 8:30 PM | Problem Understanding Document | Clarity, scope, relevance |
-| Phase 2: Design & System Planning | Offline | Solution design, system architecture, user flow, and technology choices | 5:30 PM – 8:30 PM | Design & System Planning Document (PDF) | Architecture, feature prioritisation, justification |
-| Mid Review | Offline | Design evaluation and feedback; may act as a filter if team count exceeds expectations | 8:30 PM – 10:30 PM | — | Design quality and feasibility |
-| Phase 4: Development | Offline | Overnight build phase; final commit at 11:00 AM | 11:00 PM – 11:00 AM | GitHub Repository + Live Prototype | Technical execution, functionality |
-| Phase 5: GTM & Final Submission | Offline | GTM strategy and final presentation polish; submission by 12:00 PM | 11:00 AM – 12:00 PM | Final PPT (PDF) + Prototype Link | GTM strategy, presentation quality |
-| Final Evaluation | Offline | Demo and technical defence before judges | 12:00 PM – 4:00 PM | — | All evaluation parameters |
+| Hackathon Lifecycle | Offline | Includes kickoff, system design, mid-review, development, and final evaluation | 24 Hours | PPT + Live Prototype | Based on evaluation criteria |
 
 ---
 
-### **4.2 Hackathon Structure**
+### **4.2 Submission Guidelines**
 
-The hackathon follows a structured lifecycle:
-
-1. Problem Understanding
-2. Solution Design & System Planning
-3. Mid Review
-4. Development & Deployment
-5. GTM Strategy
-6. Final Evaluation
+- **Submission Format:** PPT + Live Working Prototype
+- **File Naming Convention:** As per team name
+- **Submission Platform:** As communicated during event
+- **Submission Deadline:** End of 24-hour cycle
+- **Late Submission Policy:** Late submissions will not be accepted
 
 ---
 
-### **4.3 Submission Protocol**
+### **4.3 Time Regulations**
 
-All submissions must be made via the official hackathon Gmail or the official Photon website (to be confirmed after discussion with Tech Team).
-
-**Required Submissions:**
-
-**1. Problem Understanding Document**
-
-- Problem statement (clearly scoped)
-- Target user / system context
-- Usage environment and constraints
-- Current alternatives or existing workflows
-- Why this problem is relevant and worth solving
-
-**2. Design & System Planning Document (PDF)**
-
-- Problem framing and user research insights
-- Target user personas (clear and specific)
-- Key assumptions and validation logic
-- Solution overview (focused and justified)
-- 3–5 key features (strict limit)
-- User flow / interaction flow
-- Relevant frameworks used (if any) with application
-- High-level system architecture (components, data flow)
-- Technology choices with justification
-
-**3. Final Submission (Prototype + GitHub + Final PPT)**
-
-- Live prototype link (must be accessible and runnable)
-- GitHub repository (with readable code and comprehensive README.md)
-- Final presentation (PDF) combining:
-    - Problem summary and user context
-    - Solution overview and key features
-    - Technical definitions (architecture, stack, key components)
-    - System design updates (if changed from initial design)
-    - Key trade-offs and decisions
-    - Go-To-Market (GTM) strategy:
-        - Target initial users
-        - Distribution / access channels
-        - Why users will adopt the solution
-
-**Submission Rules:**
-
-- Submissions must follow the prescribed format
-- Late submissions will not be evaluated
-- Only the latest submission before the deadline is considered
+- Approved Time for Task/Performance: 24 Hours
+- Setup / Buffer Duration: As per venue conditions
+- **Time Violation Penalty:** Late submissions strictly not accepted
 
 ---
 
-### **4.4 Time Regulations**
+### **4.4 Judging Criteria**
 
-| **Time** | **Description** |
-| --- | --- |
-| 4:00 PM – 4:30 PM | Hackathon Kickoff (rules and guidelines) |
-| 4:30 PM – 5:30 PM | Masterclass by Mr. Mohammed |
-| 5:30 PM – 8:30 PM | Phase 1 & Phase 2 |
-| 8:30 PM – 10:30 PM | Mid Review (Phase 3) |
-| 11:00 PM – 11:00 AM | Phase 4 – Development (final commit at 11:00 AM) |
-| 11:00 AM – 12:00 PM | Phase 5 – GTM Strategy & PPT Polish (final submission by 12:00 PM) |
-| 12:00 PM – 4:00 PM | Final Presentation & Evaluation |
+Judging shall be conducted strictly in accordance with the following parameters:
+
+- System Architecture (30%)
+- System Design (25%)
+- Technical Depth & Implementation (30%)
+- Development & Execution Quality (15%)
 
 ---
 
-### **4.5 Judging Criteria**
+### **4.5 Tie-Breaker Protocol**
 
-**Total: 100 Marks**
+In the event of identical scores, decisions shall be made by the judging panel based on overall system quality and technical depth.
 
-| **Category** | **Weightage** |
-| --- | --- |
-| Problem Understanding | 10% |
-| Design & Planning | 30% |
-| Technical Execution | 30% |
-| System Design & Scalability | 20% |
-| GTM Strategy | 10% |
-
----
-
-### **4.6 Tie-Breaker Protocol**
-
-In the event of identical final scores, the following tie-breaking rules shall be applied sequentially:
-
-1. Higher score in Technical Execution
-2. Higher score in Design & Planning
-3. Final decision of the judging panel / organising committee
-
-All tie-breaker decisions shall be **final and binding**.
+All decisions shall be **final and binding**.
 
 ---
 
@@ -1900,12 +1829,12 @@ All tie-breaker decisions shall be **final and binding**.
 
 ### **5.1 General Rules**
 
-- Participants must report no later than **30 minutes** before the designated start time. Late arrival may constitute forfeiture of participation rights.
-- Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
-- Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content** — whether verbal, written, visual, or performative — is strictly prohibited.
-- Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage**.
-- Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
-- Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
+- Pre-built systems or significant pre-written code are strictly prohibited
+- Mocked or fake implementations of core logic are not allowed
+- The system must be functional and demonstrable
+- All code and decisions must be explainable to judges
+- Submissions must be completed within the defined timeline
+- Late submissions will not be accepted under any circumstances
 
 ---
 
@@ -1913,81 +1842,44 @@ All tie-breaker decisions shall be **final and binding**.
 
 **Permitted Items:**
 
-- Laptop with internet access
-- Open-source components (must be declared and justified; full systems cannot be reused)
-- AI tools (allowed if explainable)
-- APIs (allowed if justified)
+- Laptops and development tools
+- Internet access (if allowed by organizers)
+- Notes and documentation
 
 **Prohibited Items:**
 
-- Pre-built projects or systems
-- Static demos or fake implementations
-- Vague, assumption-based problem definitions
-- Feature dumping or unrealistic system designs
-- Hazardous materials or substances
-- Items prohibited by institutional policy or local law
-- Unauthorized devices or assistance mechanisms
+- Pre-built or plagiarised codebases
+- Unauthorized collaboration outside team
+- Any unfair assistance
 
 ---
 
-### **5.3 Phase-Wise Rules**
+### **5.3 Gameplay / Development Rules**
 
-**Problem Understanding**
-
-- Expected: Clearly scoped problem with defined user/system context
-- Not Allowed: Vague problems or assumption-based ideas
-
-**Design & System Planning**
-
-- Mandatory: 3–5 core features, system architecture, flow definition
-- Not Allowed: Feature dumping, unrealistic systems
-
-**Development**
-
-- Mandatory: Functional working prototype with core features implemented
-- Not Allowed: Static demos, fake implementations, anything built pre-hackathon
-
-**Mandatory Constraints (All Phases)**
-
-- Teams must justify all decisions
-- Teams must define trade-offs made during development
-
-**Edge Cases & Clarifications**
-
-- Internet issues: No extra time guaranteed
-- Hardware constraints: Participants must assume realistic environments
+- Teams must design and implement systems from scratch during the event
+- All components must align with the submitted architecture
+- Participants must be able to justify every design and implementation decision
+- Systems must demonstrate real-world applicability and robustness
 
 ---
 
 ### **5.4 Safety & Conduct**
 
-- Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as **hazardous, negligent, reckless, or endangering** may result in immediate removal.
-- Harassment, discrimination, intimidation, coercion, or misconduct — whether physical, verbal, written, or digital — shall not be tolerated and will result in **immediate disciplinary action**, including disqualification.
-- Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the **safety, fairness, integrity, or reputation** of Photon.
+- Participants must adhere to all institutional safety guidelines
+- Respect all participants, judges, and organizers
+- Maintain professionalism throughout the event
 
 ---
 
 ### **5.5 Grounds for Disqualification**
 
-Participants or teams may be disqualified at any stage for:
+Participants may be disqualified for:
 
-- Failure to report within scheduled timelines
-- Breach of eligibility criteria or team composition rules
-- Plagiarism or use of pre-built systems
-- Missing or incomplete submissions
-- Non-functional prototype at the time of final evaluation
-- Misrepresentation of work or decisions
-- Misconduct, harassment, or violation of safety requirements
-- Damage to property or interference with event operations
-- Failure to comply with official instructions despite warning
-- Any act that compromises the **operational integrity, fairness, or institutional reputation** of Photon
-
-**What Will Be Penalised (Marks Deducted):**
-
-- Feature bloat
-- Lack of justification for decisions
-- Poor alignment with the problem statement
-- Over-engineering or under-engineering of the solution
+- Submission of non-functional systems
+- Use of pre-built or plagiarised work
+- Inability to explain implementation or code
+- Missing required deliverables
+- Violation of rules or misconduct
 
 ---
 
@@ -2005,9 +1897,9 @@ Participants or teams may be disqualified at any stage for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
-- Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
-- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
-- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
+- PHOTON, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event.
+- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary.
 
 ---
 
@@ -2015,13 +1907,13 @@ Participants or teams may be disqualified at any stage for:
 
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
-- **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
-- **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
-- **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
-- **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
-- **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
-- **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
-- **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
+- Integrity & Honesty
+- Respect & Non-Discrimination
+- Compliance with Rules
+- Prohibition of Misconduct
+- Security & Property Integrity
+- Anti-Cheating & Anti-Plagiarism
+- Finality of Decisions
 
 ---
 
@@ -2033,49 +1925,52 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 
 - **Level 1: On-Ground Coordinator**
     
-    Concerns must be verbally reported immediately after the round or relevant incident.
+    Immediate verbal reporting after the incident
     
 - **Level 2: Competition Lead (Written Appeal)**
     
-    A written appeal must be submitted within 30 minutes of the incident. It must include:
+    Submit within 30 minutes including:
     
-    - Precise grounds for the appeal
-    - Evidence (screenshots, documents, recordings)
-    - Participant/team identification details
-- **Level 3: Photon Competitions Head Panel**
+    - Grounds for appeal
+    - Evidence
+    - Participant/team details
+- **Level 3: PHOTON Competitions Head Panel**
     
-    A formal review shall be conducted.
+    Final review and decision (binding and final)
     
-    The panel’s decision is final, binding, and not subject to further challenge.
-    
+
+---
 
 **Restrictions:**
 
-- Appeals relating to subjective evaluation or artistic preference shall not be considered.
-- Late, incomplete, or frivolous appeals shall be rejected without review.
-- Misuse of the appeals process may result in disciplinary action.
+- Appeals relating to subjective evaluation shall not be considered
+- Late or incomplete appeals shall be rejected
+- Misuse of the appeals process may result in disciplinary action
 
 ---
 
 ## **10. Privacy & Data Handling Policy**
 
-- **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
-- **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
-- **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
-- **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
-- **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
-- **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
-- **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
+- Participant data may be collected for registration, evaluation, and communication
+- Data will be securely stored and used only for official purposes
+- Media may be used for promotional and institutional purposes
 
 ---
 
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Ankit Raj Singh | 6200206922 | [ankit.singh2024@nst.rishihood.edu.in](mailto:ankit.singh2024@nst.rishihood.edu.in)**
+    - **Ankit Raj Singh | 6200206922 | ankit.singh2024@nst.rishihood.edu.in**
+    - **Rajdeep Sanyal | 9163472586 | rajdeep.sanyal2024@nst.rishihood.edu.in**
     - **Parth Sharma | 8349039140 | [parth.s25321@nst.rishihood.edu.in](mailto:parth.s25321@nst.rishihood.edu.in)**
-    - **Khanak Jain | 9718621543 | [khanak.j25219@nst.rishihood.edu.in](mailto:khanak.j25219@nst.rishihood.edu.in)**
-- **Availability:** Till the Event`,
+    - **Khanak Jain | 9718621543 | khanak.j25219@nst.rishihood.edu.in**
+- **Availability:** Till the Event
+
+---
+
+## **12. Compliance and Final Authority**
+
+All participants are required to adhere strictly to the rules and guidelines outlined in this document. Decisions made by the judging panel and organising committee shall be final and binding.`,
   },
   
 ];
