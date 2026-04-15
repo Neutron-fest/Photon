@@ -10,7 +10,7 @@ export interface Event {
   location: string;
   time: string;
   highlights: string[];
-
+  teamSize: string;
 }
 
 export const EVENTS: Event[] = [
@@ -31,7 +31,7 @@ export const EVENTS: Event[] = [
       "Interactive 'Capture The Flag' mini-challenges",
       "Network with top infosec firms"
     ],
-    
+    teamSize: "1",
   },
 
   
@@ -52,7 +52,7 @@ export const EVENTS: Event[] = [
       "One-on-one architectural review sessions",
       "Cloud-agnostic deployment strategies"
     ],
-    
+    teamSize: "1",
   },
 
 ];
