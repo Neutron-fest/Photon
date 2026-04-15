@@ -24,7 +24,7 @@ export const COMPETITIONS_DATA: Competition[] = [
 
   {
     title: "Risk & Reward",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+    image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/671103710_17944664331155445_7779162730608453851_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzg3NTYzMDcyMTE5NzY1MDY2OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=IgdcrXvaFTEQ7kNvwHbgxUt&_nc_oc=Ado1G-rNpG-Q3k5LB9zdxsygMngLcXV1cT_3wfaCXeI-UERpT2INAoVFSF-kXc0ncPw&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=m-Cq_4KI8tJoan-MvCaMTw&_nc_ss=7a32e&oh=00_Af13hmS1fjsZDxKLzQ8LGrjVPl2KW-J7nT6XbAi85JkYDA&oe=69E525A8",
     slug: "Risk-Reward",
     category: "Finance / Strategy",
     date: "17th April, 2026",
@@ -399,7 +399,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
   
   {
     title: "AlgoRhythm",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+    image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/669896041_17944664259155445_3271895028052947852_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzg3NTYzMDM4OTM2OTQ2NjQ0Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=TAoRsXkLjyYQ7kNvwF0dkzw&_nc_oc=AdoQTohIvxA2M7cmNsWsiXEqtIbLc99JzP9wAmy0nQ72eyZch_wjunthzD3sMrbZyFw&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af0YCb--lz_lRCpM_WlB0T8-gvQwTPkyp5QEyGjhIEwWTQ&oe=69E4FF42",
     slug: "algo-rythm",
     category: "Live Coding / Music Tech",
     date: "18th April, 2026",
@@ -658,7 +658,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 
   {
     title: "Code Combat",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
+    image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/670152666_17944664202155445_2853624684105418310_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzg3NTYzMDE0MTU3MDAxNDEzMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNTB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=hZUhW_S21RwQ7kNvwFX90Mc&_nc_oc=AdoHPkQZTVbF4a6KQIQKqT8F4ynHIqKkyTV2KmXp_PAPEqmZ0VMRNvYYmgu314cqyUk&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af34F6Nj59McyH0Yi6HSoG-0Zy7hoxS2RcZTjo0DdkkNGw&oe=69E51966",
     slug: "code-combat",
     category: "Competitive Programming",
     date: "17th April, 2026",
@@ -916,7 +916,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 
   {
     title: "Smash Karts",
-    image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&q=80&w=800",
+    image: "https://instagram.fdel25-4.fna.fbcdn.net/v/t51.82787-15/671243886_17944664175155445_3110623205645781048_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzg3NTYyOTkzNjkyMTUyMjY2NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=d9iIKgqS3NAQ7kNvwGUEerP&_nc_oc=AdpvQW9yWlsiJNxJpRXrzRcbkfv5dIf0ALmX5OhrPmW3lX8KktwbsDWWt-xeSbiIyHk&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-4.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af0bjptY2Rd2PvriG53jUfJMEiTBYJdD_b--WvWUrdEtnQ&oe=69E52EE3",
     slug: "smash-karts",
     category: "Gaming / Esports",
     date: "17th April, 2026",
@@ -1128,7 +1128,7 @@ Availability: During event hours`
 
   {
     title: "Clash Royale",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800",
+    image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/672350796_17944664187155445_7774033817699252267_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mzg3NTYzMDAzNjAzMjkwMzI1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=tmIBf5wkJQYQ7kNvwFQkGiO&_nc_oc=AdouSztaOyQWFhbbqjwTmqz1RWlFODiHOjs6AB84WaCcsYTIFk4ZMKi7OTFP8C-FJwY&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af3B1H_nvHnG4ise7bkXhsZV6vNUEdUJrqS-K8J2LMBBMg&oe=69E5161D",
     slug: "clash-royale",
     category: "Mobile Esports",
     date: "18th April, 2026",
@@ -1335,7 +1335,7 @@ Availability: During event hours`
 
   {
     title: "BGMI",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800",
+    image: "https://instagram.fdel25-4.fna.fbcdn.net/v/t51.82787-15/671225153_17944664313155445_2677492225090139797_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzg3NTYzMDYwNjM0OTIxODY4Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=ObaBlKtczSwQ7kNvwEWT3hK&_nc_oc=AdoM6sZ876kZwrlhYF_5UE96LdyOXLyE6BcRMRjzgBgj1iPh5xvfy0V0Y3Zza80n5jo&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-4.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af2ueiU9JbpGA811Rlbn6knFauX_CKMyLZI__DmfR-wTWA&oe=69E4FF7C",
     slug: "bgmi",
     category: "Battle Royale",
     date: "17th April, 2026",
@@ -1584,7 +1584,7 @@ Data used only for:
 
   {
     title: "ZeroToOne",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
+    image: "https://instagram.fdel73-1.fna.fbcdn.net/v/t51.82787-15/671800889_17944664229155445_5722381406710340278_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzg3NTYzMDI2MjY5MzA3NjczNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=gK6tzW8Hpx0Q7kNvwFTTpTH&_nc_oc=Adp8cQ3HG4M6yQ-0vAZPMUw-ie1OweoALeH0lCdBc5ht0kaO-eCyFu0gOnfl850IcEc&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel73-1.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af2VaRvysXnUo78VtwGEw8lPzGtA_PC8JCSlSS9l7A3VOQ&oe=69E511AB",
     slug: "zerotoone",
     category: "Hackathon",
     date: "17th April, 2026",
