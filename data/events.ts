@@ -20,16 +20,17 @@ export const EVENTS: Event[] = [
     slug: "engineers-got-latent",
     category: "Event",
     date: "17th April, 2026",
-    details: "Engineers’ Got Latent is a high-energy stage event where participants perform creative, fun, or unconventional acts in front of a live audience. It’s all about entertainment, unpredictability, and engaging the crowd with unique performances.",
-    description: "Engineers’ Got Latent is a high-energy stage event where participants perform creative, fun, or unconventional acts in front of a live audience. It’s all about entertainment, unpredictability, and engaging the crowd with unique performances.",
+    details: "An open-format stage event where creativity meets strategy, and performances are judged as much by self-awareness as by talent.",
+    description: "Engineers’ Got Latent is a high-energy, open stage experience where participants take the spotlight with acts ranging from comedy and music to poetry, roasts, and experimental formats. What sets it apart is its core twist: before stepping on stage, each participant privately predicts the score they believe their performance will receive. Judges then evaluate the act, and if the participant’s prediction exactly matches the final average score, they win. The format rewards not just performance quality, but self-awareness, confidence, and the ability to read the room.",
     ticketPrice: "Free",
     location: "Music Room - B Block",
     time: "8:00 PM",
     highlights: [
-      "Live hacking demonstrations",
-      "Keynote from former NSA analysts",
-      "Interactive 'Capture The Flag' mini-challenges",
-      "Network with top infosec firms"
+      "Open stage with no fixed performance format",
+      "Unique prediction-based winning mechanism",
+      "Judged scoring system with averaged results",
+      "Strict 2-minute performance window",
+      "Fast-paced, high-engagement audience experience"  
     ],
     teamSize: "1",
   },
