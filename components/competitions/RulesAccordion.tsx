@@ -21,10 +21,10 @@ export default function RulesAccordion({ rules }: RulesAccordionProps) {
                 [0{index + 1}]
               </span>
               <div className="min-w-0">
-                <h4 className="text-[1.15rem] sm:text-[1.4rem] md:text-[1.75rem] lg:text-[2rem] font-black uppercase tracking-tight text-[#E7F2FF] wrap-break-word">
+                <h4 className="text-[1.15rem] sm:text-[1.4rem] md:text-[1.75rem] font-black uppercase tracking-tight text-[#E7F2FF] font-audiowide wrap-break-word">
                   {rule.title}
                 </h4>
-                <p className="mt-2 sm:mt-3 text-[0.95rem] sm:text-[1.08rem] md:text-[1.25rem] lg:text-[1.45rem] leading-relaxed text-[#c2aaaa] font-medium whitespace-pre-line">
+                <p className="mt-2 sm:mt-3 text-[0.95rem] sm:text-[1.08rem] md:text-[1.25rem] font-space-mono leading-relaxed text-[#c2aaaa] font-medium whitespace-pre-line">
                   {rule.content}
                 </p>
               </div>
