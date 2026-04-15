@@ -311,13 +311,15 @@ export default function EventSlugPage() {
                 THE NETWORK?
               </h2>
 
-              <button className="group/btn relative px-8 md:px-12 py-2.5 md:py-3 lg:py-4 bg-white text-black font-black uppercase tracking-widest md:tracking-[0.2em] text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] overflow-hidden active:scale-95 transition-transform">
-                <span className="relative z-10 flex items-center gap-2 md:gap-4">
-                  EXECUTE_NOW{" "}
-                  <ArrowRight className="group-hover/btn:translate-x-2 md:group-hover/btn:translate-x-3 transition-transform w-4 h-4 md:w-5 md:h-5" />
-                </span>
-                <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full bg-cyan-500/20 transition-transform duration-500 ease-in-out" />
-              </button>
+              <Link href={`/events/${event.slug}/register`}>
+                <button className="group/btn relative px-8 md:px-12 py-2.5 md:py-3 lg:py-4 bg-white text-black font-black uppercase tracking-widest md:tracking-[0.2em] text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] overflow-hidden active:scale-95 transition-transform cursor-pointer">
+                  <span className="relative z-10 flex items-center gap-2 md:gap-4">
+                    EXECUTE_NOW{" "}
+                    <ArrowRight className="group-hover/btn:translate-x-2 md:group-hover/btn:translate-x-3 transition-transform w-4 h-4 md:w-5 md:h-5" />
+                  </span>
+                  <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full bg-cyan-500/20 transition-transform duration-500 ease-in-out" />
+                </button>
+              </Link>
 
               <div className="mt-10 md:mt-16 text-[7px] sm:text-[8px] md:text-[9px] text-white/20 tracking-[0.6em] md:tracking-[0.8em] font-bold">
                 SYSTEM_AUTH_REQUIRED // SESSION: 0x9212

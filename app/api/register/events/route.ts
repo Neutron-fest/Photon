@@ -67,6 +67,9 @@ export async function POST(req: NextRequest) {
       Year: {
         multi_select: yearOfStudy ? [{ name: yearOfStudy.replace(" Year", "") }] : [],
       },
+      "Glimpse of Performance (optional) (drive Link)": {
+        url: glimpse || null,
+      },
     };
 
     // Map teammates to individual fields as per DB schema
