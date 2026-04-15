@@ -33,6 +33,8 @@ export const EVENTS: Event[] = [
     ],
     
   },
+
+  
   {
     title: "Masterclass with Mr. Mohammed",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",

@@ -27,7 +27,7 @@ export const COMPETITIONS_DATA: Competition[] = [
     image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/671103710_17944664331155445_7779162730608453851_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=110&ig_cache_key=Mzg3NTYzMDcyMTE5NzY1MDY2OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=IgdcrXvaFTEQ7kNvwHbgxUt&_nc_oc=Ado1G-rNpG-Q3k5LB9zdxsygMngLcXV1cT_3wfaCXeI-UERpT2INAoVFSF-kXc0ncPw&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=m-Cq_4KI8tJoan-MvCaMTw&_nc_ss=7a32e&oh=00_Af13hmS1fjsZDxKLzQ8LGrjVPl2KW-J7nT6XbAi85JkYDA&oe=69E525A8",
     slug: "Risk-Reward",
     category: "Finance / Strategy",
-    date: "17th April, 2026",
+    date: "April 18, 2026",
     details: "Strategy-based financial simulation with multi-round portfolio decisions",
     subtitle: "Investment Strategy Simulation",
     description:
@@ -312,7 +312,7 @@ Participants or teams may be disqualified at any stage for:
 
 ## **6. Prize Pool & Recognition**
 
-- **Prize Pool Total:** ₹8,000
+- **Prize Pool Total: ₹8,000**
 - **Distribution:**
     - **1st Place: ₹5,000**
     - **2nd Place: ₹3,000**
@@ -402,19 +402,15 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
     image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/669896041_17944664259155445_3271895028052947852_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=Mzg3NTYzMDM4OTM2OTQ2NjQ0Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=TAoRsXkLjyYQ7kNvwF0dkzw&_nc_oc=AdoQTohIvxA2M7cmNsWsiXEqtIbLc99JzP9wAmy0nQ72eyZch_wjunthzD3sMrbZyFw&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af0YCb--lz_lRCpM_WlB0T8-gvQwTPkyp5QEyGjhIEwWTQ&oe=69E4FF42",
     slug: "algo-rythm",
     category: "Live Coding / Music Tech",
-    date: "18th April, 2026",
+    date: "April 18, 2026",
     details: "Strudel-based competition fusing coding logic with musical creativity",
     subtitle: "Code the Beat, Perform the Logic",
     description:
-      "AlgoRhythm explores the fusion of coding and music, where participants use Strudel to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
+      "AlgoRhythm explores the fusion of coding and music, where participants use Strudel platform to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
     prizePool: "Rs 8,000",
     location: "A504",
     teamSize: "1-3",
-    rules: `# **AlgoRhythm – PRE FEST GUIDELINES**
-
----
-
-# **AlgoRhythm – PRE FEST GUIDELINES**
+    rules: `# **AlgoRhythm**
 
 ---
 
@@ -570,7 +566,7 @@ Participants or teams may be disqualified at any stage for:
 
 ## **6. Prize Pool & Recognition**
 
-- **Prize Pool Total:** ₹8,000
+- **Prize Pool Total: ₹8,000**
 - **Distribution:**
     - **1st Place: ₹5,000**
     - **2nd Place: ₹3,000**
@@ -661,7 +657,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
     image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/670152666_17944664202155445_2853624684105418310_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzg3NTYzMDE0MTU3MDAxNDEzMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNTB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=hZUhW_S21RwQ7kNvwFX90Mc&_nc_oc=AdoHPkQZTVbF4a6KQIQKqT8F4ynHIqKkyTV2KmXp_PAPEqmZ0VMRNvYYmgu314cqyUk&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af34F6Nj59McyH0Yi6HSoG-0Zy7hoxS2RcZTjo0DdkkNGw&oe=69E51966",
     slug: "code-combat",
     category: "Competitive Programming",
-    date: "17th April, 2026",
+    date: "April 17, 2026",
     details: "Head-to-head coding duels with knockout brackets",
     subtitle: "Direct Duel Programming",
     description:
@@ -670,7 +666,8 @@ Participants will face challenges ranging from logic-based problems to coding ta
     prizePool: "Rs 10,000",
     location: "A-Block 1st Floor",
     teamSize: "1",
-    rules: `# **Code Combat – PRE FEST GUIDELINES**
+    rules: 
+    `# **Code Combat**
 
 ---
 
@@ -702,11 +699,6 @@ The competition transforms programming into a real-time duel format, where parti
 - **Registration Fee:** ₹0
 - **Selection Mechanism:** First-Come First-Served
 
-**Team Size Requirements:**
-
-- Minimum: 1
-- Maximum: 3
-
 ---
 
 ## **4. Competition Format**
@@ -715,20 +707,18 @@ The competition transforms programming into a real-time duel format, where parti
 
 | **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
 | --- | --- | --- | --- | --- | --- |
-| Round 1: Elimination (32 → 16) | Offline | Two participants solve the same problem simultaneously. Basic-level problems focusing on speed and accuracy. | 10 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Round 2: Round of 16 (16 → 8) | Offline | Moderate difficulty problems with controlled background distraction (music). | 15 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Round 3: Quarterfinals (8 → 4) | Offline | Higher difficulty problems with no rough sheets allowed. | 20 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Round 4: Semifinals (4 → 2) | Offline | High-pressure matches with strategic penalty system (lemon shot or cooldown). | 20 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Decision-Making |
-| Round 5: 3rd Place Playoff | Offline | Determines 3rd place between semifinal losers. | 25 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Final Round (2 → Winner) | Offline | Championship match with highest difficulty and pressure. | 30 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Code Quality |
+| Round 1: Elimination (32 → 16) | Offline | Two participants solve same problems (3 easy level problems) simultaneously. Basic-level problems focusing on speed and accuracy. | 15-20 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Round 2: Round of 16 (16 → 8) | Offline | Moderate difficulty problems (2 easy +  1 medium) with controlled background distraction (music). | 15-20 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Round 3: Quarterfinals (8 → 4) | Offline | Higher difficulty problems (1 easy + 2 medium) with no rough sheets allowed. | 20-25 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Round 4: Semifinals (4 → 2) | Offline | High-pressure matches (3 medium problems) with strategic penalty system (lemon shot or cooldown). | 20-25 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Decision-Making |
+| Round 5: 3rd Place Playoff | Offline | Determines 3rd place between semifinal losers. (1 hard + 2 medium) | 25-30 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Final Round (2 → Winner) | Offline | Championship match with highest difficulty and pressure. (2 hard + 1 medium) | 30 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Code Quality |
 
 ---
 
 ### **4.2 Submission Guidelines**
 
 - **Submission Format:** Code Submission via platform
-- **File Naming Convention:** As per platform requirements
-- **Submission Platform:** Custom Coding Platform
 - **Submission Deadline:** Within round time limits
 - **Late Submission Policy:** Late submissions strictly prohibited
 
@@ -756,10 +746,10 @@ Judging shall be conducted strictly in accordance with the following parameters:
 
 In the event of identical performance, the following tie-breaking rules shall be applied sequentially:
 
-1. Time can be increased by an X-factor, and extra hints may be provided
-2. Fewer incorrect submissions
-3. The number of test cases passed in a submission will be considered for evaluation
-4. Sudden-death problem
+- Time can be increased by an X-factor, and extra hints may be provided
+- Fewer incorrect submissions
+- The number of test cases passed in a submission will be considered for evaluation
+- Sudden-death problem
 
 Decisions resulting from tie-breaker procedures shall be **final and binding**.
 
@@ -830,7 +820,7 @@ Participants or teams may be disqualified at any stage for:
 - **Distribution:**
     - **1st Place: ₹5,000**
     - **2nd Place: ₹3,000**
-    - 3rd Place: ₹2,000
+    - **3rd Place: ₹2,000**
 - **Certificates:** E-Certificates to Winners and Participants
 
 ---
@@ -1344,85 +1334,97 @@ Availability: During event hours`
     description:
       "BGMI is a high-energy esports showdown where squads drop in, gear up, and fight for ultimate bragging rights. From intense firefights to clutch final circles, every moment tests your reflexes, strategy, and teamwork. With a constantly shrinking battlefield and unpredictable encounters, only the smartest rotations and strongest squads survive. So rally your team, plan your moves, and battle your way to the top—because only one squad walks away as champions.",
     prizePool: "Rs 20,000",
-    location: "5th Floor",
+    location: " 5th Floor",
     teamSize: "4 - 6",
-    rules: `**BGMI Tournament – Neutron 3.0**
+    rules: `# **BGMI**
 
-### **1. Introduction**
+---
 
-**BGMI Tournament**, conducted under **Photon**-**Neutron 3.0**, serves as an officially sanctioned esports competition designed to evaluate participants' teamwork, strategy, communication, and in‑game decision‑making skills.
+## **1. Introduction**
 
-This LAN‑based tournament aims to bring together the best BGMI players from **Rishihood University** and provide a competitive and professional esports experience culminating in a **Grand Finals on‑site**.
+BGMI Tournament, conducted under Photon (Pre-Fest of Neutron 3.0), serves as an officially sanctioned esports competition designed to evaluate participants' teamwork, strategy, communication, and in-game decision-making skills.
+
+This LAN-based tournament aims to bring together the best BGMI players from Rishihood University and provide a competitive and professional esports experience culminating in a Grand Finals on-site.
 
 **Purpose / Theme:**
 
-- Promote competitive esports culture within the university
-- Identify top‑performing teams for higher‑level competitions
-- Provide professional LAN tournament experience
+- Promote competitive esports culture within Rishihood University
+- Identify top-performing teams for higher-level competitions
+- Provide a professional LAN tournament experience
 
-### **2. Eligibility**
+---
+
+## **2. Eligibility**
 
 **Open To:** Rishihood University Students
 
-**Participation Format:** 
-Team (Team Size Range: **4 to 6 players**)
+**Participation Format:** Team (Team Size: 4 - 6 players)
 
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
-- Valid Government ID (if required)
+- Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 **Additional Eligibility Restrictions:**
 
-- Only mobile devices allowed
-- iPads and emulators strictly prohibited
-- Registered IDs must be used only
+- Only mobile devices are allowed
+- iPads and emulators are strictly prohibited
+- Only registered BGMI IDs must be used
 
-### **3. Registration Details**
+---
+
+## **3. Registration Details**
 
 - **Mode of Registration:** Online
 - **Registration Deadline:** 16th April 2026
 - **Registration Fee:** ₹0
-- **Registration Portal / URL:** To Be Shared
-- **Selection Mechanism:** First‑Come First‑Served
+- **Selection Mechanism:** First-Come First-Served
 
 **Team Size Requirements:**
 
-- Minimum: 4 Players
-- Maximum: 6 Players (4 + 2 substitutes)
-- Optional: Manager / Coach Allowed
-
-### **4. Competition Format**
+- Minimum: 4
+- Maximum: 6 (4 Players + 2 Substitutes)
 
 ---
 
-**4.1 Rounds Matrix**
+## **4. Competition Format**
+
+### **4.1 Rounds Matrix**
 
 | **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
 | --- | --- | --- | --- | --- | --- |
-| Grand Finals | LAN (Offline) | Live matches conducted with audience present. Total 6 matches: 1 Rondo, 3 Erangel, 2 Miramar. Match order will be decided and announced by organizers. Breaks will be provided between matches. | 1 Day | Gameplay performance across all 6 matches | Overall ranking based on match performance, consistency, and points system |
+| Grand Finals | LAN (Offline) | Live matches conducted with an audience present. Total 6 matches: 1 Rondo, 3 Erangel, 2 Miramar. Match order will be decided and announced by organizers. Breaks will be provided between matches. | 1 Day | Gameplay performance across all 6 matches | Overall ranking based on match performance, consistency, and points system |
 
-**4.2 Submission Guidelines**
+---
+
+### **4.2 Submission Guidelines**
 
 - **Submission Format:** Team Details Form
 - **File Naming Convention:** TeamName
 - **Submission Platform:** Official Registration Form
+- **Submission Deadline:** 16th April 2026
 - **Late Submission Policy:** Late submissions strictly prohibited
 
-Required Details:
+**Required Details:**
 
 - Team Name
-- Captain Name
+- Leader Name
 - Player IDs
 - Contact Details
 
-**4.3 Time Regulations**
+---
 
-- Reporting Time: **20 Minutes Before Match**
-- Match Duration: As per BGMI Format
-- **Time Violation Penalty:** Disqualification / Match Forfeit
+### **4.3 Time Regulations**
 
-**4.4 Judging Criteria**
+- Approved Time for Task/Performance: As per BGMI match format
+- Setup / Buffer Duration: Reporting 20 minutes before match
+- **Time Violation Penalty:** Disqualification or Match Forfeit
+
+---
+
+### **4.4 Judging Criteria**
+
+Judging shall be conducted strictly in accordance with the following parameters:
 
 **Points System**
 
@@ -1439,145 +1441,177 @@ Required Details:
 
 **Kill Points:**
 
-1 Kill = 1 Point
+- 1 Kill = 1 Point
 
-**4.5 Tie‑Breaker Protocol**
+---
+
+### **4.5 Tie-Breaker Protocol**
+
+In the event of identical scores, the following tie-breaking rules shall be applied sequentially:
 
 - Total Kill Points
 - Highest Match Placement
-- Head‑to‑Head Performance
-- Decisions are **final and binding**.
+- Head-to-Head Performance
 
-### **5. Competition Rules**
+Decisions resulting from tie-breaker procedures shall be **final and binding**.
 
-**5.1 General Rules**
+---
 
-- Players must report 30 minutes before match
-- Only registered players allowed
-- Auto Heal Prohibited
-- Players must use assigned stations
-- Screen recording mandatory (minimum 2 players)
-- Screenshot of every match required
+## **5. Competition Rules**
 
-**5.2 Allowed & Prohibited Items**
+### **5.1 General Rules**
 
-**Permitted Items**
+- Participants must report **no later than 30 minutes** before the designated start time. Late arrival may constitute forfeiture of participation rights.
+- Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+- Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content**—whether verbal, written, visual, or performative—is strictly prohibited.
+- Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage.**
+- Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+- Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
+
+---
+
+### **5.2 Allowed & Prohibited Items**
+
+**Permitted Items:**
 
 - Mobile Phones
 - Chargers
 - Earphones
 - Backup Devices
 
-**Prohibited Items**
+**Prohibited Items:**
 
 - iPads
 - Emulators
-- Third‑party software
+- Third-party software
 - Unauthorized devices
+- Hazardous materials or substances
+- Items prohibited by institutional policy or local law
+- Offensive, discriminatory, or inappropriate props or materials
+- Unauthorized electronic devices, tools, or assistance mechanisms
+- Any apparatus deemed unsafe by event authorities
 
-**5.3 Safety & Conduct**
+---
 
+### **5.3 Gameplay Rules**
+
+- Only registered players are allowed to participate
+- Auto Heal is prohibited
+- Players must use assigned stations
+- Screen recording is mandatory (minimum 2 players per team)
+- Screenshot submission after every match is required
+
+---
+
+### **5.4 Safety & Conduct**
+
+- Participants must adhere to all safety rules and institutional guidelines
 - Respect all players and officials
 - No harassment or misconduct
-- Follow all tournament instructions
-- Maintain discipline
+- Maintain discipline and professionalism at all times
 
-**5.4 Grounds for Disqualification**
+---
 
-- Unauthorized players
-- Hacks / cheats / third‑party software
-- Glitch exploitation
-- Teaming with other teams
-- Match fixing / feeding
-- Failure to provide screen recording
-- Unsportsmanlike behaviour
+### **5.5 Grounds for Disqualification**
 
-### **6. Prize Pool & Recognition**
+Participants or teams may be disqualified at any stage for:
 
-- **Prize Pool Total: ₹20000**
+- Use of unauthorized players or accounts
+- Hacks, cheats, or third-party tools
+- Exploiting game glitches
+- Teaming or collusion with opponents
+- Match fixing or intentional feeding
+- Failure to provide required recordings
+- Unsportsmanlike behavior or misconduct behaviour
 
-**Distribution:**
+---
 
-- **1st Place: ₹10000**
-- **2nd Place: ₹6000**
-- **3rd Place : ₹4000**
+## **6. Prize Pool & Recognition**
 
-**Distribution:**
+- **Prize Pool Total:** ₹20,000
+- **Distribution:**
+    - **1st Place: ₹10,000**
+    - **2nd Place: ₹6,000**
+    - 3rd Place: ₹4,000
+- **Certificates:** E-Certificates to Winners and Participants
+- **Additional Recognition:** TOP 3 TEAMS WILL GO TO SEMI FINALS OF NEUTRON 3.0
 
-- TOP 3 TEAMS WILL GO TO SEMI FINALS OF NEUTRON 3.O
+---
 
-### **7. Liability & Consent**
+## **7. Liability & Consent**
 
-Participation is voluntary.
+- Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+- Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
-Organizers are not responsible for:
+---
 
-- Device damage
-- Network issues
-- Personal belongings
+## **8. Code of Conduct**
 
-Participants agree to:
+All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
-- Media usage
-- Emergency medical assistance
+- **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+- **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+- **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+- **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+- **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+- **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+- **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
-### **8. Code of Conduct**
+---
 
-Participants must:
+## **9. Escalation Chain & Appeals Process**
 
-- Maintain professionalism
-- Respect players & officials
-- Follow all rules
-- Avoid manipulation attempts
+Participants may file an appeal exclusively for procedural inconsistencies, scoring discrepancies, administrative errors, or judge misconduct.
 
-Organizer decisions are **final and binding**.
+**Appeals Framework:**
 
-### **9. Escalation Chain & Appeals Process**
+- **Level 1: On-Ground Coordinator**
+    
+    Concerns must be verbally reported immediately after the round or relevant incident.
+    
+- **Level 2: Competition Lead (Written Appeal)**
+    
+    A written appeal must be submitted within 30 minutes of the incident. It must include:
+    
+    - Precise grounds for the appeal
+    - Evidence (screenshots, documents, recordings)
+    - Participant/team identification details
+- **Level 3: Photon Competitions Head Panel**
+    
+    A formal review shall be conducted.
+    
+    The panel’s decision is final, binding, and not subject to further challenge.
+    
 
-**Level 1: On-Ground Coordinator**
+**Restrictions:**
 
-Concerns must be verbally reported **immediately** after the round or relevant incident.
+- Appeals relating to subjective evaluation or artistic preference shall not be considered.
+- Late, incomplete, or frivolous appeals shall be rejected without review.
+- Misuse of the appeals process may result in disciplinary action.
 
-**Level 2: Competition Lead (Written Appeal)**
+---
 
-A written appeal must be submitted within **30 minutes** of the incident. It must include:
+## **10. Privacy & Data Handling Policy**
 
-- Precise grounds for the appeal
-- Evidence (screenshots, documents, recordings)
-- Participant/team identification details
+- **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+- **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+- **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+- **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+- **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+- **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+- **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
-**Level 3: Neutron Competitions Head Panel**
+---
 
-A formal review shall be conducted.
+## **11. Contact & Support**
 
-The panel’s decision is **final, binding, and not subject to further challenge**.
-
-Appeal must include:
-
-- Team Name
-- Match Details
-- Evidence (Recording / Screenshot)
-
-### **10. Privacy & Data Handling Policy**
-
-Organizers may collect:
-
-- Player names
-- IDs
-- Match recordings
-- Screenshots
-
-Data used only for:
-
-- Tournament operations
-- Promotion
-- Record keeping
-
-### **11. Contact & Support**
-
-- **Event Coordinator:** Ansh,Shubham
-- **Email / Phone:**73939 28014, 9988710705
-- **Availability:** During event hours`,
+- **Event Coordinators:**
+    - **Yuvraj Chandravansi | 8862836564 | yuvraj.chandravansi2024@nst.rishihood.edu.in**
+    - **Ansh Singh | 73939 28014 | ansh.s25070@nst.rushihood.edu.in**
+    - **Shubham | 99887 10705 | shubham.25672@nst.rishihood.edu.in**
+- **Availability:** Till the Event`,
   },
   
 
