@@ -28,17 +28,23 @@ export interface GalleryItem {
   prizePool?: string;
   location?: string;
   teamSize?: string;
+  /** Overrides the default "Bounty" label on the card hover row */
+  bountyLabel?: string;
+  /** Overrides the default "Crew" label on the card hover row */
+  crewLabel?: string;
   [key: string]: any;
 }
 
 export function CurvedGallery({ 
   basePath = "competitions",
-  isLoading = false 
+  isLoading = false,
+  items,
 }: { 
   basePath?: string;
   isLoading?: boolean;
+  items?: GalleryItem[];
 }) {
-  const displayItems = COMPETITIONS_DATA;
+  const displayItems = items ?? COMPETITIONS_DATA;
   const TOTAL = displayItems.length || 1;
   const ANGLE_STEP = 360 / TOTAL;
 
@@ -74,7 +80,7 @@ export function CurvedGallery({
       const idx = Math.round(normalized / ANGLE_STEP) % TOTAL;
       setActiveIdx(idx);
     });
-  }, []);
+  }, [smoothRotation, ANGLE_STEP, TOTAL]);
 
   const handleWheel = useCallback((e: WheelEvent) => {
     e.preventDefault();
@@ -292,6 +298,8 @@ function GalleryCard({
   prizePool = "TBD",
   location = "Remote",
   teamSize = "Solo",
+  bountyLabel = "Bounty",
+  crewLabel = "Crew",
   idx,
   activeIdx,
   isGlitching,
@@ -395,9 +403,9 @@ function GalleryCard({
             <div className="translate-y-[120%] group-hover:translate-y-0 transition-transform duration-500 ease-out pb-3">
               <div className="flex flex-col gap-2">
                 {[
-                  { icon: <Trophy size={10} className="text-yellow-400" />, label: "Bounty", value: prizePool },
+                  { icon: <Trophy size={10} className="text-yellow-400" />, label: bountyLabel, value: prizePool },
                   { icon: <MapPin size={10} className="text-blue-400" />, label: "Sector", value: location },
-                  { icon: <Users size={10} className="text-purple-400" />, label: "Crew", value: teamSize },
+                  { icon: <Users size={10} className="text-purple-400" />, label: crewLabel, value: teamSize },
                 ].map(({ icon, label, value }) => (
                   <div key={label} className="flex items-center gap-2.5">
                     <div className="flex items-center justify-center shrink-0 w-3 drop-shadow-[0_0_5px_currentColor]">
