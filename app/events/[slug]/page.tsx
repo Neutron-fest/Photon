@@ -6,11 +6,13 @@ import { useParams } from "next/navigation";
 import {
   ChevronLeft,
   ArrowRight,
+  List,
   Cpu,
   MapPin,
   Clock,
   Ticket,
 } from "lucide-react";
+import EventRulesModal from "@/components/competitions/RulesModal";
 import { EVENTS } from "@/data/events";
 
 export default function EventSlugPage() {
@@ -24,6 +26,7 @@ export default function EventSlugPage() {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
   const [glitchPhase, setGlitchPhase] = useState(0);
   const wheelDeltaRef = useRef(0);
   const wheelRafRef = useRef<number | null>(null);
@@ -108,6 +111,15 @@ export default function EventSlugPage() {
     dragAxisRef.current = "none";
     setIsDragging(false);
   };
+
+  const eventRules = useMemo(
+    () =>
+      event?.rules.map((rule, index) => ({
+        title: `Rule ${index + 1}`,
+        content: rule,
+      })) ?? [],
+    [event],
+  );
 
   if (!event) {
     return (
@@ -219,22 +231,6 @@ export default function EventSlugPage() {
             <div className="text-[1.05rem] sm:text-[1.3rem] md:text-[1.6rem] lg:text-[1.95rem] leading-[1.2] font-black uppercase tracking-tight text-white mb-8 md:mb-10">
               {event.description}
             </div>
-
-            <ul className="space-y-3 sm:space-y-4 md:space-y-5 max-w-xl">
-              {event.highlights.map((h: string, i: number) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-4 text-white/60 text-[0.85rem] sm:text-[0.95rem] md:text-[1.1rem] lg:text-[1.2rem]"
-                >
-                  <span className="text-cyan-500 mt-1 font-black shrink-0">
-                    »
-                  </span>
-                  <span className="border-b border-transparent hover:border-cyan-500/30 transition-colors cursor-default">
-                    {h}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
@@ -311,15 +307,25 @@ export default function EventSlugPage() {
                 THE NETWORK?
               </h2>
 
-              <Link href={`/events/${event.slug}/register`}>
-                <button className="group/btn relative px-8 md:px-12 py-2.5 md:py-3 lg:py-4 bg-white text-black font-black uppercase tracking-widest md:tracking-[0.2em] text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] overflow-hidden active:scale-95 transition-transform cursor-pointer">
-                  <span className="relative z-10 flex items-center gap-2 md:gap-4">
-                    EXECUTE_NOW{" "}
-                    <ArrowRight className="group-hover/btn:translate-x-2 md:group-hover/btn:translate-x-3 transition-transform w-4 h-4 md:w-5 md:h-5" />
-                  </span>
-                  <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full bg-cyan-500/20 transition-transform duration-500 ease-in-out" />
+              <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-center">
+                <button
+                  onClick={() => setIsRulesModalOpen(true)}
+                  className="flex items-center gap-3 md:gap-4 px-6 md:px-8 py-2.5 md:py-3 lg:py-4 border border-white/20 hover:border-cyan-500 hover:bg-cyan-500/10 transition-all font-bold uppercase tracking-widest text-[0.7rem] sm:text-[0.8rem] md:text-[0.9rem] group/rules active:scale-95 cursor-pointer"
+                >
+                  <List className="w-4 h-4 md:w-5 md:h-5 group-hover/rules:rotate-12 transition-transform" />
+                  VIEW_RULES
                 </button>
-              </Link>
+
+                <Link href={`/events/${event.slug}/register`}>
+                  <button className="group/btn relative px-8 md:px-12 py-2.5 md:py-3 lg:py-4 bg-white text-black font-black uppercase tracking-widest md:tracking-[0.2em] text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] overflow-hidden active:scale-95 transition-transform cursor-pointer">
+                    <span className="relative z-10 flex items-center gap-2 md:gap-4">
+                      EXECUTE_NOW{" "}
+                      <ArrowRight className="group-hover/btn:translate-x-2 md:group-hover/btn:translate-x-3 transition-transform w-4 h-4 md:w-5 md:h-5" />
+                    </span>
+                    <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full bg-cyan-500/20 transition-transform duration-500 ease-in-out" />
+                  </button>
+                </Link>
+              </div>
 
               <div className="mt-10 md:mt-16 text-[7px] sm:text-[8px] md:text-[9px] text-white/20 tracking-[0.6em] md:tracking-[0.8em] font-bold">
                 SYSTEM_AUTH_REQUIRED // SESSION: 0x9212
@@ -328,6 +334,13 @@ export default function EventSlugPage() {
           </div>
         </div>
       </div>
+
+      <EventRulesModal
+        isOpen={isRulesModalOpen}
+        onClose={() => setIsRulesModalOpen(false)}
+        rules={eventRules}
+        title={event.title}
+      />
 
       <div className="absolute bottom-6 md:bottom-8 left-6 md:left-12 right-6 md:right-12 flex justify-between items-center z-30 pointer-events-none opacity-40">
         <div className="flex items-center gap-3 md:gap-4">

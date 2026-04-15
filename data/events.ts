@@ -9,14 +9,15 @@ export interface Event {
   ticketPrice: string;
   location: string;
   time: string;
-  highlights: string[];
+
   teamSize: string;
+  rules: string[];
 }
 
 export const EVENTS: Event[] = [
   {
     title: "Engineers’ Got Latent",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600",
+    image: "https://instagram.fdel3-1.fna.fbcdn.net/v/t51.82787-15/670627927_17944664295155445_4632597661586695349_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzg3NTYzMDUwODc4MTMxOTQ4NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=rCSONsHGsO8Q7kNvwGDigXj&_nc_oc=AdqjoWs-Sk7hTQ84wneBHDMS7wlqcpCmz-4cKWFcP2I4XMom9_aJYhYWU5X-S3Ftkx0&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel3-1.fna&_nc_gid=glWSTEmvTMIlWyp125KnSA&_nc_ss=7a32e&oh=00_Af1jVSHJpWZZXKmFeR8rhSphyGcECtM5iIBe-wY9MElryQ&oe=69E591DA",
     slug: "engineers-got-latent",
     category: "Event",
     date: "17th April, 2026",
@@ -25,35 +26,23 @@ export const EVENTS: Event[] = [
     ticketPrice: "Free",
     location: "Music Room - B Block",
     time: "8:00 PM",
-    highlights: [
-      "Open stage with no fixed performance format",
-      "Unique prediction-based winning mechanism",
-      "Judged scoring system with averaged results",
-      "Strict 2-minute performance window",
-      "Fast-paced, high-engagement audience experience"  
+    
+    rules: [
+      "Participants must submit a predicted score (1–10) prior to their performance; this remains confidential until scoring is complete",
+      "Each act is limited to a maximum duration of 2 minutes",
+      "All performance formats are permitted, including comedy, music, poetry, storytelling, and experimental acts",
+      "A panel of judges will score each performance; the average score will be considered final",
+      "A participant wins only if their predicted score exactly matches the judges’ average score",
+      "Content must not include hate speech targeting religion, caste, gender, or identity",
+      "Direct personal attacks on individuals present at the event are prohibited",
+      "Non-consensual physical interaction with the audience is not allowed",
+      "Use of mobile phones or recording during the event is prohibited",
+      "Organizers reserve the right to pause or terminate any act that violates event guidelines"
     ],
     teamSize: "1",
-  },
+  }
 
   
-  {
-    title: "Masterclass with Mr. Mohammed",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600",
-    slug: "masterclass-with-mr-mohammed",
-    category: "Workshop",
-    date: "17th April, 2026",
-    details: "Masterclass with Mr. Mohammed is a hands-on workshop where participants learn to architect, fine-tune, and deploy large language models for specialized domains.",
-    description: "A standalone masterclass conducted by Mr. Mohammed, Head of Engineering at Velocix and former VP of Product Quality, bringing deep experience in building and scaling high-performance systems. The session focuses on how modern systems are built under real-world constraints, with a practical lens on execution and AI integration, covering how to scope problems, define strong MVPs, make sound engineering trade-offs, and apply AI where it delivers real value.",
-    ticketPrice: "Free",
-    location: "Mini Auditorium ",
-    time: "4:00 PM",
-    highlights: [
-      "Direct access to H100 GPU clusters",
-      "Custom LoRA training templates provided",
-      "One-on-one architectural review sessions",
-      "Cloud-agnostic deployment strategies"
-    ],
-    teamSize: "1",
-  },
+  
 
 ];
