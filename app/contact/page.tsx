@@ -21,9 +21,9 @@ function useGlitchPulse(selector: string, interval = 1800) {
 }
 
 const SOCIALS = [
-  { label: "LinkedIn",    href: "#", color: "#0a66c2" },
-  { label: "Instagram",   href: "#", color: "#e1306c" },
-  { label: "X (Twitter)", href: "#", color: "#ffffff" },
+  { label: "LinkedIn",    href: "https://www.linkedin.com/company/neutronfest", color: "#0a66c2" },
+  { label: "Instagram",   href: "https://www.instagram.com/", color: "#e1306c" },
+  { label: "X (Twitter)", href: "https://x.com/neutronfest", color: "#ffffff" },
 ];
 
 export default function ContactPage() {
@@ -111,11 +111,11 @@ export default function ContactPage() {
               General Enquiries
             </h3>
             <a
-              href="mailto:hello@photon.edu"
+              href="mailto:neutronfest@nst.rishihood.edu.in"
               className="text-white/80 hover:text-white transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white text-sm"
               style={{ fontFamily: "var(--font-space-mono)" }}
             >
-              hello@photon.edu
+              neutronfest@nst.rishihood.edu.in
             </a>
           </div>
 
