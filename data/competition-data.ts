@@ -21,10 +21,11 @@ export interface Competition {
 }
 
 export const COMPETITIONS_DATA: Competition[] = [
+
   {
-    title: "Investor's Dilemma",
+    title: "Risk & Reward",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
-    slug: "investors-dilemma",
+    slug: "Risk-Reward",
     category: "Finance / Strategy",
     date: "17th April, 2026",
     details: "Strategy-based financial simulation with multi-round portfolio decisions",
@@ -34,13 +35,13 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "Rs 8,000",
     location: "Mini Audi",
     teamSize: "1-3",
-    rules: `# **INVESTOR'S DILEMMA – PRE FEST GUIDELINES**
+    rules: `# **RISK & REWARD – PRE FEST GUIDELINES**
 
 ---
 
 ## **1. Introduction**
 
-Investor’s Dilemma, conducted under Photon (Pre-Fest of Neutron 3.0), is a strategy-based financial simulation designed to test decision-making, analytical thinking, and risk management.
+Risk & Reward, conducted under Photon (Pre-Fest of Neutron 3.0), is a strategy-based financial simulation designed to test decision-making, analytical thinking, and risk management.
 
 Participants act as investors managing a virtual portfolio across multiple time periods. Each round presents changing market conditions and structured news events that influence stock performance.
 
@@ -95,9 +96,9 @@ Participants make decisions across different years, reacting to changing market 
 - Each round features approximately five companies
 - Participants can buy, sell, or hold stocks
 - The simulation progresses through the following timeline:
-
-**2028 → 2030 → 2032 → 2034 → 2036 → 2038**
-
+    
+    **2028 → 2030 → 2032 → 2034 → 2036 → 2038**
+    
 - Portfolios carry forward after each round (no reset)
 - Early decisions directly impact future outcomes
 
@@ -389,6 +390,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
+    - **Saksham Sharma | 83192 57100 |** [saksham.sharma2024@nst.rishihood.edu.in](mailto:saksham.sharma2024@nst.rishihood.edu.in)
     - **Yatin Sharma | 9783204855 | [yatin.s25710@nst.rishihood.edu.in](mailto:yatin.s25710@nst.rishihood.edu.in)**
     - **Anjana Kamle | 9886445802 | [anjana.k25059@nst.rishihood.edu.in](mailto:anjana.k25059@nst.rishihood.edu.in)**
     - **Deeksha Agrawal | 7017658695 | [deeksha.a25133@nst.rishihood.edu.in](mailto:deeksha.a25133@nst.rishihood.edu.in)**
@@ -396,7 +398,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
   },
   
   {
-    title: "Strudel Based Competition (Algo-Rythm)",
+    title: "AlgoRhythm",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
     slug: "algo-rythm",
     category: "Live Coding / Music Tech",
@@ -404,11 +406,15 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
     details: "Strudel-based competition fusing coding logic with musical creativity",
     subtitle: "Code the Beat, Perform the Logic",
     description:
-      "Algo-Rythm explores the fusion of coding and music, where participants use Strudel to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
+      "AlgoRhythm explores the fusion of coding and music, where participants use Strudel to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
     prizePool: "Rs 8,000",
-    location: "A503",
+    location: "A504",
     teamSize: "1-3",
     rules: `# **AlgoRhythm – PRE FEST GUIDELINES**
+
+---
+
+# **AlgoRhythm – PRE FEST GUIDELINES**
 
 ---
 
@@ -454,7 +460,7 @@ AlgoRhythm explores the fusion of coding and music, where participants use Strud
 | **Round Name** | **Mode** | **Description** | **Duration** | **Submission** | **Evaluation / Criteria** |
 | --- | --- | --- | --- | --- | --- |
 | **Round 1: Decode the Beat** | Offline | Participants will listen to a continuously playing audio track and receive raw Strudel code containing blanks/errors. Multiple answer options (including misleading options) will be provided. Participants must analyse the sound and complete/correct the code accordingly. AI tools are allowed. | 1 Hour | Via Google Form | Accuracy of submitted code evaluated using AI model |
-| **Round 2: Theme-Based Music Creation (Final Round)** | Offline | Participants will be assigned a genre/theme (Lo-Fi, Cyberpunk, Horror, Retro, etc.) and must create a music track using Strudel. Proper composition and required duration must be maintained. Includes live performance. AI tools are allowed. | 2 Hours | No separate submission (Live Judging) | Originality, Theme Relevance, Time Compliance, Sound Quality |
+| **Round 2: Theme-Based Music Creation (Final Round)** | Offline | Participants will be assigned a genre/theme (Lo-Fi, Cyberpunk, Horror, Love, Nostalgia, Retro, etc.) and must create a music track using Strudel. Proper composition and required duration must be maintained. Includes live performance. AI tools are allowed. | 2 Hours | No separate submission (Live Judging) | Originality, Theme Relevance, Time Compliance, Sound Quality |
 
 ---
 
@@ -651,7 +657,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 
 
   {
-    title: "1v1 Coding (Code Combat)",
+    title: "Code Combat",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
     slug: "code-combat",
     category: "Competitive Programming",
@@ -660,19 +666,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
     subtitle: "Direct Duel Programming",
     description:
       `Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.
-      Participants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.`,
-    prizePool: "Rs 10000",
-    location: "A-Block 504",
+Participants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.`,
+    prizePool: "Rs 10,000",
+    location: "A-Block 1st Floor",
     teamSize: "1",
-    rules: `# **Code Combat: 1v1 Programming Duel**
-
-*Under Photon – Neutron 3.0*
+    rules: `# **Code Combat – PRE FEST GUIDELINES**
 
 ---
 
 ## **1. Introduction**
 
-Code Combat: 1v1 Programming Duel, conducted under Photon – Neutron 3.0, is a high-intensity competitive coding event designed to evaluate participants’ analytical thinking, problem-solving ability, speed, and technical precision.
+Code Combat: 1v1 Programming Duel, conducted under Photon (Pre-Fest of Neutron 3.0), is a high-intensity competitive coding event designed to evaluate participants’ analytical thinking, problem-solving ability, speed, and technical precision.
 
 The competition transforms programming into a real-time duel format, where participants compete head-to-head on identical problems under strict time constraints. It emphasises accuracy, efficiency, and decision-making under pressure, creating a fair and engaging competitive environment.
 
@@ -680,136 +684,84 @@ The competition transforms programming into a real-time duel format, where parti
 
 ## **2. Eligibility**
 
-**Open To:**
-
-- Students of Rishihood University
+**Open To:** Rishihood University Students
 
 **Participation Format:** Solo
+
+**Mandatory Identity Verification:**
+
+- Valid Institutional ID
+- Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 ---
 
 ## **3. Registration Details**
 
-**Mode:** Offline
+- **Mode of Registration:** Online
+- **Registration Deadline:** 16th April 2026
+- **Registration Fee:** ₹0
+- **Selection Mechanism:** First-Come First-Served
 
-**Deadline:** 16 April 2026
+**Team Size Requirements:**
 
-**Fee:** ₹0.0
-
-**Selection:** First-Come First-Served
+- Minimum: 1
+- Maximum: 3
 
 ---
 
 ## **4. Competition Format**
 
-### **4.1 Flow of Competition**
+### **4.1 Rounds Matrix**
 
-The competition follows a **single-elimination 1v1 duel format**.
-
-Participants compete in knockout rounds, progressing toward the final stage.
-
-Each match:
-
-- Two participants solve the **same problem simultaneously**
-- Submissions are evaluated in real-time
-- Winner advances, loser is eliminated
-
----
-
-### **4.2 Rounds Structure**
-
-**Round 1: Elimination (32 → 16)**
-
-- Basic-level problems
-- Focus: speed & accuracy
-- Duration: 10 minutes
-
-**Round 2: Round of 16 (16 → 8)**
-
-- Moderate difficulty
-- Controlled background distraction (music)
-- Duration: 15 minutes
-
-**Round 3: Quarterfinals (8 → 4)**
-
-- Higher difficulty
-- No rough sheets allowed
-- Duration: 20 minutes
-
-**Round 4: Semifinals (4 → 2)**
-
-- High-pressure matches
-- Strategic penalty system:
-    - Incorrect submission → choose:
-        - Continue immediately after lemon shot
-        - OR take 2-minute cooldown
-- Duration: 20 minutes
-
-**Round 5: 3rd Place Playoff**
-
-- Determines 3rd place
-- Duration: 25 minutes
-
-**Final Round (2 → Winner)**
-
-- Championship match
-- Duration: 30 minutes
+| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
+| --- | --- | --- | --- | --- | --- |
+| Round 1: Elimination (32 → 16) | Offline | Two participants solve the same problem simultaneously. Basic-level problems focusing on speed and accuracy. | 10 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Round 2: Round of 16 (16 → 8) | Offline | Moderate difficulty problems with controlled background distraction (music). | 15 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Round 3: Quarterfinals (8 → 4) | Offline | Higher difficulty problems with no rough sheets allowed. | 20 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Round 4: Semifinals (4 → 2) | Offline | High-pressure matches with strategic penalty system (lemon shot or cooldown). | 20 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Decision-Making |
+| Round 5: 3rd Place Playoff | Offline | Determines 3rd place between semifinal losers. | 25 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
+| Final Round (2 → Winner) | Offline | Championship match with highest difficulty and pressure. | 30 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Code Quality |
 
 ---
 
-### **4.3 Scoring & Evaluation**
+### **4.2 Submission Guidelines**
 
-Each submission is evaluated on:
-
-Correctness (primary factor)
-
-Time Efficiency
-
-Code Quality
-
-**Important Rules:**
-
-- First correct solution wins
-- Incorrect submissions may incur penalties (time or strategic)
-- Partial scoring may apply based on platform evaluation
+- **Submission Format:** Code Submission via platform
+- **File Naming Convention:** As per platform requirements
+- **Submission Platform:** Custom Coding Platform
+- **Submission Deadline:** Within round time limits
+- **Late Submission Policy:** Late submissions strictly prohibited
 
 ---
 
-### **4.4 Time Regulations**
+### **4.3 Time Regulations**
 
-- Each round has predefined duration
-- Setup time: 5 minutes
-- Late submissions: Not accepted
-- Incomplete solutions evaluated based on test cases
-
----
-
-### **4.5 Platform & Technical Rules**
-
-- Competition will run on a **custom coding platform**
-- Systems will be provided by organizers
-- Supported languages: C++, Java, Python
-
-**Strictly Prohibited:**
-
-- Internet browsing (except platform)
-- External help
-- AI tools (ChatGPT, Copilot, etc.)
-
-Violation = Immediate disqualification
+- Approved Time for Task/Performance: As per round duration
+- Setup / Buffer Duration: 5 minutes
+- **Time Violation Penalty:** Submissions after time limit will not be accepted
 
 ---
 
-### **4.6 Tie-Breaker Protocol**
+### **4.4 Judging Criteria**
 
-In case of identical performance:
+Judging shall be conducted strictly in accordance with the following parameters:
+
+- Correctness (primary factor)
+- Time Efficiency
+- Code Quality
+
+---
+
+### **4.5 Tie-Breaker Protocol**
+
+In the event of identical performance, the following tie-breaking rules shall be applied sequentially:
 
 1. Time can be increased by an X-factor, and extra hints may be provided
 2. Fewer incorrect submissions
-3. The number of test cases passed in a submission will be considered for evaluation.
+3. The number of test cases passed in a submission will be considered for evaluation
 4. Sudden-death problem
 
-No further appeals allowed after the final decision.
+Decisions resulting from tie-breaker procedures shall be **final and binding**.
 
 ---
 
@@ -817,31 +769,52 @@ No further appeals allowed after the final decision.
 
 ### **5.1 General Rules**
 
-- Report **15 minutes before start time**
-- No collaboration allowed
-- Only individual effort permitted
-- Any disruption or misconduct → penalty/disqualification
-- Judges’ decision is final
+- Participants must report **no later than 15 minutes** before the designated start time. Late arrival may constitute forfeiture of participation rights.
+- Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+- Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content**—whether verbal, written, visual, or performative—is strictly prohibited.
+- Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage**.
+- Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+- Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
 
 ---
 
 ### **5.2 Allowed & Prohibited Items**
 
-**Permitted:**
+**Permitted Items:**
 
 - Organizer-provided systems
 - Personal keyboard/mouse (optional)
 
-**Prohibited:**
+**Prohibited Items:**
 
-- Mobile phones
-- Smart devices
-- External storage devices
-- Any unfair assistance
+- Hazardous materials or substances
+- Items prohibited by institutional policy or local law
+- Offensive, discriminatory, or inappropriate props or materials
+- Unauthorized electronic devices, tools, or assistance mechanisms
+- Any apparatus deemed unsafe by event authorities
 
 ---
 
-### **5.3 Grounds for Disqualification**
+### **5.3 Gameplay Rules**
+
+- Two participants compete simultaneously on identical problems
+- First correct solution wins
+- Incorrect submissions may incur penalties
+- Partial scoring may apply based on platform evaluation
+
+---
+
+### **5.4 Safety & Conduct**
+
+- Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as hazardous, negligent, reckless, or endangering may result in immediate removal.
+- Harassment, discrimination, intimidation, coercion, or misconduct—whether physical, verbal, written, or digital—shall not be tolerated and will result in immediate disciplinary action, including disqualification.
+- Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the safety, fairness, integrity, or reputation of Photon.
+
+---
+
+### **5.5 Grounds for Disqualification**
+
+Participants or teams may be disqualified at any stage for:
 
 - Use of unfair means
 - Plagiarism or identical code
@@ -853,76 +826,89 @@ No further appeals allowed after the final decision.
 
 ## **6. Prize Pool & Recognition**
 
-1st Place: ₹ 5000
-
-2nd Place: ₹ 3000
-
-3rd Place: ₹ 2000
+- **Prize Pool Total:** ₹10,000
+- **Distribution:**
+    - **1st Place: ₹5,000**
+    - **2nd Place: ₹3,000**
+    - 3rd Place: ₹2,000
+- **Certificates:** E-Certificates to Winners and Participants
 
 ---
 
 ## **7. Liability & Consent**
 
-Participation is voluntary. Participants assume full responsibility for any personal injury, loss, or damage.
-
-Neutron 3.0, the Organizing Committee, and Rishihood University shall not be held liable for any such incidents.
-
-Participants grant consent for use of event media (photos, videos, recordings) for promotional and institutional purposes.
+- Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+- Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
 ---
 
 ## **8. Code of Conduct**
 
-All participants must adhere to:
+All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
-- **Integrity & Honesty**
-- **Respect & Non-Discrimination**
-- **Compliance with Rules**
-- **No Misconduct or Manipulation**
-- **Strict Anti-Cheating Policy**
-
-Violation → disciplinary action or disqualification
+- **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+- **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+- **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+- **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+- **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+- **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+- **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
 ---
 
-## **9. Escalation Chain & Appeals**
+## **9. Escalation Chain & Appeals Process**
 
-**Level 1:** On-ground Coordinator (Immediate verbal report)
+Participants may file an appeal exclusively for procedural inconsistencies, scoring discrepancies, administrative errors, or judge misconduct.
 
-**Level 2:** Written appeal within 30 minutes
+**Appeals Framework:**
 
-**Level 3:** Neutron Competitions Head Panel (Final decision)
+- **Level 1: On-Ground Coordinator**
+    
+    Concerns must be verbally reported immediately after the round or relevant incident.
+    
+- **Level 2: Competition Lead (Written Appeal)**
+    
+    A written appeal must be submitted within 30 minutes of the incident. It must include:
+    
+    - Precise grounds for the appeal
+    - Evidence (screenshots, documents, recordings)
+    - Participant/team identification details
+- **Level 3: Photon Competitions Head Panel**
+    
+    A formal review shall be conducted.
+    
+    The panel’s decision is final, binding, and not subject to further challenge.
+    
 
 **Restrictions:**
 
-- No appeals on subjective judgment
-- Late/incomplete appeals rejected
-- Misuse → disciplinary action
+- Appeals relating to subjective evaluation or artistic preference shall not be considered.
+- Late, incomplete, or frivolous appeals shall be rejected without review.
+- Misuse of the appeals process may result in disciplinary action.
 
 ---
 
-## **10. Privacy & Data Policy**
+## **10. Privacy & Data Handling Policy**
 
-Participant data may be collected for:
-
-- Registration
-- Scoring
-- Communication
-- Media usage
-
-Data will be securely stored and used only for official purposes.
+- **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+- **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+- **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+- **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+- **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+- **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+- **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
 ---
 
 ## **11. Contact & Support**
 
-Event Coordinator: Khanak Jain, Yatin Sharma
-
-Phone: 97186 21543 , 9166291772
-
-Help : [khanak.j25219@nst.rishihood.edu.in](mailto:khanak.j25219@nst.rishihood.edu.in) | ankur.a25063@nst.rishihood.edu.in 
-
-Availability: During event hours`
+- **Event Coordinators:**
+    - **Nikith | 82177 28508 | [nikith.s2024@nst.rishihood.edu.in](mailto:nikith.s2024@nst.rishihood.edu.in)**
+    - **Khanak Jain | 9718621543 | [khanak.j25219@nst.rishihood.edu.in](mailto:khanak.j25219@nst.rishihood.edu.in)**
+    - **Ankur Agarwal | 9166291772 | [ankur.a25063@nst.rishihood.edu.in](mailto:ankur.a25063@nst.rishihood.edu.in)**
+- **Availability:** Till the Event`
   },
 
 
@@ -1346,6 +1332,7 @@ Phone: 73939 28014, 9988710705
 Availability: During event hours`
   },
 
+
   {
     title: "BGMI",
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800",
@@ -1593,4 +1580,362 @@ Data used only for:
 - **Availability:** During event hours`,
   },
   
+
+
+  {
+    title: "ZeroToOne",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800",
+    slug: "zerotoone",
+    category: "Hackathon",
+    date: "17th April, 2026",
+    details: "It is a hackathon",
+    subtitle: "Hackathon",
+    description:
+      "Zero To One is a 24-hour hackathon where participants are judged on turning a well-understood problem into a working, real-world solution under time and resource constraints. It emphasises structured problem-solving, practical system design, strong technical execution, and clear decision-making, with solutions expected to be functional, well-justified, and realistic.",
+    prizePool: "Rs 20,000",
+    location: "Library",
+    teamSize: "1 - 3",
+    rules: `# **Zero To One – PRE FEST GUIDELINES**
+
+---
+
+## **1. Introduction**
+
+Zero To One, conducted under Photon (Pre-Fest of Neutron 3.0), is a 24-hour hackathon designed to evaluate participants on their ability to move from problem understanding to a working system under real-world constraints. The competition operates in alignment with the objectives and standards of Rishihood University's annual tech fest, Neutron 3.0.
+
+Purpose / Theme: Zero To One focuses on structured problem solving, practical system design, technical execution, and decision-making under constraints. Participants are expected to build solutions that are functional, justified, and aligned with real-world usage. The focus is on building the right system — not the most complex one.
+
+---
+
+## **2. Eligibility**
+
+**Open To:** Rishihood University Students
+
+**Participation Format:** Solo or Team (Team Size: 1 - 3 members)
+
+**Mandatory Identity Verification:**
+
+- Valid Institutional ID
+- Valid Government ID (Aadhaar, PAN, Passport, etc.)
+
+---
+
+## **3. Registration Details**
+
+- **Mode of Registration:** Online
+- **Registration Deadline:** 16th April 2026
+- **Registration Fee:** ₹0
+- **Selection Mechanism:** First-Come First-Served
+
+**Team Size Requirements:**
+
+- Minimum: 2
+- Maximum: 4
+
+---
+
+## **4. Competition Format**
+
+### **4.1 Rounds Matrix**
+
+| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
+| --- | --- | --- | --- | --- | --- |
+| Kickoff & Masterclass | Offline | Rules briefing + Masterclass by Mr. Mohammed | 4:00 PM – 5:30 PM | — | — |
+| Phase 1: Problem Understanding | Offline | Participants scope the problem, define user/system context, and document relevance | 5:30 PM – 8:30 PM | Problem Understanding Document | Clarity, scope, relevance |
+| Phase 2: Design & System Planning | Offline | Solution design, system architecture, user flow, and technology choices | 5:30 PM – 8:30 PM | Design & System Planning Document (PDF) | Architecture, feature prioritisation, justification |
+| Mid Review | Offline | Design evaluation and feedback; may act as a filter if team count exceeds expectations | 8:30 PM – 10:30 PM | — | Design quality and feasibility |
+| Phase 4: Development | Offline | Overnight build phase; final commit at 11:00 AM | 11:00 PM – 11:00 AM | GitHub Repository + Live Prototype | Technical execution, functionality |
+| Phase 5: GTM & Final Submission | Offline | GTM strategy and final presentation polish; submission by 12:00 PM | 11:00 AM – 12:00 PM | Final PPT (PDF) + Prototype Link | GTM strategy, presentation quality |
+| Final Evaluation | Offline | Demo and technical defence before judges | 12:00 PM – 4:00 PM | — | All evaluation parameters |
+
+---
+
+### **4.2 Hackathon Structure**
+
+The hackathon follows a structured lifecycle:
+
+1. Problem Understanding
+2. Solution Design & System Planning
+3. Mid Review
+4. Development & Deployment
+5. GTM Strategy
+6. Final Evaluation
+
+---
+
+### **4.3 Submission Protocol**
+
+All submissions must be made via the official hackathon Gmail or the official Photon website (to be confirmed after discussion with Tech Team).
+
+**Required Submissions:**
+
+**1. Problem Understanding Document**
+
+- Problem statement (clearly scoped)
+- Target user / system context
+- Usage environment and constraints
+- Current alternatives or existing workflows
+- Why this problem is relevant and worth solving
+
+**2. Design & System Planning Document (PDF)**
+
+- Problem framing and user research insights
+- Target user personas (clear and specific)
+- Key assumptions and validation logic
+- Solution overview (focused and justified)
+- 3–5 key features (strict limit)
+- User flow / interaction flow
+- Relevant frameworks used (if any) with application
+- High-level system architecture (components, data flow)
+- Technology choices with justification
+
+**3. Final Submission (Prototype + GitHub + Final PPT)**
+
+- Live prototype link (must be accessible and runnable)
+- GitHub repository (with readable code and comprehensive README.md)
+- Final presentation (PDF) combining:
+    - Problem summary and user context
+    - Solution overview and key features
+    - Technical definitions (architecture, stack, key components)
+    - System design updates (if changed from initial design)
+    - Key trade-offs and decisions
+    - Go-To-Market (GTM) strategy:
+        - Target initial users
+        - Distribution / access channels
+        - Why users will adopt the solution
+
+**Submission Rules:**
+
+- Submissions must follow the prescribed format
+- Late submissions will not be evaluated
+- Only the latest submission before the deadline is considered
+
+---
+
+### **4.4 Time Regulations**
+
+| **Time** | **Description** |
+| --- | --- |
+| 4:00 PM – 4:30 PM | Hackathon Kickoff (rules and guidelines) |
+| 4:30 PM – 5:30 PM | Masterclass by Mr. Mohammed |
+| 5:30 PM – 8:30 PM | Phase 1 & Phase 2 |
+| 8:30 PM – 10:30 PM | Mid Review (Phase 3) |
+| 11:00 PM – 11:00 AM | Phase 4 – Development (final commit at 11:00 AM) |
+| 11:00 AM – 12:00 PM | Phase 5 – GTM Strategy & PPT Polish (final submission by 12:00 PM) |
+| 12:00 PM – 4:00 PM | Final Presentation & Evaluation |
+
+---
+
+### **4.5 Judging Criteria**
+
+**Total: 100 Marks**
+
+| **Category** | **Weightage** |
+| --- | --- |
+| Problem Understanding | 10% |
+| Design & Planning | 30% |
+| Technical Execution | 30% |
+| System Design & Scalability | 20% |
+| GTM Strategy | 10% |
+
+---
+
+### **4.6 Tie-Breaker Protocol**
+
+In the event of identical final scores, the following tie-breaking rules shall be applied sequentially:
+
+1. Higher score in Technical Execution
+2. Higher score in Design & Planning
+3. Final decision of the judging panel / organising committee
+
+All tie-breaker decisions shall be **final and binding**.
+
+---
+
+## **5. Competition Rules**
+
+### **5.1 General Rules**
+
+- Participants must report no later than **30 minutes** before the designated start time. Late arrival may constitute forfeiture of participation rights.
+- Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+- Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content** — whether verbal, written, visual, or performative — is strictly prohibited.
+- Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage**.
+- Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+- Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
+
+---
+
+### **5.2 Allowed & Prohibited Items**
+
+**Permitted Items:**
+
+- Laptop with internet access
+- Open-source components (must be declared and justified; full systems cannot be reused)
+- AI tools (allowed if explainable)
+- APIs (allowed if justified)
+
+**Prohibited Items:**
+
+- Pre-built projects or systems
+- Static demos or fake implementations
+- Vague, assumption-based problem definitions
+- Feature dumping or unrealistic system designs
+- Hazardous materials or substances
+- Items prohibited by institutional policy or local law
+- Unauthorized devices or assistance mechanisms
+
+---
+
+### **5.3 Phase-Wise Rules**
+
+**Problem Understanding**
+
+- Expected: Clearly scoped problem with defined user/system context
+- Not Allowed: Vague problems or assumption-based ideas
+
+**Design & System Planning**
+
+- Mandatory: 3–5 core features, system architecture, flow definition
+- Not Allowed: Feature dumping, unrealistic systems
+
+**Development**
+
+- Mandatory: Functional working prototype with core features implemented
+- Not Allowed: Static demos, fake implementations, anything built pre-hackathon
+
+**Mandatory Constraints (All Phases)**
+
+- Teams must justify all decisions
+- Teams must define trade-offs made during development
+
+**Edge Cases & Clarifications**
+
+- Internet issues: No extra time guaranteed
+- Hardware constraints: Participants must assume realistic environments
+
+---
+
+### **5.4 Safety & Conduct**
+
+- Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as **hazardous, negligent, reckless, or endangering** may result in immediate removal.
+- Harassment, discrimination, intimidation, coercion, or misconduct — whether physical, verbal, written, or digital — shall not be tolerated and will result in **immediate disciplinary action**, including disqualification.
+- Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the **safety, fairness, integrity, or reputation** of Photon.
+
+---
+
+### **5.5 Grounds for Disqualification**
+
+Participants or teams may be disqualified at any stage for:
+
+- Failure to report within scheduled timelines
+- Breach of eligibility criteria or team composition rules
+- Plagiarism or use of pre-built systems
+- Missing or incomplete submissions
+- Non-functional prototype at the time of final evaluation
+- Misrepresentation of work or decisions
+- Misconduct, harassment, or violation of safety requirements
+- Damage to property or interference with event operations
+- Failure to comply with official instructions despite warning
+- Any act that compromises the **operational integrity, fairness, or institutional reputation** of Photon
+
+**What Will Be Penalised (Marks Deducted):**
+
+- Feature bloat
+- Lack of justification for decisions
+- Poor alignment with the problem statement
+- Over-engineering or under-engineering of the solution
+
+---
+
+## **6. Prize Pool & Recognition**
+
+- **Prize Pool Total:** ₹20,000
+- **Distribution:**
+    - **1st Place: ₹10,000**
+    - **2nd Place: ₹6,000**
+    - 3rd Place: ₹4,000
+- **Certificates:** E-Certificates to Winners and Participants
+
+---
+
+## **7. Liability & Consent**
+
+- Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+- Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
+
+---
+
+## **8. Code of Conduct**
+
+All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
+
+- **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+- **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+- **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+- **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+- **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+- **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+- **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
+
+---
+
+## **9. Escalation Chain & Appeals Process**
+
+Participants may file an appeal exclusively for procedural inconsistencies, scoring discrepancies, administrative errors, or judge misconduct.
+
+**Appeals Framework:**
+
+- **Level 1: On-Ground Coordinator**
+    
+    Concerns must be verbally reported immediately after the round or relevant incident.
+    
+- **Level 2: Competition Lead (Written Appeal)**
+    
+    A written appeal must be submitted within 30 minutes of the incident. It must include:
+    
+    - Precise grounds for the appeal
+    - Evidence (screenshots, documents, recordings)
+    - Participant/team identification details
+- **Level 3: Photon Competitions Head Panel**
+    
+    A formal review shall be conducted.
+    
+    The panel’s decision is final, binding, and not subject to further challenge.
+    
+
+**Restrictions:**
+
+- Appeals relating to subjective evaluation or artistic preference shall not be considered.
+- Late, incomplete, or frivolous appeals shall be rejected without review.
+- Misuse of the appeals process may result in disciplinary action.
+
+---
+
+## **10. Privacy & Data Handling Policy**
+
+- **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+- **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+- **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+- **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+- **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+- **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+- **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
+
+---
+
+## **11. Contact & Support**
+
+- **Event Coordinators:**
+    - **Ankit Raj Singh | 6200206922 | [ankit.singh2024@nst.rishihood.edu.in](mailto:ankit.singh2024@nst.rishihood.edu.in)**
+    - **Parth Sharma | 8349039140 | [parth.s25321@nst.rishihood.edu.in](mailto:parth.s25321@nst.rishihood.edu.in)**
+    - **Khanak Jain | 9718621543 | [khanak.j25219@nst.rishihood.edu.in](mailto:khanak.j25219@nst.rishihood.edu.in)**
+- **Availability:** Till the Event`,
+  },
+  
 ];
+
+
+
+
