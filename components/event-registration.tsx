@@ -31,6 +31,8 @@ type MemberData = {
   phone: string;
 };
 
+const RISHIHOOD_EMAIL_REGEX = /^[^\s@]+@(?:[a-z0-9-]+\.)*rishihood\.edu\.in$/i;
+
 export default function EventRegistration({
   eventTitle,
   teamSize,
@@ -177,6 +179,16 @@ export default function EventRegistration({
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const invalidMemberEmail = formData.members.some(
+      (member) => !RISHIHOOD_EMAIL_REGEX.test((member.email || "").trim()),
+    );
+
+    if (invalidMemberEmail) {
+      alert("All member emails must be from rishihood.edu.in.");
+      return;
+    }
+
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
@@ -464,7 +476,9 @@ export default function EventRegistration({
                         handleMemberChange(index, "email", e.target.value)
                       }
                       type="email"
-                      placeholder="shepard@normandy.com"
+                      pattern="^[^\\s@]+@(?:[a-zA-Z0-9-]+\\.)*rishihood\\.edu\\.in$"
+                      title="Use a rishihood.edu.in email address"
+                      placeholder="you@rishihood.edu.in"
                       className="bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/20 focus:outline-hidden focus:border-white/40 focus:bg-white/10 transition-colors"
                     />
                   </div>

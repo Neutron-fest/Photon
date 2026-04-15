@@ -27,6 +27,8 @@ interface CompetitionData {
   allowSolo: boolean;
 }
 
+const RISHIHOOD_EMAIL_REGEX = /^[^\s@]+@(?:[a-z0-9-]+\.)*rishihood\.edu\.in$/i;
+
 const MinimalInput = ({ 
   label, 
   type = "text", 
@@ -43,6 +45,8 @@ const MinimalInput = ({
     <div className="relative">
       <input
         type={type}
+        pattern={type === "email" ? "^[^\\s@]+@(?:[a-zA-Z0-9-]+\\.)*rishihood\\.edu\\.in$" : undefined}
+        title={type === "email" ? "Use a rishihood.edu.in email address" : undefined}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
@@ -164,6 +168,22 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!RISHIHOOD_EMAIL_REGEX.test(formData.email.trim())) {
+      alert("Please use your rishihood.edu.in email address.");
+      return;
+    }
+
+    if (
+      mode === "Team" &&
+      formData.teammates.some(
+        (member) => !RISHIHOOD_EMAIL_REGEX.test((member.email || "").trim()),
+      )
+    ) {
+      alert("All teammate emails must be from rishihood.edu.in.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -456,7 +476,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
                       <MinimalInput 
                         label="Email Address" 
                         type="email" 
-                        placeholder="you@network.io" 
+                        placeholder="you@rishihood.edu.in" 
                         value={formData.email}
                         onChange={(v: string) => updateFormData("email", v)}
                         required
@@ -554,7 +574,7 @@ export default function CompetitionRegisterForm({ competition }: { competition: 
                                 <MinimalInput 
                                   label="Email Address"
                                   type="email"
-                                  placeholder="member@network.io"
+                                  placeholder="member@rishihood.edu.in"
                                   value={member.email}
                                   onChange={(v: string) => updateTeammate(idx, "email", v)}
                                   required

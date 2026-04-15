@@ -26,6 +26,7 @@ interface FormErrors {
 
 const GENDER_OPTIONS = ["Male", "Female"];
 const YEAR_OPTIONS = ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year +"];
+const RISHIHOOD_EMAIL_REGEX = /^[^\s@]+@(?:[a-z0-9-]+\.)*rishihood\.edu\.in$/i;
 
 const inputBase =
   "w-full bg-white/[0.04] border rounded-xl px-4 py-3 text-white text-sm placeholder-white/25 outline-none transition-all duration-300 focus:bg-white/[0.07]";
@@ -102,8 +103,8 @@ export default function RegisterPage() {
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Enter a valid email address";
+    } else if (!RISHIHOOD_EMAIL_REGEX.test(formData.email.trim())) {
+      newErrors.email = "Use your rishihood.edu.in email address";
     }
     if (!formData.whatsapp.trim()) {
       newErrors.whatsapp = "WhatsApp number is required";
@@ -290,9 +291,11 @@ export default function RegisterPage() {
                       id="email"
                       name="email"
                       type="email"
+                      pattern="^[^\\s@]+@(?:[a-zA-Z0-9-]+\\.)*rishihood\\.edu\\.in$"
+                      title="Use your rishihood.edu.in email address"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="you@example.com"
+                      placeholder="you@rishihood.edu.in"
                       className={errors.email ? inputError : inputNormal}
                       autoComplete="email"
                     />
