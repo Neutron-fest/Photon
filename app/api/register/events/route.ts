@@ -27,17 +27,18 @@ export async function POST(req: NextRequest) {
       enrollmentNumber,
       yearOfStudy,
       teammates,
-      competitionName,
+      glimpse,
+      eventsname,
       mode
     } = body;
 
     const notionToken = process.env.NOTION_TOKEN;
     const databaseId = sanitizeNotionId(
-      process.env.NOTION_DATABASE_COMPI_ID || "",
+      process.env.NOTION_DATABASE_EVENT_ID || "",
     );
 
     if (!notionToken || !databaseId) {
-      console.error("Missing NOTION_TOKEN or NOTION_DATABASE_COMPI_ID in .env.local");
+      console.error("Missing NOTION_TOKEN or NOTION_DATABASE_EVENT_ID in .env.local");
       return NextResponse.json(
         { error: "Server configuration error — Notion credentials not set" },
         { status: 500 }
@@ -60,8 +61,8 @@ export async function POST(req: NextRequest) {
       "Enrollment Number": {
         number: parseInt(enrollmentNumber.replace(/\D/g, "")) || 0,
       },
-      "Competition Name": {
-        rich_text: rt(competitionName || ""),
+      "Event Name": {
+        rich_text: rt(eventsname || ""),
       },
       Year: {
         multi_select: yearOfStudy ? [{ name: yearOfStudy.replace(" Year", "") }] : [],
