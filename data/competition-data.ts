@@ -1628,7 +1628,7 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
       "Zero To One is a 24-hour hackathon where participants are judged on turning a well-understood problem into a working, real-world solution under time and resource constraints. It emphasises structured problem-solving, practical system design, strong technical execution, and clear decision-making, with solutions expected to be functional, well-justified, and realistic.",
     prizePool: "Rs 20,000",
     location: "Library",
-    teamSize: "1 - 3",
+    teamSize: "2 - 4",
     rules: `# **Zero To One – PRE FEST GUIDELINES**
 
 ---
