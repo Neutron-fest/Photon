@@ -3,7 +3,7 @@
 import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import CompetitionRegisterForm from "@/components/CompetitionRegisterForm";
-import { COMPETITIONS_DATA } from "@/data/competition-data";
+import { COMPETITIONS_DATA, CLOSED_COMPETITIONS } from "@/data/competition-data";
 
 
 export default function CompetitionRegisterPage() {
@@ -12,12 +12,13 @@ export default function CompetitionRegisterPage() {
   const routeParam = typeof params?.slug === "string" ? params.slug : "";
 
   const competition = COMPETITIONS_DATA.find(c => c.slug === routeParam);
+  const isClosed = CLOSED_COMPETITIONS.some(c => c.toLowerCase() === routeParam.toLowerCase());
 
   useEffect(() => {
-    if (competition && competition.registrationOpen === false) {
+    if (isClosed) {
       router.push(`/competitions/${routeParam}/closed`);
     }
-  }, [competition, router, routeParam]);
+  }, [isClosed, router, routeParam]);
 
   if (!competition) {
     return (
@@ -32,7 +33,7 @@ export default function CompetitionRegisterPage() {
     );
   }
 
-  if (competition.registrationOpen === false) {
+  if (isClosed) {
     return null; // Let the useEffect handle the redirect
   }
 

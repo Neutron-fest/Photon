@@ -4,7 +4,7 @@ import React, { useRef, useState, useCallback, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Trophy, MapPin, Users, ChevronLeft, ChevronRight } from "lucide-react";
-import { COMPETITIONS_DATA } from "@/data/competition-data";
+import { COMPETITIONS_DATA, CLOSED_COMPETITIONS } from "@/data/competition-data";
 
 const CARD_WIDTH = 250;
 const CARD_HEIGHT = 350;
@@ -30,9 +30,7 @@ export interface GalleryItem {
   teamSize?: string;
   /** Overrides the default "Bounty" label on the card hover row */
   bountyLabel?: string;
-  /** Overrides the default "Crew" label on the card hover row */
   crewLabel?: string;
-  registrationOpen?: boolean;
   [key: string]: any;
 }
 
@@ -301,7 +299,6 @@ function GalleryCard({
   teamSize = "Solo",
   bountyLabel = "Bounty",
   crewLabel = "Crew",
-  registrationOpen = true,
   idx,
   activeIdx,
   isGlitching,
@@ -310,6 +307,7 @@ function GalleryCard({
   isDraggingRef,
   basePath = "competitions",
 }: GalleryCardProps) {
+  const isClosed = CLOSED_COMPETITIONS.some(c => c.toLowerCase() === slug?.toLowerCase());
   const isActive = idx === activeIdx;
   
   const displayTitle = title || name || "Untitled";
@@ -393,7 +391,7 @@ function GalleryCard({
           <span className="px-2 py-0.5 text-[7px] hidden md:block font-mono uppercase tracking-[0.2em] bg-black/50 border border-white/10 rounded-sm text-cyan-300 backdrop-blur-sm">
             {category}
           </span>
-          {registrationOpen ? (
+          {!isClosed ? (
             <span className="flex items-center gap-1 text-[7px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">
               <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
               Active
