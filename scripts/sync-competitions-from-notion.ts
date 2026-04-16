@@ -17,7 +17,6 @@ const FIELDS_TO_SYNC = [
   "description",
   "prizePool",
   "location",
-  "teamSize",
   "rules",
 ];
 
