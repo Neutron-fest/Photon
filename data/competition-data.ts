@@ -20,7 +20,7 @@ export interface Competition {
   rules: CompetitionRules;
 }
 
-export const CLOSED_COMPETITIONS: string[] = ["smash-karts"];
+export const CLOSED_COMPETITIONS: string[] = [""];
 
 export const COMPETITIONS_DATA: Competition[] = [
 
