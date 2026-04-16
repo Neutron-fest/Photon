@@ -88,13 +88,9 @@ Success in this competition depends on judgment, adaptability, and consistency, 
 
 ### **4.1 Overview**
 
-Investor’s Dilemma is a multi-round investment simulation where participants build and manage a virtual portfolio over time.
+Risk & Reward is a multi-round investment simulation where participants build and manage a virtual portfolio over time.
 
 Participants make decisions across different years, reacting to changing market conditions and structured news events. The objective is to achieve the highest portfolio value by the end of the simulation.
-
-In case of more than 12 participations (teams) , a special quiz will be held in the Mini Audi Itself. The teams with the most points in the quiz will proceed ( 12 teams ). 
-
-In case of a tie in the quiz, the faster submission times shall take predesence.
 
 ---
 
@@ -2400,4 +2396,6 @@ Final review and decision (binding and final)
   },
 ];
 
-export const CLOSED_COMPETITIONS: string[] = ["code-combat"];
+export const CLOSED_COMPETITIONS: string[] = [
+  "code-combat"
+];
