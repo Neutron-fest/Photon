@@ -20,8 +20,6 @@ export interface Competition {
   rules: CompetitionRules;
 }
 
-export const CLOSED_COMPETITIONS: string[] = [""];
-
 export const COMPETITIONS_DATA: Competition[] = [
 
   {
@@ -2112,290 +2110,292 @@ A formal review shall be conducted.
     prizePool: "20000",
     location: "24hour overnight hackathon\n4:00PM to 4:00PM [Library]",
     teamSize: "2-4",
-    rules: `# **Zero To One **
+    rules: `---
 
----
+# **Zero To One **
 
-## **1. Introduction**
+  ## **1. Introduction**
 
-Zero To One is a 24-hour, fully offline engineering hackathon conducted under PHOTON at Rishihood University. The event is designed to evaluate participants on their ability to design, build, and defend real-world systems with strong emphasis on engineering depth, system architecture, and implementation rigour.
+  Zero To One is a 24-hour, fully offline engineering hackathon conducted under PHOTON at Rishihood University. The event is designed to evaluate participants on their ability to design, build, and defend real-world systems with strong emphasis on engineering depth, system architecture, and implementation rigour.
 
-Unlike conventional hackathons, this event prioritises working systems over superficial prototypes, and technical correctness over presentation quality. Participants are expected to demonstrate a clear understanding of systems at a fundamental level and justify every decision made during development.
+  Unlike conventional hackathons, this event prioritises working systems over superficial prototypes, and technical correctness over presentation quality. Participants are expected to demonstrate a clear understanding of systems at a fundamental level and justify every decision made during development.
 
----
+  ---
 
-## **2. Eligibility**
+  ## **2. Eligibility**
 
-**Open To:** Rishihood University Students
+  **Open To:** Rishihood University Students
 
-**Participation Format:** Team (Team Size: 2 - 4 members)
+  **Participation Format:** Team (Team Size: 2 - 4 members)
 
-**Mandatory Identity Verification:**
+  **Mandatory Identity Verification:**
 
-- Valid Institutional ID
+  - Valid Institutional ID
 
-- Valid Government ID (Aadhaar, PAN, Passport, etc.)
+  - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
----
+  ---
 
-## **3. Registration Details**
+  ## **3. Registration Details**
 
-- **Mode of Registration:** Online
+  - **Mode of Registration:** Online
 
-- **Registration Deadline:** 16th April 2026
+  - **Registration Deadline:** 16th April 2026
 
-- **Registration Fee:** ₹0
+  - **Registration Fee:** ₹0
 
-- **Selection Mechanism:** First-Come First-Served
+  - **Selection Mechanism:** First-Come First-Served
 
-**Team Size Requirements:**
+  **Team Size Requirements:**
 
-- Minimum: 2
+  - Minimum: 2
 
-- Maximum: 4
+  - Maximum: 4
 
----
+  ---
 
-## **4. Competition Format**
+  ## **4. Competition Format**
 
-### **4.1 Rounds Matrix**
+  ### **4.1 Rounds Matrix**
 
----
+  ---
 
-### **4.2 Submission Guidelines**
+  ### **4.2 Submission Guidelines**
 
-- **Submission Format:** PPT + Live Working Prototype
+  - **Submission Format:** PPT + Live Working Prototype
 
-- **File Naming Convention:** As per team name
+  - **File Naming Convention:** As per team name
 
-- **Submission Platform:** As communicated during event
+  - **Submission Platform:** As communicated during event
 
-- **Submission Deadline:** End of 24-hour cycle
+  - **Submission Deadline:** End of 24-hour cycle
 
-- **Late Submission Policy:** Late submissions will not be accepted
+  - **Late Submission Policy:** Late submissions will not be accepted
 
----
+  ---
 
-### **4.3 Time Regulations**
+  ### **4.3 Time Regulations**
 
-- Approved Time for Task/Performance: 24 Hours
+  - Approved Time for Task/Performance: 24 Hours
 
-- Setup / Buffer Duration: As per venue conditions
+  - Setup / Buffer Duration: As per venue conditions
 
-- **Time Violation Penalty:** Late submissions strictly not accepted
+  - **Time Violation Penalty:** Late submissions strictly not accepted
 
----
+  ---
 
-### **4.4 Judging Criteria**
+  ### **4.4 Judging Criteria**
 
-Judging shall be conducted strictly in accordance with the following parameters:
+  Judging shall be conducted strictly in accordance with the following parameters:
 
-- System Architecture (30%)
+  - System Architecture (30%)
 
-- System Design (25%)
+  - System Design (25%)
 
-- Technical Depth & Implementation (30%)
+  - Technical Depth & Implementation (30%)
 
-- Development & Execution Quality (15%)
+  - Development & Execution Quality (15%)
 
----
+  ---
 
-### **4.5 Tie-Breaker Protocol**
+  ### **4.5 Tie-Breaker Protocol**
 
-In the event of identical scores, decisions shall be made by the judging panel based on overall system quality and technical depth.
+  In the event of identical scores, decisions shall be made by the judging panel based on overall system quality and technical depth.
 
-All decisions shall be **final and binding**.
+  All decisions shall be **final and binding**.
 
----
+  ---
 
-## **5. Competition Rules**
+  ## **5. Competition Rules**
 
-### **5.1 General Rules**
+  ### **5.1 General Rules**
 
-- Pre-built systems or significant pre-written code are strictly prohibited
+  - Pre-built systems or significant pre-written code are strictly prohibited
 
-- Mocked or fake implementations of core logic are not allowed
+  - Mocked or fake implementations of core logic are not allowed
 
-- The system must be functional and demonstrable
+  - The system must be functional and demonstrable
 
-- All code and decisions must be explainable to judges
+  - All code and decisions must be explainable to judges
 
-- Submissions must be completed within the defined timeline
+  - Submissions must be completed within the defined timeline
 
-- Late submissions will not be accepted under any circumstances
+  - Late submissions will not be accepted under any circumstances
 
----
+  ---
 
-### **5.2 Allowed & Prohibited Items**
+  ### **5.2 Allowed & Prohibited Items**
 
-**Permitted Items:**
+  **Permitted Items:**
 
-- Laptops and development tools
+  - Laptops and development tools
 
-- Internet access (if allowed by organizers)
+  - Internet access (if allowed by organizers)
 
-- Notes and documentation
+  - Notes and documentation
 
-**Prohibited Items:**
+  **Prohibited Items:**
 
-- Pre-built or plagiarised codebases
+  - Pre-built or plagiarised codebases
 
-- Unauthorized collaboration outside team
+  - Unauthorized collaboration outside team
 
-- Any unfair assistance
+  - Any unfair assistance
 
----
+  ---
 
-### **5.3 Gameplay / Development Rules**
+  ### **5.3 Gameplay / Development Rules**
 
-- Teams must design and implement systems from scratch during the event
+  - Teams must design and implement systems from scratch during the event
 
-- All components must align with the submitted architecture
+  - All components must align with the submitted architecture
 
-- Participants must be able to justify every design and implementation decision
+  - Participants must be able to justify every design and implementation decision
 
-- Systems must demonstrate real-world applicability and robustness
+  - Systems must demonstrate real-world applicability and robustness
 
----
+  ---
 
-### **5.4 Safety & Conduct**
+  ### **5.4 Safety & Conduct**
 
-- Participants must adhere to all institutional safety guidelines
+  - Participants must adhere to all institutional safety guidelines
 
-- Respect all participants, judges, and organizers
+  - Respect all participants, judges, and organizers
 
-- Maintain professionalism throughout the event
+  - Maintain professionalism throughout the event
 
----
+  ---
 
-### **5.5 Grounds for Disqualification**
+  ### **5.5 Grounds for Disqualification**
 
-Participants may be disqualified for:
+  Participants may be disqualified for:
 
-- Submission of non-functional systems
+  - Submission of non-functional systems
 
-- Use of pre-built or plagiarised work
+  - Use of pre-built or plagiarised work
 
-- Inability to explain implementation or code
+  - Inability to explain implementation or code
 
-- Missing required deliverables
+  - Missing required deliverables
 
-- Violation of rules or misconduct
+  - Violation of rules or misconduct
 
----
+  ---
 
-## **6. Prize Pool & Recognition**
+  ## **6. Prize Pool & Recognition**
 
-- **Prize Pool Total:** ₹20,000
+  - **Prize Pool Total:** ₹20,000
 
-- **Distribution:**
+  - **Distribution:**
 
 - **1st Place: ₹10,000**
 
-  - **2nd Place: ₹6,000**
+    - **2nd Place: ₹6,000**
 
-  - 3rd Place: ₹4,000
+    - 3rd Place: ₹4,000
 
-- **Certificates:** E-Certificates to Winners and Participants
+  - **Certificates:** E-Certificates to Winners and Participants
 
----
+  ---
 
-## **7. Liability & Consent**
+  ## **7. Liability & Consent**
 
-- Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+  - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
 
-- PHOTON, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+  - PHOTON, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
 
-- Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event.
+  - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event.
 
-- Participants consent to receiving first-aid or emergency medical assistance if deemed necessary.
+  - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary.
 
----
+  ---
 
-## **8. Code of Conduct**
+  ## **8. Code of Conduct**
 
-All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
+  All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
-- Integrity & Honesty
+  - Integrity & Honesty
 
-- Respect & Non-Discrimination
+  - Respect & Non-Discrimination
 
-- Compliance with Rules
+  - Compliance with Rules
 
-- Prohibition of Misconduct
+  - Prohibition of Misconduct
 
-- Security & Property Integrity
+  - Security & Property Integrity
 
-- Anti-Cheating & Anti-Plagiarism
+  - Anti-Cheating & Anti-Plagiarism
 
-- Finality of Decisions
+  - Finality of Decisions
 
----
+  ---
 
-## **9. Escalation Chain & Appeals Process**
+  ## **9. Escalation Chain & Appeals Process**
 
-Participants may file an appeal exclusively for procedural inconsistencies, scoring discrepancies, administrative errors, or judge misconduct.
+  Participants may file an appeal exclusively for procedural inconsistencies, scoring discrepancies, administrative errors, or judge misconduct.
 
-**Appeals Framework:**
+  **Appeals Framework:**
 
-- **Level 1: On-Ground Coordinator**
+  - **Level 1: On-Ground Coordinator**
 
 Immediate verbal reporting after the incident
 
-- **Level 2: Competition Lead (Written Appeal)**
+  - **Level 2: Competition Lead (Written Appeal)**
 
 Submit within 30 minutes including:
 
-  - Grounds for appeal
+    - Grounds for appeal
 
-  - Evidence
+    - Evidence
 
-  - Participant/team details
+    - Participant/team details
 
-- **Level 3: PHOTON Competitions Head Panel**
+  - **Level 3: PHOTON Competitions Head Panel**
 
 Final review and decision (binding and final)
 
----
+  ---
 
-**Restrictions:**
+  **Restrictions:**
 
-- Appeals relating to subjective evaluation shall not be considered
+  - Appeals relating to subjective evaluation shall not be considered
 
-- Late or incomplete appeals shall be rejected
+  - Late or incomplete appeals shall be rejected
 
-- Misuse of the appeals process may result in disciplinary action
+  - Misuse of the appeals process may result in disciplinary action
 
----
+  ---
 
-## **10. Privacy & Data Handling Policy**
+  ## **10. Privacy & Data Handling Policy**
 
-- Participant data may be collected for registration, evaluation, and communication
+  - Participant data may be collected for registration, evaluation, and communication
 
-- Data will be securely stored and used only for official purposes
+  - Data will be securely stored and used only for official purposes
 
-- Media may be used for promotional and institutional purposes
+  - Media may be used for promotional and institutional purposes
 
----
+  ---
 
-## **11. Contact & Support**
+  ## **11. Contact & Support**
 
-- **Event Coordinators:**
+  - **Event Coordinators:**
 
 - **Ankit Raj Singh | 6200206922 | ankit.singh2024@nst.rishihood.edu.in**
 
-  - **Rajdeep Sanyal | 9163472586 | rajdeep.sanyal2024@nst.rishihood.edu.in**
+    - **Rajdeep Sanyal | 9163472586 | rajdeep.sanyal2024@nst.rishihood.edu.in**
 
-  - **Parth Sharma | 8349039140 | ****[parth.s25321@nst.rishihood.edu.in](mailto:parth.s25321@nst.rishihood.edu.in)**
+    - **Parth Sharma | 8349039140 | ****[parth.s25321@nst.rishihood.edu.in](mailto:parth.s25321@nst.rishihood.edu.in)**
 
-  - **Khanak Jain | 9718621543 | khanak.j25219@nst.rishihood.edu.in**
+    - **Khanak Jain | 9718621543 | khanak.j25219@nst.rishihood.edu.in**
 
-- **Availability:** Till the Event
+  - **Availability:** Till the Event
 
----
+  ---
 
-## **12. Compliance and Final Authority**
+  ## **12. Compliance and Final Authority**
 
-All participants are required to adhere strictly to the rules and guidelines outlined in this document. Decisions made by the judging panel and organising committee shall be final and binding.`,
+  All participants are required to adhere strictly to the rules and guidelines outlined in this document. Decisions made by the judging panel and organising committee shall be final and binding.`,
   },
 ];
+
+export const CLOSED_COMPETITIONS: string[] = [];

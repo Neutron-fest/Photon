@@ -428,13 +428,23 @@ async function mapNotionPageToCompetition(page) {
   };
 }
 
-async function loadExistingCompetitions() {
+async function loadExistingCompetitionData() {
   try {
     const moduleUrl = `${pathToFileURL(OUTPUT_FILE).href}?t=${Date.now()}`;
     const mod = await import(moduleUrl);
-    return Array.isArray(mod.COMPETITIONS_DATA) ? mod.COMPETITIONS_DATA : [];
+    return {
+      competitions: Array.isArray(mod.COMPETITIONS_DATA)
+        ? mod.COMPETITIONS_DATA
+        : [],
+      closedCompetitions: Array.isArray(mod.CLOSED_COMPETITIONS)
+        ? mod.CLOSED_COMPETITIONS
+        : [],
+    };
   } catch {
-    return [];
+    return {
+      competitions: [],
+      closedCompetitions: [],
+    };
   }
 }
 
@@ -476,7 +486,7 @@ function mergeCompetitions(existingCompetitions, notionCompetitions) {
   };
 }
 
-function renderCompetitionDataFile(competitions) {
+function renderCompetitionDataFile(competitions, closedCompetitions = []) {
   const interfaceBlock = `export interface Rule {
   title: string;
   content: string;
@@ -528,6 +538,12 @@ export const COMPETITIONS_DATA: Competition[] = [
   return `${interfaceBlock}
 ${itemBlocks.join("\n\n")}
 ];
+
+export const CLOSED_COMPETITIONS: string[] = ${JSON.stringify(
+    closedCompetitions,
+    null,
+    2,
+  )};
 `;
 }
 
@@ -544,21 +560,24 @@ async function syncCompetitions() {
       `No competition-like rows found. Refusing to overwrite data/competition-data.ts. Sample property keys from fetched database: ${sampleKeys.join(", ")}`,
     );
   }
-  const existingCompetitions = await loadExistingCompetitions();
-  if (existingCompetitions.length === 0) {
+  const existingData = await loadExistingCompetitionData();
+  if (existingData.competitions.length === 0) {
     throw new Error(
       "Existing data/competition-data.ts has no COMPETITIONS_DATA entries to merge into.",
     );
   }
 
   const { merged, matchedCount, unmatchedCount } = mergeCompetitions(
-    existingCompetitions,
+    existingData.competitions,
     notionCompetitions,
   );
   console.log(
     `Merged Notion fields into existing entries. Matched: ${matchedCount}, Unmatched Notion rows: ${unmatchedCount}`,
   );
-  const output = renderCompetitionDataFile(merged);
+  const output = renderCompetitionDataFile(
+    merged,
+    existingData.closedCompetitions,
+  );
 
   let previous = "";
   try {
