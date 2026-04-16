@@ -794,7 +794,7 @@ A formal review shall be conducted.
     subtitle: "Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.\nParticipants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.",
     description: "Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.\nParticipants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.",
     prizePool: "10000",
-    location: "[DAY 1] A-Block 1st Floor  [Timing] 11AM - 5PM",
+    location: "[DAY 1] A-Block 1st Floor  [Timing] 5PM - 10PM",
     teamSize: "1",
     rules: `# **Code Combat **
 
