@@ -26,7 +26,7 @@ export const EVENTS: Event[] = [
     ticketPrice: "Free",
     location: "Music Room - B Block",
     time: "8:00 PM",
-    pricepool: "5000",
+    pricepool: "3000",
     rules: [
       "Participants must submit a predicted score (1–10) prior to their performance; this remains confidential until scoring is complete",
       "Each act is limited to a maximum duration of 2 minutes",
