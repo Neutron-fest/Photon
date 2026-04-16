@@ -122,13 +122,10 @@ function PolaroidCard({ title, image, slug, category, date, index, total, scroll
           {/* ── GRADIENT OVERLAY — bottom heavy ── */}
           <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/50 to-black/20 z-10" />
 
-          {/* ── TOP TAGS ── */}
           <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between">
-            {/* Category pill */}
             <span className="inline-flex items-center px-3 py-1 rounded-full text-[9px] font-mono uppercase tracking-[0.2em] text-white/85 bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_2px_16px_rgba(0,0,0,0.5)]">
               {category}
             </span>
-            {/* Status pill */}
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] font-mono uppercase tracking-[0.2em] text-emerald-300 bg-emerald-500/10 backdrop-blur-md border border-emerald-500/30 shadow-[0_0_14px_rgba(52,211,153,0.18)]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               Active

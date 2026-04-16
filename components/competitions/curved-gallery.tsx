@@ -32,6 +32,7 @@ export interface GalleryItem {
   bountyLabel?: string;
   /** Overrides the default "Crew" label on the card hover row */
   crewLabel?: string;
+  registrationOpen?: boolean;
   [key: string]: any;
 }
 
@@ -300,6 +301,7 @@ function GalleryCard({
   teamSize = "Solo",
   bountyLabel = "Bounty",
   crewLabel = "Crew",
+  registrationOpen = true,
   idx,
   activeIdx,
   isGlitching,
@@ -391,10 +393,17 @@ function GalleryCard({
           <span className="px-2 py-0.5 text-[7px] hidden md:block font-mono uppercase tracking-[0.2em] bg-black/50 border border-white/10 rounded-sm text-cyan-300 backdrop-blur-sm">
             {category}
           </span>
-          <span className="flex items-center gap-1 text-[7px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">
-            <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
-            Active
-          </span>
+          {registrationOpen ? (
+            <span className="flex items-center gap-1 text-[7px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-sm">
+              <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+              Active
+            </span>
+          ) : (
+            <span className="flex items-center gap-1 text-[7px] font-mono text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-sm">
+              <span className="w-1 h-1 rounded-full bg-red-400 animate-pulse" />
+              Closed
+            </span>
+          )}
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 z-20 px-4 pb-4">
