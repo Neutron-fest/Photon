@@ -20,8 +20,6 @@ export interface Competition {
   rules: CompetitionRules;
 }
 
-export const CLOSED_COMPETITIONS: string[] = [""];
-
 export const COMPETITIONS_DATA: Competition[] = [
 
   {
@@ -2112,9 +2110,9 @@ A formal review shall be conducted.
     prizePool: "20000",
     location: "24hour overnight hackathon\n4:00PM to 4:00PM [Library]",
     teamSize: "2-4",
-    rules: `# **Zero To One **
+    rules: `---
 
----
+# **Zero To One **
 
 ## **1. Introduction**
 
