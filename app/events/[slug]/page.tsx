@@ -242,8 +242,8 @@ export default function EventSlugPage() {
             {[
               {
                 icon: Ticket,
-                label: "ACCESS_CODE",
-                value: event.ticketPrice,
+                label: "PRICE_POOL",
+                value: event.pricepool,
                 color: "text-cyan-400",
               },
               {

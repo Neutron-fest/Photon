@@ -10,7 +10,7 @@ import { EVENTS } from "@/data/events";
 const EVENT_GALLERY_ITEMS: GalleryItem[] = EVENTS.map((e) => ({
   ...e,
   posterPath: e.image,
-  prizePool: e.ticketPrice,
+  prizePool: e.pricepool,
   teamSize: e.time,
   bountyLabel: "Ticket",
   crewLabel: "Time",
