@@ -28,14 +28,13 @@ export const COMPETITIONS_DATA: Competition[] = [
     slug: "Risk-Reward",
     category: "Finance / Strategy",
     date: "April 18, 2026",
-    details: "Strategy-based financial simulation with multi-round portfolio decisions",
-    subtitle: "Investment Strategy Simulation",
-    description:
-      "The event places participants in a simulated financial environment where they act as investors managing a virtual portfolio across multiple time periods. By responding to changing market conditions and structured news events, participants must make informed decisions to maximize returns.",
-    prizePool: "Rs 8,000",
+    details: "The event places participants in a simulated financial environment where they act as investors managing a virtual portfolio across multiple time periods. By responding to changing market conditions and structured news events, participants must make informed decisions to maximize returns.",
+    subtitle: "The event places participants in a simulated financial environment where they act as investors managing a virtual portfolio across multiple time periods. By responding to changing market conditions and structured news events, participants must make informed decisions to maximize returns.",
+    description: "The event places participants in a simulated financial environment where they act as investors managing a virtual portfolio across multiple time periods. By responding to changing market conditions and structured news events, participants must make informed decisions to maximize returns.",
+    prizePool: "8000",
     location: "Mini Audi",
-    teamSize: "1-3",
-    rules: `# **RISK & REWARD**
+    teamSize: "TBD",
+    rules: `# **RISK & REWARD **
 
 ---
 
@@ -62,6 +61,7 @@ Success in this competition depends on judgment, adaptability, and consistency, 
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
+
 - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 ---
@@ -69,13 +69,17 @@ Success in this competition depends on judgment, adaptability, and consistency, 
 ## **3. Registration Details**
 
 - **Mode of Registration:** Online
+
 - **Registration Deadline:** 16th April 2026
+
 - **Registration Fee:** ₹0
+
 - **Selection Mechanism:** First-Come First-Served
 
 **Team Size Requirements:**
 
 - Minimum: 1
+
 - Maximum: 3
 
 ---
@@ -93,13 +97,17 @@ Participants make decisions across different years, reacting to changing market 
 ### **4.2 Simulation Structure**
 
 - All participants begin with equal virtual capital
+
 - Each round features approximately five companies
+
 - Participants can buy, sell, or hold stocks
+
 - The simulation progresses through the following timeline:
-    
-    **2028 → 2030 → 2032 → 2034 → 2036 → 2038**
-    
+
+**2028 → 2030 → 2032 → 2034 → 2036 → 2038**
+
 - Portfolios carry forward after each round (no reset)
+
 - Early decisions directly impact future outcomes
 
 ---
@@ -113,7 +121,9 @@ Each round follows a fixed sequence:
 Participants are provided with:
 
 - Current year
+
 - List of companies
+
 - Stock prices
 
 ---
@@ -123,7 +133,9 @@ Participants are provided with:
 Participants:
 
 - Allocate capital
+
 - Buy stocks
+
 - Retain cash if desired
 
 ---
@@ -133,6 +145,7 @@ Participants:
 Participants receive structured updates such as:
 
 - Company developments
+
 - Economic or sectoral events
 
 **Note:**
@@ -146,7 +159,9 @@ News may have direct, indirect, delayed, or minimal impact. Not all news is equa
 Participants may:
 
 - Buy additional shares
+
 - Sell existing holdings
+
 - Hold positions
 
 ---
@@ -154,7 +169,9 @@ Participants may:
 **Step 5 — Round Close**
 
 - Final stock prices are revealed
+
 - Portfolio values are updated
+
 - Results carry forward to the next round
 
 ---
@@ -162,11 +179,16 @@ Participants may:
 ### **4.4 Progression Across Rounds**
 
 - Each round advances the simulation timeline
+
 - Market complexity increases over time
+
 - Participants must adapt strategy based on:
-    - Previous performance
-    - New information
-    - Changing conditions
+
+- Previous performance
+
+  - New information
+
+  - Changing conditions
 
 ---
 
@@ -175,6 +197,7 @@ Participants may:
 At the end of 2038:
 
 - All portfolios are evaluated
+
 - Rankings are based on total final portfolio value
 
 ---
@@ -188,7 +211,9 @@ The participant or team with the highest final portfolio value wins.
 ### **4.7 Time Regulations**
 
 - Each round has fixed time windows for initial investment and trading decisions
+
 - Exact timings will be announced during the event
+
 - No actions are allowed after the time window closes
 
 ---
@@ -204,6 +229,7 @@ Judging shall be conducted based on the following:
 **Secondary Metrics (if required):**
 
 - Consistency of performance across rounds
+
 - Quality of decision-making
 
 ---
@@ -223,8 +249,11 @@ All decisions resulting from tie-breaker procedures shall be final and binding.
 Participants are expected to:
 
 - Balance risk and return
+
 - Diversify where necessary
+
 - Adapt strategy across rounds
+
 - Avoid overreaction to short-term events
 
 ---
@@ -232,8 +261,11 @@ Participants are expected to:
 ### **4.11 Common Pitfalls**
 
 - Over-concentration in a single stock
+
 - Ignoring market signals
+
 - Panic selling after negative news
+
 - Failing to adapt strategy across rounds
 
 ---
@@ -243,10 +275,15 @@ Participants are expected to:
 ### **5.1 General Rules**
 
 - Participants must report no later than 30 minutes before the designated start time. Late arrival may constitute forfeiture of participation rights.
+
 - Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+
 - Any use of offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content—whether verbal, written, visual, or performative—is strictly prohibited.
+
 - Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for loss, theft, malfunction, or damage.
+
 - Any attempt to manipulate, disrupt, alter, interfere with, or unlawfully access event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+
 - Participants must refrain from any conduct that causes undue delay, obstruction, or operational disruption to event proceedings.
 
 ---
@@ -256,17 +293,25 @@ Participants are expected to:
 **Permitted Items:**
 
 - Laptop
+
 - Internet access (for platform use only)
+
 - Personal notes
 
 **Prohibited Items:**
 
 - External trading platforms
+
 - Real-money transactions
+
 - Hazardous materials or substances
+
 - Items prohibited by institutional policy or local law
+
 - Offensive, discriminatory, or inappropriate props or materials
+
 - Unauthorized electronic devices, tools, or assistance mechanisms
+
 - Any apparatus deemed unsafe by event authorities
 
 ---
@@ -274,15 +319,21 @@ Participants are expected to:
 ### **5.3 Gameplay Rules**
 
 - Trades must be executed within designated time windows
+
 - Decisions cannot be changed after a round closes
+
 - Participants must rely only on information provided during the event
+
 - Portfolios do not reset between rounds
 
 **Trading Constraints:**
 
 - No short selling
+
 - No leverage or margin trading
+
 - Cannot buy beyond available cash balance
+
 - Cannot sell more shares than currently owned
 
 ---
@@ -290,7 +341,9 @@ Participants are expected to:
 ### **5.4 Safety & Conduct**
 
 - Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as hazardous, negligent, reckless, or endangering may result in immediate removal.
+
 - Harassment, discrimination, intimidation, coercion, or misconduct—whether physical, verbal, written, or digital—shall not be tolerated and will result in immediate disciplinary action, including disqualification.
+
 - Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the safety, fairness, integrity, or reputation of Photon.
 
 ---
@@ -300,12 +353,19 @@ Participants are expected to:
 Participants or teams may be disqualified at any stage for:
 
 - Failure to report within scheduled timelines.
+
 - Breach of eligibility criteria, team composition rules, or submission requirements.
+
 - Use of prohibited items or unauthorized external assistance.
+
 - Cheating, misrepresentation, plagiarism, data falsification, or submission tampering.
+
 - Misconduct, harassment, abusive behavior, or violation of safety requirements.
+
 - Damage to property, interference with event operations, or hindrance of official activities.
+
 - Failure to comply with official instructions despite warning.
+
 - Any act that compromises the operational integrity, fairness, or institutional reputation of Photon.
 
 ---
@@ -313,9 +373,13 @@ Participants or teams may be disqualified at any stage for:
 ## **6. Prize Pool & Recognition**
 
 - **Prize Pool Total: ₹8,000**
+
 - **Distribution:**
-    - **1st Place: ₹5,000**
-    - **2nd Place: ₹3,000**
+
+- **1st Place: ₹5,000**
+
+  - **2nd Place: ₹3,000**
+
 - **Certificates:** E-Certificates to Winners and Participants
 
 ---
@@ -323,8 +387,11 @@ Participants or teams may be disqualified at any stage for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+
 - Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+
 - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+
 - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
 ---
@@ -334,11 +401,17 @@ Participants or teams may be disqualified at any stage for:
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
 - **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+
 - **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+
 - **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+
 - **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+
 - **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+
 - **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+
 - **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
 ---
@@ -350,27 +423,31 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 **Appeals Framework:**
 
 - **Level 1: On-Ground Coordinator**
-    
-    Concerns must be verbally reported immediately after the round or relevant incident.
-    
+
+Concerns must be verbally reported immediately after the round or relevant incident.
+
 - **Level 2: Competition Lead (Written Appeal)**
-    
-    A written appeal must be submitted within 30 minutes of the incident. It must include:
-    
-    - Precise grounds for the appeal
-    - Evidence (screenshots, documents, recordings)
-    - Participant/team identification details
+
+A written appeal must be submitted within 30 minutes of the incident. It must include:
+
+  - Precise grounds for the appeal
+
+  - Evidence (screenshots, documents, recordings)
+
+  - Participant/team identification details
+
 - **Level 3: Photon Competitions Head Panel**
-    
-    A formal review shall be conducted.
-    
-    The panel’s decision is final, binding, and not subject to further challenge.
-    
+
+A formal review shall be conducted.
+
+  The panel’s decision is final, binding, and not subject to further challenge.
 
 **Restrictions:**
 
 - Appeals relating to subjective evaluation or artistic preference shall not be considered.
+
 - Late, incomplete, or frivolous appeals shall be rejected without review.
+
 - Misuse of the appeals process may result in disciplinary action.
 
 ---
@@ -378,11 +455,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **10. Privacy & Data Handling Policy**
 
 - **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+
 - **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+
 - **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+
 - **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+
 - **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+
 - **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+
 - **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
 ---
@@ -390,13 +473,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Saksham Sharma | 83192 57100 |** [saksham.sharma2024@nst.rishihood.edu.in](mailto:saksham.sharma2024@nst.rishihood.edu.in)
-    - **Yatin Sharma | 9783204855 | [yatin.s25710@nst.rishihood.edu.in](mailto:yatin.s25710@nst.rishihood.edu.in)**
-    - **Anjana Kamle | 9886445802 | [anjana.k25059@nst.rishihood.edu.in](mailto:anjana.k25059@nst.rishihood.edu.in)**
-    - **Deeksha Agrawal | 7017658695 | [deeksha.a25133@nst.rishihood.edu.in](mailto:deeksha.a25133@nst.rishihood.edu.in)**
-- **Availability:** Till the Event`
+
+- **Saksham Sharma | 83192 57100 | **[saksham.sharma2024@nst.rishihood.edu.in](mailto:saksham.sharma2024@nst.rishihood.edu.in)
+
+  - **Yatin Sharma | 9783204855 | ****[yatin.s25710@nst.rishihood.edu.in](mailto:yatin.s25710@nst.rishihood.edu.in)**
+
+  - **Anjana Kamle | 9886445802 | ****[anjana.k25059@nst.rishihood.edu.in](mailto:anjana.k25059@nst.rishihood.edu.in)**
+
+  - **Deeksha Agrawal | 7017658695 | ****[deeksha.a25133@nst.rishihood.edu.in](mailto:deeksha.a25133@nst.rishihood.edu.in)**
+
+- **Availability:** Till the Event`,
   },
-  
 
   {
     title: "AlgoRhythm",
@@ -404,13 +491,12 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
     slug: "algo-rythm",
     category: "Live Coding / Music Tech",
     date: "April 18, 2026",
-    details: "Strudel-based competition fusing coding logic with musical creativity",
-    subtitle: "Code the Beat, Perform the Logic",
-    description:
-      "AlgoRhythm explores the fusion of coding and music, where participants use Strudel platform to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
-    prizePool: "Rs 8,000",
-    location: "A506",
-    teamSize: "1-3",
+    details: "AlgoRhythm explores the fusion of coding and music, where participants use Strudel platform to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
+    subtitle: "AlgoRhythm explores the fusion of coding and music, where participants use Strudel platform to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
+    description: "AlgoRhythm explores the fusion of coding and music, where participants use Strudel platform to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
+    prizePool: "8000",
+    location: "[DAY 2] A506 [Timing] 12:00 PM - 5:00 PM",
+    teamSize: "TBD",
     rules: `# **AlgoRhythm**
 
 ---
@@ -432,6 +518,7 @@ AlgoRhythm explores the fusion of coding and music, where participants use Strud
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
+
 - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 ---
@@ -439,13 +526,17 @@ AlgoRhythm explores the fusion of coding and music, where participants use Strud
 ## **3. Registration Details**
 
 - **Mode of Registration:** Online
+
 - **Registration Deadline:** 16th April 2026
+
 - **Registration Fee:** ₹0
+
 - **Selection Mechanism:** First-Come First-Served
 
 **Team Size Requirements:**
 
 - Minimum: 1
+
 - Maximum: 3
 
 ---
@@ -454,17 +545,14 @@ AlgoRhythm explores the fusion of coding and music, where participants use Strud
 
 ### **4.1 Rounds Matrix**
 
-| **Round Name** | **Mode** | **Description** | **Duration** | **Submission** | **Evaluation / Criteria** |
-| --- | --- | --- | --- | --- | --- |
-| **Round 1: Decode the Beat** | Offline | Participants will listen to a continuously playing audio track and receive raw Strudel code containing blanks/errors. Multiple answer options (including misleading options) will be provided. Participants must analyse the sound and complete/correct the code accordingly. AI tools are allowed. | 1 Hour | Via Google Form | n |
-| **Round 2: Theme-Based Music Creation (Final Round)** | Offline | Participants will be assigned a genre/theme (Lo-Fi, Cyberpunk, Horror, Love, Nostalgia, Retro, etc.) and must create a music track using Strudel. Proper composition and required duration must be maintained. Includes live performance. AI tools are allowed. | 2 Hours | No separate submission (Live Judging) | Creativity, Originality, Theme Relevance, Sound Quality, Composition, Time & Duration  |
-
 ---
 
 ### **4.2 Time Regulations**
 
 - Round 1: 60 Minutes
+
 - Round 2: 120 Minutes
+
 - Setup / Buffer Time: 10 Minutes (as per venue conditions)
 
 ---
@@ -478,13 +566,6 @@ AlgoRhythm explores the fusion of coding and music, where participants use Strud
 ---
 
 **Round 2**
-
-| **Criteria** | **Description** | **Weightage** |
-| --- | --- | --- |
-| Originality & Creativity | Uniqueness of composition, innovative use of code, fresh musical ideas | 30% |
-| Theme Relevance | How effectively the track reflects the assigned genre/theme | 30% |
-| Time & Duration Compliance | Whether track duration matches or reasonably approaches required limit | 15% |
-| Sound Quality & Composition | Overall listening experience, balance, layering, transitions, structure | 25% |
 
 ---
 
@@ -503,7 +584,9 @@ If 8 finalists are to qualify and the 8th and 9th ranked participants share the 
 Tie-breakers shall apply in the following order:
 
 - Higher score in Originality & Creativity
+
 - Higher score in Theme Relevance
+
 - Final decision of judging panel / organising committee
 
 All tie-breaker decisions shall be final and binding.
@@ -515,10 +598,15 @@ All tie-breaker decisions shall be final and binding.
 ### **5.1 General Rules**
 
 - Participants must report no later than 30 minutes before the designated start time. Late arrival may constitute forfeiture of participation rights.
+
 - Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+
 - Any use of offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content—whether verbal, written, visual, or performative—is strictly prohibited.
+
 - Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for loss, theft, malfunction, or damage.
+
 - Any attempt to manipulate, disrupt, alter, interfere with, or unlawfully access event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+
 - Participants must refrain from any conduct that causes undue delay, obstruction, or operational disruption to event proceedings.
 
 ---
@@ -528,15 +616,21 @@ All tie-breaker decisions shall be final and binding.
 **Permitted Items**
 
 - Laptop with internet access
+
 - Headphones
+
 - Notes / Reference material
 
 **Prohibited Items**
 
 - Hazardous materials or substances
+
 - Items prohibited under institutional policy or law
+
 - Offensive or inappropriate props/materials
+
 - Unauthorized devices or assistance mechanisms
+
 - Any item deemed unsafe by organisers
 
 ---
@@ -544,7 +638,9 @@ All tie-breaker decisions shall be final and binding.
 ### **5.3 Safety & Conduct**
 
 - Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as hazardous, negligent, reckless, or endangering may result in immediate removal.
+
 - Harassment, discrimination, intimidation, coercion, or misconduct—whether physical, verbal, written, or digital—shall not be tolerated and will result in immediate disciplinary action, including disqualification.
+
 - Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the safety, fairness, integrity, or reputation of Photon.
 
 ---
@@ -554,12 +650,19 @@ All tie-breaker decisions shall be final and binding.
 Participants or teams may be disqualified at any stage for:
 
 - Failure to report within scheduled timelines.
+
 - Breach of eligibility criteria, team composition rules, or submission requirements.
+
 - Use of prohibited items or unauthorized external assistance.
+
 - Cheating, misrepresentation, plagiarism, data falsification, or submission tampering.
+
 - Misconduct, harassment, abusive behaviour, or violation of safety requirements.
+
 - Damage to property, interference with event operations, or hindrance of official activities.
+
 - Failure to comply with official instructions despite warning.
+
 - Any act that compromises the operational integrity, fairness, or institutional reputation of Photon.
 
 ---
@@ -567,9 +670,13 @@ Participants or teams may be disqualified at any stage for:
 ## **6. Prize Pool & Recognition**
 
 - **Prize Pool Total: ₹8,000**
+
 - **Distribution:**
-    - **1st Place: ₹5,000**
-    - **2nd Place: ₹3,000**
+
+- **1st Place: ₹5,000**
+
+  - **2nd Place: ₹3,000**
+
 - **Certificates:** E-Certificates to Winners and Participants
 
 ---
@@ -577,8 +684,11 @@ Participants or teams may be disqualified at any stage for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+
 - Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+
 - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+
 - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
 ---
@@ -588,11 +698,17 @@ Participants or teams may be disqualified at any stage for:
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
 - **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+
 - **Respect & Non-Discrimination:** Respectful behaviour toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+
 - **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+
 - **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+
 - **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+
 - **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behaviour will result in immediate disqualification and further escalation.
+
 - **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
 ---
@@ -604,27 +720,31 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 **Appeals Framework:**
 
 - **Level 1: On-Ground Coordinator**
-    
-    Concerns must be verbally reported immediately after the round or relevant incident.
-    
+
+Concerns must be verbally reported immediately after the round or relevant incident.
+
 - **Level 2: Competition Lead (Written Appeal)**
-    
-    A written appeal must be submitted within 30 minutes of the incident. It must include:
-    
-    - Precise grounds for the appeal
-    - Evidence (screenshots, documents, recordings)
-    - Participant/team identification details
+
+A written appeal must be submitted within 30 minutes of the incident. It must include:
+
+  - Precise grounds for the appeal
+
+  - Evidence (screenshots, documents, recordings)
+
+  - Participant/team identification details
+
 - **Level 3: Photon Competitions Head Panel**
-    
-    A formal review shall be conducted.
-    
-    The panel’s decision is final, binding, and not subject to further challenge.
-    
+
+A formal review shall be conducted.
+
+  The panel’s decision is final, binding, and not subject to further challenge.
 
 **Restrictions:**
 
 - Appeals relating to subjective evaluation or artistic preference shall not be considered.
+
 - Late, incomplete, or frivolous appeals shall be rejected without review.
+
 - Misuse of the appeals process may result in disciplinary action.
 
 ---
@@ -632,11 +752,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **10. Privacy & Data Handling Policy**
 
 - **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+
 - **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+
 - **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+
 - **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+
 - **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+
 - **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+
 - **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
 ---
@@ -644,13 +770,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Nikith | 82177 28508 | [nikith.s2024@nst.rishihood.edu.in](mailto:nikith.s2024@nst.rishihood.edu.in)**
-    - **Mukund Hari Mittal | 7302005800 | [mukund.h25285@nst.rishihood.edu.in](mailto:mukund.h25285@nst.rishihood.edu.in)**
-    - **Vibhu Kakkar | 8533034934 | [vibhu.k25505@nst.rishihood.edu.in](mailto:vibhu.k25505@nst.rishihood.edu.in)**
-- **Availability:** Till the Event`,
+
+- **Nikith | 82177 28508 | ****[nikith.s2024@nst.rishihood.edu.in](mailto:nikith.s2024@nst.rishihood.edu.in)**
+
+  - **Mukund Hari Mittal | 7302005800 | ****[mukund.h25285@nst.rishihood.edu.in](mailto:mukund.h25285@nst.rishihood.edu.in)**
+
+  - **Vibhu Kakkar | 8533034934 | ****[vibhu.k25505@nst.rishihood.edu.in](mailto:vibhu.k25505@nst.rishihood.edu.in)**
+
+- **Availability:** Till the Event
+
+---`,
   },
-
-
 
   {
     title: "Code Combat",
@@ -658,16 +788,13 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
     slug: "code-combat",
     category: "Competitive Programming",
     date: "April 17, 2026",
-    details: "Head-to-head coding duels with knockout brackets",
-    subtitle: "Direct Duel Programming",
-    description:
-      `Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.
-Participants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.`,
-    prizePool: "Rs 10,000",
-    location: "A-Block 1st Floor",
-    teamSize: "1",
-    rules: 
-    `# **Code Combat**
+    details: "Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.\nParticipants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.",
+    subtitle: "Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.\nParticipants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.",
+    description: "Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.\nParticipants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.",
+    prizePool: "10000",
+    location: "[DAY 1] A-Block 1st Floor  [Timing] 11AM - 5PM",
+    teamSize: "TBD",
+    rules: `# **Code Combat **
 
 ---
 
@@ -688,6 +815,7 @@ The competition transforms programming into a real-time duel format, where parti
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
+
 - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 ---
@@ -695,8 +823,11 @@ The competition transforms programming into a real-time duel format, where parti
 ## **3. Registration Details**
 
 - **Mode of Registration:** Online
+
 - **Registration Deadline:** 16th April 2026
+
 - **Registration Fee:** ₹0
+
 - **Selection Mechanism:** First-Come First-Served
 
 ---
@@ -705,21 +836,14 @@ The competition transforms programming into a real-time duel format, where parti
 
 ### **4.1 Rounds Matrix**
 
-| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
-| --- | --- | --- | --- | --- | --- |
-| Round 1: Elimination (32 → 16) | Offline | Two participants solve same problems (3 easy level problems) simultaneously. Basic-level problems focusing on speed and accuracy. | 15-20 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Round 2: Round of 16 (16 → 8) | Offline | Moderate difficulty problems (2 easy +  1 medium) with controlled background distraction (music). | 15-20 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Round 3: Quarterfinals (8 → 4) | Offline | Higher difficulty problems (1 easy + 2 medium) with no rough sheets allowed. | 20-25 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Round 4: Semifinals (4 → 2) | Offline | High-pressure matches (3 medium problems) with strategic penalty system (lemon shot or cooldown). | 20-25 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Decision-Making |
-| Round 5: 3rd Place Playoff | Offline | Determines 3rd place between semifinal losers. (1 hard + 2 medium) | 25-30 Minutes | Code Submission on Platform | Correctness, Time Efficiency |
-| Final Round (2 → Winner) | Offline | Championship match with highest difficulty and pressure. (2 hard + 1 medium) | 30 Minutes | Code Submission on Platform | Correctness, Time Efficiency, Code Quality |
-
 ---
 
 ### **4.2 Submission Guidelines**
 
 - **Submission Format:** Code Submission via platform
+
 - **Submission Deadline:** Within round time limits
+
 - **Late Submission Policy:** Late submissions strictly prohibited
 
 ---
@@ -727,7 +851,9 @@ The competition transforms programming into a real-time duel format, where parti
 ### **4.3 Time Regulations**
 
 - Approved Time for Task/Performance: As per round duration
+
 - Setup / Buffer Duration: 5 minutes
+
 - **Time Violation Penalty:** Submissions after time limit will not be accepted
 
 ---
@@ -737,7 +863,9 @@ The competition transforms programming into a real-time duel format, where parti
 Judging shall be conducted strictly in accordance with the following parameters:
 
 - Correctness (primary factor)
+
 - Time Efficiency
+
 - Code Quality
 
 ---
@@ -747,8 +875,11 @@ Judging shall be conducted strictly in accordance with the following parameters:
 In the event of identical performance, the following tie-breaking rules shall be applied sequentially:
 
 - Time can be increased by an X-factor, and extra hints may be provided
+
 - Fewer incorrect submissions
+
 - The number of test cases passed in a submission will be considered for evaluation
+
 - Sudden-death problem
 
 Decisions resulting from tie-breaker procedures shall be **final and binding**.
@@ -760,10 +891,15 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.1 General Rules**
 
 - Participants must report **no later than 15 minutes** before the designated start time. Late arrival may constitute forfeiture of participation rights.
+
 - Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+
 - Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content**—whether verbal, written, visual, or performative—is strictly prohibited.
+
 - Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage**.
+
 - Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+
 - Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
 
 ---
@@ -773,14 +909,19 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 **Permitted Items:**
 
 - Bring your own laptops
+
 - Personal keyboard/mouse (optional)
 
 **Prohibited Items:**
 
 - Hazardous materials or substances
+
 - Items prohibited by institutional policy or local law
+
 - Offensive, discriminatory, or inappropriate props or materials
+
 - Unauthorized electronic devices, tools, or assistance mechanisms
+
 - Any apparatus deemed unsafe by event authorities
 
 ---
@@ -788,8 +929,11 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.3 Gameplay Rules**
 
 - Two participants compete simultaneously on identical problems
+
 - First correct solution wins
+
 - Incorrect submissions may incur penalties
+
 - Partial scoring may apply based on platform evaluation
 
 ---
@@ -797,7 +941,9 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.4 Safety & Conduct**
 
 - Participants must adhere to all safety rules and institutional guidelines. Any conduct assessed as hazardous, negligent, reckless, or endangering may result in immediate removal.
+
 - Harassment, discrimination, intimidation, coercion, or misconduct—whether physical, verbal, written, or digital—shall not be tolerated and will result in immediate disciplinary action, including disqualification.
+
 - Participants must maintain professionalism, respect, and decorum at all times and must not engage in conduct that undermines the safety, fairness, integrity, or reputation of Photon.
 
 ---
@@ -807,9 +953,13 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 Participants or teams may be disqualified at any stage for:
 
 - Use of unfair means
+
 - Plagiarism or identical code
+
 - Accessing restricted resources
+
 - Misconduct or disruption
+
 - Failure to follow instructions
 
 ---
@@ -817,10 +967,15 @@ Participants or teams may be disqualified at any stage for:
 ## **6. Prize Pool & Recognition**
 
 - **Prize Pool Total: ₹10,000**
+
 - **Distribution:**
-    - **1st Place: ₹5,000**
-    - **2nd Place: ₹3,000**
-    - **3rd Place: ₹2,000**
+
+- **1st Place: ₹5,000**
+
+  - **2nd Place: ₹3,000**
+
+  - **3rd Place: ₹2,000**
+
 - **Certificates:** E-Certificates to Winners and Participants
 
 ---
@@ -828,8 +983,11 @@ Participants or teams may be disqualified at any stage for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+
 - Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+
 - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+
 - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
 ---
@@ -839,11 +997,17 @@ Participants or teams may be disqualified at any stage for:
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
 - **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+
 - **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+
 - **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+
 - **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+
 - **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+
 - **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+
 - **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
 ---
@@ -855,27 +1019,31 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 **Appeals Framework:**
 
 - **Level 1: On-Ground Coordinator**
-    
-    Concerns must be verbally reported immediately after the round or relevant incident.
-    
+
+Concerns must be verbally reported immediately after the round or relevant incident.
+
 - **Level 2: Competition Lead (Written Appeal)**
-    
-    A written appeal must be submitted within 30 minutes of the incident. It must include:
-    
-    - Precise grounds for the appeal
-    - Evidence (screenshots, documents, recordings)
-    - Participant/team identification details
+
+A written appeal must be submitted within 30 minutes of the incident. It must include:
+
+  - Precise grounds for the appeal
+
+  - Evidence (screenshots, documents, recordings)
+
+  - Participant/team identification details
+
 - **Level 3: Photon Competitions Head Panel**
-    
-    A formal review shall be conducted.
-    
-    The panel’s decision is final, binding, and not subject to further challenge.
-    
+
+A formal review shall be conducted.
+
+  The panel’s decision is final, binding, and not subject to further challenge.
 
 **Restrictions:**
 
 - Appeals relating to subjective evaluation or artistic preference shall not be considered.
+
 - Late, incomplete, or frivolous appeals shall be rejected without review.
+
 - Misuse of the appeals process may result in disciplinary action.
 
 ---
@@ -883,11 +1051,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **10. Privacy & Data Handling Policy**
 
 - **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+
 - **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+
 - **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+
 - **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+
 - **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+
 - **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+
 - **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
 ---
@@ -895,28 +1069,28 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Nikith | 82177 28508 | [nikith.s2024@nst.rishihood.edu.in](mailto:nikith.s2024@nst.rishihood.edu.in)**
-    - **Khanak Jain | 9718621543 | [khanak.j25219@nst.rishihood.edu.in](mailto:khanak.j25219@nst.rishihood.edu.in)**
-    - **Ankur Agarwal | 9166291772 | [ankur.a25063@nst.rishihood.edu.in](mailto:ankur.a25063@nst.rishihood.edu.in)**
-- **Availability:** Till the Event`
+
+- **Nikith | 82177 28508 | ****[nikith.s2024@nst.rishihood.edu.in](mailto:nikith.s2024@nst.rishihood.edu.in)**
+
+  - **Khanak Jain | 9718621543 | ****[khanak.j25219@nst.rishihood.edu.in](mailto:khanak.j25219@nst.rishihood.edu.in)**
+
+  - **Ankur Agarwal | 9166291772 | ****[ankur.a25063@nst.rishihood.edu.in](mailto:ankur.a25063@nst.rishihood.edu.in)**
+
+- **Availability:** Till the Event`,
   },
-
-
-
 
   {
     title: "Smash Karts",
     image: "https://instagram.fdel25-4.fna.fbcdn.net/v/t51.82787-15/671243886_17944664175155445_3110623205645781048_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzg3NTYyOTkzNjkyMTUyMjY2NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=d9iIKgqS3NAQ7kNvwGUEerP&_nc_oc=AdpvQW9yWlsiJNxJpRXrzRcbkfv5dIf0ALmX5OhrPmW3lX8KktwbsDWWt-xeSbiIyHk&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-4.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af0bjptY2Rd2PvriG53jUfJMEiTBYJdD_b--WvWUrdEtnQ&oe=69E52EE3",
     slug: "smash-karts",
     category: "Gaming / Esports",
-    date: "17th April, 2026",
-    details: "Arcade kart combat tournament with elimination heats",
-    subtitle: "Kart Battle Championship",
-    description:
-      "Smash Karts is a chaotic, weapon-filled battle on wheels where survival matters more than speed. Grab power-ups, dodge incoming attacks, and take down your opponents in fast-paced, unpredictable matches. With rockets flying and chaos everywhere, every second counts—one perfect hit or last-second escape can turn the game around. So jump in, embrace the madness, and smash your way to the top.",
-    prizePool: "Rs 5,000",
-    location: "5th Floor",
-    teamSize: "1",
+    date: "April 17, 2026",
+    details: "Smash Karts is a chaotic, weapon-filled battle on wheels where survival matters more than speed. Grab power-ups, dodge incoming attacks, and take down your opponents in fast-paced, unpredictable matches. With rockets flying and chaos everywhere, every second counts—one perfect hit or last-second escape can turn the game around. So jump in, embrace the madness, and smash your way to the top.",
+    subtitle: "Smash Karts is a chaotic, weapon-filled battle on wheels where survival matters more than speed. Grab power-ups, dodge incoming attacks, and take down your opponents in fast-paced, unpredictable matches. With rockets flying and chaos everywhere, every second counts—one perfect hit or last-second escape can turn the game around. So jump in, embrace the madness, and smash your way to the top.",
+    description: "Smash Karts is a chaotic, weapon-filled battle on wheels where survival matters more than speed. Grab power-ups, dodge incoming attacks, and take down your opponents in fast-paced, unpredictable matches. With rockets flying and chaos everywhere, every second counts—one perfect hit or last-second escape can turn the game around. So jump in, embrace the madness, and smash your way to the top.",
+    prizePool: "5000",
+    location: "[DAY 1] 5th Floor [Timing] 10:00 AM - 6:00 PM",
+    teamSize: "TBD",
     rules: `# **SMASH KARTS – PRE FEST GUIDELINES**
 
 ---
@@ -940,6 +1114,7 @@ Match configurations and arena assignments will be revealed on the day of the co
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
+
 - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 **Additional Eligibility Restrictions:**
@@ -951,8 +1126,11 @@ Match configurations and arena assignments will be revealed on the day of the co
 ## **3. Registration Details**
 
 - **Mode of Registration:** Online
+
 - **Registration Deadline:** 16th April 2026
+
 - **Registration Fee:** ₹0
+
 - **Selection Mechanism:** First-Come First-Served
 
 **Additional Requirements:**
@@ -967,19 +1145,18 @@ Incomplete or fraudulent registrations will be rejected without notice.
 
 ### **4.1 Rounds Matrix**
 
-| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
-| --- | --- | --- | --- | --- | --- |
-| Round 1 — Group Stage | Offline | Participants are divided into groups (16 per group) and compete in one match. The top 4 from each group advance. | 1 Match | In-game performance | Score based on placements, kills, and survival |
-| Final Round | Offline | Qualified participants compete in one final match. Scores reset. Top 3 declared winners. | 1 Match | In-game performance | Final rankings based on scoring system |
-
 ---
 
 ### **4.2 Submission Guidelines**
 
 - **Submission Format:** In-game performance tracking
+
 - **File Naming Convention:** Not Applicable
+
 - **Submission Platform:** Smash Karts official platform (smashkarts.io)
+
 - **Submission Deadline:** During match sessions
+
 - **Late Submission Policy:** Not Applicable
 
 ---
@@ -987,7 +1164,9 @@ Incomplete or fraudulent registrations will be rejected without notice.
 ### **4.3 Time Regulations**
 
 - Approved Time for Task/Performance: As per match session timing
+
 - Setup / Buffer Duration: Participants must join lobby 5 minutes before match
+
 - **Time Violation Penalty:** Failure to join within 3 minutes results in forfeit
 
 ---
@@ -997,8 +1176,11 @@ Incomplete or fraudulent registrations will be rejected without notice.
 Judging shall be conducted strictly in accordance with the following parameters:
 
 - Match placement
+
 - Number of eliminations (kills)
+
 - Survival bonus
+
 - Overall cumulative score
 
 ---
@@ -1008,7 +1190,9 @@ Judging shall be conducted strictly in accordance with the following parameters:
 In the event of identical scores, the following rules shall apply:
 
 - Higher total kill count
+
 - Higher number of 1st place finishes
+
 - Sudden death match
 
 Decisions resulting from tie-breaker procedures shall be **final and binding**.
@@ -1020,10 +1204,15 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.1 General Rules**
 
 - Participants must report **no later than 15 minutes** before the designated start time. Late arrival may constitute forfeiture of participation rights.
+
 - Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+
 - Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content**—whether verbal, written, visual, or performative—is strictly prohibited.
+
 - Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage.**
+
 - Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+
 - Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
 
 ---
@@ -1033,15 +1222,21 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 **Permitted Items:**
 
 - Personal laptops, desktops, or institutional systems
+
 - Standard browsers (Chrome, Edge, Firefox)
+
 - Mouse and keyboard (non-macro enabled)
 
 **Prohibited Items:**
 
 - VPNs or network proxies
+
 - Browser extensions that alter gameplay
+
 - Multiple accounts or account sharing
+
 - Screen sharing for coaching or external assistance
+
 - Macros or automated scripts
 
 ---
@@ -1049,10 +1244,15 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.3 Gameplay Rules**
 
 - All matches are played in Free For All (FFA) mode
+
 - No teaming or alliances allowed
+
 - All power-ups and weapons are allowed
+
 - Match duration and rules follow default lobby settings
+
 - Participants must join using official room codes provided by organizers
+
 - Matches will not be restarted due to participant-side technical issues
 
 ---
@@ -1060,7 +1260,9 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.4 Safety & Conduct**
 
 - Participants must maintain discipline and professionalism throughout the event
+
 - Respect all participants, organizers, and officials
+
 - No harassment, misconduct, or disruption of gameplay
 
 ---
@@ -1070,10 +1272,15 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 Participants may be disqualified for:
 
 - Use of hacks, exploits, or third-party modifications
+
 - Intentional disconnection or manipulation of match outcomes
+
 - Collusion or teaming
+
 - Misconduct or disruption
+
 - Breach of eligibility or account rules
+
 - Failure to follow official instructions
 
 ---
@@ -1081,10 +1288,15 @@ Participants may be disqualified for:
 ## **6. Prize Pool & Recognition**
 
 - **Prize Pool Total: ₹5,000**
+
 - **Distribution:**
-    - **1st Place: ₹2,500**
-    - **2nd Place: ₹1,500**
-    - **3rd Place: ₹1,000**
+
+- **1st Place: ₹2,500**
+
+  - **2nd Place: ₹1,500**
+
+  - **3rd Place: ₹1,000**
+
 - **Certificates:** E-Certificates to Winners and Participants
 
 ---
@@ -1092,8 +1304,11 @@ Participants may be disqualified for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+
 - Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+
 - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+
 - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
 ---
@@ -1103,11 +1318,17 @@ Participants may be disqualified for:
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
 - **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+
 - **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+
 - **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+
 - **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+
 - **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+
 - **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+
 - **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
 ---
@@ -1119,27 +1340,31 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 **Appeals Framework:**
 
 - **Level 1: On-Ground Coordinator**
-    
-    Concerns must be verbally reported immediately after the round or relevant incident.
-    
+
+Concerns must be verbally reported immediately after the round or relevant incident.
+
 - **Level 2: Competition Lead (Written Appeal)**
-    
-    A written appeal must be submitted within 30 minutes of the incident. It must include:
-    
-    - Precise grounds for the appeal
-    - Evidence (screenshots, documents, recordings)
-    - Participant/team identification details
+
+A written appeal must be submitted within 30 minutes of the incident. It must include:
+
+  - Precise grounds for the appeal
+
+  - Evidence (screenshots, documents, recordings)
+
+  - Participant/team identification details
+
 - **Level 3: Photon Competitions Head Panel**
-    
-    A formal review shall be conducted.
-    
-    The panel’s decision is final, binding, and not subject to further challenge.
-    
+
+A formal review shall be conducted.
+
+  The panel’s decision is final, binding, and not subject to further challenge.
 
 **Restrictions:**
 
 - Appeals relating to subjective evaluation or artistic preference shall not be considered.
+
 - Late, incomplete, or frivolous appeals shall be rejected without review.
+
 - Misuse of the appeals process may result in disciplinary action.
 
 ---
@@ -1147,11 +1372,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **10. Privacy & Data Handling Policy**
 
 - **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+
 - **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+
 - **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+
 - **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+
 - **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+
 - **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+
 - **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
 ---
@@ -1159,28 +1390,29 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Yuvraj Chandravansi | 6204819914 | yuvraj.chandravansi2024@nst.rishihood.edu.in**
-    - **Ansh Singh | 73939 28014 | ansh.s25070@nst.rushihood.edu.in**
-    - **Shubham | 99887 10705 | [shubham.25672@nst.rishihood.edu.in](mailto:shubham.25672@nst.rishihood.edu.in)**
-- **Availability:** Till the Event`
+
+- **Yuvraj Chandravansi | 6204819914 | yuvraj.chandravansi2024@nst.rishihood.edu.in**
+
+  - **Ansh Singh | 73939 28014 | ansh.s25070@nst.rushihood.edu.in**
+
+  - **Shubham | 99887 10705 | ****[shubham.25672@nst.rishihood.edu.in](mailto:shubham.25672@nst.rishihood.edu.in)**
+
+- **Availability:** Till the Event`,
   },
-
-
 
   {
     title: "Clash Royale",
     image: "https://instagram.fdel25-5.fna.fbcdn.net/v/t51.82787-15/672350796_17944664187155445_7774033817699252267_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mzg3NTYzMDAzNjAzMjkwMzI1Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=tmIBf5wkJQYQ7kNvwFQkGiO&_nc_oc=AdouSztaOyQWFhbbqjwTmqz1RWlFODiHOjs6AB84WaCcsYTIFk4ZMKi7OTFP8C-FJwY&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-5.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af3B1H_nvHnG4ise7bkXhsZV6vNUEdUJrqS-K8J2LMBBMg&oe=69E5161D",
     slug: "clash-royale",
     category: "Mobile Esports",
-    date: "18th April, 2026",
-    details: "Strategic deck battles in bracket play",
-    subtitle: "Real-Time Deck Warfare",
-    description:
-      "Clash Royale is a fast-paced esports showdown where strategy meets split-second decision making. Build your deck, outplay your opponent, and turn the tide of battle with perfectly timed moves. Every troop placement and spell can change the game in an instant, making each match a test of skill, timing, and mind games. So bring your best deck, trust your instincts, and battle your way to the crown.",
-    prizePool: "Rs 7,000",
-    location: "5th Floor ",
-    teamSize: "1",
-    rules: `# **CLASH ROYALE**
+    date: "April 18, 2026",
+    details: "Clash Royale is a fast-paced esports showdown where strategy meets split-second decision making. Build your deck, outplay your opponent, and turn the tide of battle with perfectly timed moves. Every troop placement and spell can change the game in an instant, making each match a test of skill, timing, and mind games. So bring your best deck, trust your instincts, and battle your way to the crown.",
+    subtitle: "Clash Royale is a fast-paced esports showdown where strategy meets split-second decision making. Build your deck, outplay your opponent, and turn the tide of battle with perfectly timed moves. Every troop placement and spell can change the game in an instant, making each match a test of skill, timing, and mind games. So bring your best deck, trust your instincts, and battle your way to the crown.",
+    description: "Clash Royale is a fast-paced esports showdown where strategy meets split-second decision making. Build your deck, outplay your opponent, and turn the tide of battle with perfectly timed moves. Every troop placement and spell can change the game in an instant, making each match a test of skill, timing, and mind games. So bring your best deck, trust your instincts, and battle your way to the crown.",
+    prizePool: "7000",
+    location: "[DAY 2] 5th Floor \n[Timing] 10:00 AM - 6:00 PM",
+    teamSize: "TBD",
+    rules: `# **CLASH ROYALE **
 
 ---
 
@@ -1203,11 +1435,13 @@ The competition follows a Single Elimination format — every match matters, and
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
+
 - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 **Additional Eligibility Restrictions:**
 
 - A participant may register only once — duplicate accounts or registrations will be disqualified
+
 - Clash Royale account must be at least King Level 9 to participate — accounts below this threshold will be deemed ineligible
 
 ---
@@ -1215,8 +1449,11 @@ The competition follows a Single Elimination format — every match matters, and
 ## **3. Registration Details**
 
 - **Mode of Registration:** Online
+
 - **Registration Deadline:** 16th April 2026
+
 - **Registration Fee:** ₹0
+
 - **Selection Mechanism:** First-Come First-Served
 
 **Additional Requirements:**
@@ -1231,19 +1468,18 @@ Incomplete or fraudulent registrations will be rejected without notice.
 
 ### **4.1 Rounds Matrix**
 
-| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
-| --- | --- | --- | --- | --- | --- |
-| Elimination Rounds | Offline | Single elimination bracket progressing from Round of 16/32 to Quarterfinals and Semifinals | As per match format | Match Results | Match outcome (win/loss), tower destruction |
-| Grand Final | Offline | Final championship match determining winner and placements | As per match format | Match Results | Match outcome, performance consistency |
-
 ---
 
 ### **4.2 Submission Guidelines**
 
 - **Submission Format:** Match Results Reporting
+
 - **File Naming Convention:** Not Applicable
+
 - **Submission Platform:** On-ground reporting to organizers
+
 - **Submission Deadline:** Immediately after each match
+
 - **Late Submission Policy:** Not Applicable
 
 ---
@@ -1251,7 +1487,9 @@ Incomplete or fraudulent registrations will be rejected without notice.
 ### **4.3 Time Regulations**
 
 - Approved Time for Task/Performance: 3 minutes regular time + 1 minute overtime
+
 - Setup / Buffer Duration: 5 minutes per match call
+
 - **Time Violation Penalty:** Failure to report within 5 minutes results in forfeit
 
 ---
@@ -1261,7 +1499,9 @@ Incomplete or fraudulent registrations will be rejected without notice.
 Judging shall be conducted strictly in accordance with the following parameters:
 
 - Number of towers destroyed
+
 - Crown Tower HP (in case of tie)
+
 - Sudden Death outcome (if applicable)
 
 ---
@@ -1271,6 +1511,7 @@ Judging shall be conducted strictly in accordance with the following parameters:
 In the event of identical performance:
 
 - Crown Tower HP remaining
+
 - Sudden Death tiebreaker (first tower destroyed wins)
 
 Decisions resulting from tie-breaker procedures shall be **final and binding**.
@@ -1282,11 +1523,17 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.1 General Rules**
 
 - Participants must report **no later than 15 minutes** before the designated start time, compete using their registered Clash Royale account, and ensure their devices are fully charged and ready.
+
 - Any in-game disconnection will be treated as a loss unless determined to be a server-side fault, and spectators must remain silent with no communication during active matches.
+
 - Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+
 - Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content**—whether verbal, written, visual, or performative—is strictly prohibited.
+
 - Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage.**
+
 - Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+
 - Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
 
 ---
@@ -1296,15 +1543,21 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 **Permitted Items:**
 
 - Personal Smartphones
+
 - Chargers and power banks
+
 - Earphones or earbuds (music only — no communication)
 
 **Prohibited Items:**
 
 - Emulators, modified APKs, rooted/jailbroken devices
+
 - Macro tools or automation software
+
 - Account sharing or device switching during matches
+
 - Real-time coaching or external assistance
+
 - Screen mirroring for external guidance
 
 ---
@@ -1312,11 +1565,17 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.3 Gameplay Rules**
 
 - Matches are played in 1v1 format under single elimination
+
 - Match duration: 3 minutes + 1 minute overtime
+
 - If tied, higher Crown Tower HP wins
+
 - If still tied, Sudden Death applies
+
 - Players may switch decks between games where applicable
+
 - Deck must consist of exactly 8 cards
+
 - All cards must be unlocked on the participant’s account
 
 ---
@@ -1324,7 +1583,9 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.4 Safety & Conduct**
 
 - Participants must maintain discipline and sportsmanship
+
 - Respect all players, officials, and event staff
+
 - No harassment, misconduct, or disruption of event proceedings
 
 ---
@@ -1334,11 +1595,17 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 Participants may be disqualified for:
 
 - Use of modified game clients or third-party tools
+
 - Playing on unregistered accounts
+
 - Intentional disconnection
+
 - Collusion or match-fixing
+
 - Receiving external assistance during matches
+
 - Misconduct or rule violations
+
 - Failure to comply with official instructions
 
 ---
@@ -1346,10 +1613,15 @@ Participants may be disqualified for:
 ## **6. Prize Pool & Recognition**
 
 - **Prize Pool Total: ₹7,000**
+
 - **Distribution:**
-    - **1st Place: ₹3,500**
-    - **2nd Place: ₹2,500**
-    - **3rd Place: ₹1,000**
+
+- **1st Place: ₹3,500**
+
+  - **2nd Place: ₹2,500**
+
+  - **3rd Place: ₹1,000**
+
 - **Certificates:** E-Certificates to Winners and Participants
 
 ---
@@ -1357,8 +1629,11 @@ Participants may be disqualified for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+
 - Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+
 - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+
 - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
 ---
@@ -1368,11 +1643,17 @@ Participants may be disqualified for:
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
 - **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+
 - **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+
 - **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+
 - **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+
 - **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+
 - **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+
 - **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
 ---
@@ -1384,27 +1665,31 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 **Appeals Framework:**
 
 - **Level 1: On-Ground Coordinator**
-    
-    Concerns must be verbally reported immediately after the round or relevant incident.
-    
+
+Concerns must be verbally reported immediately after the round or relevant incident.
+
 - **Level 2: Competition Lead (Written Appeal)**
-    
-    A written appeal must be submitted within 30 minutes of the incident. It must include:
-    
-    - Precise grounds for the appeal
-    - Evidence (screenshots, documents, recordings)
-    - Participant/team identification details
+
+A written appeal must be submitted within 30 minutes of the incident. It must include:
+
+  - Precise grounds for the appeal
+
+  - Evidence (screenshots, documents, recordings)
+
+  - Participant/team identification details
+
 - **Level 3: Photon Competitions Head Panel**
-    
-    A formal review shall be conducted.
-    
-    The panel’s decision is final, binding, and not subject to further challenge.
-    
+
+A formal review shall be conducted.
+
+  The panel’s decision is final, binding, and not subject to further challenge.
 
 **Restrictions:**
 
 - Appeals relating to subjective evaluation or artistic preference shall not be considered.
+
 - Late, incomplete, or frivolous appeals shall be rejected without review.
+
 - Misuse of the appeals process may result in disciplinary action.
 
 ---
@@ -1412,11 +1697,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **10. Privacy & Data Handling Policy**
 
 - **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+
 - **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+
 - **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+
 - **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+
 - **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+
 - **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+
 - **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
 ---
@@ -1424,28 +1715,29 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Yuvraj Chandravansi | 6204819914 | yuvraj.chandravansi2024@nst.rishihood.edu.in**
-    - **Ansh Singh | 73939 28014 | ansh.s25070@nst.rushihood.edu.in**
-    - **Shubham | 99887 10705 | [shubham.25672@nst.rishihood.edu.in](mailto:shubham.25672@nst.rishihood.edu.in)**
 
-**Availability:** Till the Event`
+- **Yuvraj Chandravansi | 6204819914 | yuvraj.chandravansi2024@nst.rishihood.edu.in**
+
+  - **Ansh Singh | 73939 28014 | ansh.s25070@nst.rushihood.edu.in**
+
+  - **Shubham | 99887 10705 | ****[shubham.25672@nst.rishihood.edu.in](mailto:shubham.25672@nst.rishihood.edu.in)**
+
+**Availability: **Till the Event`,
   },
-
 
   {
     title: "BGMI",
     image: "https://instagram.fdel25-4.fna.fbcdn.net/v/t51.82787-15/671225153_17944664313155445_2677492225090139797_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=101&ig_cache_key=Mzg3NTYzMDYwNjM0OTIxODY4Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=ObaBlKtczSwQ7kNvwEWT3hK&_nc_oc=AdoM6sZ876kZwrlhYF_5UE96LdyOXLyE6BcRMRjzgBgj1iPh5xvfy0V0Y3Zza80n5jo&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel25-4.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af2ueiU9JbpGA811Rlbn6knFauX_CKMyLZI__DmfR-wTWA&oe=69E4FF7C",
     slug: "bgmi",
     category: "Battle Royale",
-    date: "17th April, 2026",
-    details: "Custom-lobby battle royale with cumulative scoring",
-    subtitle: "Tactical Survival Tournament",
-    description:
-      "BGMI is a high-energy esports showdown where squads drop in, gear up, and fight for ultimate bragging rights. From intense firefights to clutch final circles, every moment tests your reflexes, strategy, and teamwork. With a constantly shrinking battlefield and unpredictable encounters, only the smartest rotations and strongest squads survive. So rally your team, plan your moves, and battle your way to the top—because only one squad walks away as champions.",
-    prizePool: "Rs 20,000",
-    location: " 5th Floor",
-    teamSize: "4 - 6",
-    rules: `# **BGMI**
+    date: "April 17, 2026",
+    details: "BGMI is a high-energy esports showdown where squads drop in, gear up, and fight for ultimate bragging rights. From intense firefights to clutch final circles, every moment tests your reflexes, strategy, and teamwork. With a constantly shrinking battlefield and unpredictable encounters, only the smartest rotations and strongest squads survive. So rally your team, plan your moves, and battle your way to the top—because only one squad walks away as champions.",
+    subtitle: "BGMI is a high-energy esports showdown where squads drop in, gear up, and fight for ultimate bragging rights. From intense firefights to clutch final circles, every moment tests your reflexes, strategy, and teamwork. With a constantly shrinking battlefield and unpredictable encounters, only the smartest rotations and strongest squads survive. So rally your team, plan your moves, and battle your way to the top—because only one squad walks away as champions.",
+    description: "BGMI is a high-energy esports showdown where squads drop in, gear up, and fight for ultimate bragging rights. From intense firefights to clutch final circles, every moment tests your reflexes, strategy, and teamwork. With a constantly shrinking battlefield and unpredictable encounters, only the smartest rotations and strongest squads survive. So rally your team, plan your moves, and battle your way to the top—because only one squad walks away as champions.",
+    prizePool: "20000",
+    location: "[DAY 1] 5th Floor\n[Timing] 10:00 AM - 6:00 PM",
+    teamSize: "TBD",
+    rules: `# **BGMI **
 
 ---
 
@@ -1458,7 +1750,9 @@ This LAN-based tournament aims to bring together the best BGMI players from Rish
 **Purpose / Theme:**
 
 - Promote competitive esports culture within Rishihood University
+
 - Identify top-performing teams for higher-level competitions
+
 - Provide a professional LAN tournament experience
 
 ---
@@ -1472,12 +1766,15 @@ This LAN-based tournament aims to bring together the best BGMI players from Rish
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
+
 - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 **Additional Eligibility Restrictions:**
 
 - Only mobile devices are allowed
+
 - iPads and emulators are strictly prohibited
+
 - Only registered BGMI IDs must be used
 
 ---
@@ -1485,13 +1782,17 @@ This LAN-based tournament aims to bring together the best BGMI players from Rish
 ## **3. Registration Details**
 
 - **Mode of Registration:** Online
+
 - **Registration Deadline:** 16th April 2026
+
 - **Registration Fee:** ₹0
+
 - **Selection Mechanism:** First-Come First-Served
 
 **Team Size Requirements:**
 
 - Minimum: 4
+
 - Maximum: 6 (4 Players + 2 Substitutes)
 
 ---
@@ -1500,25 +1801,28 @@ This LAN-based tournament aims to bring together the best BGMI players from Rish
 
 ### **4.1 Rounds Matrix**
 
-| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
-| --- | --- | --- | --- | --- | --- |
-| Grand Finals | LAN (Offline) | Live matches conducted with an audience present. Total 6 matches: 1 Rondo, 3 Erangel, 2 Miramar. Match order will be decided and announced by organizers. Breaks will be provided between matches. | 1 Day | Gameplay performance across all 6 matches | Overall ranking based on match performance, consistency, and points system |
-
 ---
 
 ### **4.2 Submission Guidelines**
 
 - **Submission Format:** Team Details Form
+
 - **File Naming Convention:** TeamName
+
 - **Submission Platform:** Official Registration Form
+
 - **Submission Deadline:** 16th April 2026
+
 - **Late Submission Policy:** Late submissions strictly prohibited
 
 **Required Details:**
 
 - Team Name
+
 - Leader Name
+
 - Player IDs
+
 - Contact Details
 
 ---
@@ -1526,7 +1830,9 @@ This LAN-based tournament aims to bring together the best BGMI players from Rish
 ### **4.3 Time Regulations**
 
 - Approved Time for Task/Performance: As per BGMI match format
+
 - Setup / Buffer Duration: Reporting 20 minutes before match
+
 - **Time Violation Penalty:** Disqualification or Match Forfeit
 
 ---
@@ -1540,12 +1846,19 @@ Judging shall be conducted strictly in accordance with the following parameters:
 **Placement Points:**
 
 - 1st Place — 10 Points
+
 - 2nd Place — 6 Points
+
 - 3rd Place — 5 Points
+
 - 4th Place — 4 Points
+
 - 5th Place — 3 Points
+
 - 6th Place — 2 Points
+
 - 7th–8th Place — 1 Point
+
 - 9th–16th Place — 0 Points
 
 **Kill Points:**
@@ -1559,7 +1872,9 @@ Judging shall be conducted strictly in accordance with the following parameters:
 In the event of identical scores, the following tie-breaking rules shall be applied sequentially:
 
 - Total Kill Points
+
 - Highest Match Placement
+
 - Head-to-Head Performance
 
 Decisions resulting from tie-breaker procedures shall be **final and binding**.
@@ -1571,10 +1886,15 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.1 General Rules**
 
 - Participants must report **no later than 30 minutes** before the designated start time. Late arrival may constitute forfeiture of participation rights.
+
 - Participants must comply fully and immediately with all instructions issued by the Organizing Committee, event officials, judges, and volunteers.
+
 - Any use of **offensive, obscene, defamatory, discriminatory, or otherwise inappropriate content**—whether verbal, written, visual, or performative—is strictly prohibited.
+
 - Participants bear sole responsibility for securing their personal property, equipment, and materials. The Organizing Committee assumes no liability for **loss, theft, malfunction, or damage.**
+
 - Any attempt to **manipulate, disrupt, alter, interfere with, or unlawfully access** event systems, submissions, scoring mechanisms, property, or logistics infrastructure shall be deemed a serious violation.
+
 - Participants must refrain from any conduct that causes **undue delay, obstruction, or operational disruption** to event proceedings.
 
 ---
@@ -1584,20 +1904,31 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 **Permitted Items:**
 
 - Mobile Phones
+
 - Chargers
+
 - Earphones
+
 - Backup Devices
 
 **Prohibited Items:**
 
 - iPads
+
 - Emulators
+
 - Third-party software
+
 - Unauthorized devices
+
 - Hazardous materials or substances
+
 - Items prohibited by institutional policy or local law
+
 - Offensive, discriminatory, or inappropriate props or materials
+
 - Unauthorized electronic devices, tools, or assistance mechanisms
+
 - Any apparatus deemed unsafe by event authorities
 
 ---
@@ -1605,9 +1936,13 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.3 Gameplay Rules**
 
 - Only registered players are allowed to participate
+
 - Auto Heal is prohibited
+
 - Players must use assigned stations
+
 - Screen recording is mandatory (minimum 2 players per team)
+
 - Screenshot submission after every match is required
 
 ---
@@ -1615,8 +1950,11 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 ### **5.4 Safety & Conduct**
 
 - Participants must adhere to all safety rules and institutional guidelines
+
 - Respect all players and officials
+
 - No harassment or misconduct
+
 - Maintain discipline and professionalism at all times
 
 ---
@@ -1626,11 +1964,17 @@ Decisions resulting from tie-breaker procedures shall be **final and binding**.
 Participants or teams may be disqualified at any stage for:
 
 - Use of unauthorized players or accounts
+
 - Hacks, cheats, or third-party tools
+
 - Exploiting game glitches
+
 - Teaming or collusion with opponents
+
 - Match fixing or intentional feeding
+
 - Failure to provide required recordings
+
 - Unsportsmanlike behavior or misconduct behaviour
 
 ---
@@ -1638,11 +1982,17 @@ Participants or teams may be disqualified at any stage for:
 ## **6. Prize Pool & Recognition**
 
 - **Prize Pool Total: ₹20,000**
+
 - **Distribution:**
-    - **1st Place: ₹10,000**
-    - **2nd Place: ₹6,000**
-    - **3rd Place: ₹4,000**
+
+- **1st Place: ₹10,000**
+
+  - **2nd Place: ₹6,000**
+
+  - **3rd Place: ₹4,000**
+
 - **Certificates:** E-Certificates to Winners and Participants
+
 - **Additional Recognition:** TOP 3 TEAMS WILL GO TO SEMI FINALS OF NEUTRON 3.0
 
 ---
@@ -1650,8 +2000,11 @@ Participants or teams may be disqualified at any stage for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+
 - Photon, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+
 - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event for purposes including but not limited to documentation, archival use, publicity, marketing, and institutional communication.
+
 - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary by authorized personnel.
 
 ---
@@ -1661,11 +2014,17 @@ Participants or teams may be disqualified at any stage for:
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
 - **Integrity & Honesty:** All individuals must conduct themselves with truthfulness, fairness, and professional integrity at all times.
+
 - **Respect & Non-Discrimination:** Respectful behavior toward peers, officials, and staff is mandatory. Harassment, discrimination, defamation, or inappropriate conduct shall result in disciplinary action.
+
 - **Compliance with Rules:** All rules, procedures, and directives issued by authorized officials must be adhered to without objection or delay.
+
 - **Prohibition of Misconduct:** Any act involving intimidation, coercion, manipulation, sabotage, or unethical influence is strictly prohibited.
+
 - **Security & Property Integrity:** Unauthorized access to restricted systems, networks, confidential materials, infrastructure, or event property is strictly forbidden.
+
 - **Anti-Cheating & Anti-Plagiarism:** Cheating, plagiarism, or any form of fraudulent behavior will result in immediate disqualification and further escalation.
+
 - **Finality of Decisions:** Decision(s) rendered by judges or the Organizing Committee shall be considered final unless appealed through the formal mechanism defined herein.
 
 ---
@@ -1677,27 +2036,31 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 **Appeals Framework:**
 
 - **Level 1: On-Ground Coordinator**
-    
-    Concerns must be verbally reported immediately after the round or relevant incident.
-    
+
+Concerns must be verbally reported immediately after the round or relevant incident.
+
 - **Level 2: Competition Lead (Written Appeal)**
-    
-    A written appeal must be submitted within 30 minutes of the incident. It must include:
-    
-    - Precise grounds for the appeal
-    - Evidence (screenshots, documents, recordings)
-    - Participant/team identification details
+
+A written appeal must be submitted within 30 minutes of the incident. It must include:
+
+  - Precise grounds for the appeal
+
+  - Evidence (screenshots, documents, recordings)
+
+  - Participant/team identification details
+
 - **Level 3: Photon Competitions Head Panel**
-    
-    A formal review shall be conducted.
-    
-    The panel’s decision is final, binding, and not subject to further challenge.
-    
+
+A formal review shall be conducted.
+
+  The panel’s decision is final, binding, and not subject to further challenge.
 
 **Restrictions:**
 
 - Appeals relating to subjective evaluation or artistic preference shall not be considered.
+
 - Late, incomplete, or frivolous appeals shall be rejected without review.
+
 - Misuse of the appeals process may result in disciplinary action.
 
 ---
@@ -1705,11 +2068,17 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **10. Privacy & Data Handling Policy**
 
 - **Scope of Data Collection:** The Organizing Committee may collect personal details including names, contact information, institutional affiliations, submissions, performance data, and audiovisual recordings.
+
 - **Purpose of Data Processing:** All collected data shall be used solely for event administration, verification, scoring, communication, media documentation, compliance reporting, and other fest-related operations.
+
 - **Data Storage & Protection:** Data shall be retained in secure systems employing reasonable administrative, technical, and physical safeguards to prevent unauthorized access or disclosure.
+
 - **Permitted Disclosure:** Participant data may be shared with authorized officials, judges, institutional departments, or approved service providers strictly for operational requirements. External disclosure shall occur only when mandated by law or expressly authorized.
+
 - **Media Usage Consent:** Participants grant irrevocable, perpetual, royalty-free rights for usage of event media for promotional, archival, and educational purposes.
+
 - **Retention Policy:** Participant data may be retained beyond the event for audit, archival, compliance, or institutional review purposes.
+
 - **Data Rights:** Participants may request clarification regarding data handling; however, modification or deletion requests may be deferred until after event closure.
 
 ---
@@ -1717,29 +2086,29 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Yuvraj Chandravansi | 6204819914 | yuvraj.chandravansi2024@nst.rishihood.edu.in**
-    - **Ansh Singh | 73939 28014 | ansh.s25070@nst.rushihood.edu.in**
-    - **Shubham | 99887 10705 | [shubham.25672@nst.rishihood.edu.in](mailto:shubham.25672@nst.rishihood.edu.in)**
 
-**Availability:** Till the Event`,
+- **Yuvraj Chandravansi | 6204819914 | yuvraj.chandravansi2024@nst.rishihood.edu.in**
+
+  - **Ansh Singh | 73939 28014 | ansh.s25070@nst.rushihood.edu.in**
+
+  - **Shubham | 99887 10705 | ****[shubham.25672@nst.rishihood.edu.in](mailto:shubham.25672@nst.rishihood.edu.in)**
+
+**Availability: **Till the Event`,
   },
-  
-
 
   {
     title: "Zero To One",
     image: "https://instagram.fdel73-1.fna.fbcdn.net/v/t51.82787-15/671800889_17944664229155445_5722381406710340278_n.heic?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzg3NTYzMDI2MjY5MzA3NjczNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNDh4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=gK6tzW8Hpx0Q7kNvwFTTpTH&_nc_oc=Adp8cQ3HG4M6yQ-0vAZPMUw-ie1OweoALeH0lCdBc5ht0kaO-eCyFu0gOnfl850IcEc&_nc_ad=z-m&_nc_cid=1214&_nc_zt=23&_nc_ht=instagram.fdel73-1.fna&_nc_gid=i8mfnomjWrzFR8ypsHCVew&_nc_ss=7a32e&oh=00_Af2VaRvysXnUo78VtwGEw8lPzGtA_PC8JCSlSS9l7A3VOQ&oe=69E511AB",
     slug: "zerotoone",
     category: "Hackathon",
-    date: "17th April, 2026",
-    details: "It is a hackathon",
-    subtitle: "Hackathon",
-    description:
-      "Zero To One is a 24-hour hackathon where participants are judged on turning a well-understood problem into a working, real-world solution under time and resource constraints. It emphasises structured problem-solving, practical system design, strong technical execution, and clear decision-making, with solutions expected to be functional, well-justified, and realistic.",
-    prizePool: "Rs 20,000",
-    location: "Library",
-    teamSize: "2 - 4",
-    rules: `# **Zero To One**
+    date: "April 17, 2026",
+    details: "Zero To One is a 24-hour hackathon where participants are judged on turning a well-understood problem into a working, real-world solution under time and resource constraints. It emphasises structured problem-solving, practical system design, strong technical execution, and clear decision-making, with solutions expected to be functional, well-justified, and realistic.",
+    subtitle: "Zero To One is a 24-hour hackathon where participants are judged on turning a well-understood problem into a working, real-world solution under time and resource constraints. It emphasises structured problem-solving, practical system design, strong technical execution, and clear decision-making, with solutions expected to be functional, well-justified, and realistic.",
+    description: "Zero To One is a 24-hour hackathon where participants are judged on turning a well-understood problem into a working, real-world solution under time and resource constraints. It emphasises structured problem-solving, practical system design, strong technical execution, and clear decision-making, with solutions expected to be functional, well-justified, and realistic.",
+    prizePool: "20000",
+    location: "24hour overnight hackathon\n4:00PM to 4:00PM [Library]",
+    teamSize: "TBD",
+    rules: `# **Zero To One **
 
 ---
 
@@ -1760,6 +2129,7 @@ Unlike conventional hackathons, this event prioritises working systems over supe
 **Mandatory Identity Verification:**
 
 - Valid Institutional ID
+
 - Valid Government ID (Aadhaar, PAN, Passport, etc.)
 
 ---
@@ -1767,13 +2137,17 @@ Unlike conventional hackathons, this event prioritises working systems over supe
 ## **3. Registration Details**
 
 - **Mode of Registration:** Online
+
 - **Registration Deadline:** 16th April 2026
+
 - **Registration Fee:** ₹0
+
 - **Selection Mechanism:** First-Come First-Served
 
 **Team Size Requirements:**
 
 - Minimum: 2
+
 - Maximum: 4
 
 ---
@@ -1782,18 +2156,18 @@ Unlike conventional hackathons, this event prioritises working systems over supe
 
 ### **4.1 Rounds Matrix**
 
-| **Round Name** | **Mode** | **Description** | **Duration** | **Output / Submission** | **Evaluation Criteria** |
-| --- | --- | --- | --- | --- | --- |
-| Hackathon Lifecycle | Offline | Includes kickoff, system design, mid-review, development, and final evaluation | 24 Hours | PPT + Live Prototype | Based on evaluation criteria |
-
 ---
 
 ### **4.2 Submission Guidelines**
 
 - **Submission Format:** PPT + Live Working Prototype
+
 - **File Naming Convention:** As per team name
+
 - **Submission Platform:** As communicated during event
+
 - **Submission Deadline:** End of 24-hour cycle
+
 - **Late Submission Policy:** Late submissions will not be accepted
 
 ---
@@ -1801,7 +2175,9 @@ Unlike conventional hackathons, this event prioritises working systems over supe
 ### **4.3 Time Regulations**
 
 - Approved Time for Task/Performance: 24 Hours
+
 - Setup / Buffer Duration: As per venue conditions
+
 - **Time Violation Penalty:** Late submissions strictly not accepted
 
 ---
@@ -1811,8 +2187,11 @@ Unlike conventional hackathons, this event prioritises working systems over supe
 Judging shall be conducted strictly in accordance with the following parameters:
 
 - System Architecture (30%)
+
 - System Design (25%)
+
 - Technical Depth & Implementation (30%)
+
 - Development & Execution Quality (15%)
 
 ---
@@ -1830,10 +2209,15 @@ All decisions shall be **final and binding**.
 ### **5.1 General Rules**
 
 - Pre-built systems or significant pre-written code are strictly prohibited
+
 - Mocked or fake implementations of core logic are not allowed
+
 - The system must be functional and demonstrable
+
 - All code and decisions must be explainable to judges
+
 - Submissions must be completed within the defined timeline
+
 - Late submissions will not be accepted under any circumstances
 
 ---
@@ -1843,13 +2227,17 @@ All decisions shall be **final and binding**.
 **Permitted Items:**
 
 - Laptops and development tools
+
 - Internet access (if allowed by organizers)
+
 - Notes and documentation
 
 **Prohibited Items:**
 
 - Pre-built or plagiarised codebases
+
 - Unauthorized collaboration outside team
+
 - Any unfair assistance
 
 ---
@@ -1857,8 +2245,11 @@ All decisions shall be **final and binding**.
 ### **5.3 Gameplay / Development Rules**
 
 - Teams must design and implement systems from scratch during the event
+
 - All components must align with the submitted architecture
+
 - Participants must be able to justify every design and implementation decision
+
 - Systems must demonstrate real-world applicability and robustness
 
 ---
@@ -1866,7 +2257,9 @@ All decisions shall be **final and binding**.
 ### **5.4 Safety & Conduct**
 
 - Participants must adhere to all institutional safety guidelines
+
 - Respect all participants, judges, and organizers
+
 - Maintain professionalism throughout the event
 
 ---
@@ -1876,9 +2269,13 @@ All decisions shall be **final and binding**.
 Participants may be disqualified for:
 
 - Submission of non-functional systems
+
 - Use of pre-built or plagiarised work
+
 - Inability to explain implementation or code
+
 - Missing required deliverables
+
 - Violation of rules or misconduct
 
 ---
@@ -1886,10 +2283,15 @@ Participants may be disqualified for:
 ## **6. Prize Pool & Recognition**
 
 - **Prize Pool Total:** ₹20,000
+
 - **Distribution:**
-    - **1st Place: ₹10,000**
-    - **2nd Place: ₹6,000**
-    - 3rd Place: ₹4,000
+
+- **1st Place: ₹10,000**
+
+  - **2nd Place: ₹6,000**
+
+  - 3rd Place: ₹4,000
+
 - **Certificates:** E-Certificates to Winners and Participants
 
 ---
@@ -1897,8 +2299,11 @@ Participants may be disqualified for:
 ## **7. Liability & Consent**
 
 - Participation is strictly voluntary. Participants acknowledge that they assume full personal responsibility for any injury, illness, accident, property damage, or loss incurred during the event.
+
 - PHOTON, the Organizing Committee, and Rishihood University shall bear no legal, financial, or administrative liability for any such incidents.
+
 - Participants grant irrevocable, perpetual, worldwide, royalty-free consent for the collection, recording, storage, and use of photographs, videos, voice recordings, and other media captured during the event.
+
 - Participants consent to receiving first-aid or emergency medical assistance if deemed necessary.
 
 ---
@@ -1908,11 +2313,17 @@ Participants may be disqualified for:
 All participants, volunteers, judges, and associated personnel are bound by the following Code of Conduct:
 
 - Integrity & Honesty
+
 - Respect & Non-Discrimination
+
 - Compliance with Rules
+
 - Prohibition of Misconduct
+
 - Security & Property Integrity
+
 - Anti-Cheating & Anti-Plagiarism
+
 - Finality of Decisions
 
 ---
@@ -1924,27 +2335,31 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 **Appeals Framework:**
 
 - **Level 1: On-Ground Coordinator**
-    
-    Immediate verbal reporting after the incident
-    
+
+Immediate verbal reporting after the incident
+
 - **Level 2: Competition Lead (Written Appeal)**
-    
-    Submit within 30 minutes including:
-    
-    - Grounds for appeal
-    - Evidence
-    - Participant/team details
+
+Submit within 30 minutes including:
+
+  - Grounds for appeal
+
+  - Evidence
+
+  - Participant/team details
+
 - **Level 3: PHOTON Competitions Head Panel**
-    
-    Final review and decision (binding and final)
-    
+
+Final review and decision (binding and final)
 
 ---
 
 **Restrictions:**
 
 - Appeals relating to subjective evaluation shall not be considered
+
 - Late or incomplete appeals shall be rejected
+
 - Misuse of the appeals process may result in disciplinary action
 
 ---
@@ -1952,7 +2367,9 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **10. Privacy & Data Handling Policy**
 
 - Participant data may be collected for registration, evaluation, and communication
+
 - Data will be securely stored and used only for official purposes
+
 - Media may be used for promotional and institutional purposes
 
 ---
@@ -1960,10 +2377,15 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 ## **11. Contact & Support**
 
 - **Event Coordinators:**
-    - **Ankit Raj Singh | 6200206922 | ankit.singh2024@nst.rishihood.edu.in**
-    - **Rajdeep Sanyal | 9163472586 | rajdeep.sanyal2024@nst.rishihood.edu.in**
-    - **Parth Sharma | 8349039140 | [parth.s25321@nst.rishihood.edu.in](mailto:parth.s25321@nst.rishihood.edu.in)**
-    - **Khanak Jain | 9718621543 | khanak.j25219@nst.rishihood.edu.in**
+
+- **Ankit Raj Singh | 6200206922 | ankit.singh2024@nst.rishihood.edu.in**
+
+  - **Rajdeep Sanyal | 9163472586 | rajdeep.sanyal2024@nst.rishihood.edu.in**
+
+  - **Parth Sharma | 8349039140 | ****[parth.s25321@nst.rishihood.edu.in](mailto:parth.s25321@nst.rishihood.edu.in)**
+
+  - **Khanak Jain | 9718621543 | khanak.j25219@nst.rishihood.edu.in**
+
 - **Availability:** Till the Event
 
 ---
@@ -1972,9 +2394,4 @@ Participants may file an appeal exclusively for procedural inconsistencies, scor
 
 All participants are required to adhere strictly to the rules and guidelines outlined in this document. Decisions made by the judging panel and organising committee shall be final and binding.`,
   },
-  
 ];
-
-
-
-
