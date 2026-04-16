@@ -18,7 +18,6 @@ export interface Competition {
   location: string;
   teamSize: string;
   rules: CompetitionRules;
-  registrationOpen?: boolean;
 }
 
 export const COMPETITIONS_DATA: Competition[] = [
@@ -35,7 +34,6 @@ export const COMPETITIONS_DATA: Competition[] = [
     prizePool: "8000",
     location: "Mini Audi",
     teamSize: "1-3",
-    registrationOpen: true,
     rules: `# **RISK & REWARD **
 
 ---
@@ -93,6 +91,8 @@ Success in this competition depends on judgment, adaptability, and consistency, 
 Investor’s Dilemma is a multi-round investment simulation where participants build and manage a virtual portfolio over time.
 
 Participants make decisions across different years, reacting to changing market conditions and structured news events. The objective is to achieve the highest portfolio value by the end of the simulation.
+
+In case of more than 12 participations (teams) , a special quiz will be held in the Mini Audi Itself. The teams with the most points in the quiz will proceed ( 12 teams ). 
 
 ---
 
@@ -499,7 +499,6 @@ A formal review shall be conducted.
     prizePool: "8000",
     location: "[DAY 2] A506 [Timing] 12:00 PM - 5:00 PM",
     teamSize: "1-3",
-    registrationOpen: true,
     rules: `# **AlgoRhythm**
 
 ---
@@ -797,7 +796,6 @@ A formal review shall be conducted.
     prizePool: "10000",
     location: "[DAY 1] A-Block 1st Floor  [Timing] 11AM - 5PM",
     teamSize: "1",
-    registrationOpen: true,
     rules: `# **Code Combat **
 
 ---
@@ -1095,7 +1093,6 @@ A formal review shall be conducted.
     prizePool: "5000",
     location: "[DAY 1] 5th Floor [Timing] 10:00 AM - 6:00 PM",
     teamSize: "1",
-    registrationOpen: false,
     rules: `# **SMASH KARTS – PRE FEST GUIDELINES**
 
 ---
@@ -1417,7 +1414,6 @@ A formal review shall be conducted.
     prizePool: "7000",
     location: "[DAY 2] 5th Floor \n[Timing] 10:00 AM - 6:00 PM",
     teamSize: "1",
-    registrationOpen: true,
     rules: `# **CLASH ROYALE **
 
 ---
@@ -1743,7 +1739,6 @@ A formal review shall be conducted.
     prizePool: "20000",
     location: "[DAY 1] 5th Floor\n[Timing] 10:00 AM - 6:00 PM",
     teamSize: "4-6",
-    registrationOpen: true,
     rules: `# **BGMI **
 
 ---
@@ -2115,7 +2110,6 @@ A formal review shall be conducted.
     prizePool: "20000",
     location: "24hour overnight hackathon\n4:00PM to 4:00PM [Library]",
     teamSize: "2-4",
-    registrationOpen: true,
     rules: `# **Zero To One **
 
 ---
@@ -2132,7 +2126,7 @@ Unlike conventional hackathons, this event prioritises working systems over supe
 
 **Open To:** Rishihood University Students
 
-**Participation Format:** Solo or Team (Team Size: 2 - 4 members)
+**Participation Format:** Team (Team Size: 2 - 4 members)
 
 **Mandatory Identity Verification:**
 
