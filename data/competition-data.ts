@@ -94,6 +94,8 @@ Participants make decisions across different years, reacting to changing market 
 
 In case of more than 12 participations (teams) , a special quiz will be held in the Mini Audi Itself. The teams with the most points in the quiz will proceed ( 12 teams ). 
 
+In case of a tie in the quiz, the faster submission times shall take predesence.
+
 ---
 
 ### **4.2 Simulation Structure**
