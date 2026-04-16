@@ -33,7 +33,7 @@ export const COMPETITIONS_DATA: Competition[] = [
     description: "The event places participants in a simulated financial environment where they act as investors managing a virtual portfolio across multiple time periods. By responding to changing market conditions and structured news events, participants must make informed decisions to maximize returns.",
     prizePool: "8000",
     location: "Mini Audi",
-    teamSize: "TBD",
+    teamSize: "1-3",
     rules: `# **RISK & REWARD **
 
 ---
@@ -496,7 +496,7 @@ A formal review shall be conducted.
     description: "AlgoRhythm explores the fusion of coding and music, where participants use Strudel platform to transform logic into sound. The competition focuses on both analytical problem-solving and creative expression, encouraging participants to build engaging audio experiences through live coding.",
     prizePool: "8000",
     location: "[DAY 2] A506 [Timing] 12:00 PM - 5:00 PM",
-    teamSize: "TBD",
+    teamSize: "1-3",
     rules: `# **AlgoRhythm**
 
 ---
@@ -793,7 +793,7 @@ A formal review shall be conducted.
     description: "Code Combat is a high-intensity, head-to-head technical competition where participants compete in 1v1 battles to solve the same problem in real time. The event focuses on speed, accuracy, and problem-solving ability, creating a competitive and engaging environment.\nParticipants will face challenges ranging from logic-based problems to coding tasks, progressing through elimination rounds until a final winner emerges.",
     prizePool: "10000",
     location: "[DAY 1] A-Block 1st Floor  [Timing] 11AM - 5PM",
-    teamSize: "TBD",
+    teamSize: "1",
     rules: `# **Code Combat **
 
 ---
@@ -1090,7 +1090,7 @@ A formal review shall be conducted.
     description: "Smash Karts is a chaotic, weapon-filled battle on wheels where survival matters more than speed. Grab power-ups, dodge incoming attacks, and take down your opponents in fast-paced, unpredictable matches. With rockets flying and chaos everywhere, every second counts—one perfect hit or last-second escape can turn the game around. So jump in, embrace the madness, and smash your way to the top.",
     prizePool: "5000",
     location: "[DAY 1] 5th Floor [Timing] 10:00 AM - 6:00 PM",
-    teamSize: "TBD",
+    teamSize: "1",
     rules: `# **SMASH KARTS – PRE FEST GUIDELINES**
 
 ---
@@ -1411,7 +1411,7 @@ A formal review shall be conducted.
     description: "Clash Royale is a fast-paced esports showdown where strategy meets split-second decision making. Build your deck, outplay your opponent, and turn the tide of battle with perfectly timed moves. Every troop placement and spell can change the game in an instant, making each match a test of skill, timing, and mind games. So bring your best deck, trust your instincts, and battle your way to the crown.",
     prizePool: "7000",
     location: "[DAY 2] 5th Floor \n[Timing] 10:00 AM - 6:00 PM",
-    teamSize: "TBD",
+    teamSize: "1",
     rules: `# **CLASH ROYALE **
 
 ---
@@ -1736,7 +1736,7 @@ A formal review shall be conducted.
     description: "BGMI is a high-energy esports showdown where squads drop in, gear up, and fight for ultimate bragging rights. From intense firefights to clutch final circles, every moment tests your reflexes, strategy, and teamwork. With a constantly shrinking battlefield and unpredictable encounters, only the smartest rotations and strongest squads survive. So rally your team, plan your moves, and battle your way to the top—because only one squad walks away as champions.",
     prizePool: "20000",
     location: "[DAY 1] 5th Floor\n[Timing] 10:00 AM - 6:00 PM",
-    teamSize: "TBD",
+    teamSize: "4-6",
     rules: `# **BGMI **
 
 ---
@@ -2107,7 +2107,7 @@ A formal review shall be conducted.
     description: "Zero To One is a 24-hour hackathon where participants are judged on turning a well-understood problem into a working, real-world solution under time and resource constraints. It emphasises structured problem-solving, practical system design, strong technical execution, and clear decision-making, with solutions expected to be functional, well-justified, and realistic.",
     prizePool: "20000",
     location: "24hour overnight hackathon\n4:00PM to 4:00PM [Library]",
-    teamSize: "TBD",
+    teamSize: "2-4",
     rules: `# **Zero To One **
 
 ---
