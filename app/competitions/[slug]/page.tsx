@@ -442,23 +442,23 @@ export default function CompetitionSlugPage() {
             </button>
 
             <div className="flex flex-col items-center group relative cursor-pointer pt-8 border-t-2 border-[#3a0000] border-dashed">
-              <h2 className="text-[1.8rem] sm:text-[2.3rem] md:text-[3rem] lg:text-[3.8rem] font-black uppercase text-center relative z-10 transition-transform group-hover:-translate-y-1 inline-block leading-none font-audiowide text-red-500">
-                Ready to Execute?
+              <h2 className={`text-[1.8rem] sm:text-[2.3rem] md:text-[3rem] lg:text-[3.8rem] font-black uppercase text-center relative z-10 transition-transform group-hover:-translate-y-1 inline-block leading-none font-audiowide ${comp.registrationOpen === false ? "text-red-800 line-through opacity-50" : "text-red-500"}`}>
+                {comp.registrationOpen === false ? "Registry Sealed" : "Ready to Execute?"}
               </h2>
               <span
-                className="absolute text-cyan-400/80 -translate-x-1 translate-y-1 opacity-0 group-hover:opacity-100 z-0 transition-opacity animate-[glitch-live_900ms_steps(2,end)_infinite] mix-blend-screen pointer-events-none text-center text-[1.8rem] sm:text-[2.3rem] md:text-[3rem] lg:text-[3.8rem] font-black uppercase leading-none"
+                className={`absolute text-cyan-400/80 -translate-x-1 translate-y-1 opacity-0 group-hover:opacity-100 z-0 transition-opacity animate-[glitch-live_900ms_steps(2,end)_infinite] mix-blend-screen pointer-events-none text-center text-[1.8rem] sm:text-[2.3rem] md:text-[3rem] lg:text-[3.8rem] font-black uppercase leading-none`}
                 aria-hidden="true"
               >
-                Ready to Execute?
+                {comp.registrationOpen === false ? "Protocol Closed" : "Ready to Execute?"}
               </span>
               <Link
-                href={`/competitions/${routeParam}/register`}
+                href={comp.registrationOpen === false ? `/competitions/${routeParam}/closed` : `/competitions/${routeParam}/register`}
                 onClick={(e) => {
                   if (isDragging) e.preventDefault();
                 }}
-                className="mt-8 px-6 sm:px-8 md:px-12 py-2.5 sm:py-3 md:py-5 border-[6px] border-[#4a0000] bg-[#050000] text-red-400 font-bold text-[1rem] sm:text-[1.1rem] md:text-[1.35rem] lg:text-[1.7rem] uppercase tracking-widest hover:bg-red-500 hover:text-black hover:shadow-[10px_10px_0_#2a0000] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 sm:gap-4 group/btn z-10 active:translate-x-2 active:translate-y-2 active:shadow-none"
+                className={`mt-8 px-6 sm:px-8 md:px-12 py-2.5 sm:py-3 md:py-5 border-[6px] ${comp.registrationOpen === false ? "border-red-900 bg-[#0a0000] text-red-900 cursor-not-allowed group-hover:bg-red-950" : "border-[#4a0000] bg-[#050000] text-red-400 hover:bg-red-500 hover:text-black"} font-bold text-[1rem] sm:text-[1.1rem] md:text-[1.35rem] lg:text-[1.7rem] uppercase tracking-widest hover:shadow-[10px_10px_0_#2a0000] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 sm:gap-4 group/btn z-10 active:translate-x-2 active:translate-y-2 active:shadow-none`}
               >
-                Join the Battle{" "}
+                {comp.registrationOpen === false ? "Registration Closed" : "Join the Battle"}{" "}
                 <ArrowRight className="group-hover/btn:translate-x-3 transition-transform w-7 h-7 md:w-9 md:h-9" />
               </Link>
             </div>

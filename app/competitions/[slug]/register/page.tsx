@@ -1,15 +1,23 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import CompetitionRegisterForm from "@/components/CompetitionRegisterForm";
 import { COMPETITIONS_DATA } from "@/data/competition-data";
 
 
 export default function CompetitionRegisterPage() {
   const params = useParams();
+  const router = useRouter();
   const routeParam = typeof params?.slug === "string" ? params.slug : "";
 
   const competition = COMPETITIONS_DATA.find(c => c.slug === routeParam);
+
+  useEffect(() => {
+    if (competition && competition.registrationOpen === false) {
+      router.push(`/competitions/${routeParam}/closed`);
+    }
+  }, [competition, router, routeParam]);
 
   if (!competition) {
     return (
@@ -22,6 +30,10 @@ export default function CompetitionRegisterPage() {
         </div>
       </main>
     );
+  }
+
+  if (competition.registrationOpen === false) {
+    return null; // Let the useEffect handle the redirect
   }
 
   const teamSizeStr = competition.teamSize || "";
