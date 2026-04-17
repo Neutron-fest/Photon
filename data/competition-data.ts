@@ -2398,5 +2398,7 @@ Final review and decision (binding and final)
 
 export const CLOSED_COMPETITIONS: string[] = [
   "code-combat",
-  "smash-karts"
-,"zerotoone","bgmi"];
+  "smash-karts",
+  "zerotoone",
+  "bgmi"
+];
