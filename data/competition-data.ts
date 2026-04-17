@@ -2400,4 +2400,4 @@ Final review and decision (binding and final)
   },
 ];
 
-export const CLOSED_COMPETITIONS: string[] = ["code-combat"];
+export const CLOSED_COMPETITIONS: string[] = ["code-combat","zerotoone","smash-karts","bgmi"];
