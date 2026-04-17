@@ -152,6 +152,8 @@ Participants receive structured updates such as:
 
 News may have direct, indirect, delayed, or minimal impact. Not all news is equally important.
 
+The leaderboards of the portfolios will be revealed once after the third round and once after the last round.
+
 ---
 
 **Step 4 — Trading Window**
@@ -210,7 +212,7 @@ The participant or team with the highest final portfolio value wins.
 
 ### **4.7 Time Regulations**
 
-- Each round has fixed time windows for initial investment and trading decisions
+- Each round has fixed time windows for initial investment and trading decisions(10 minutes each)
 
 - Exact timings will be announced during the event
 
