@@ -567,8 +567,6 @@ AlgoRhythm explores the fusion of coding and music, where participants use Strud
 
 ---
 
-**Round 2**
-
 ---
 
 ### **4.4 Tie-Breaker Protocol**
@@ -781,7 +779,9 @@ A formal review shall be conducted.
 
 - **Availability:** Till the Event
 
----`,
+---
+
+**Round 2**`,
   },
 
   {
